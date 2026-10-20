@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: World-forest
+  m_EditorClassIdentifier: 
+  m_GroupName: World-forest
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 7aa13d58eaebd804d995fd07e5350b2a
+  m_SerializeEntries:
+  - m_GUID: 0656f385adf125a40b4c575b86df586b
+    m_Address: boss/forest
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8bf2e9996c65a114db645d2e64163851
+    m_Address: terrain/forest
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8e729baa225de644d91a637c890f9131
+    m_Address: decoration/forest
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f708be7a171ee594ab81b7f28ce39d36
+    m_Address: architecture/forest
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: c3053bf0f14251148951535e646181e0, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 586f7dd12b6f06042a61ae3ff0c5d3ba, type: 2}
+    - {fileID: 11400000, guid: 6f119f403baf82946bba70686aa21c74, type: 2}

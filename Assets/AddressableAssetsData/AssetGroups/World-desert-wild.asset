@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: World-desert-wild
+  m_EditorClassIdentifier: 
+  m_GroupName: World-desert-wild
+  m_Data:
+    m_SerializedData: []
+  m_GUID: aced49a04ed45074bbda4961780203bd
+  m_SerializeEntries:
+  - m_GUID: 671919cb4605aa14893ce8f977fb7066
+    m_Address: terrain/desert-wild
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: c3053bf0f14251148951535e646181e0, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: f862c79f6e76fc4439e6e79007d95344, type: 2}
+    - {fileID: 11400000, guid: b03591ced0196b847a3d51d012c99e71, type: 2}

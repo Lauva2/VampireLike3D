@@ -1,0 +1,109 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Audio
+  m_EditorClassIdentifier: 
+  m_GroupName: Audio
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 543439e83511fc148bd2109323a88b79
+  m_SerializeEntries:
+  - m_GUID: 0b95a67eaf1d8634293eca01a7c7497f
+    m_Address: sound/magic
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0caabff0fc608a447806422d926f0546
+    m_Address: sound/dodge
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1c943d63ac2ffee4ba30a711a271e2b4
+    m_Address: sound/hurt
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3367817fee5e59342babad453296193c
+    m_Address: music/1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5ba4d37455d647245803e0743fe7c1ce
+    m_Address: sound/boss
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5eacf785ad756c6429d485b4ace6398e
+    m_Address: sound/pickup
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7d3edfbc1ef414545986b4f929ebc70b
+    m_Address: sound/unlock
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 838813a2c997b314fb672e7b5703810e
+    m_Address: music/3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 84b450c2150bd13489ee3fd53d05e46a
+    m_Address: sound/sword
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 98cb39835462feb4f8af4d27ebc7adb1
+    m_Address: music/0
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9a27f427fc99ec54abf0dadca3ebc0e7
+    m_Address: music/2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: baf28dc4ae67cdd47b0d0b25afb23a03
+    m_Address: sound/click
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c045ea1490e23f64ca3a599129425ab3
+    m_Address: sound/gun
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ee712ad6d6cfcb24bb0b97e4bd31de8e
+    m_Address: sound/upgrade
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: c3053bf0f14251148951535e646181e0, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: f8d41e4463a1f9e4593bbd5c7bd5a085, type: 2}
+    - {fileID: 11400000, guid: bfabd4b43dbeb014db0a217b80d66c0d, type: 2}

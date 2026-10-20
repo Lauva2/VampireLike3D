@@ -1,0 +1,1244 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e84cdbafd156e254fa8d3e5e6d83a75c, type: 3}
+  m_Name: GameCatalog
+  m_EditorClassIdentifier: 
+  prefabs:
+  - id: character/adventurer
+    reference:
+      m_AssetGUID: 4ed6026ad2d3e914ba0758a2aa28fd2f
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: character/elementalist
+    reference:
+      m_AssetGUID: 416a76c132b5ac3438353a8ed2901cd5
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: character/swordsman
+    reference:
+      m_AssetGUID: 8aa553ba3e5056c4f87a95ef823e9323
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: enemy/0
+    reference:
+      m_AssetGUID: 7a40b6b78dfa09d478899a3ba333a279
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: boss/forest
+    reference:
+      m_AssetGUID: 0656f385adf125a40b4c575b86df586b
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: terrain/forest
+    reference:
+      m_AssetGUID: 8bf2e9996c65a114db645d2e64163851
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: decoration/forest
+    reference:
+      m_AssetGUID: 8e729baa225de644d91a637c890f9131
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: terrain/forest-wild
+    reference:
+      m_AssetGUID: 30fcabaa420f4a049bd6e09af91ef843
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: terrain/forest-ridge
+    reference:
+      m_AssetGUID: df6f9b8ffc782cd4a9978b96d46a5a6f
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: architecture/forest
+    reference:
+      m_AssetGUID: f708be7a171ee594ab81b7f28ce39d36
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: enemy/1
+    reference:
+      m_AssetGUID: b1096992d03f7e04199cd8cbd1504c27
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: boss/desert
+    reference:
+      m_AssetGUID: a26c4bcaddf0e274eb889ed3483a1558
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: terrain/desert
+    reference:
+      m_AssetGUID: f18504f0a2a4b884dbb7386edd6b8101
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: decoration/desert
+    reference:
+      m_AssetGUID: 3f12f1abd066a844bba24bf8c739f573
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: terrain/desert-wild
+    reference:
+      m_AssetGUID: 671919cb4605aa14893ce8f977fb7066
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: terrain/desert-ridge
+    reference:
+      m_AssetGUID: 431db7eb511c2b04098734e563e38d5b
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: architecture/desert
+    reference:
+      m_AssetGUID: dadb2e0343b38e343a08c0e1bf996786
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: enemy/2
+    reference:
+      m_AssetGUID: dcd29d1afe351cf4aafcc52086a45e27
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: boss/snow
+    reference:
+      m_AssetGUID: a906dac80aab9084c983f22408157af1
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: terrain/snow
+    reference:
+      m_AssetGUID: 85910dd001b2ed24fa173624bcd5e3ca
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: decoration/snow
+    reference:
+      m_AssetGUID: 8764305eb26e97644ac603aace2666e9
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: terrain/snow-wild
+    reference:
+      m_AssetGUID: 6239ab5127475d24b98c0465752c93a9
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: terrain/snow-ridge
+    reference:
+      m_AssetGUID: 182d7311e33f5514db46f93c6d747f55
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: architecture/snow
+    reference:
+      m_AssetGUID: ed441b28b48e19b498700eebb9d2b87f
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: enemy/3
+    reference:
+      m_AssetGUID: 1efef13f19750394290b943d0bb60486
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: boss/volcano
+    reference:
+      m_AssetGUID: 505e40753b803724ebac3de2efcdf8c0
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: terrain/volcano
+    reference:
+      m_AssetGUID: a5bfbe5680ca8af4b84e32f19716f84d
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: decoration/volcano
+    reference:
+      m_AssetGUID: 4fa453224fc783f4ab21bea5b06e3481
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: terrain/volcano-wild
+    reference:
+      m_AssetGUID: 45e3d37393a02cf4cbd4a1335a581712
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: terrain/volcano-ridge
+    reference:
+      m_AssetGUID: 293b4ce9e7a0b7e43aa8744a059dc43a
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: architecture/volcano
+    reference:
+      m_AssetGUID: 13b13b285e660db4385611d7ca44d146
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: weapon/gun
+    reference:
+      m_AssetGUID: 31558c512de51f6419dd4bfd6f8bb3ad
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: projectile/gun
+    reference:
+      m_AssetGUID: 5b170fecc35e8984bb03f20f50cf58c7
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: weapon/fireball
+    reference:
+      m_AssetGUID: 81632daca1752364b9f76e3c8ea97ae0
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: projectile/fireball
+    reference:
+      m_AssetGUID: 75c341c1553e8f0438bcba9c9230387a
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: weapon/sword
+    reference:
+      m_AssetGUID: e8f41d85d471fe24795ab620d4e00ea9
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: projectile/sword
+    reference:
+      m_AssetGUID: 0a88813954e5f2b4dbb0a9b0627ef4b6
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: weapon/spirit
+    reference:
+      m_AssetGUID: 02a6c3f20d995b34385b63f183978dd0
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: projectile/spirit
+    reference:
+      m_AssetGUID: 471dcfc2502e4ff4cb2477d6bed9171a
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: weapon/cannon
+    reference:
+      m_AssetGUID: 23451d774613ad143bb3ce0b2ec5a420
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: projectile/cannon
+    reference:
+      m_AssetGUID: b58729f6af0aaab44a57955fae6e017a
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: weapon/rune
+    reference:
+      m_AssetGUID: 0896b278a28562843a6d0a0ba28d7d7a
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: projectile/rune
+    reference:
+      m_AssetGUID: 7a79a2dcfda2c6e4bba557a866fee485
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: projectile/enemy
+    reference:
+      m_AssetGUID: 74cc32e84ed1b914f820df513a7aada7
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: world/chest
+    reference:
+      m_AssetGUID: 11f8e1cebe599c340b38507e5dff7dce
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: world/camp
+    reference:
+      m_AssetGUID: f916ce0f3c4541d468a1914ad12018b0
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: world/shrine
+    reference:
+      m_AssetGUID: c76f6338971806c46b5565c6359357d7
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: world/boss-site
+    reference:
+      m_AssetGUID: a248879672498524d994eb61f971b92b
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: vfx/impact
+    reference:
+      m_AssetGUID: ee073ca86d5fcb74dac8a09d8d778f5d
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: vfx/flame
+    reference:
+      m_AssetGUID: 53a72804acb36954f9e00c093c3632ef
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: vfx/explosion
+    reference:
+      m_AssetGUID: 3267d93d828e0a84eb5aa4c5ae08e2dd
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: vfx/frost
+    reference:
+      m_AssetGUID: b8f98c76fde09d84dbf3e2b6b47a34d0
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: vfx/lightning
+    reference:
+      m_AssetGUID: a7bddcea93553254c9913c5c1af37bf9
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: vfx/rune
+    reference:
+      m_AssetGUID: 985a59d6e5c035c438296ff16b6c874a
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: vfx/roots
+    reference:
+      m_AssetGUID: 294aa24a9f567664586707fb9b8d8e98
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: vfx/dodge
+    reference:
+      m_AssetGUID: 81a4e5a4048d6704a854a81bdf4b0f92
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: vfx/mark
+    reference:
+      m_AssetGUID: 9cb660457b8360349bdac9fb6264303f
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: vfx/player
+    reference:
+      m_AssetGUID: db739f41f14e60541b6658412696fa0e
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: vfx/warning
+    reference:
+      m_AssetGUID: d6f83d4a770737e419467523b522efe8
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: vfx/warning-line
+    reference:
+      m_AssetGUID: a7649ac20f330d14cb92c4c1187f6925
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: pickup/experience
+    reference:
+      m_AssetGUID: e1b6bac8a5057e54a93b79b8215d7782
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: ui/root
+    reference:
+      m_AssetGUID: 5fd17f76d133d7546a18bc508e357102
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  audio:
+  - id: sound/gun
+    reference:
+      m_AssetGUID: c045ea1490e23f64ca3a599129425ab3
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: sound/magic
+    reference:
+      m_AssetGUID: 0b95a67eaf1d8634293eca01a7c7497f
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: sound/sword
+    reference:
+      m_AssetGUID: 84b450c2150bd13489ee3fd53d05e46a
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: sound/pickup
+    reference:
+      m_AssetGUID: 5eacf785ad756c6429d485b4ace6398e
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: sound/hurt
+    reference:
+      m_AssetGUID: 1c943d63ac2ffee4ba30a711a271e2b4
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: sound/dodge
+    reference:
+      m_AssetGUID: 0caabff0fc608a447806422d926f0546
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: sound/upgrade
+    reference:
+      m_AssetGUID: ee712ad6d6cfcb24bb0b97e4bd31de8e
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: sound/unlock
+    reference:
+      m_AssetGUID: 7d3edfbc1ef414545986b4f929ebc70b
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: sound/boss
+    reference:
+      m_AssetGUID: 5ba4d37455d647245803e0743fe7c1ce
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: sound/click
+    reference:
+      m_AssetGUID: baf28dc4ae67cdd47b0d0b25afb23a03
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: music/0
+    reference:
+      m_AssetGUID: 98cb39835462feb4f8af4d27ebc7adb1
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: music/1
+    reference:
+      m_AssetGUID: 3367817fee5e59342babad453296193c
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: music/2
+    reference:
+      m_AssetGUID: 9a27f427fc99ec54abf0dadca3ebc0e7
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: music/3
+    reference:
+      m_AssetGUID: 838813a2c997b314fb672e7b5703810e
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  characters:
+  - id: adventurer
+    name: "\u8FDC\u884C\u8005"
+    subtitle: "\u5F39\u9053\u8D77\u6B65 \xB7 \u7075\u6D3B\u5747\u8861"
+    description: "\u4ECE\u624B\u67AA\u542F\u7A0B\uFF0C\u79FB\u52A8\u901F\u5EA6\u63D0\u9AD85%\u3002"
+    prefabId: character/adventurer
+    taskId: 
+    startingAbility: 0
+    color: {r: 0.14901961, g: 0.5568628, b: 0.54509807, a: 1}
+    damageBonus: 0
+    healthBonus: 0
+    speedBonus: 0.05
+  - id: elementalist
+    name: "\u5143\u7D20\u5B66\u5F92"
+    subtitle: "\u9B54\u6CD5\u8D77\u6B65 \xB7 \u5143\u7D20\u5171\u9E23"
+    description: "\u521D\u59CB\u706B\u7403\uFF0C\u6240\u6709\u4F24\u5BB3\u63D0\u9AD812%\u3002"
+    prefabId: character/elementalist
+    taskId: mage
+    startingAbility: 1
+    color: {r: 0.5411765, g: 0.47058824, b: 0.70980394, a: 1}
+    damageBonus: 0.12
+    healthBonus: 0
+    speedBonus: 0
+  - id: swordsman
+    name: "\u5FA1\u5251\u8005"
+    subtitle: "\u98DE\u5251\u8D77\u6B65 \xB7 \u751F\u751F\u4E0D\u606F"
+    description: "\u521D\u59CB\u98DE\u5251\uFF0C\u6700\u5927\u751F\u547D\u589E\u52A020\u70B9\u3002"
+    prefabId: character/swordsman
+    taskId: swordsman
+    startingAbility: 2
+    color: {r: 0.42352942, g: 0.6745098, b: 0.54901963, a: 1}
+    damageBonus: 0
+    healthBonus: 20
+    speedBonus: 0
+  abilities:
+  - id: gun
+    name: "\u81EA\u52A8\u624B\u67AA"
+    description: "\u81EA\u52A8\u7784\u51C6\uFF0C\u6301\u7EED\u5C04\u51FB\u9644\u8FD1\u76EE\u6807\u3002"
+    prefabId: weapon/gun
+    projectileId: projectile/gun
+    taskId: 
+    kind: 0
+    color: {r: 0.8901961, g: 0.72156864, b: 0.34901962, a: 1}
+    damage: 9
+    cooldown: 0.65
+    range: 17
+    speed: 25
+  - id: fireball
+    name: "\u706B\u7403"
+    description: "\u6295\u5C04\u706B\u7403\uFF0C\u547D\u4E2D\u540E\u9020\u6210\u8303\u56F4\u7206\u70B8\u3002"
+    prefabId: weapon/fireball
+    projectileId: projectile/fireball
+    taskId: 
+    kind: 1
+    color: {r: 0.9529412, g: 0.6156863, b: 0.25882354, a: 1}
+    damage: 16
+    cooldown: 1.8
+    range: 17
+    speed: 13
+  - id: sword
+    name: "\u98DE\u5251"
+    description: "\u98DE\u5251\u8FFD\u51FB\u76EE\u6807\uFF0C\u5E76\u8D2F\u7A7F\u8DEF\u5F84\u4E0A\u7684\u654C\u4EBA\u3002"
+    prefabId: weapon/sword
+    projectileId: projectile/sword
+    taskId: 
+    kind: 2
+    color: {r: 0.14901961, g: 0.5568628, b: 0.54509807, a: 1}
+    damage: 14
+    cooldown: 1.25
+    range: 17
+    speed: 19
+  - id: spirit
+    name: "\u7075\u4F53"
+    description: "\u53EC\u5524\u7075\u4F53\u73AF\u7ED5\u89D2\u8272\uFF0C\u81EA\u52A8\u53D1\u5C04\u7075\u5F39\u3002"
+    prefabId: weapon/spirit
+    projectileId: projectile/spirit
+    taskId: spirit
+    kind: 3
+    color: {r: 0.5058824, g: 0.7882353, b: 0.7372549, a: 1}
+    damage: 13
+    cooldown: 1.3
+    range: 16
+    speed: 17
+  - id: cannon
+    name: "\u7206\u7834\u70AE"
+    description: "\u5468\u671F\u6027\u53D1\u5C04\u7206\u7834\u5F39\uFF0C\u6E05\u626B\u5927\u7247\u654C\u7FA4\u3002"
+    prefabId: weapon/cannon
+    projectileId: projectile/cannon
+    taskId: cannon
+    kind: 4
+    color: {r: 0.8117647, g: 0.60784316, b: 0.34901962, a: 1}
+    damage: 36
+    cooldown: 3.8
+    range: 20
+    speed: 13
+  - id: rune
+    name: "\u7B26\u9635"
+    description: "\u5468\u671F\u6027\u6FC0\u6D3B\u8EAB\u8FB9\u7684\u7B26\u9635\uFF0C\u9707\u8361\u9644\u8FD1\u654C\u4EBA\u3002"
+    prefabId: weapon/rune
+    projectileId: projectile/rune
+    taskId: rune
+    kind: 5
+    color: {r: 0.70980394, g: 0.6313726, b: 0.44705883, a: 1}
+    damage: 24
+    cooldown: 4.5
+    range: 5
+    speed: 10
+  upgrades:
+  - id: damage
+    name: "\u529B\u91CF\u6C47\u6D41"
+    description: "\u6240\u6709\u81EA\u52A8\u80FD\u529B\u4F24\u5BB3\u63D0\u9AD812%\u3002"
+    branch: "\u901A\u7528"
+    taskId: 
+    target: -1
+    effect: 0
+    value: 0.12
+    cost: 3
+    unique: 0
+    color: {r: 0.14901961, g: 0.5568628, b: 0.54509807, a: 1}
+  - id: haste
+    name: "\u75BE\u98CE\u8282\u62CD"
+    description: "\u6240\u6709\u81EA\u52A8\u80FD\u529B\u653B\u51FB\u901F\u5EA6\u63D0\u9AD810%\u3002"
+    branch: "\u901A\u7528"
+    taskId: 
+    target: -1
+    effect: 1
+    value: 0.1
+    cost: 3
+    unique: 0
+    color: {r: 0.14901961, g: 0.5568628, b: 0.54509807, a: 1}
+  - id: vitality
+    name: "\u751F\u673A"
+    description: "\u6700\u5927\u751F\u547D\u589E\u52A020\uFF0C\u5E76\u6062\u590D\u65B0\u589E\u7684\u751F\u547D\u3002"
+    branch: "\u901A\u7528"
+    taskId: 
+    target: -1
+    effect: 3
+    value: 20
+    cost: 3
+    unique: 0
+    color: {r: 0.14901961, g: 0.5568628, b: 0.54509807, a: 1}
+  - id: swiftness
+    name: "\u8F7B\u6B65"
+    description: "\u79FB\u52A8\u901F\u5EA6\u63D0\u9AD87%\u3002"
+    branch: "\u901A\u7528"
+    taskId: 
+    target: -1
+    effect: 2
+    value: 0.07
+    cost: 3
+    unique: 0
+    color: {r: 0.14901961, g: 0.5568628, b: 0.54509807, a: 1}
+  - id: magnet
+    name: "\u62FE\u5149"
+    description: "\u7ECF\u9A8C\u62FE\u53D6\u8303\u56F4\u589E\u52A00.7\u3002"
+    branch: "\u901A\u7528"
+    taskId: 
+    target: -1
+    effect: 4
+    value: 0.7
+    cost: 3
+    unique: 0
+    color: {r: 0.14901961, g: 0.5568628, b: 0.54509807, a: 1}
+  - id: crit
+    name: "\u7075\u5149\u4E00\u51FB"
+    description: "\u66B4\u51FB\u7387\u589E\u52A08%\uFF0C\u66B4\u51FB\u9020\u6210\u989D\u5916\u4F24\u5BB3\u3002"
+    branch: "\u901A\u7528"
+    taskId: 
+    target: -1
+    effect: 24
+    value: 0.08
+    cost: 3
+    unique: 0
+    color: {r: 0.14901961, g: 0.5568628, b: 0.54509807, a: 1}
+  - id: armor
+    name: "\u62A4\u8EAB"
+    description: "\u63D0\u9AD8\u62A4\u7532\uFF0C\u964D\u4F4E\u53D7\u5230\u7684\u4F24\u5BB3\u3002"
+    branch: "\u901A\u7528"
+    taskId: 
+    target: -1
+    effect: 25
+    value: 0.15
+    cost: 3
+    unique: 0
+    color: {r: 0.14901961, g: 0.5568628, b: 0.54509807, a: 1}
+  - id: regen
+    name: "\u56DE\u6625"
+    description: "\u6BCF\u79D2\u6062\u590D0.5\u70B9\u751F\u547D\u3002"
+    branch: "\u901A\u7528"
+    taskId: 
+    target: -1
+    effect: 26
+    value: 0.5
+    cost: 3
+    unique: 0
+    color: {r: 0.14901961, g: 0.5568628, b: 0.54509807, a: 1}
+  - id: range
+    name: "\u8FDC\u89C1"
+    description: "\u80FD\u529B\u7D22\u654C\u4E0E\u8303\u56F4\u589E\u52A01.2\u3002"
+    branch: "\u901A\u7528"
+    taskId: 
+    target: -1
+    effect: 6
+    value: 1.2
+    cost: 3
+    unique: 0
+    color: {r: 0.14901961, g: 0.5568628, b: 0.54509807, a: 1}
+  - id: projectiles
+    name: "\u4E07\u8C61\u589E\u6B96"
+    description: "\u6240\u6709\u6295\u5C04\u80FD\u529B\u6BCF\u6B21\u589E\u52A01\u679A\u6295\u5C04\u7269\u3002"
+    branch: "\u901A\u7528"
+    taskId: 
+    target: -1
+    effect: 5
+    value: 1
+    cost: 5
+    unique: 0
+    color: {r: 0.14901961, g: 0.5568628, b: 0.54509807, a: 1}
+  - id: ability.gun
+    name: "\u81EA\u52A8\u624B\u67AA"
+    description: "\u81EA\u52A8\u7784\u51C6\uFF0C\u6301\u7EED\u5C04\u51FB\u9644\u8FD1\u76EE\u6807\u3002"
+    branch: "\u5F39\u9053"
+    taskId: 
+    target: 0
+    effect: 18
+    value: 1
+    cost: 4
+    unique: 1
+    color: {r: 0.8901961, g: 0.72156864, b: 0.34901962, a: 1}
+  - id: ability.fireball
+    name: "\u706B\u7403"
+    description: "\u6295\u5C04\u706B\u7403\uFF0C\u547D\u4E2D\u540E\u9020\u6210\u8303\u56F4\u7206\u70B8\u3002"
+    branch: "\u5143\u7D20"
+    taskId: 
+    target: 1
+    effect: 18
+    value: 1
+    cost: 4
+    unique: 1
+    color: {r: 0.9529412, g: 0.6156863, b: 0.25882354, a: 1}
+  - id: ability.sword
+    name: "\u98DE\u5251"
+    description: "\u98DE\u5251\u8FFD\u51FB\u76EE\u6807\uFF0C\u5E76\u8D2F\u7A7F\u8DEF\u5F84\u4E0A\u7684\u654C\u4EBA\u3002"
+    branch: "\u5251\u4FEE"
+    taskId: 
+    target: 2
+    effect: 18
+    value: 1
+    cost: 4
+    unique: 1
+    color: {r: 0.14901961, g: 0.5568628, b: 0.54509807, a: 1}
+  - id: ability.spirit
+    name: "\u7075\u4F53"
+    description: "\u53EC\u5524\u7075\u4F53\u73AF\u7ED5\u89D2\u8272\uFF0C\u81EA\u52A8\u53D1\u5C04\u7075\u5F39\u3002"
+    branch: "\u53EC\u5524"
+    taskId: spirit
+    target: 3
+    effect: 18
+    value: 1
+    cost: 4
+    unique: 1
+    color: {r: 0.8901961, g: 0.72156864, b: 0.34901962, a: 1}
+  - id: ability.cannon
+    name: "\u7206\u7834\u70AE"
+    description: "\u5468\u671F\u6027\u53D1\u5C04\u7206\u7834\u5F39\uFF0C\u6E05\u626B\u5927\u7247\u654C\u7FA4\u3002"
+    branch: "\u7206\u7834"
+    taskId: cannon
+    target: 4
+    effect: 18
+    value: 1
+    cost: 4
+    unique: 1
+    color: {r: 0.8901961, g: 0.72156864, b: 0.34901962, a: 1}
+  - id: ability.rune
+    name: "\u7B26\u9635"
+    description: "\u5468\u671F\u6027\u6FC0\u6D3B\u8EAB\u8FB9\u7684\u7B26\u9635\uFF0C\u9707\u8361\u9644\u8FD1\u654C\u4EBA\u3002"
+    branch: "\u7B26\u9635"
+    taskId: rune
+    target: 5
+    effect: 18
+    value: 1
+    cost: 4
+    unique: 1
+    color: {r: 0.8901961, g: 0.72156864, b: 0.34901962, a: 1}
+  - id: burn
+    name: "\u707C\u70E7"
+    description: "\u706B\u7403\u547D\u4E2D\u540E\u9644\u52A0\u6301\u7EED\u707C\u70E7\u3002"
+    branch: "\u5143\u7D20"
+    taskId: 
+    target: 1
+    effect: 9
+    value: 0.22
+    cost: 3
+    unique: 0
+    color: {r: 0.9529412, g: 0.6156863, b: 0.25882354, a: 1}
+  - id: spreadfire
+    name: "\u70C8\u7130\u6269\u6563"
+    description: "\u707C\u70E7\u76EE\u6807\u6B7B\u4EA1\u65F6\u5411\u9644\u8FD1\u654C\u4EBA\u4F20\u64AD\u706B\u7130\u3002"
+    branch: "\u5143\u7D20"
+    taskId: spreadfire
+    target: 1
+    effect: 30
+    value: 1
+    cost: 5
+    unique: 1
+    color: {r: 0.9529412, g: 0.6156863, b: 0.25882354, a: 1}
+  - id: frost
+    name: "\u51B0\u971C\u65B0\u661F"
+    description: "\u5468\u671F\u6027\u91CA\u653E\u51B0\u73AF\uFF0C\u5E76\u8BA9\u706B\u7403\u51CF\u901F\u3001\u51BB\u7ED3\u654C\u4EBA\u3002"
+    branch: "\u5143\u7D20"
+    taskId: frost
+    target: 1
+    effect: 10
+    value: 0.2
+    cost: 5
+    unique: 1
+    color: {r: 0.9529412, g: 0.6156863, b: 0.25882354, a: 1}
+  - id: lightning
+    name: "\u843D\u96F7"
+    description: "\u5468\u671F\u6027\u96F7\u51FB\u9644\u8FD1\u76EE\u6807\uFF0C\u53EF\u4E0E\u51B0\u706B\u540C\u65F6\u5B58\u5728\u3002"
+    branch: "\u5143\u7D20"
+    taskId: lightning
+    target: 1
+    effect: 11
+    value: 1
+    cost: 5
+    unique: 1
+    color: {r: 0.9529412, g: 0.6156863, b: 0.25882354, a: 1}
+  - id: chain
+    name: "\u8FDE\u9501\u96F7\u51FB"
+    description: "\u706B\u7403\u547D\u4E2D\u5F15\u53D1\u7535\u5F27\uFF0C\u8DF3\u5411\u9644\u8FD1\u654C\u4EBA\u3002"
+    branch: "\u5143\u7D20"
+    taskId: chain
+    target: 1
+    effect: 19
+    value: 2
+    cost: 5
+    unique: 0
+    color: {r: 0.9529412, g: 0.6156863, b: 0.25882354, a: 1}
+  - id: burst
+    name: "\u8FDE\u5C04"
+    description: "\u624B\u67AA\u6BCF\u6B21\u989D\u5916\u53D1\u5C041\u679A\u5B50\u5F39\u3002"
+    branch: "\u5F39\u9053"
+    taskId: 
+    target: 0
+    effect: 16
+    value: 1
+    cost: 3
+    unique: 0
+    color: {r: 0.8901961, g: 0.72156864, b: 0.34901962, a: 1}
+  - id: pierce
+    name: "\u7A7F\u900F\u5F39"
+    description: "\u5B50\u5F39\u989D\u5916\u8D2F\u7A7F1\u4E2A\u76EE\u6807\u3002"
+    branch: "\u5F39\u9053"
+    taskId: pierce
+    target: 0
+    effect: 7
+    value: 1
+    cost: 3
+    unique: 0
+    color: {r: 0.8901961, g: 0.72156864, b: 0.34901962, a: 1}
+  - id: spread
+    name: "\u6563\u5C04"
+    description: "\u624B\u67AA\u589E\u52A0\u4E24\u6761\u4FA7\u5411\u5F39\u9053\u3002"
+    branch: "\u5F39\u9053"
+    taskId: spread
+    target: 0
+    effect: 15
+    value: 2
+    cost: 3
+    unique: 0
+    color: {r: 0.8901961, g: 0.72156864, b: 0.34901962, a: 1}
+  - id: bounce
+    name: "\u5F39\u5C04"
+    description: "\u5B50\u5F39\u547D\u4E2D\u540E\u8F6C\u5411\u65B0\u7684\u654C\u4EBA\u3002"
+    branch: "\u5F39\u9053"
+    taskId: bounce
+    target: 0
+    effect: 8
+    value: 1
+    cost: 3
+    unique: 0
+    color: {r: 0.8901961, g: 0.72156864, b: 0.34901962, a: 1}
+  - id: explosion
+    name: "\u7206\u7834\u5F39"
+    description: "\u5B50\u5F39\u547D\u4E2D\u4EA7\u751F\u7206\u70B8\uFF0C\u540E\u7EED\u5F3A\u5316\u6269\u5927\u7206\u70B8\u8303\u56F4\u3002"
+    branch: "\u7206\u7834"
+    taskId: explosion
+    target: 0
+    effect: 17
+    value: 0.85
+    cost: 5
+    unique: 0
+    color: {r: 0.8901961, g: 0.72156864, b: 0.34901962, a: 1}
+  - id: swordcount
+    name: "\u98DE\u5251\u589E\u6B96"
+    description: "\u6BCF\u6B21\u8FFD\u51FB\u989D\u5916\u53D1\u5C041\u67C4\u98DE\u5251\u3002"
+    branch: "\u5251\u4FEE"
+    taskId: 
+    target: 2
+    effect: 5
+    value: 1
+    cost: 3
+    unique: 0
+    color: {r: 0.14901961, g: 0.5568628, b: 0.54509807, a: 1}
+  - id: swordpierce
+    name: "\u8D2F\u7A7F\u5251"
+    description: "\u98DE\u5251\u989D\u5916\u7A7F\u8FC71\u4E2A\u76EE\u6807\u3002"
+    branch: "\u5251\u4FEE"
+    taskId: swordpierce
+    target: 2
+    effect: 7
+    value: 1
+    cost: 3
+    unique: 0
+    color: {r: 0.14901961, g: 0.5568628, b: 0.54509807, a: 1}
+  - id: orbit
+    name: "\u7ED5\u8EAB\u5251\u9635"
+    description: "\u989D\u5916\u751F\u6210\u65CB\u8F6C\u98DE\u5251\uFF0C\u4FDD\u7559\u539F\u6709\u8FFD\u51FB\u98DE\u5251\u3002"
+    branch: "\u5251\u4FEE"
+    taskId: orbit
+    target: 2
+    effect: 12
+    value: 1
+    cost: 6
+    unique: 1
+    color: {r: 0.14901961, g: 0.5568628, b: 0.54509807, a: 1}
+  - id: rain
+    name: "\u4E07\u5251\u9F50\u53D1"
+    description: "\u5468\u671F\u6027\u5411\u9644\u8FD1\u591A\u4E2A\u76EE\u6807\u53D1\u5C04\u5251\u96E8\u3002"
+    branch: "\u5251\u4FEE"
+    taskId: rain
+    target: 2
+    effect: 13
+    value: 1
+    cost: 6
+    unique: 1
+    color: {r: 0.14901961, g: 0.5568628, b: 0.54509807, a: 1}
+  - id: wave
+    name: "\u5251\u6C14"
+    description: "\u98DE\u5251\u51FA\u51FB\u65F6\u5BF9\u76EE\u6807\u9644\u8FD1\u91CA\u653E\u8303\u56F4\u5251\u6C14\u3002"
+    branch: "\u5251\u4FEE"
+    taskId: wave
+    target: 2
+    effect: 14
+    value: 1
+    cost: 5
+    unique: 1
+    color: {r: 0.14901961, g: 0.5568628, b: 0.54509807, a: 1}
+  - id: spiritcount
+    name: "\u7075\u5F39\u589E\u6B96"
+    description: "\u7075\u4F53\u6BCF\u6B21\u989D\u5916\u53D1\u5C041\u679A\u7075\u5F39\u3002"
+    branch: "\u53EC\u5524"
+    taskId: 
+    target: 3
+    effect: 5
+    value: 1
+    cost: 3
+    unique: 0
+    color: {r: 0.8901961, g: 0.72156864, b: 0.34901962, a: 1}
+  - id: spiritdamage
+    name: "\u7075\u5951"
+    description: "\u7075\u4F53\u4F24\u5BB3\u63D0\u9AD825%\u3002"
+    branch: "\u53EC\u5524"
+    taskId: 
+    target: 3
+    effect: 0
+    value: 0.25
+    cost: 3
+    unique: 0
+    color: {r: 0.8901961, g: 0.72156864, b: 0.34901962, a: 1}
+  - id: spiritspeed
+    name: "\u5FC3\u610F\u76F8\u901A"
+    description: "\u7075\u4F53\u653B\u51FB\u901F\u5EA6\u63D0\u9AD820%\u3002"
+    branch: "\u53EC\u5524"
+    taskId: 
+    target: 3
+    effect: 28
+    value: 0.2
+    cost: 3
+    unique: 0
+    color: {r: 0.8901961, g: 0.72156864, b: 0.34901962, a: 1}
+  - id: cannoncount
+    name: "\u591A\u91CD\u70AE\u51FB"
+    description: "\u7206\u7834\u70AE\u6BCF\u6B21\u989D\u5916\u53D1\u5C041\u679A\u70AE\u5F39\u3002"
+    branch: "\u7206\u7834"
+    taskId: 
+    target: 4
+    effect: 5
+    value: 1
+    cost: 5
+    unique: 0
+    color: {r: 0.8901961, g: 0.72156864, b: 0.34901962, a: 1}
+  - id: cannonradius
+    name: "\u70C8\u6027\u88C5\u836F"
+    description: "\u7206\u7834\u70AE\u7206\u70B8\u8303\u56F4\u589E\u52A00.8\u3002"
+    branch: "\u7206\u7834"
+    taskId: 
+    target: 4
+    effect: 17
+    value: 0.8
+    cost: 3
+    unique: 0
+    color: {r: 0.8901961, g: 0.72156864, b: 0.34901962, a: 1}
+  - id: runerange
+    name: "\u9635\u57DF"
+    description: "\u7B26\u9635\u8303\u56F4\u589E\u52A01.1\u3002"
+    branch: "\u7B26\u9635"
+    taskId: 
+    target: 5
+    effect: 6
+    value: 1.1
+    cost: 3
+    unique: 0
+    color: {r: 0.8901961, g: 0.72156864, b: 0.34901962, a: 1}
+  - id: runepulse
+    name: "\u53E0\u9635"
+    description: "\u7B26\u9635\u9707\u8361\u4F24\u5BB3\u63D0\u9AD835%\u3002"
+    branch: "\u7B26\u9635"
+    taskId: 
+    target: 5
+    effect: 29
+    value: 0.35
+    cost: 3
+    unique: 0
+    color: {r: 0.8901961, g: 0.72156864, b: 0.34901962, a: 1}
+  - id: runecooldown
+    name: "\u7B26\u610F\u6D41\u8F6C"
+    description: "\u7B26\u9635\u89E6\u53D1\u901F\u5EA6\u63D0\u9AD818%\u3002"
+    branch: "\u7B26\u9635"
+    taskId: 
+    target: 5
+    effect: 1
+    value: 0.18
+    cost: 3
+    unique: 0
+    color: {r: 0.8901961, g: 0.72156864, b: 0.34901962, a: 1}
+  - id: electricammo
+    name: "\u96F7\u7535\u5F39\u836F"
+    description: "\u5B50\u5F39\u547D\u4E2D\u540E\u5F15\u53D1\u8FDE\u9501\u7535\u5F27\u3002"
+    branch: "\u8054\u52A8"
+    taskId: electricammo
+    target: 0
+    effect: 22
+    value: 1
+    cost: 7
+    unique: 1
+    color: {r: 0.8901961, g: 0.72156864, b: 0.34901962, a: 1}
+  - id: shatter
+    name: "\u788E\u51B0\u51B2\u51FB"
+    description: "\u5B50\u5F39\u5BF9\u51BB\u7ED3\u76EE\u6807\u9020\u621060%\u989D\u5916\u4F24\u5BB3\u3002"
+    branch: "\u8054\u52A8"
+    taskId: shatter
+    target: 0
+    effect: 21
+    value: 1
+    cost: 6
+    unique: 1
+    color: {r: 0.8901961, g: 0.72156864, b: 0.34901962, a: 1}
+  - id: firesword
+    name: "\u70C8\u7130\u98DE\u5251"
+    description: "\u98DE\u5251\u9644\u52A0\u707C\u70E7\uFF0C\u5E76\u53EF\u53C2\u4E0E\u706B\u7130\u4F20\u64AD\u3002"
+    branch: "\u8054\u52A8"
+    taskId: firesword
+    target: 2
+    effect: 20
+    value: 0.3
+    cost: 6
+    unique: 1
+    color: {r: 0.14901961, g: 0.5568628, b: 0.54509807, a: 1}
+  tasks:
+  - id: spirit
+    name: "\u521D\u8BC6\u4E07\u8C61"
+    description: "\u7D2F\u8BA1\u51FB\u8D2560\u4E2A\u654C\u4EBA\uFF0C\u89E3\u9501\u7075\u4F53\u3002"
+    rewardId: ability.spirit
+    metric: 0
+    target: 60
+    crystals: 15
+    rewardKind: 1
+  - id: cannon
+    name: "\u706B\u529B\u6269\u5F20"
+    description: "\u7D2F\u8BA1\u51FB\u8D25120\u4E2A\u654C\u4EBA\uFF0C\u89E3\u9501\u7206\u7834\u70AE\u3002"
+    rewardId: ability.cannon
+    metric: 0
+    target: 120
+    crystals: 15
+    rewardKind: 1
+  - id: rune
+    name: "\u53E4\u8001\u56DE\u54CD"
+    description: "\u5B8C\u62102\u6B21\u63A2\u7D22\u4E8B\u4EF6\uFF0C\u89E3\u9501\u7B26\u9635\u3002"
+    rewardId: ability.rune
+    metric: 8
+    target: 2
+    crystals: 15
+    rewardKind: 1
+  - id: mage
+    name: "\u5143\u7D20\u65B0\u751F"
+    description: "\u7D2F\u8BA1\u7528\u706B\u7130\u51FB\u8D2580\u4E2A\u654C\u4EBA\uFF0C\u89E3\u9501\u5143\u7D20\u5B66\u5F92\u3002"
+    rewardId: elementalist
+    metric: 2
+    target: 80
+    crystals: 15
+    rewardKind: 2
+  - id: swordsman
+    name: "\u5251\u5FC3\u521D\u6210"
+    description: "\u7D2F\u8BA1\u7528\u98DE\u5251\u51FB\u8D2580\u4E2A\u654C\u4EBA\uFF0C\u89E3\u9501\u5FA1\u5251\u8005\u3002"
+    rewardId: swordsman
+    metric: 3
+    target: 80
+    crystals: 15
+    rewardKind: 2
+  - id: spreadfire
+    name: "\u85AA\u706B\u76F8\u4F20"
+    description: "\u7D2F\u8BA1\u7528\u706B\u7130\u51FB\u8D2540\u4E2A\u654C\u4EBA\uFF0C\u89E3\u9501\u70C8\u7130\u6269\u6563\u3002"
+    rewardId: spreadfire
+    metric: 2
+    target: 40
+    crystals: 15
+    rewardKind: 0
+  - id: frost
+    name: "\u5BD2\u610F\u521D\u4E34"
+    description: "\u5355\u5C40\u751F\u5B58\u8FBE\u523090\u79D2\uFF0C\u89E3\u9501\u51B0\u971C\u65B0\u661F\u3002"
+    rewardId: frost
+    metric: 6
+    target: 90
+    crystals: 15
+    rewardKind: 0
+  - id: lightning
+    name: "\u96F7\u58F0\u6E10\u8D77"
+    description: "\u7D2F\u8BA1\u51FB\u8D252\u4E2A\u7CBE\u82F1\uFF0C\u89E3\u9501\u843D\u96F7\u3002"
+    rewardId: lightning
+    metric: 5
+    target: 2
+    crystals: 15
+    rewardKind: 0
+  - id: chain
+    name: "\u7535\u5149\u4EA4\u7EC7"
+    description: "\u7D2F\u8BA1\u7528\u706B\u7130\u51FB\u8D25180\u4E2A\u654C\u4EBA\uFF0C\u89E3\u9501\u8FDE\u9501\u96F7\u51FB\u3002"
+    rewardId: chain
+    metric: 2
+    target: 180
+    crystals: 15
+    rewardKind: 0
+  - id: pierce
+    name: "\u5F39\u65E0\u865A\u53D1"
+    description: "\u7D2F\u8BA1\u7528\u67AA\u68B0\u51FB\u8D2530\u4E2A\u654C\u4EBA\uFF0C\u89E3\u9501\u7A7F\u900F\u5F39\u3002"
+    rewardId: pierce
+    metric: 1
+    target: 30
+    crystals: 15
+    rewardKind: 0
+  - id: spread
+    name: "\u5F39\u5E55\u521D\u73B0"
+    description: "\u7D2F\u8BA1\u7528\u67AA\u68B0\u51FB\u8D25100\u4E2A\u654C\u4EBA\uFF0C\u89E3\u9501\u6563\u5C04\u3002"
+    rewardId: spread
+    metric: 1
+    target: 100
+    crystals: 15
+    rewardKind: 0
+  - id: bounce
+    name: "\u5DE7\u5999\u5F39\u9053"
+    description: "\u7D2F\u8BA1\u7528\u67AA\u68B0\u51FB\u8D25250\u4E2A\u654C\u4EBA\uFF0C\u89E3\u9501\u5F39\u5C04\u3002"
+    rewardId: bounce
+    metric: 1
+    target: 250
+    crystals: 15
+    rewardKind: 0
+  - id: explosion
+    name: "\u63A2\u7D22\u8005"
+    description: "\u5B8C\u62103\u6B21\u63A2\u7D22\u4E8B\u4EF6\uFF0C\u89E3\u9501\u7206\u7834\u5F39\u3002"
+    rewardId: explosion
+    metric: 8
+    target: 3
+    crystals: 15
+    rewardKind: 0
+  - id: swordpierce
+    name: "\u4E00\u5251\u8D2F\u4E4B"
+    description: "\u7D2F\u8BA1\u7528\u98DE\u5251\u51FB\u8D2530\u4E2A\u654C\u4EBA\uFF0C\u89E3\u9501\u8D2F\u7A7F\u5251\u3002"
+    rewardId: swordpierce
+    metric: 3
+    target: 30
+    crystals: 15
+    rewardKind: 0
+  - id: orbit
+    name: "\u5FA1\u5251\u62A4\u8EAB"
+    description: "\u5355\u5C40\u751F\u5B58\u8FBE\u5230180\u79D2\uFF0C\u89E3\u9501\u7ED5\u8EAB\u5251\u9635\u3002"
+    rewardId: orbit
+    metric: 6
+    target: 180
+    crystals: 15
+    rewardKind: 0
+  - id: rain
+    name: "\u5251\u96E8\u5C06\u81F3"
+    description: "\u7D2F\u8BA1\u51FB\u8D255\u4E2A\u7CBE\u82F1\uFF0C\u89E3\u9501\u4E07\u5251\u9F50\u53D1\u3002"
+    rewardId: rain
+    metric: 5
+    target: 5
+    crystals: 15
+    rewardKind: 0
+  - id: wave
+    name: "\u5251\u6C14\u7EB5\u6A2A"
+    description: "\u7D2F\u8BA1\u7528\u98DE\u5251\u51FB\u8D25220\u4E2A\u654C\u4EBA\uFF0C\u89E3\u9501\u5251\u6C14\u3002"
+    rewardId: wave
+    metric: 3
+    target: 220
+    crystals: 15
+    rewardKind: 0
+  - id: electricammo
+    name: "\u96F7\u706B\u4EA4\u54CD"
+    description: "\u62E5\u6709\u843D\u96F7\u65F6\u7D2F\u8BA1\u7528\u67AA\u68B0\u51FB\u8D2530\u4E2A\u654C\u4EBA\u3002"
+    rewardId: electricammo
+    metric: 9
+    target: 30
+    crystals: 15
+    rewardKind: 0
+  - id: shatter
+    name: "\u51B0\u5C01\u7834\u6653"
+    description: "\u7D2F\u8BA1\u7528\u67AA\u68B0\u51FB\u8D2520\u4E2A\u51BB\u7ED3\u654C\u4EBA\u3002"
+    rewardId: shatter
+    metric: 10
+    target: 20
+    crystals: 15
+    rewardKind: 0
+  - id: firesword
+    name: "\u5251\u4E0E\u706B"
+    description: "\u540C\u65F6\u62E5\u6709\u706B\u7403\u65F6\u7D2F\u8BA1\u7528\u98DE\u5251\u51FB\u8D2540\u4E2A\u654C\u4EBA\u3002"
+    rewardId: firesword
+    metric: 11
+    target: 40
+    crystals: 15
+    rewardKind: 0
+  biomes:
+  - id: 0
+    name: "\u9752\u7FE0\u6797\u5730"
+    subtitle: "\u6797\u95F4\u7A7A\u5730\u4E0E\u53E4\u8001\u77F3\u9635\uFF0C\u602A\u7FA4\u4ECE\u56DB\u5468\u805A\u96C6\u3002"
+    bossName: "\u53E4\u6811\u5B88\u536B"
+    terrainId: terrain/forest
+    decorationId: decoration/forest
+    bossId: boss/forest
+    ground: {r: 0.47058824, g: 0.654902, b: 0.3529412, a: 1}
+    secondary: {r: 1, g: 0.9411765, b: 0.8117647, a: 1}
+    accent: {r: 0.2627451, g: 0.54901963, b: 0.4627451, a: 1}
+  - id: 1
+    name: "\u6D41\u91D1\u6C99\u6D77"
+    subtitle: "\u6C99\u4E18\u3001\u7EFF\u6D32\u4E0E\u9057\u8FF9\uFF0C\u5728\u5F00\u9614\u5730\u5E26\u5E94\u5BF9\u8FFD\u9010\u3002"
+    bossName: "\u5DE8\u578B\u6C99\u866B"
+    terrainId: terrain/desert
+    decorationId: decoration/desert
+    bossId: boss/desert
+    ground: {r: 0.8509804, g: 0.7019608, b: 0.44313726, a: 1}
+    secondary: {r: 1, g: 0.9411765, b: 0.8117647, a: 1}
+    accent: {r: 0.8156863, g: 0.5764706, b: 0.30588236, a: 1}
+  - id: 2
+    name: "\u6674\u96EA\u539F\u91CE"
+    subtitle: "\u51B0\u810A\u4E0E\u6674\u6717\u96EA\u5730\uFF0C\u5728\u5730\u5F62\u95F4\u5BFB\u627E\u5B89\u5168\u8DEF\u7EBF\u3002"
+    bossName: "\u971C\u539F\u5DE8\u517D"
+    terrainId: terrain/snow
+    decorationId: decoration/snow
+    bossId: boss/snow
+    ground: {r: 0.7254902, g: 0.8392157, b: 0.8666667, a: 1}
+    secondary: {r: 1, g: 0.9411765, b: 0.8117647, a: 1}
+    accent: {r: 0.38431373, g: 0.67058825, b: 0.78039217, a: 1}
+  - id: 3
+    name: "\u6696\u7130\u706B\u5C71"
+    subtitle: "\u6E29\u6696\u5CA9\u5730\u4E0E\u55B7\u53D1\u533A\u57DF\uFF0C\u7559\u610F\u5730\u9762\u7684\u5371\u9669\u9884\u8B66\u3002"
+    bossName: "\u7194\u5CA9\u5DE8\u50CF"
+    terrainId: terrain/volcano
+    decorationId: decoration/volcano
+    bossId: boss/volcano
+    ground: {r: 0.39607844, g: 0.3529412, b: 0.4, a: 1}
+    secondary: {r: 1, g: 0.9411765, b: 0.8117647, a: 1}
+    accent: {r: 0.88235295, g: 0.49019608, b: 0.30588236, a: 1}

@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: World-forest-ridge
+  m_EditorClassIdentifier: 
+  m_GroupName: World-forest-ridge
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 046a65feb3a5fa34799f0a9a7ce97311
+  m_SerializeEntries:
+  - m_GUID: df6f9b8ffc782cd4a9978b96d46a5a6f
+    m_Address: terrain/forest-ridge
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: c3053bf0f14251148951535e646181e0, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 900bd22a3687658479ed84d2b0853f8d, type: 2}
+    - {fileID: 11400000, guid: 3926d0df1f8b7574c99101cf912d3746, type: 2}

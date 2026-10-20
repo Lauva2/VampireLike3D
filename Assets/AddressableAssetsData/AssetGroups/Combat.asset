@@ -1,0 +1,247 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Combat
+  m_EditorClassIdentifier: 
+  m_GroupName: Combat
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 169d602176a966b4bbae26cc8c535965
+  m_SerializeEntries:
+  - m_GUID: 02a6c3f20d995b34385b63f183978dd0
+    m_Address: weapon/spirit
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0896b278a28562843a6d0a0ba28d7d7a
+    m_Address: weapon/rune
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0a88813954e5f2b4dbb0a9b0627ef4b6
+    m_Address: projectile/sword
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 11f8e1cebe599c340b38507e5dff7dce
+    m_Address: world/chest
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1efef13f19750394290b943d0bb60486
+    m_Address: enemy/3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 23451d774613ad143bb3ce0b2ec5a420
+    m_Address: weapon/cannon
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 294aa24a9f567664586707fb9b8d8e98
+    m_Address: vfx/roots
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 31558c512de51f6419dd4bfd6f8bb3ad
+    m_Address: weapon/gun
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3267d93d828e0a84eb5aa4c5ae08e2dd
+    m_Address: vfx/explosion
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 416a76c132b5ac3438353a8ed2901cd5
+    m_Address: character/elementalist
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 471dcfc2502e4ff4cb2477d6bed9171a
+    m_Address: projectile/spirit
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4ed6026ad2d3e914ba0758a2aa28fd2f
+    m_Address: character/adventurer
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 53a72804acb36954f9e00c093c3632ef
+    m_Address: vfx/flame
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5b170fecc35e8984bb03f20f50cf58c7
+    m_Address: projectile/gun
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 74cc32e84ed1b914f820df513a7aada7
+    m_Address: projectile/enemy
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 75c341c1553e8f0438bcba9c9230387a
+    m_Address: projectile/fireball
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7a40b6b78dfa09d478899a3ba333a279
+    m_Address: enemy/0
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7a79a2dcfda2c6e4bba557a866fee485
+    m_Address: projectile/rune
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 81632daca1752364b9f76e3c8ea97ae0
+    m_Address: weapon/fireball
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 81a4e5a4048d6704a854a81bdf4b0f92
+    m_Address: vfx/dodge
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8aa553ba3e5056c4f87a95ef823e9323
+    m_Address: character/swordsman
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 985a59d6e5c035c438296ff16b6c874a
+    m_Address: vfx/rune
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9cb660457b8360349bdac9fb6264303f
+    m_Address: vfx/mark
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a248879672498524d994eb61f971b92b
+    m_Address: world/boss-site
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a7649ac20f330d14cb92c4c1187f6925
+    m_Address: vfx/warning-line
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a7bddcea93553254c9913c5c1af37bf9
+    m_Address: vfx/lightning
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b1096992d03f7e04199cd8cbd1504c27
+    m_Address: enemy/1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b58729f6af0aaab44a57955fae6e017a
+    m_Address: projectile/cannon
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b8f98c76fde09d84dbf3e2b6b47a34d0
+    m_Address: vfx/frost
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c76f6338971806c46b5565c6359357d7
+    m_Address: world/shrine
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d6f83d4a770737e419467523b522efe8
+    m_Address: vfx/warning
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: db739f41f14e60541b6658412696fa0e
+    m_Address: vfx/player
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dcd29d1afe351cf4aafcc52086a45e27
+    m_Address: enemy/2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e1b6bac8a5057e54a93b79b8215d7782
+    m_Address: pickup/experience
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e8f41d85d471fe24795ab620d4e00ea9
+    m_Address: weapon/sword
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ee073ca86d5fcb74dac8a09d8d778f5d
+    m_Address: vfx/impact
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f916ce0f3c4541d468a1914ad12018b0
+    m_Address: world/camp
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: c3053bf0f14251148951535e646181e0, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 629016d5588c3e94bbc130d86ba36cdd, type: 2}
+    - {fileID: 11400000, guid: b6a7c73eeab59bf488f22eca858c8f75, type: 2}

@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: World-volcano-wild
+  m_EditorClassIdentifier: 
+  m_GroupName: World-volcano-wild
+  m_Data:
+    m_SerializedData: []
+  m_GUID: ae3386a5f0df6fd4ba5ba0b0467fd69c
+  m_SerializeEntries:
+  - m_GUID: 45e3d37393a02cf4cbd4a1335a581712
+    m_Address: terrain/volcano-wild
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: c3053bf0f14251148951535e646181e0, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 2013f913e2716084f80bf15c253c9b7b, type: 2}
+    - {fileID: 11400000, guid: 9c8973909a3ab21459a3b7fb27b95d27, type: 2}

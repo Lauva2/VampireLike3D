@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: World-volcano-ridge
+  m_EditorClassIdentifier: 
+  m_GroupName: World-volcano-ridge
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 1f755c2aba07e08449e545924f4cbbf4
+  m_SerializeEntries:
+  - m_GUID: 293b4ce9e7a0b7e43aa8744a059dc43a
+    m_Address: terrain/volcano-ridge
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: c3053bf0f14251148951535e646181e0, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 23644437c98d025418c9efff98f48a8a, type: 2}
+    - {fileID: 11400000, guid: eb5091eae5314274ba61ad614400337f, type: 2}

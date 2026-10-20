@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: World-desert
+  m_EditorClassIdentifier: 
+  m_GroupName: World-desert
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 9ec1ef17eba10dd40a338a37669ebdcc
+  m_SerializeEntries:
+  - m_GUID: 3f12f1abd066a844bba24bf8c739f573
+    m_Address: decoration/desert
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a26c4bcaddf0e274eb889ed3483a1558
+    m_Address: boss/desert
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dadb2e0343b38e343a08c0e1bf996786
+    m_Address: architecture/desert
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f18504f0a2a4b884dbb7386edd6b8101
+    m_Address: terrain/desert
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: c3053bf0f14251148951535e646181e0, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 4a2b641498169c74d94e1c532174a354, type: 2}
+    - {fileID: 11400000, guid: 7c7ee92471a36784abe367efb35d40c0, type: 2}
