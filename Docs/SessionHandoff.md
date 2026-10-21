@@ -30,8 +30,8 @@
 
 ## 美术当前状态与真正下一步
 
-- 最近已写入报告的完整正式评分为Round24的85/100，未通过；最终以ArtReview.md后续实际记录为准，不用口头预计分数冒充通过。
-- 子代理对Round31的局部实际结论：C1/C2/C3/C4各4，C16/20；密战交网和全屏红罩已实质改善，完整总分仍待正式记录。
+- 最新完整正式评分已写入ArtReview.md第19节：Round31总分91/100（A14、B14、C16、D20、E19、F8），全部子项≥4，但C仍低于18，故未通过最终美术验收。
+- Round31完整观察包括70张辅助表、176张静态图、33条序列的574帧样本及6张原图。密战交网和全屏红罩已关闭；Round33尚未独立实看，不能沿用Round31分数当作新版通过。
 - Round32/33已修建筑避水、平整地基、岸边装饰避让、道路连接圆角及建筑门面朝向道路。
 - **以下仅已讨论，尚未实施**：将火山台地/火山口/熔岩岸组成连贯主景；四主题挑战点做顺地貌的不对称场地边缘与侧入口；挑战完成后只改变阵纹状态，避免大块场地跟随旧逻辑缩小。
 - 具体检查：PathNetwork.Configure的跨河向北道路仍使用固定末段控制点(0,0,13)，在共享端点发生横向偏移时可能形成接缝小三角；应统一末段切线并用实机复核。
@@ -48,7 +48,7 @@
 ## 新电脑环境与复现
 
 1. 用Unity Hub安装同版本和Windows Build Support，加入项目根目录；首次重建Library需要等待。
-2. 迁移Assets（含全部.meta）、Packages、ProjectSettings、Docs、Tools、AGENTS.md、README.md。若保留Git历史，还需迁移隐藏.git；当前有大量未提交修改，仅clone旧HEAD会缺失最新工作。
+2. 从 https://github.com/Lauva2/VampireLike3D 克隆main分支，或迁移Assets（含全部.meta）、Packages、ProjectSettings、Docs、Tools、AGENTS.md、README.md及隐藏.git。当前源码与接续文档已提交；拉取后用git status检查是否还有其他本地修改。
 3. 新源码迁移包不含Library/Temp/Logs/.build/Player和Artifacts原始证据。需要保留旧验收证据时，另外迁移Artifacts/Round33、UI33、Probe33、Campaign31、Soak09及对应BuildIdentity/SourceIdentity；美术原帧在Captures/Sequences中。
 4. Tools/Build.ps1使用固定Unity安装路径，若新电脑不同请调整。Python审计工具需Python与Pillow；PackageCandidate.ps1里的Git路径当前为原机器Codex运行时路径，换机需改为可用Git或接受源码提交信息不可用。
 5. 构建示例：`powershell -ExecutionPolicy Bypass -File Tools/Build.ps1 -Mode Development`。更新生成内容用GenerateDevelopment；生成文件同步必须先比较、备份，禁止整目录强制覆盖主工作树。
