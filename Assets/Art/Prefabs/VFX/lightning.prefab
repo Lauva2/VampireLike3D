@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &389190230425417211
+--- !u!1 &68061618857456352
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,38 +8,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 290273142372091572}
-  m_Layer: 0
-  m_Name: Bolt
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &290273142372091572
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 389190230425417211}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0.9849203, w: 0.17300859}
-  m_LocalPosition: {x: -0.044999998, y: 2, z: -0.025}
-  m_LocalScale: {x: 0.056, y: 0.42547035, z: 0.056}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4222869396367659695}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &924361166333804388
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 828445746447492153}
+  - component: {fileID: 179369835637458456}
   m_Layer: 0
   m_Name: ElectricSpark
   m_TagString: Untagged
@@ -47,13 +16,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &828445746447492153
+--- !u!4 &179369835637458456
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 924361166333804388}
+  m_GameObject: {fileID: 68061618857456352}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -62,7 +31,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4222869396367659695}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1238731851986928339
+--- !u!1 &271502258468942775
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -70,30 +39,30 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7989816830512933542}
+  - component: {fileID: 9037119393539128322}
   m_Layer: 0
-  m_Name: Bolt
+  m_Name: BoltEdge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7989816830512933542
+--- !u!4 &9037119393539128322
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1238731851986928339}
+  m_GameObject: {fileID: 271502258468942775}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: -0.61541224, w: 0.7882055}
-  m_LocalPosition: {x: 0, y: 0.73, z: -0.025}
-  m_LocalScale: {x: 0.056, y: 0.12369317, z: 0.056}
+  m_LocalRotation: {x: 0, y: 0, z: -0.653646, w: 0.7568004}
+  m_LocalPosition: {x: -0.019999996, y: 1.625, z: 0}
+  m_LocalScale: {x: 0.104, y: 0.1718284, z: 0.104}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4222869396367659695}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1538047038279587098
+--- !u!1 &420975288670067895
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -101,7 +70,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8046566874986760035}
+  - component: {fileID: 2415979359027170444}
   m_Layer: 0
   m_Name: ElectricSpark
   m_TagString: Untagged
@@ -109,13 +78,75 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8046566874986760035
+--- !u!4 &2415979359027170444
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1538047038279587098}
+  m_GameObject: {fileID: 420975288670067895}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4222869396367659695}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &818610802622221479
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4376549983349545980}
+  m_Layer: 0
+  m_Name: Bolt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4376549983349545980
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 818610802622221479}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: -0.653646, w: 0.7568004}
+  m_LocalPosition: {x: -0.019999996, y: 1.625, z: -0.025}
+  m_LocalScale: {x: 0.056, y: 0.1718284, z: 0.056}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4222869396367659695}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1064337610014850081
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6150230081766227559}
+  m_Layer: 0
+  m_Name: ElectricSpark
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6150230081766227559
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1064337610014850081}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -169,7 +200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32dcaf486ee99304ab8424c4042d630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &3387766988535095460
+--- !u!1 &2288191303777857038
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -177,30 +208,30 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5165619615802227373}
+  - component: {fileID: 4987774941730175332}
   m_Layer: 0
-  m_Name: BoltEdge
+  m_Name: Bolt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5165619615802227373
+--- !u!4 &4987774941730175332
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3387766988535095460}
+  m_GameObject: {fileID: 2288191303777857038}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0.99043053, w: 0.13801251}
-  m_LocalPosition: {x: 0.015000004, y: 1.175, z: 0}
-  m_LocalScale: {x: 0.104, y: 0.4938117, z: 0.104}
+  m_LocalRotation: {x: 0, y: 0, z: 0.996936, w: 0.07822095}
+  m_LocalPosition: {x: 0.06, y: 0.38, z: -0.025}
+  m_LocalScale: {x: 0.056, y: 0.3847077, z: 0.056}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4222869396367659695}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &3457725709360930028
+--- !u!1 &3160545621091191229
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -208,7 +239,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1279941034252459114}
+  - component: {fileID: 138563531796169063}
   m_Layer: 0
   m_Name: ElectricSpark
   m_TagString: Untagged
@@ -216,13 +247,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1279941034252459114
+--- !u!4 &138563531796169063
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3457725709360930028}
+  m_GameObject: {fileID: 3160545621091191229}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -231,7 +262,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4222869396367659695}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &3558814792085600475
+--- !u!1 &3232128259597145101
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -239,7 +270,38 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6749573342545629859}
+  - component: {fileID: 86196762963485398}
+  m_Layer: 0
+  m_Name: Bolt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &86196762963485398
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3232128259597145101}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0.9849203, w: 0.17300859}
+  m_LocalPosition: {x: -0.044999998, y: 2, z: -0.025}
+  m_LocalScale: {x: 0.056, y: 0.42547035, z: 0.056}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4222869396367659695}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3327030810951107907
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4228636786451592956}
   m_Layer: 0
   m_Name: BoltEdge
   m_TagString: Untagged
@@ -247,13 +309,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6749573342545629859
+--- !u!4 &4228636786451592956
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3558814792085600475}
+  m_GameObject: {fileID: 3327030810951107907}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: -0.61541224, w: 0.7882055}
   m_LocalPosition: {x: 0, y: 0.73, z: 0}
@@ -262,7 +324,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4222869396367659695}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &3836394929102725663
+--- !u!1 &3829667576020685540
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -270,7 +332,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2300692675170523534}
+  - component: {fileID: 8642935001528117443}
   m_Layer: 0
   m_Name: Bolt
   m_TagString: Untagged
@@ -278,13 +340,44 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2300692675170523534
+--- !u!4 &8642935001528117443
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3836394929102725663}
+  m_GameObject: {fileID: 3829667576020685540}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: -0.61541224, w: 0.7882055}
+  m_LocalPosition: {x: 0, y: 0.73, z: -0.025}
+  m_LocalScale: {x: 0.056, y: 0.12369317, z: 0.056}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4222869396367659695}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3882230566024689524
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 428555730599858851}
+  m_Layer: 0
+  m_Name: Bolt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &428555730599858851
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3882230566024689524}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.99043053, w: 0.13801251}
   m_LocalPosition: {x: 0.015000004, y: 1.175, z: -0.025}
@@ -324,21 +417,21 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 74381279181357827}
-  - {fileID: 290273142372091572}
-  - {fileID: 2955968374775219871}
-  - {fileID: 5205678231201468323}
-  - {fileID: 5165619615802227373}
-  - {fileID: 2300692675170523534}
-  - {fileID: 6749573342545629859}
-  - {fileID: 7989816830512933542}
-  - {fileID: 7733327162978351042}
-  - {fileID: 4049328179547517029}
-  - {fileID: 828445746447492153}
-  - {fileID: 8288679516503647111}
-  - {fileID: 4209421524301782979}
-  - {fileID: 1279941034252459114}
-  - {fileID: 8046566874986760035}
+  - {fileID: 35804004870595846}
+  - {fileID: 86196762963485398}
+  - {fileID: 9037119393539128322}
+  - {fileID: 4376549983349545980}
+  - {fileID: 8822517676245323999}
+  - {fileID: 428555730599858851}
+  - {fileID: 4228636786451592956}
+  - {fileID: 8642935001528117443}
+  - {fileID: 8779326262083868913}
+  - {fileID: 4987774941730175332}
+  - {fileID: 138563531796169063}
+  - {fileID: 179369835637458456}
+  - {fileID: 1917115762360702061}
+  - {fileID: 2415979359027170444}
+  - {fileID: 6150230081766227559}
   m_Father: {fileID: 7220908970027748324}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1714074219474016564
@@ -369,7 +462,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 49c76f8d4546bd243a6c5d68f0f54b20, type: 2}
+  - {fileID: 2100000, guid: 7054753cab45b9f4ca4d61c21d4aef68, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -391,7 +484,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1 &4967009010869992501
+--- !u!1 &5081588812269946139
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -399,7 +492,38 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7733327162978351042}
+  - component: {fileID: 1917115762360702061}
+  m_Layer: 0
+  m_Name: ElectricSpark
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1917115762360702061
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5081588812269946139}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4222869396367659695}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5388301089368994700
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 35804004870595846}
   m_Layer: 0
   m_Name: BoltEdge
   m_TagString: Untagged
@@ -407,13 +531,44 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7733327162978351042
+--- !u!4 &35804004870595846
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4967009010869992501}
+  m_GameObject: {fileID: 5388301089368994700}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0.9849203, w: 0.17300859}
+  m_LocalPosition: {x: -0.044999998, y: 2, z: 0}
+  m_LocalScale: {x: 0.104, y: 0.42547035, z: 0.104}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4222869396367659695}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7985012981213824076
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8779326262083868913}
+  m_Layer: 0
+  m_Name: BoltEdge
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8779326262083868913
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7985012981213824076}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.996936, w: 0.07822095}
   m_LocalPosition: {x: 0.06, y: 0.38, z: 0}
@@ -422,7 +577,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4222869396367659695}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &5120435345392520273
+--- !u!1 &8227600907999828217
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -430,100 +585,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4049328179547517029}
-  m_Layer: 0
-  m_Name: Bolt
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4049328179547517029
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5120435345392520273}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0.996936, w: 0.07822095}
-  m_LocalPosition: {x: 0.06, y: 0.38, z: -0.025}
-  m_LocalScale: {x: 0.056, y: 0.3847077, z: 0.056}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4222869396367659695}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &5159495775328388585
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5205678231201468323}
-  m_Layer: 0
-  m_Name: Bolt
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5205678231201468323
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5159495775328388585}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: -0.653646, w: 0.7568004}
-  m_LocalPosition: {x: -0.019999996, y: 1.625, z: -0.025}
-  m_LocalScale: {x: 0.056, y: 0.1718284, z: 0.056}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4222869396367659695}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &6115268518834964959
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8288679516503647111}
-  m_Layer: 0
-  m_Name: ElectricSpark
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8288679516503647111
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6115268518834964959}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4222869396367659695}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &7214285873272943089
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2955968374775219871}
+  - component: {fileID: 8822517676245323999}
   m_Layer: 0
   m_Name: BoltEdge
   m_TagString: Untagged
@@ -531,79 +593,17 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2955968374775219871
+--- !u!4 &8822517676245323999
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7214285873272943089}
+  m_GameObject: {fileID: 8227600907999828217}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: -0.653646, w: 0.7568004}
-  m_LocalPosition: {x: -0.019999996, y: 1.625, z: 0}
-  m_LocalScale: {x: 0.104, y: 0.1718284, z: 0.104}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4222869396367659695}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &7261002557144967532
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4209421524301782979}
-  m_Layer: 0
-  m_Name: ElectricSpark
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4209421524301782979
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7261002557144967532}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4222869396367659695}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &7837634349494466787
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 74381279181357827}
-  m_Layer: 0
-  m_Name: BoltEdge
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &74381279181357827
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7837634349494466787}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0.9849203, w: 0.17300859}
-  m_LocalPosition: {x: -0.044999998, y: 2, z: 0}
-  m_LocalScale: {x: 0.104, y: 0.42547035, z: 0.104}
+  m_LocalRotation: {x: 0, y: 0, z: 0.99043053, w: 0.13801251}
+  m_LocalPosition: {x: 0.015000004, y: 1.175, z: 0}
+  m_LocalScale: {x: 0.104, y: 0.4938117, z: 0.104}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4222869396367659695}

@@ -1,3 +1,4 @@
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -30,6 +31,7 @@ namespace VampireLike
             report.unity = Application.unityVersion; report.gpu = SystemInfo.graphicsDeviceName; report.cpu = SystemInfo.processorType;
             Application.logMessageReceived += OnLog;
             if(Array.IndexOf(args,"--terrain-probe")>=0){yield return TerrainProbe();Finish();yield break;}
+            if(Array.IndexOf(args,"--ui-probe")>=0){yield return UIMatrix();Finish();yield break;}
             yield return Wait(3); yield return Capture("01-menu");
             foreach(var character in game.Catalog.characters)
             {MenuStage.Active?.SelectCharacter(character.id);yield return Wait(.3f);game.UI.View.menu.SetActive(false);yield return Capture("character-"+character.id);game.UI.View.menu.SetActive(true);}
@@ -44,6 +46,12 @@ namespace VampireLike
                 while (!game.Ready && Time.realtimeSinceStartup < deadline) yield return null;
                 Check(game.Ready, "Enter biome " + biome);
                 if (!game.Ready) { Finish(); yield break; }
+                if(biome<3)
+                {
+                    for(int i=0;i<3;i++){var target=game.Combat.Spawn(i%2,game.Player.transform.position+new Vector3((i-1)*4,0,8));if(target!=null){target.DiagnosticImmortal=true;target.DiagnosticStationary=true;}}
+                    yield return RoleActionCloseup(game.Run.character.id);
+                    yield return Sequence("role-action-"+game.Run.character.id,5,true);ClearEnemies();
+                }
                 foreach (var u in game.Catalog.upgrades)
                     if (u.effect == UpgradeEffect.NewAbility && game.Progression.Eligible(u)) game.Progression.GrantForDiagnostic(u.id);
                 foreach (var u in game.Catalog.upgrades)
@@ -51,6 +59,7 @@ namespace VampireLike
                 game.UI.ShowHUD();
                 Check(game.Run.abilities.Count == 6, "Six abilities coexist in biome " + biome);
                 if(biome==0)yield return EnemyGallery();
+                if(biome==0)yield return EffectGallery();
                 for (int i = 0; i < 55; i++)
                 {
                     float a = i * 2.399f; float r = 9 + i % 9;
@@ -60,6 +69,7 @@ namespace VampireLike
                 yield return Capture("10-biome-" + biome);
                 if (biome == 0)
                 {
+                    yield return FeedbackEvidence();
                     game.UI.ToggleSkills(); yield return Wait(.4f); yield return Capture("20-skills"); game.UI.CloseModal();
                     game.UI.ToggleMap(); yield return Wait(.4f); yield return Capture("21-map"); game.UI.CloseModal();
                     Check(WorldService.SeedHash(42, -4, 7) == WorldService.SeedHash(42, -4, 7), "Stable world seed hash");
@@ -71,10 +81,14 @@ namespace VampireLike
                     int points=game.Run.skillPoints;game.Progression.SkipLevel();Check(game.Run.skillPoints==points,"Reject duplicate skip without an offered level");
                 }
                 yield return Scenarios(biome);
+                if(!game.Ready){Check(false,"Run survives world streaming and presentation scenarios "+biome);Finish();yield break;}
                 if(biome==4)yield return DefeatEvidence();
+                Renderer fadingScenery=null;
+                if(biome==0)yield return PrepareOcclusionExit(value=>fadingScenery=value);
                 int crystals = game.Save.Profile.crystals;
                 string runId = game.Run.id;
                 game.FinishRun(true); yield return Wait(.3f); yield return Capture("30-results-" + biome);
+                if(biome==0)Check(fadingScenery!=null&&!fadingScenery.HasPropertyBlock(),"Leaving Playing immediately clears an active scenery fade");
                 Check(game.Run.settled && !game.Save.Settle(runId, game.Run.seconds), "Idempotent settlement " + biome);
                 Check(game.Save.Profile.crystals >= crystals, "Retain earned currency " + biome);
                 game.ReturnToMenu(); deadline = Time.realtimeSinceStartup + 40;
@@ -98,6 +112,8 @@ namespace VampireLike
         static IEnumerator Wait(float seconds) { float end = Time.realtimeSinceStartup + seconds; while (Time.realtimeSinceStartup < end) yield return null; }
         IEnumerator Capture(string name,int width=1600,int height=900)
         {
+            float deadline=Time.realtimeSinceStartup+20;
+            while(game.Ready&&!game.IsPaused&&!game.World.ViewReady&&Time.realtimeSinceStartup<deadline)yield return null;
             yield return null;
             RenderCapture(Path.Combine(output,"Captures",name+".png"),width,height,false);
             yield return Wait(.2f);
@@ -110,12 +126,19 @@ namespace VampireLike
             var previousMode = canvas.renderMode; var previousCamera = canvas.worldCamera; float previousDistance = canvas.planeDistance;
             var previousTarget = camera.targetTexture; var previousActive = RenderTexture.active;
             var target = new RenderTexture(width, height, 24, RenderTextureFormat.ARGB32);
+            target.antiAliasing=Mathf.Max(1,QualitySettings.antiAliasing);
             target.Create(); camera.targetTexture = target;
             canvas.renderMode = RenderMode.ScreenSpaceCamera; canvas.worldCamera = camera; canvas.planeDistance = 1;
             Canvas.ForceUpdateCanvases(); camera.Render(); RenderTexture.active = target;
             var texture = new Texture2D(width,height,TextureFormat.RGB24,false);
             texture.ReadPixels(new Rect(0,0,width,height),0,0);texture.Apply();
             File.WriteAllBytes(path,jpeg?texture.EncodeToJPG(88):texture.EncodeToPNG());
+            if(auditLayout&&!jpeg)AuditLayout(path,width,height);
+            if(!jpeg&&game.Ready)
+            {
+                var fill=game.UI.View.healthFill;
+                File.WriteAllText(Path.ChangeExtension(path,"bars.json"),"{\"health\":"+game.Player.Health.ToString(System.Globalization.CultureInfo.InvariantCulture)+",\"maxHealth\":"+game.Player.MaxHealth.ToString(System.Globalization.CultureInfo.InvariantCulture)+",\"fillAmount\":"+fill.fillAmount.ToString(System.Globalization.CultureInfo.InvariantCulture)+",\"barWidth\":"+fill.rectTransform.rect.width.ToString(System.Globalization.CultureInfo.InvariantCulture)+"}");
+            }
             if(!jpeg&&game.World!=null)File.WriteAllText(Path.ChangeExtension(path,"world.json"),game.World.DiagnosticSnapshot());
             canvas.renderMode = previousMode; canvas.worldCamera = previousCamera; canvas.planeDistance = previousDistance;
             camera.targetTexture = previousTarget; RenderTexture.active = previousActive;
@@ -138,3 +161,5 @@ namespace VampireLike
         void OnDestroy() { Application.logMessageReceived -= OnLog; }
     }
 }
+
+#endif

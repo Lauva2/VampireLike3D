@@ -6,6 +6,27 @@ namespace VampireLike.Editor
     {
         static void EffectGeometry(Transform t,string id,Color color)
         {
+            if(id=="arc")
+            {
+                Vector3 previous=Vector3.zero;
+                for(int i=1;i<=8;i++){Vector3 p=new Vector3(i==8?0:Mathf.Sin(i*2.4f)*.13f,.04f,i/8f);Tube(t,"BoltBorder",previous,p,.035f,Hex("9275C8"));Tube(t,"BoltCore",previous+Vector3.up*.012f,p+Vector3.up*.012f,.016f,Hex("FFF0AC"));previous=p;}return;
+            }
+            if(id=="slash")
+            {
+                for(int i=0;i<14;i++){float a=-1.2f+i*2.4f/14,b=-1.2f+(i+1)*2.4f/14;Tube(t,"SwordArc",new Vector3(Mathf.Sin(a)*.75f,.1f,Mathf.Cos(a)*.75f),new Vector3(Mathf.Sin(b)*.75f,.1f,Mathf.Cos(b)*.75f),.02f+Mathf.Sin(i/14f*Mathf.PI)*.035f,Hex("99ECE8"));}return;
+            }
+            if(id=="leafburst"||id=="sand"||id=="iceburst"||id=="embers")
+            {
+                for(int i=0;i<18;i++)
+                {
+                    float a=i*2.399f;Vector3 p=new Vector3(Mathf.Sin(a)*(.25f+i%3*.18f),.2f+i%4*.17f,Mathf.Cos(a)*(.25f+i%3*.18f));
+                    if(id=="leafburst")Spike(t,"FallingLeaf",p,p+new Vector3(.12f,.18f,.12f),.10f,i%2==0?Hex("86BD6A"):Gold);
+                    else if(id=="iceburst")Rock(t,"IceFragment",p,new Vector3(.17f,.38f,.18f),i%2==0?Hex("8FDCE7"):Hex("D3F3EF"),i);
+                    else if(id=="sand")Sphere(t,"SandPuff",p,new Vector3(.38f,.20f,.32f),i%2==0?Hex("E6BD7C"):Hex("CFA26A"));
+                    else Rock(t,"CoolingEmber",p,Vector3.one*(.14f+i%3*.05f),i%3==0?Orange:Hex("4F4C5C"),i);
+                }
+                Ring(t,"DissolveWave",.5f,.025f,id=="iceburst"?Hex("ABDCEB"):id=="leafburst"?Teal:Gold);return;
+            }
             if(id=="lightning")
             {
                 var points=new[]{new Vector3(.1f,2.4f,0),new Vector3(-.19f,1.6f,0),new Vector3(.15f,1.65f,0),new Vector3(-.12f,.7f,0),new Vector3(.12f,.76f,0),Vector3.zero};

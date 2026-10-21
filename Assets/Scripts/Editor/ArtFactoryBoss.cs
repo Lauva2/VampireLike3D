@@ -5,7 +5,7 @@ namespace VampireLike.Editor
     public static partial class ArtFactory
     {
         // Hand-shaped low-poly plates give stone a different surface language from skin.
-        static void Rock(Transform parent,string name,Vector3 position,Vector3 size,Color color,int seed)
+        static GameObject Rock(Transform parent,string name,Vector3 position,Vector3 size,Color color,int seed)
         {
             float g=(1+Mathf.Sqrt(5))*.5f;
             var points=new[]{new Vector3(-1,g,0),new Vector3(1,g,0),new Vector3(-1,-g,0),new Vector3(1,-g,0),new Vector3(0,-1,g),new Vector3(0,1,g),new Vector3(0,-1,-g),new Vector3(0,1,-g),new Vector3(g,0,-1),new Vector3(g,0,1),new Vector3(-g,0,-1),new Vector3(-g,0,1)};
@@ -14,6 +14,7 @@ namespace VampireLike.Editor
             for(int i=0;i<vertices.Length;i++){var v=points[faces[i]].normalized;float wobble=.94f+.06f*Mathf.Sin(faces[i]*3.1f+seed);vertices[i]=Vector3.Scale(v*wobble,size*.5f);triangles[i]=i;}
             var mesh=new Mesh{name=name};mesh.vertices=vertices;mesh.triangles=triangles;mesh.RecalculateNormals();
             var go=Root(name,parent);go.transform.localPosition=position;go.transform.localEulerAngles=new Vector3(seed*7,seed*19,seed*3);go.AddComponent<MeshFilter>().sharedMesh=mesh;go.AddComponent<MeshRenderer>().sharedMaterial=Mat(color);
+            return go;
         }
         static void SandWorm(Transform t,EnemyActor actor,Transform root)
         {

@@ -1,3 +1,4 @@
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -24,6 +25,25 @@ namespace VampireLike
         bool manualRender;
         ProfilerRecorder drawCalls,triangles;
         int renderedFrames;
+        float avoidUntil;Vector2 avoidDirection;
+        Vector2 lastTravelPosition;float lastTravelProgress;int escapeAttempt;
+        Vector2 TravelInput()
+        {
+            if((Time.realtimeSinceStartup-begin)%60>=42)return Vector2.zero;
+            Vector2 position=game.World.GlobalPosition;
+            if((position-lastTravelPosition).sqrMagnitude>.56f){lastTravelPosition=position;lastTravelProgress=Time.time;}
+            if(Time.time<avoidUntil)return avoidDirection;
+            if(Time.time-lastTravelProgress>2)
+            {
+                avoidDirection=new Vector2(escapeAttempt++/3%2==0?.85f:-.85f,-.3f);avoidUntil=Time.time+2.5f;lastTravelProgress=Time.time;return avoidDirection;
+            }
+            if(Physics.SphereCast(game.Player.transform.position+Vector3.up*.8f,.45f,Vector3.forward,out var hit,2.5f,1<<10))
+            {
+                Vector3 side=Vector3.Cross(hit.normal,Vector3.up).normalized;if(side.sqrMagnitude<.1f)side=Vector3.right;
+                avoidDirection=new Vector2(side.x,side.z)*.8f+Vector2.up*.25f;avoidUntil=Time.time+1.4f;return avoidDirection;
+            }
+            return Vector2.up*.8f;
+        }
         IEnumerator Start()
         {
             game=GameManager.Instance;if(!game.DiagnosticMode){Destroy(this);yield break;}
@@ -43,15 +63,16 @@ namespace VampireLike
             drawCalls=ProfilerRecorder.StartNew(ProfilerCategory.Render,"Draw Calls Count");triangles=ProfilerRecorder.StartNew(ProfilerCategory.Render,"Triangles Count");Camera.onPostRender+=OnRendered;
             var canvas=game.UI.View.GetComponent<Canvas>();
             if(manualRender){camera.enabled=false;camera.targetTexture=target;canvas.renderMode=RenderMode.ScreenSpaceCamera;canvas.worldCamera=camera;canvas.planeDistance=1;}
-            File.WriteAllText(Path.Combine(output,"Samples.csv"),"wallSeconds,gameSeconds,fps,p95FrameMs,maxFrameMs,unityAllocatedMB,unityReservedMB,managedMB,privateMB,enemies,poolObjects,chunks,prefabHandles,cpuFrameMs,gpuFrameMs,originX,originZ,biome,cameraRenders,drawCalls,triangles\n");
+            File.WriteAllText(Path.Combine(output,"Samples.csv"),"wallSeconds,gameSeconds,fps,p95FrameMs,maxFrameMs,unityAllocatedMB,unityReservedMB,managedMB,privateMB,enemies,poolObjects,chunks,prefabHandles,cpuFrameMs,gpuFrameMs,originX,originZ,biome,cameraRenders,drawCalls,triangles,experienceOrbs,unclaimedExperience,projectiles\n");
             begin=Time.realtimeSinceStartup;nextSample=begin+30;measuring=true;
             while(Time.realtimeSinceStartup-begin<seconds&&errors.Count==0)
             {
+                if(!game.Ready){errors.Add("Stress run left Playing unexpectedly; see Player log for recovery cause");break;}
                 game.Player.Heal(100000);
                 if(game.UI.View.upgrade.activeSelf){var choices=game.Progression.Choices();if(choices.Count>0)game.Progression.Apply(choices[0].id,false);else game.Progression.SkipLevel();}
                 if(game.UI.View.victory.activeSelf)game.UI.CloseModal();
-                if(Time.time>nextDodge){nextDodge=Time.time+2.4f;game.Inputs.ForVerification(Vector2.up*.8f,true);}
-                else game.Inputs.ForVerification((Time.realtimeSinceStartup-begin)%60<42?Vector2.up*.8f:Vector2.zero);
+                Vector2 travel=TravelInput();if(Time.time>nextDodge){nextDodge=Time.time+2.4f;game.Inputs.ForVerification(travel,true);}
+                else game.Inputs.ForVerification(travel);
                 if(Time.time>nextDense&&game.Combat.Enemies.Count<300)
                 {
                     nextDense=Time.time+15;
@@ -78,6 +99,8 @@ namespace VampireLike
             string gpu=count>0&&timing[0].gpuFrameTime>0?timing[0].gpuFrameTime.ToString("F3",System.Globalization.CultureInfo.InvariantCulture):"NA";
             long privateBytes=System.Diagnostics.Process.GetCurrentProcess().PrivateMemorySize64;
             string row=string.Format(System.Globalization.CultureInfo.InvariantCulture,"{0:F1},{1:F1},{2:F2},{3:F2},{4:F2},{5:F2},{6:F2},{7:F2},{8},{9},{10},{11},{12},{13},{14},{15},{16},{17},{18},{19},{20}\n",Time.realtimeSinceStartup-begin,game.Run.seconds,frames.Count*1000/sum,frames[Mathf.Min(frames.Count-1,(int)(frames.Count*.95f))],frames[frames.Count-1],Profiler.GetTotalAllocatedMemoryLong()/1048576.0,Profiler.GetTotalReservedMemoryLong()/1048576.0,GC.GetTotalMemory(false)/1048576.0,privateBytes>0?(privateBytes/1048576.0).ToString("F2",System.Globalization.CultureInfo.InvariantCulture):"NA",game.Combat.Enemies.Count,game.Pool.Count,game.World.ActiveChunks,game.Assets.LoadedPrefabCount,cpu,gpu,game.World.OriginChunk.x,game.World.OriginChunk.y,game.World.CurrentBiome,renderedFrames,drawCalls.Valid?drawCalls.LastValue:-1,triangles.Valid?triangles.LastValue:-1);
+            var orbs=game.GetRunObjects<ExperienceOrb>();long experience=0;foreach(var orb in orbs)experience+=orb.Amount;
+            row=row.TrimEnd('\n')+","+orbs.Length+","+experience+","+game.GetRunObjects<ProjectileActor>().Length+"\n";
             File.AppendAllText(Path.Combine(output,"Samples.csv"),row);samples++;frames.Clear();renderedFrames=0;
         }
         void OnLog(string message,string stack,LogType type){if(type==LogType.Error||type==LogType.Exception||type==LogType.Assert){string detail=message+"\n"+stack;if(!errors.Contains(detail))errors.Add(detail);}}
@@ -85,3 +108,5 @@ namespace VampireLike
         void OnDestroy(){Application.logMessageReceived-=OnLog;Camera.onPostRender-=OnRendered;drawCalls.Dispose();triangles.Dispose();if(camera!=null){camera.targetTexture=null;camera.enabled=true;}if(target!=null){target.Release();Destroy(target);}}
     }
 }
+
+#endif

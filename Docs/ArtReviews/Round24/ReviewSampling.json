@@ -1,0 +1,233 @@
+[
+  {
+    "sequence": "boss-attacks-0",
+    "frames": 144,
+    "reviewedContactSamples": 12,
+    "fixedSimulationFps": 12,
+    "wallClockTimestamps": null
+  },
+  {
+    "sequence": "boss-attacks-1",
+    "frames": 144,
+    "reviewedContactSamples": 12,
+    "fixedSimulationFps": 12,
+    "wallClockTimestamps": null
+  },
+  {
+    "sequence": "boss-attacks-2",
+    "frames": 144,
+    "reviewedContactSamples": 12,
+    "fixedSimulationFps": 12,
+    "wallClockTimestamps": null
+  },
+  {
+    "sequence": "boss-attacks-3",
+    "frames": 144,
+    "reviewedContactSamples": 12,
+    "fixedSimulationFps": 12,
+    "wallClockTimestamps": null
+  },
+  {
+    "sequence": "boss-death-0",
+    "frames": 25,
+    "reviewedContactSamples": 12,
+    "fixedSimulationFps": null,
+    "wallClockTimestamps": true
+  },
+  {
+    "sequence": "boss-death-1",
+    "frames": 23,
+    "reviewedContactSamples": 12,
+    "fixedSimulationFps": null,
+    "wallClockTimestamps": true
+  },
+  {
+    "sequence": "boss-death-2",
+    "frames": 27,
+    "reviewedContactSamples": 12,
+    "fixedSimulationFps": null,
+    "wallClockTimestamps": true
+  },
+  {
+    "sequence": "boss-death-3",
+    "frames": 27,
+    "reviewedContactSamples": 12,
+    "fixedSimulationFps": null,
+    "wallClockTimestamps": true
+  },
+  {
+    "sequence": "character-move-dodge",
+    "frames": 72,
+    "reviewedContactSamples": 12,
+    "fixedSimulationFps": 12,
+    "wallClockTimestamps": null
+  },
+  {
+    "sequence": "effect-arc",
+    "frames": 21,
+    "reviewedContactSamples": 12,
+    "fixedSimulationFps": null,
+    "wallClockTimestamps": true
+  },
+  {
+    "sequence": "effect-embers",
+    "frames": 21,
+    "reviewedContactSamples": 12,
+    "fixedSimulationFps": null,
+    "wallClockTimestamps": true
+  },
+  {
+    "sequence": "effect-explosion",
+    "frames": 21,
+    "reviewedContactSamples": 12,
+    "fixedSimulationFps": null,
+    "wallClockTimestamps": true
+  },
+  {
+    "sequence": "effect-flame",
+    "frames": 21,
+    "reviewedContactSamples": 12,
+    "fixedSimulationFps": null,
+    "wallClockTimestamps": true
+  },
+  {
+    "sequence": "effect-frost",
+    "frames": 21,
+    "reviewedContactSamples": 12,
+    "fixedSimulationFps": null,
+    "wallClockTimestamps": true
+  },
+  {
+    "sequence": "effect-iceburst",
+    "frames": 21,
+    "reviewedContactSamples": 12,
+    "fixedSimulationFps": null,
+    "wallClockTimestamps": true
+  },
+  {
+    "sequence": "effect-leafburst",
+    "frames": 21,
+    "reviewedContactSamples": 12,
+    "fixedSimulationFps": null,
+    "wallClockTimestamps": true
+  },
+  {
+    "sequence": "effect-lightning",
+    "frames": 21,
+    "reviewedContactSamples": 12,
+    "fixedSimulationFps": null,
+    "wallClockTimestamps": true
+  },
+  {
+    "sequence": "effect-rune",
+    "frames": 22,
+    "reviewedContactSamples": 12,
+    "fixedSimulationFps": null,
+    "wallClockTimestamps": true
+  },
+  {
+    "sequence": "effect-sand",
+    "frames": 21,
+    "reviewedContactSamples": 12,
+    "fixedSimulationFps": null,
+    "wallClockTimestamps": true
+  },
+  {
+    "sequence": "effect-slash",
+    "frames": 22,
+    "reviewedContactSamples": 12,
+    "fixedSimulationFps": null,
+    "wallClockTimestamps": true
+  },
+  {
+    "sequence": "feedback-pause-open",
+    "frames": 9,
+    "reviewedContactSamples": 9,
+    "fixedSimulationFps": null,
+    "wallClockTimestamps": true
+  },
+  {
+    "sequence": "feedback-skills-open",
+    "frames": 9,
+    "reviewedContactSamples": 9,
+    "fixedSimulationFps": null,
+    "wallClockTimestamps": true
+  },
+  {
+    "sequence": "feedback-task-unlock",
+    "frames": 11,
+    "reviewedContactSamples": 11,
+    "fixedSimulationFps": null,
+    "wallClockTimestamps": true
+  },
+  {
+    "sequence": "feedback-upgrade-open",
+    "frames": 9,
+    "reviewedContactSamples": 9,
+    "fixedSimulationFps": null,
+    "wallClockTimestamps": true
+  },
+  {
+    "sequence": "feedback-upgrade-reward",
+    "frames": 9,
+    "reviewedContactSamples": 9,
+    "fixedSimulationFps": null,
+    "wallClockTimestamps": true
+  },
+  {
+    "sequence": "late-density-combinations",
+    "frames": 96,
+    "reviewedContactSamples": 96,
+    "fixedSimulationFps": 12,
+    "wallClockTimestamps": null
+  },
+  {
+    "sequence": "player-defeat",
+    "frames": 16,
+    "reviewedContactSamples": 12,
+    "fixedSimulationFps": null,
+    "wallClockTimestamps": true
+  },
+  {
+    "sequence": "role-action-adventurer",
+    "frames": 60,
+    "reviewedContactSamples": 12,
+    "fixedSimulationFps": 12,
+    "wallClockTimestamps": null
+  },
+  {
+    "sequence": "role-action-elementalist",
+    "frames": 60,
+    "reviewedContactSamples": 12,
+    "fixedSimulationFps": 12,
+    "wallClockTimestamps": null
+  },
+  {
+    "sequence": "role-action-swordsman",
+    "frames": 60,
+    "reviewedContactSamples": 12,
+    "fixedSimulationFps": 12,
+    "wallClockTimestamps": null
+  },
+  {
+    "sequence": "role-closeup-adventurer",
+    "frames": 48,
+    "reviewedContactSamples": 48,
+    "fixedSimulationFps": 12,
+    "wallClockTimestamps": null
+  },
+  {
+    "sequence": "role-closeup-elementalist",
+    "frames": 48,
+    "reviewedContactSamples": 48,
+    "fixedSimulationFps": 12,
+    "wallClockTimestamps": null
+  },
+  {
+    "sequence": "role-closeup-swordsman",
+    "frames": 48,
+    "reviewedContactSamples": 48,
+    "fixedSimulationFps": 12,
+    "wallClockTimestamps": null
+  }
+]

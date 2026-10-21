@@ -17,6 +17,7 @@ namespace VampireLike.Editor
             master = AssetDatabase.LoadAssetAtPath<Material>("Assets/Art/Materials/Cartoon.mat");
             if (master == null) { master = new Material(Shader.Find("VampireLike/CartoonVertex")); AssetDatabase.CreateAsset(master, "Assets/Art/Materials/Cartoon.mat"); }
             master.enableInstancing = true; colors.Clear();
+            duneBuilt=false;
         }
         public static GameObject Root(string name, Transform parent = null)
         { var go = new GameObject(name); if (parent != null) go.transform.SetParent(parent, false); return go; }
@@ -81,7 +82,7 @@ namespace VampireLike.Editor
         }
         public static void Bake(Transform group, string id)
         {
-            var vertices = new List<Vector3>(); var normals = new List<Vector3>(); var vertexColors = new List<Color>(); var triangles = new List<int>();
+            var vertices = new List<Vector3>(); var normals = new List<Vector3>(); var vertexColors = new List<Color>(); var triangles = new List<int>();var effectParts=new List<Vector4>();
             var filters = group.GetComponentsInChildren<MeshFilter>(true);
             foreach (var filter in filters)
             {
@@ -91,16 +92,37 @@ namespace VampireLike.Editor
                 var normalMatrix = matrix.inverse.transpose;
                 Color color = renderer.sharedMaterial != null ? renderer.sharedMaterial.color : Color.white;
                 int offset = vertices.Count; var vs = mesh.vertices; var ns = mesh.normals;
-                for (int i = 0; i < vs.Length; i++) { vertices.Add(matrix.MultiplyPoint3x4(vs[i])); normals.Add(normalMatrix.MultiplyVector(ns[i]).normalized); vertexColors.Add(color.linear); }
+                string surface=filter.name.ToLowerInvariant();float gloss=surface.Contains("eye")||surface.Contains("iris")||surface.Contains("gem")||surface.Contains("orb")||surface.Contains("lens")?.75f:surface.Contains("blade")||surface.Contains("ice")||surface.Contains("metal")||surface.Contains("barrel")||surface.Contains("buckle")?.42f:.055f;
+                Color packed=color.linear;packed.a=gloss;
+                Vector3 center=matrix.MultiplyPoint3x4(mesh.bounds.center);
+                float phase=surface.Contains("bolt")||surface.Contains("electric")?3:surface.Contains("core")?0:surface.Contains("wave")||surface.Contains("circle")||surface.Contains("halo")||surface.Contains("seal")?1:2;
+                for (int i = 0; i < vs.Length; i++)
+                {
+                    Vector3 point=matrix.MultiplyPoint3x4(vs[i]),normal=normalMatrix.MultiplyVector(ns[i]).normalized;
+                    if(!Finite(point)||!Finite(normal))throw new System.InvalidOperationException("Non-finite geometry: "+id+" / "+filter.name+" vertex "+i);
+                    vertices.Add(point);normals.Add(normal);vertexColors.Add(packed);
+                    effectParts.Add(new Vector4(phase,center.x,center.y,center.z));
+                }
                 foreach (int index in mesh.triangles) triangles.Add(offset + index);
             }
             if (vertices.Count == 0) return;
             var combined = new Mesh { name = id, indexFormat = vertices.Count > 65530 ? UnityEngine.Rendering.IndexFormat.UInt32 : UnityEngine.Rendering.IndexFormat.UInt16 };
-            combined.SetVertices(vertices); combined.SetNormals(normals); combined.SetColors(vertexColors); combined.SetTriangles(triangles, 0); combined.RecalculateBounds();
+            combined.SetVertices(vertices); combined.SetNormals(normals); combined.SetColors(vertexColors);combined.SetUVs(1,effectParts); combined.SetTriangles(triangles, 0); combined.RecalculateBounds();
             string path = "Assets/Art/Models/Generated/" + id + ".asset";
             var existing = AssetDatabase.LoadAssetAtPath<Mesh>(path);
             if (existing != null) { EditorUtility.CopySerialized(combined, existing); Object.DestroyImmediate(combined); combined = existing; }
             else AssetDatabase.CreateAsset(combined, path);
+            EditorUtility.SetDirty(combined);
+            int collisionIndex=0;
+            foreach(var collider in group.GetComponentsInChildren<MeshCollider>(true))
+            {
+                if(collider.sharedMesh==null||AssetDatabase.Contains(collider.sharedMesh))continue;
+                string collisionPath="Assets/Art/Models/Generated/"+id+"-collision-"+(collisionIndex++)+".asset";
+                var collisionMesh=AssetDatabase.LoadAssetAtPath<Mesh>(collisionPath);
+                if(collisionMesh!=null)EditorUtility.CopySerialized(collider.sharedMesh,collisionMesh);
+                else{collisionMesh=Object.Instantiate(collider.sharedMesh);AssetDatabase.CreateAsset(collisionMesh,collisionPath);}
+                EditorUtility.SetDirty(collisionMesh);collider.sharedMesh=collisionMesh;
+            }
             foreach (var filter in filters) { Object.DestroyImmediate(filter.GetComponent<MeshRenderer>()); Object.DestroyImmediate(filter); }
             var targetFilter = group.gameObject.GetComponent<MeshFilter>(); if (targetFilter == null) targetFilter = group.gameObject.AddComponent<MeshFilter>();
             var targetRenderer = group.gameObject.GetComponent<MeshRenderer>(); if (targetRenderer == null) targetRenderer = group.gameObject.AddComponent<MeshRenderer>();
@@ -111,6 +133,7 @@ namespace VampireLike.Editor
             string dir = "Assets/Art/Prefabs/" + folder; Directory.CreateDirectory(dir);
             var prefab = PrefabUtility.SaveAsPrefabAsset(root, dir + "/" + id + ".prefab"); Object.DestroyImmediate(root); return prefab;
         }
+        static bool Finite(Vector3 value)=>!float.IsNaN(value.x)&&!float.IsNaN(value.y)&&!float.IsNaN(value.z)&&!float.IsInfinity(value.x)&&!float.IsInfinity(value.y)&&!float.IsInfinity(value.z);
         public static GameObject Character(int variant)
         {
             string id = new[] { "adventurer", "elementalist", "swordsman" }[variant];
@@ -167,13 +190,14 @@ namespace VampireLike.Editor
                 }
                 Tube(anim.head,"GoggleBridge",new Vector3(-.09f,.37f,.4f),new Vector3(.09f,.37f,.4f),.024f,Gold);
             }
+            var eyes=Root("Eyes",anim.head).transform;anim.eyes=eyes;
             for (int sign = -1; sign <= 1; sign += 2)
             {
                 Sphere(anim.head, "Ear", new Vector3(sign * .55f, -.04f, 0), new Vector3(.19f, .25f, .17f), Skin);
-                Sphere(anim.head, "EyeWhite", new Vector3(sign * .225f, .015f, .448f), new Vector3(.29f, .34f, .095f), Color.white);
-                Sphere(anim.head, "Iris", new Vector3(sign * .225f, .005f, .502f), new Vector3(.19f, .25f, .035f), variant == 1 ? Teal : Brown);
-                Sphere(anim.head, "Pupil", new Vector3(sign * .225f, .012f, .52f), new Vector3(.095f, .16f, .025f), Ink);
-                Sphere(anim.head, "EyeSpark", new Vector3(sign * .225f - .033f, .065f, .535f), Vector3.one * .058f, Color.white);
+                Sphere(eyes, "EyeWhite", new Vector3(sign * .225f, .015f, .448f), new Vector3(.29f, .34f, .095f), Color.white);
+                Sphere(eyes, "Iris", new Vector3(sign * .225f, .005f, .502f), new Vector3(.19f, .25f, .035f), variant == 1 ? Teal : Brown);
+                Sphere(eyes, "Pupil", new Vector3(sign * .225f, .012f, .52f), new Vector3(.095f, .16f, .025f), Ink);
+                Sphere(eyes, "EyeSpark", new Vector3(sign * .225f - .033f, .065f, .535f), Vector3.one * .058f, Color.white);
                 Tube(anim.head, "Brow", new Vector3(sign * .12f, .23f, .44f), new Vector3(sign * .34f, .25f, .42f), .025f, hair);
                 Sphere(anim.head, "Cheek", new Vector3(sign * .36f, -.16f, .43f), new Vector3(.15f, .07f, .025f), Hex("F49C87"));
             }
@@ -190,12 +214,14 @@ namespace VampireLike.Editor
                 var ornament=Ring(anim.head,"JadeHairCrown",.19f,.035f,Gold);ornament.transform.localPosition=new Vector3(0,.48f,-.05f);
                 Tube(anim.head,"HairPin",new Vector3(-.36f,.52f,0),new Vector3(.36f,.52f,0),.035f,Gold);
             }
-            Bake(anim.head, id + "-head");
+            eyes.SetParent(null,true);Bake(anim.head, id + "-head");eyes.SetParent(anim.head,true);Bake(eyes,id+"-eyes");
             anim.eyelids=new Transform[2];
             for(int i=0;i<2;i++)
             {
                 var lid=Root("Eyelid"+i,anim.head).transform;lid.localPosition=new Vector3((i==0?-1:1)*.225f,.015f,.548f);
-                Sphere(lid,"LidSkin",Vector3.zero,new Vector3(.31f,.36f,.055f),Skin);Bake(lid,id+"-eyelid-"+i);lid.gameObject.SetActive(false);anim.eyelids[i]=lid;
+                Tube(lid,"ClosedEyeLeft",new Vector3(-.115f,.005f,-.025f),new Vector3(0,-.035f,0),.019f,Brown);
+                Tube(lid,"ClosedEyeRight",new Vector3(0,-.035f,0),new Vector3(.115f,.005f,-.025f),.019f,Brown);
+                Bake(lid,id+"-eyelid-"+i);lid.gameObject.SetActive(false);anim.eyelids[i]=lid;
             }
             anim.mouth=Root("Mouth",anim.head).transform;anim.mouth.localPosition=new Vector3(0,-.27f,.478f);
             Sphere(anim.mouth,"Smile",Vector3.zero,new Vector3(.16f,.055f,.025f),Hex("A45C45"));Bake(anim.mouth,id+"-mouth");
@@ -211,6 +237,19 @@ namespace VampireLike.Editor
                     Tube(arm,"Wand",new Vector3(-.05f,-1.12f,.13f),new Vector3(-.05f,.57f,.13f),.04f,Brown);
                     Sphere(arm,"WandOrb",new Vector3(-.05f,.67f,.13f),Vector3.one*.23f,Teal);
                     var wandRing=Ring(arm,"WandRing",.20f,.035f,Gold);wandRing.transform.localPosition=new Vector3(-.05f,.67f,.13f);wandRing.transform.localEulerAngles=new Vector3(60,0,0);
+                }
+                if(variant==0&&sign>0)
+                {
+                    Cube(arm,"PistolMetalSlide",new Vector3(0,-.73f,.11f),new Vector3(.19f,.43f,.22f),Hex("607D84"));
+                    Tube(arm,"PistolBarrel",new Vector3(0,-.82f,.11f),new Vector3(0,-.99f,.11f),.065f,Ink);
+                    Tube(arm,"PistolGrip",new Vector3(0,-.50f,.03f),new Vector3(0,-.61f,-.11f),.06f,Brown);
+                    var muzzle=Ring(arm,"MuzzleRim",.067f,.016f,Gold);muzzle.transform.localPosition=new Vector3(0,-1.0f,.11f);
+                    Cube(arm,"PistolSight",new Vector3(0,-.91f,.24f),new Vector3(.045f,.06f,.045f),Gold);
+                }
+                if(variant==2&&sign>0)
+                {
+                    for(int finger=0;finger<2;finger++)Capsule(arm,"SwordMudraFinger",new Vector3((finger-.5f)*.072f,-.62f,.06f),new Vector3(.065f,.11f,.07f),Skin);
+                    var seal=Ring(arm,"JadeWristSeal",.12f,.022f,Gold);seal.transform.localPosition=new Vector3(0,-.34f,0);
                 }
                 Bake(arm, id + "-arm" + sign); if (sign < 0) anim.leftArm = arm; else anim.rightArm = arm;
                 var leg = Root(sign < 0 ? "LegL" : "LegR", anim.visual).transform; leg.localPosition = new Vector3(sign * .18f, .69f, 0);

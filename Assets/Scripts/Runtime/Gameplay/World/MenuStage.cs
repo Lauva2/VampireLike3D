@@ -7,6 +7,7 @@ namespace VampireLike
     public sealed class MenuStage : MonoBehaviour
     {
         public static MenuStage Active { get; private set; }
+        public bool Ready{get;private set;}
         AssetScope scope;
         GameManager game;
         PoolService pool;
@@ -18,13 +19,15 @@ namespace VampireLike
             Active = this; game = GameManager.Instance;
             if (game == null) yield break;
             scope = new AssetScope("menu-stage"); pool = new PoolService(transform);
-            foreach (string id in new[] { "terrain/forest", "decoration/forest", "character/adventurer", "character/elementalist", "character/swordsman" })
+            foreach (string id in new[] { "terrain/forest","terrain/forest-wild","terrain/forest-ridge","path/network", "decoration/forest", "character/adventurer", "character/elementalist", "character/swordsman" })
                 yield return game.Assets.LoadPrefab(id, scope, prefab => pool.Register(id, prefab));
             if (scope.Disposed) yield break;
             for (int x = -1; x <= 1; x++) for (int z = -1; z <= 1; z++)
             {
-                var ground = pool.Rent("terrain/forest", new Vector3(x * 32, 0, z * 32), Quaternion.identity);
+                var ground = pool.Rent(z==1?"terrain/forest":"terrain/forest-wild", new Vector3(x * 32, 0, z * 32), Quaternion.identity);
                 if (ground != null) sceneObjects.Add(ground);
+                Physics.SyncTransforms();var paths=pool.Rent("path/network",new Vector3(x*32,0,z*32),Quaternion.identity);
+                if(paths!=null){paths.GetComponent<PathNetwork>().Configure(71,new Vector2Int(x,z),5,BiomeId.Forest,new[]{BiomeId.Forest,BiomeId.Forest,BiomeId.Forest,BiomeId.Forest},z==1,true,true,false);sceneObjects.Add(paths);}
             }
             var random = new System.Random(71);
             for (int i = 0; i < 16; i++)
@@ -34,6 +37,7 @@ namespace VampireLike
                 if (go != null) { go.GetComponent<DecorationVariant>()?.Select(go.transform.position.z < 4 && go.transform.position.x > 1 && go.transform.position.x < 12 ? 2 : i); sceneObjects.Add(go); }
             }
             SelectCharacter("adventurer");
+            Ready=true;
         }
         public void SelectCharacter(string id)
         {

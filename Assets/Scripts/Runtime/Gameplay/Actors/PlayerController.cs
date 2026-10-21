@@ -16,6 +16,8 @@ namespace VampireLike
         Vector3 lastDirection = Vector3.back, dodgeDirection;
         float nextDodge, dodgeUntil, invulnerableUntil, nextHit, gravity;
         CharacterAnimator animator;
+        Vector3 combatFacing;float combatFacingUntil;
+        public void FaceAttack(Vector3 direction){direction.y=0;if(direction.sqrMagnitude>.01f){combatFacing=direction.normalized;combatFacingUntil=Time.time+.4f;}}
         public void Initialize(GameManager manager)
         {
             game = manager; controller = GetComponent<CharacterController>(); animator = GetComponent<CharacterAnimator>();
@@ -47,7 +49,9 @@ namespace VampireLike
             Vector3 velocity = (dodging ? dodgeDirection * 16 : direction * Speed) + Vector3.up * gravity;
             controller.Move(velocity * Time.deltaTime);
             if (direction.sqrMagnitude > .01f) transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), Time.deltaTime * 14);
+            else if(!dodging&&Time.time<combatFacingUntil)transform.rotation=Quaternion.Slerp(transform.rotation,Quaternion.LookRotation(combatFacing),Time.deltaTime*18);
             animator?.Animate(direction.magnitude, dodging, Invulnerable);
+            Shader.SetGlobalVector("_PlayerFocus",new Vector4(transform.position.x,transform.position.y,transform.position.z,1));
             if (Health < MaxHealth) Health = Mathf.Min(MaxHealth, Health + game.Run.Effect(game.Catalog, UpgradeEffect.Regeneration) * Time.deltaTime);
             if (transform.position.y < -5) { controller.enabled = false; transform.position = new Vector3(transform.position.x, 2, transform.position.z); controller.enabled = true; }
         }

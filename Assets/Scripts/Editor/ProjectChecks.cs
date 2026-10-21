@@ -30,6 +30,35 @@ namespace VampireLike.Editor
             run.upgrades["orbit"]=1;run.upgrades["rain"]=1;check(run.Level("orbit")==1&&run.Level("rain")==1,"Parallel routes coexist");
             check(WorldService.SeedHash(13,-99,45)==WorldService.SeedHash(13,-99,45),"Stable chunk hash");
             check(WorldService.SeedHash(13,-99,45)!=WorldService.SeedHash(13,-98,45),"Distinct chunk coordinates");
+            bool finiteMeshes=true;int meshCount=0;
+            foreach(string guid in AssetDatabase.FindAssets("t:Mesh",new[]{"Assets/Art/Models/Generated"}))
+            {
+                var mesh=AssetDatabase.LoadAssetAtPath<Mesh>(AssetDatabase.GUIDToAssetPath(guid));meshCount++;
+                foreach(var v in mesh.vertices)if(float.IsNaN(v.x)||float.IsNaN(v.y)||float.IsNaN(v.z)||float.IsInfinity(v.x)||float.IsInfinity(v.y)||float.IsInfinity(v.z)){finiteMeshes=false;Debug.LogError("Invalid generated mesh "+mesh.name);break;}
+            }
+            check(finiteMeshes&&meshCount>50,"All generated mesh vertices are finite");
+            bool collisionMeshes=true;
+            foreach(var entry in catalog.prefabs)
+            {
+                var prefab=AssetDatabase.LoadAssetAtPath<GameObject>(AssetDatabase.GUIDToAssetPath(entry.reference.AssetGUID));
+                foreach(var collider in prefab.GetComponentsInChildren<MeshCollider>(true))if(collider.sharedMesh==null||!AssetDatabase.Contains(collider.sharedMesh))collisionMeshes=false;
+            }
+            check(collisionMeshes,"All authored mesh colliders retain saved mesh assets");
+            var dune=AssetDatabase.LoadAssetAtPath<Mesh>("Assets/Art/Models/Generated/sand-dune.asset");check(dune!=null&&dune.bounds.size.y>.8f,"Generated slope has valid nonzero relief");
+            bool network=true,anchors=true;
+            for(int x=-16;x<=16;x++)for(int z=-16;z<=16;z++)
+            {
+                var key2=new Vector2Int(x,z);var parent=PathNetwork.Parent(71,key2);
+                if(key2!=Vector2Int.zero&&Mathf.Abs(parent.x)+Mathf.Abs(parent.y)>=Mathf.Abs(x)+Mathf.Abs(z))network=false;
+                foreach(var d in new[]{Vector2Int.right,Vector2Int.up})
+                {
+                    if(PathNetwork.Connected(71,key2,key2+d)!=PathNetwork.Connected(71,key2+d,key2))network=false;
+                    Vector3 a=PathNetwork.EdgeAnchor(71,key2,d),b=PathNetwork.EdgeAnchor(71,key2+d,-d)+new Vector3(d.x*32,0,d.y*32);
+                    if((a-b).sqrMagnitude>.000001f)anchors=false;
+                }
+            }
+            check(network,"Road graph shares undirected edges and every node has a finite route to origin");
+            check(anchors,"Curved road endpoints match across positive and negative chunk boundaries");
             string dir=Path.Combine(ProjectBuilder.Workspace,"Artifacts/Tests");Directory.CreateDirectory(dir);string path=Path.Combine(dir,"profile-"+Guid.NewGuid().ToString("N")+".json");
             var save=new SaveService(path);save.Profile.crystals=42;save.MarkDirty();save.Flush();
             check(new SaveService(path).Profile.crystals==42,"Save roundtrip");

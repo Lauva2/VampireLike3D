@@ -15,7 +15,7 @@ namespace VampireLike
         public void Register(string id, GameObject prefab) { if (prefab != null) templates[id] = prefab; }
         public GameObject Rent(string id, Vector3 position, Quaternion rotation)
         {
-            if (!templates.TryGetValue(id, out var template)) return null;
+            if (!templates.TryGetValue(id, out var template) || template == null) return null;
             if (!free.TryGetValue(id, out var stack)) free[id] = stack = new Stack<GameObject>();
             GameObject go = null;
             while (stack.Count > 0 && go == null) go = stack.Pop();

@@ -3,6 +3,7 @@
     <type fullname="VampireLike.AbilityController" preserve="all" />
     <type fullname="VampireLike.AbilityIcon" preserve="all" />
     <type fullname="VampireLike.AttackHazard" preserve="all" />
+    <type fullname="VampireLike.BossSiteAppearance" preserve="all" />
     <type fullname="VampireLike.CameraRig" preserve="all" />
     <type fullname="VampireLike.CharacterAnimator" preserve="all" />
     <type fullname="VampireLike.DecorationVariant" preserve="all" />
@@ -12,8 +13,10 @@
     <type fullname="VampireLike.MapGraphic" preserve="all" />
     <type fullname="VampireLike.MenuStage" preserve="all" />
     <type fullname="VampireLike.OcclusionFader" preserve="all" />
+    <type fullname="VampireLike.PathNetwork" preserve="all" />
     <type fullname="VampireLike.PlayerController" preserve="all" />
     <type fullname="VampireLike.ProjectileActor" preserve="all" />
+    <type fullname="VampireLike.TerrainAppearance" preserve="all" />
     <type fullname="VampireLike.TransientEffect" preserve="all" />
     <type fullname="VampireLike.UIRefs" preserve="all" />
     <type fullname="VampireLike.UIWidget" preserve="all" />
@@ -55,6 +58,7 @@
     <type fullname="UnityEngine.Shader" preserve="all" />
     <type fullname="UnityEngine.Sprite" preserve="all" />
     <type fullname="UnityEngine.Texture2D" preserve="all" />
+    <type fullname="UnityEngine.TrailRenderer" preserve="all" />
     <type fullname="UnityEngine.Transform" preserve="all" />
     <type fullname="UnityEngine.Events.PersistentCallGroup" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.RectOffset" preserve="nothing" serialized="true" />

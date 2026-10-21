@@ -28,6 +28,8 @@
 
 ## Delivery
 
+- User instruction (2026-10-20): do not control the desktop. Validate through isolated background Players, programmatic gameplay input, logs and original render captures. Do not use native window automation or foreground interactive tests.
+
 - Do not report planned work, compilation, playtests, performance checks or builds as completed without evidence.
 - Validate according to actual change risk. Include meaningful coverage for resource lifecycle, combination rules, deterministic world state, save migration and reward idempotency when implementing those systems.
 - Every milestone should have a reproducible runnable result, relevant validation and recorded limitations. A combat prototype is not the finished game.

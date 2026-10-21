@@ -35,6 +35,7 @@ namespace VampireLike.Editor
             EditorSettings.serializationMode=SerializationMode.ForceText;
             ConfigureLayers();
             for(int i=0;i<3;i++) Add("character/"+new[]{"adventurer","elementalist","swordsman"}[i],ArtFactory.Character(i));
+            Add("path/network",ArtFactory.Paths());
             for(int i=0;i<4;i++)
             {
                 string id=new[]{"forest","desert","snow","volcano"}[i];
@@ -52,7 +53,7 @@ namespace VampireLike.Editor
             ArtFactory.Part(enemyShot.transform,"DangerOrb",PrimitiveType.Sphere,Vector3.zero,Vector3.one*.32f,ArtFactory.Hex("E58FA9"));
             ArtFactory.Bake(enemyShot.transform,"enemy-projectile");enemyShot.AddComponent<ProjectileActor>();Add("projectile/enemy",ArtFactory.SavePrefab(enemyShot,"Projectiles","enemy"));
             for(int i=0;i<4;i++) Add("world/"+new[]{"chest","camp","shrine","boss-site"}[i],ArtFactory.Site(i));
-            foreach(string id in new[]{"impact","flame","explosion","frost","lightning","rune","roots","dodge","mark","player","warning","warning-line"})Add("vfx/"+id,ArtFactory.Effect(id));
+            foreach(string id in new[]{"impact","flame","explosion","frost","lightning","rune","roots","dodge","mark","player","warning","warning-line","arc","slash","leafburst","sand","iceburst","embers"})Add("vfx/"+id,ArtFactory.Effect(id));
             Add("pickup/experience",ArtFactory.Experience());
             Add("ui/root",UIFactory.Create());
             var audio=AudioFactory.Create();var catalog=ContentFactory.Create(prefabs,audio);
@@ -135,7 +136,26 @@ namespace VampireLike.Editor
         public static void VerifyAndBuild(){ProjectChecks.Run();BuildDevelopment();}
         public static void GenerateVerifyAndBuild(){Generate();VerifyAndBuild();}
         [MenuItem("万象远征/构建正式版")]
-        public static void BuildRelease(){Build(false);}
+        public static void BuildRelease(){ProjectChecks.Run();Build(false);}
+        [Serializable] sealed class SourceFileIdentity{public string path,sha256;}
+        [Serializable] sealed class SourceIdentity{public string unity,version,createdUtc;public bool development;public List<SourceFileIdentity> files=new List<SourceFileIdentity>();}
+        static void RecordSourceIdentity(string folder,bool development)
+        {
+            var identity=new SourceIdentity{unity=Application.unityVersion,version=PlayerSettings.bundleVersion,createdUtc=DateTime.UtcNow.ToString("O"),development=development};
+            string project=Directory.GetCurrentDirectory();
+            using(var sha=System.Security.Cryptography.SHA256.Create())
+            foreach(string root in new[]{"Assets","Packages","ProjectSettings"})
+            {
+                var files=Directory.GetFiles(Path.Combine(project,root),"*",SearchOption.AllDirectories);Array.Sort(files,StringComparer.Ordinal);
+                foreach(string path in files)
+                {
+                    string relative=path.Substring(project.Length+1).Replace('\\','/');
+                    if(relative.StartsWith("Assets/AddressableAssetsData/Windows/")||relative.StartsWith("Assets/AddressableAssetsData/LinkerBuildProcessor/"))continue;
+                    identity.files.Add(new SourceFileIdentity{path=relative,sha256=BitConverter.ToString(sha.ComputeHash(File.ReadAllBytes(path))).Replace("-","").ToLowerInvariant()});
+                }
+            }
+            File.WriteAllText(Path.Combine(folder,"SourceIdentity.json"),JsonUtility.ToJson(identity,true));
+        }
         static void Build(bool development)
         {
             Validate();AddressableAssetSettings.BuildPlayerContent(out AddressablesPlayerBuildResult content);
@@ -144,6 +164,7 @@ namespace VampireLike.Editor
             var report=BuildPipeline.BuildPlayer(new BuildPlayerOptions{scenes=new[]{"Assets/Scenes/Boot.unity"},locationPathName=Path.Combine(folder,"WanXiangExpedition.exe"),target=BuildTarget.StandaloneWindows64,options=development?BuildOptions.Development:BuildOptions.None});
             File.WriteAllText(Path.Combine(Workspace,"Artifacts",development?"DevelopmentBuild.txt":"ReleaseBuild.txt"),report.summary.result+"\nBytes: "+report.summary.totalSize+"\nErrors: "+report.summary.totalErrors+"\nSeconds: "+report.summary.totalTime.TotalSeconds);
             if(report.summary.result!=BuildResult.Succeeded)throw new InvalidOperationException("Player build failed");
+            RecordSourceIdentity(folder,development);
         }
     }
 }

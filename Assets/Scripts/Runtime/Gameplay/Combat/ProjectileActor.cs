@@ -32,7 +32,7 @@ namespace VampireLike
             if (Time.time >= expires) { game.Pool.Return(gameObject); return; }
             Vector3 from = transform.position, step = velocity * Time.deltaTime, next = from + step;
             transform.position = next;
-            if (Physics.Linecast(from, next, 1 << 10)) { game.Pool.Return(gameObject); return; }
+            if (Physics.Linecast(from, next, (1 << 10)|1)) { game.Pool.Return(gameObject); return; }
             if (enemy)
             {
                 if (SegmentDistance(game.Player.transform.position + Vector3.up * .7f, from, next) < .65f) { game.Player.Hurt(packet.damage); game.Pool.Return(gameObject); }
@@ -60,7 +60,7 @@ namespace VampireLike
                     {
                         if (left <= 0) break;
                         if (other == target || !other.IsAlive) continue;
-                        other.Hit(proc); game.Combat.Effect("vfx/lightning", other.transform.position + Vector3.up, .24f, 1); left--;
+                        other.Hit(proc);game.Combat.Chain(impact+Vector3.up,other.transform.position+Vector3.up); left--;
                     }
                 }
                 if (bounces > 0)

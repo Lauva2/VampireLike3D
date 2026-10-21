@@ -22,10 +22,12 @@ namespace VampireLike
             RenderTexture.active=previous;camera.targetTexture=null;rt.Release();Object.Destroy(rt);Object.Destroy(stage);Object.Destroy(cameraRoot);Object.Destroy(lightRoot);
             return image;
         }
-        public static Texture2D Landscape(GameObject terrain,GameObject decoration,GameObject architecture)
+        public static Texture2D Landscape(GameObject terrain,GameObject decoration,GameObject architecture,GameObject pathPrefab,BiomeId biome)
         {
             var stage=new GameObject("Landscape studio");stage.transform.position=new Vector3(20000,10000,20000);
             for(int x=-1;x<=1;x++)for(int z=-1;z<=1;z++){var tile=Object.Instantiate(terrain,stage.transform,false);tile.transform.localPosition=new Vector3(x*32,0,z*32);}
+            Physics.SyncTransforms();
+            if(pathPrefab!=null)for(int x=-1;x<=1;x++)for(int z=-1;z<=1;z++){var paths=Object.Instantiate(pathPrefab,stage.transform,false);paths.transform.localPosition=new Vector3(x*32,0,z*32);paths.GetComponent<PathNetwork>().Configure(71,new Vector2Int(x,z),15,biome,new[]{biome,biome,biome,biome},biome==BiomeId.Forest||biome==BiomeId.Volcano,true,true,true);}
             for(int i=0;i<8;i++){var tree=Object.Instantiate(decoration,stage.transform,false);tree.transform.localPosition=new Vector3(Mathf.Sin(i*2.4f)*10,0,Mathf.Cos(i*2.4f)*9);tree.GetComponent<DecorationVariant>()?.Select(i%4==0?1:0);}
             if(architecture!=null){var landmark=Object.Instantiate(architecture,stage.transform,false);landmark.transform.localPosition=new Vector3(5,0,-3);}
             foreach(var behaviour in stage.GetComponentsInChildren<MonoBehaviour>())behaviour.enabled=false;

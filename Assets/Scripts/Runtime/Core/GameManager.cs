@@ -49,7 +49,8 @@ namespace VampireLike
             DiagnosticMode = Debug.isDebugBuild && Array.IndexOf(Environment.GetCommandLineArgs(), "--verify") >= 0;
             var args=Environment.GetCommandLineArgs();int evidence=Array.IndexOf(args,"--evidence");
             Inputs.HardwareEnabled=!DiagnosticMode||Array.IndexOf(args,"--manual")>=0;
-            string path = DiagnosticMode ? System.IO.Path.Combine(evidence>=0&&evidence+1<args.Length?args[evidence+1]:Application.persistentDataPath, "verification-profile.json") : null;
+            string path = DiagnosticMode ? System.IO.Path.Combine(evidence>=0&&evidence+1<args.Length?args[evidence+1]:Application.persistentDataPath, "verification-profile.json") :
+                Array.IndexOf(args,"--portable")>=0?System.IO.Path.Combine(System.IO.Path.GetDirectoryName(Application.dataPath),"Saves","profile-v1.json"):null;
             Save = new SaveService(path);
             UI = gameObject.AddComponent<UIManager>();
             Audio = gameObject.AddComponent<AudioService>();
@@ -64,6 +65,7 @@ namespace VampireLike
             yield return Audio.Initialize(this);
             UI.RestoreSettings();
             yield return ShowMenu();
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
             if (DiagnosticMode)
             {
                 if(Array.IndexOf(Environment.GetCommandLineArgs(),"--manual")>=0)yield break;
@@ -71,6 +73,7 @@ namespace VampireLike
                 else if(Array.IndexOf(Environment.GetCommandLineArgs(),"--soak")>=0)gameObject.AddComponent<SoakRunner>();
                 else gameObject.AddComponent<VerificationRunner>();
             }
+#endif
         }
         void Update()
         {
@@ -115,7 +118,7 @@ namespace VampireLike
             int loaded = 0;
             foreach (var entry in Catalog.prefabs)
             {
-                if (entry.id.StartsWith("terrain/") || entry.id.StartsWith("decoration/") || entry.id.StartsWith("architecture/") || entry.id.StartsWith("boss/") || entry.id.StartsWith("ui/")) continue;
+                if (entry.id.StartsWith("terrain/") || entry.id.StartsWith("path/") || entry.id.StartsWith("decoration/") || entry.id.StartsWith("architecture/") || entry.id.StartsWith("boss/") || entry.id.StartsWith("ui/")) continue;
                 if (entry.id.StartsWith("character/") && entry.id != character.prefabId) continue;
                 bool missing=false;
                 yield return Assets.LoadPrefab(entry.id, runScope, p => {missing=p==null;Pool.Register(entry.id, p);});
@@ -138,6 +141,7 @@ namespace VampireLike
         }
         IEnumerator Recover(string message)
         {
+            Debug.LogWarning("Run recovery: " + message);
             CleanupRun();
             yield return null;
             Assets.Release(runScope); runScope = null;
@@ -178,6 +182,7 @@ namespace VampireLike
             yield return Assets.LoadScene("scene/main-menu", h => activeScene = h);
             if (!activeScene.IsValid()) { Fail("主菜单场景加载失败。"); yield break; }
             UI.ShowMenu();
+            Debug.Log("MAIN_MENU_READY version="+Application.version+" development="+Debug.isDebugBuild+" save="+Save.Path);
             if (!string.IsNullOrEmpty(Save.RecoveryMessage)) UI.Toast(Save.RecoveryMessage, 6);
         }
         void CleanupRun()
@@ -191,13 +196,14 @@ namespace VampireLike
         void ClearPause() { pauses.Clear(); Time.timeScale = 1; Inputs.Blocked = false; }
         [Serializable] sealed class DiagnosticState
         {
-            public string flow,modal,pauses;public bool transition,ready;public float seconds,health,timeScale;public int level,chunks,enemies,prefabs,pool;public string[] choices;
+            public string flow,modal,pauses;public bool transition,ready;public float seconds,health,timeScale,x,z;public int level,chunks,enemies,prefabs,pool;public string[] choices;
         }
         void WriteDiagnosticStatus()
         {
             var args=Environment.GetCommandLineArgs();int index=Array.IndexOf(args,"--evidence");if(index<0||index+1>=args.Length)return;
             var choices=new List<string>();if(UI!=null&&UI.Ready)foreach(Transform t in UI.View.upgradeList){var widget=t.GetComponent<UIWidget>();if(widget!=null&&widget.gameObject.activeInHierarchy)choices.Add(widget.title.text+":"+widget.button.interactable);}
             var state=new DiagnosticState{flow=Flow.ToString(),modal=UI?.ActiveModal,pauses=string.Join(",",pauses),transition=transition,ready=Ready,seconds=Run?.seconds??0,health=Player!=null?Player.Health:0,timeScale=Time.timeScale,level=Run?.level??0,chunks=World!=null?World.ActiveChunks:0,enemies=Combat!=null?Combat.Enemies.Count:0,prefabs=Assets?.LoadedPrefabCount??0,pool=Pool?.Count??0,choices=choices.ToArray()};
+            if(World!=null){state.x=World.GlobalPosition.x;state.z=World.GlobalPosition.y;}
             try{System.IO.Directory.CreateDirectory(args[index+1]);System.IO.File.WriteAllText(System.IO.Path.Combine(args[index+1],"RuntimeStatus.json"),JsonUtility.ToJson(state,true));}catch(System.IO.IOException ex){Debug.LogWarning(ex.Message);}
         }
         void Fail(string message) { Error = message; Flow = GameFlow.Error; Debug.LogError(message); }

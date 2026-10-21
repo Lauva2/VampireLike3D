@@ -6,12 +6,13 @@ namespace VampireLike.Editor
     {
         static void Eyes(Transform parent, Vector3 center, float size, Color iris)
         {
+            var face=Root("FaceEyes",parent).transform;face.localPosition=center;
             for (int sign = -1; sign <= 1; sign += 2)
             {
-                Vector3 eye = center + Vector3.right * sign * size * .26f;
-                Sphere(parent, "Eye", eye, new Vector3(.22f, .29f, .08f) * size, Cream);
-                Sphere(parent, "Iris", eye + Vector3.forward * size * .045f, new Vector3(.12f, .18f, .035f) * size, iris);
-                Sphere(parent, "Shine", eye + new Vector3(-.025f, .06f, .068f) * size, Vector3.one * size * .045f, Color.white);
+                Vector3 eye = Vector3.right * sign * size * .26f;
+                Sphere(face, "Eye", eye, new Vector3(.22f, .29f, .08f) * size, Cream);
+                Sphere(face, "Iris", eye + Vector3.forward * size * .045f, new Vector3(.12f, .18f, .035f) * size, iris);
+                Sphere(face, "Shine", eye + new Vector3(-.025f, .06f, .068f) * size, Vector3.one * size * .045f, Color.white);
             }
         }
         public static GameObject Enemy(int type, bool boss = false)
@@ -115,9 +116,27 @@ namespace VampireLike.Editor
                     Bake(pivot,"boss-"+id+"-arm"+side);if(side<0)actor.leftArm=pivot;else actor.rightArm=pivot;
                 }
             }
+            if(boss&&type==3)
+            {
+                var core=Root("HeartRig",root.transform).transform;var pieces=new System.Collections.Generic.List<Transform>();foreach(Transform part in t)if(part.name=="Core"||part.name=="MoltenHeart")pieces.Add(part);
+                foreach(var part in pieces)part.SetParent(core,true);Bake(core,"boss-volcano-heart");actor.heart=core;
+            }
+            actor.eyeRig=t.Find("FaceEyes");if(actor.eyeRig!=null){actor.eyeRig.SetParent(root.transform,true);Bake(actor.eyeRig,(boss?"boss-":"enemy-")+id+"-eyes");}
+            if(!boss&&type==1)
+            {
+                var feet=new System.Collections.Generic.List<Transform>();foreach(Transform part in t)if(part.name=="Foot")feet.Add(part);
+                foreach(var foot in feet)
+                {
+                    bool left=foot.localPosition.x<0;var pivot=Root(left?"FootRigL":"FootRigR",root.transform).transform;pivot.localPosition=foot.localPosition;foot.SetParent(pivot,true);
+                    Bake(pivot,"enemy-runner-foot-"+(left?"l":"r"));if(left)actor.leftFoot=pivot;else actor.rightFoot=pivot;
+                }
+            }
             Bake(t, (boss ? "boss-" : "enemy-") + id);
+            if(actor.eyeRig!=null)actor.eyeRig.SetParent(t,true);
+            if(actor.leftFoot!=null)actor.leftFoot.SetParent(t,true);if(actor.rightFoot!=null)actor.rightFoot.SetParent(t,true);
             if(actor.leftArm!=null)actor.leftArm.SetParent(t,true);if(actor.rightArm!=null)actor.rightArm.SetParent(t,true);
             if(actor.bodySegments!=null)foreach(var segment in actor.bodySegments)segment.SetParent(t,true);
+            if(actor.heart!=null)actor.heart.SetParent(t,true);
             if(!boss)
             {
                 actor.eliteHalo=Root("EliteCrown",root.transform).transform;actor.eliteHalo.localPosition=Vector3.up*1.65f;
@@ -137,6 +156,7 @@ namespace VampireLike.Editor
             Cube(actor.barFill, "Green", new Vector3(0, 0, -.025f), new Vector3(width * .94f, .075f, .025f), Hex("84D3A0"));
             Bake(actor.barFill, (boss ? "boss-" : "enemy-") + id + "-barfill");
             var back = actor.barRoot.Find("Back"); Bake(back, (boss ? "boss-" : "enemy-") + id + "-barback");
+            foreach(var renderer in actor.barRoot.GetComponentsInChildren<MeshRenderer>()){renderer.sharedMaterial=EffectMaterial();renderer.shadowCastingMode=UnityEngine.Rendering.ShadowCastingMode.Off;renderer.receiveShadows=false;}
             return SavePrefab(root, boss ? "Bosses" : "Enemies", id);
         }
         public static GameObject Weapon(AbilityKind kind, bool projectile = false)
@@ -186,8 +206,10 @@ namespace VampireLike.Editor
                     Sphere(model, "Shot", Vector3.zero, kind == AbilityKind.Gun ? new Vector3(.10f, .10f, .65f) : Vector3.one * .42f, kind == AbilityKind.Gun ? Gold : Orange);
                 }
                 root.AddComponent<ProjectileActor>();
+                ProjectileTrail(root,kind);
             }
             Bake(model, (projectile ? "shot-" : "weapon-") + id);
+            if(projectile)foreach(var renderer in root.GetComponentsInChildren<MeshRenderer>()){renderer.sharedMaterial=EffectMaterial();renderer.shadowCastingMode=UnityEngine.Rendering.ShadowCastingMode.Off;renderer.receiveShadows=false;}
             return SavePrefab(root, projectile ? "Projectiles" : "Weapons", id);
         }
     }

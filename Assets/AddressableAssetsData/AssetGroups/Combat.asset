@@ -71,6 +71,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - game
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 350b9a0ddf76e0e4e8df9c782de31ab3
+    m_Address: vfx/iceburst
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 416a76c132b5ac3438353a8ed2901cd5
     m_Address: character/elementalist
     m_ReadOnly: 0
@@ -113,6 +119,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - game
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 795beace0fdbf1849af54ae6538515f9
+    m_Address: path/network
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7a40b6b78dfa09d478899a3ba333a279
     m_Address: enemy/0
     m_ReadOnly: 0
@@ -121,6 +133,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7a79a2dcfda2c6e4bba557a866fee485
     m_Address: projectile/rune
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7bf4006d71ae0e347a9464876a1794fa
+    m_Address: vfx/sand
     m_ReadOnly: 0
     m_SerializedLabels:
     - game
@@ -139,6 +157,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8aa553ba3e5056c4f87a95ef823e9323
     m_Address: character/swordsman
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 97585a580227aae499d98a2dd311fcc4
+    m_Address: vfx/embers
     m_ReadOnly: 0
     m_SerializedLabels:
     - game
@@ -173,6 +197,18 @@ MonoBehaviour:
     m_SerializedLabels:
     - game
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: af013b04aeaa78f438843155e0dd38c3
+    m_Address: vfx/slash
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: afc4ee6a5ceacf84399490a961fa95bb
+    m_Address: vfx/leafburst
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b1096992d03f7e04199cd8cbd1504c27
     m_Address: enemy/1
     m_ReadOnly: 0
@@ -193,6 +229,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c76f6338971806c46b5565c6359357d7
     m_Address: world/shrine
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d55d3071f184cb04ba68b29c464eeb28
+    m_Address: vfx/arc
     m_ReadOnly: 0
     m_SerializedLabels:
     - game

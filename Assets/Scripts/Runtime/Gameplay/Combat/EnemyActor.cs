@@ -2,9 +2,10 @@ using UnityEngine;
 
 namespace VampireLike
 {
-    public sealed class EnemyActor : MonoBehaviour
+    public sealed partial class EnemyActor : MonoBehaviour
     {
-        public Transform visual, barFill, barRoot, leftArm, rightArm, eliteHalo;
+        public Transform visual, barFill, barRoot, leftArm, rightArm, eliteHalo,heart;
+        public Transform eyeRig,leftFoot,rightFoot;
         public Transform[] bodySegments;
         Vector3[] segmentPositions;
         public int Type { get; private set; }
@@ -14,7 +15,7 @@ namespace VampireLike
         public float MaxHealth { get; private set; }
         public bool IsAlive => gameObject.activeInHierarchy && Health > 0;
         public bool Frozen => frostUntil > Time.time;
-        public bool DiagnosticImmortal;
+        public bool DiagnosticImmortal,DiagnosticStationary;
         GameManager game;
         float nextAttack, nextBurn, burnUntil, frostUntil, burnDamage, slowUntil, flashUntil;
         Vector3 chargeDirection;
@@ -26,6 +27,7 @@ namespace VampireLike
         Renderer[] renderers;
         MaterialPropertyBlock block;
         float attackAnimation;
+        Color cachedTint;float cachedFlash;
         void Awake(){block=new MaterialPropertyBlock();}
 
         public void Initialize(GameManager manager, int type, bool elite, BiomeId biome)
@@ -43,8 +45,13 @@ namespace VampireLike
             if (barRoot != null) barRoot.gameObject.SetActive(elite);
             if(eliteHalo!=null)eliteHalo.gameObject.SetActive(elite&&type!=4);
             renderers=visual.GetComponentsInChildren<Renderer>();
+            visual.localPosition=Vector3.zero;visual.localRotation=Quaternion.identity;visual.localScale=Vector3.one;
             attackAnimation=-10;
-            DiagnosticImmortal=false;
+            DiagnosticImmortal=false;DiagnosticStationary=false;
+            if(eyeRig!=null)eyeRig.localScale=Vector3.one;
+            if(leftFoot!=null)leftFoot.localRotation=Quaternion.identity;if(rightFoot!=null)rightFoot.localRotation=Quaternion.identity;
+            windup=Type==4?(biome==BiomeId.Snow?1.15f:biome==BiomeId.Volcano?1.1f:.95f):Type==3?.4f:.8f;
+            if(heart!=null)heartRenderer=heart.GetComponent<Renderer>();
             if(bodySegments!=null&&bodySegments.Length>0){if(segmentPositions==null){segmentPositions=new Vector3[bodySegments.Length];for(int i=0;i<bodySegments.Length;i++)segmentPositions[i]=bodySegments[i].localPosition;}for(int i=0;i<bodySegments.Length;i++)bodySegments[i].localPosition=segmentPositions[i];}
             SetTint();
         }
@@ -52,10 +59,11 @@ namespace VampireLike
         {
             if (visual == null) return;
             Color tint = game.Catalog.Biome(Biome).accent;
+            cachedTint=Color.Lerp(Color.white,tint,.12f);cachedFlash=0;
             foreach (var renderer in renderers)
             {
                 renderer.GetPropertyBlock(block);
-                block.SetColor("_Tint", Color.Lerp(Color.white, tint, .12f));block.SetFloat("_Flash",0);renderer.SetPropertyBlock(block);
+                block.SetColor("_Tint", Color.Lerp(Color.white, tint, .12f));block.SetFloat("_Flash",0);block.SetFloat("_Visibility",1);block.SetFloat("_Emission",0);renderer.SetPropertyBlock(block);
             }
         }
         void Update()
@@ -72,6 +80,7 @@ namespace VampireLike
             Vector3 direction = distance > .01f ? delta / distance : Vector3.forward;
             float movement = Frozen ? 0 : slowUntil > Time.time ? .45f : 1;
             if (Type == 4) BossAttacks(distance);
+            if(Type==4&&Time.time-attackAnimation<windup)movement=0;
             else if (Type == 3 && distance < 17 && Time.time > nextAttack)
             { nextAttack = Time.time + 2.6f;attackAnimation=Time.time;StartCoroutine(FireAfterWindup(direction)); }
             else if (Type == 2 && distance < 14 && Time.time > nextAttack)
@@ -84,6 +93,7 @@ namespace VampireLike
             if (Time.time >= chargeEnd) chargeAt = 0;
             if (Type == 3 && distance < 10) movement = .2f;
             if (distance < (Type == 4 ? 2 : .85f)) { game.Player.Hurt(damage); movement = .1f; }
+            if(DiagnosticStationary&&game.DiagnosticMode)movement=0;
             Vector3 step = direction * speed * movement * Time.deltaTime;
             if (Physics.CheckSphere(transform.position + step + Vector3.up * .6f, .4f, 1 << 10)) step = Vector3.Cross(direction, Vector3.up) * speed * movement * Time.deltaTime;
             transform.position += step;
@@ -100,10 +110,21 @@ namespace VampireLike
                 if(attackT>1.55f)swing=0;
                 if(leftArm!=null)leftArm.localRotation=Quaternion.Euler(swing+Mathf.Sin(phase)*8*movement,0,-5);
                 if(rightArm!=null)rightArm.localRotation=Quaternion.Euler(swing-Mathf.Sin(phase)*8*movement,0,5);
+                AnimateIntent(phase);
+                if(leftFoot!=null)leftFoot.localRotation=Quaternion.Euler(Mathf.Sin(phase)*32*movement,0,0);
+                if(rightFoot!=null)rightFoot.localRotation=Quaternion.Euler(-Mathf.Sin(phase)*32*movement,0,0);
+                if(eyeRig!=null)
+                {
+                    float cycle=(Time.time+GetInstanceID()*.173f)%5.1f,blink=cycle<.14f?Mathf.Sin(cycle/.14f*Mathf.PI):0;
+                    float openness=Frozen?1.12f:Time.time<flashUntil?.38f:Mathf.Lerp(1,.06f,blink);
+                    eyeRig.localScale=new Vector3(Time.time<flashUntil?1.08f:1,openness,1);
+                }
                 if(bodySegments!=null&&segmentPositions!=null)for(int i=0;i<bodySegments.Length;i++){bodySegments[i].localPosition=segmentPositions[i]+new Vector3(Mathf.Sin(phase-i*.65f)*.18f,Mathf.Sin(phase-i*.65f)*.06f,0);bodySegments[i].localRotation=Quaternion.Euler(0,Mathf.Cos(phase-i*.65f)*9,0);}
-                foreach(var renderer in renderers){renderer.GetPropertyBlock(block);block.SetFloat("_Flash",Time.time<flashUntil?(Type==4?.10f:.22f):0);block.SetColor("_Tint",Frozen?new Color(.63f,.87f,1):burnUntil>Time.time?new Color(1,.90f,.76f):Color.Lerp(Color.white,game.Catalog.Biome(Biome).accent,.12f));renderer.SetPropertyBlock(block);}
+                float flash=Time.time<flashUntil?(Type==4?.10f:.22f):0;Color tint=Frozen?new Color(.63f,.87f,1):burnUntil>Time.time?new Color(1,.90f,.76f):Color.Lerp(Color.white,game.Catalog.Biome(Biome).accent,.12f);
+                if(tint!=cachedTint||!Mathf.Approximately(flash,cachedFlash)){cachedTint=tint;cachedFlash=flash;foreach(var renderer in renderers){renderer.GetPropertyBlock(block);block.SetFloat("_Flash",flash);block.SetColor("_Tint",tint);renderer.SetPropertyBlock(block);}}
             }
             if (barFill != null) barFill.localScale = new Vector3(Mathf.Max(.001f, Health / MaxHealth), 1, 1);
+            if(barRoot!=null)barRoot.gameObject.SetActive(Elite||game.Combat.Marked==this||Health<MaxHealth&&distance<9);
             if (barRoot != null && Camera.main != null) barRoot.rotation = Camera.main.transform.rotation;
         }
         void BossAttacks(float distance)
@@ -138,7 +159,7 @@ namespace VampireLike
             float amount = packet.damage;
             if (Frozen && packet.shatter) { amount *= 1.6f; game.Combat.Effect("vfx/frost", transform.position, .35f, 2); }
             Health = DiagnosticImmortal&&game.DiagnosticMode?Mathf.Max(1,Health-amount):Health-amount; if(Time.time>flashUntil+.14f)flashUntil = Time.time + .055f;
-            if (barRoot != null) barRoot.gameObject.SetActive(true);
+            if (barRoot != null) barRoot.gameObject.SetActive(Elite||game.Combat.Marked==this||Vector3.Distance(transform.position,game.Player.transform.position)<9);
             if (packet.burn > 0) { burnUntil = Time.time + 3; burnDamage = Mathf.Max(burnDamage, packet.burn); lastBurn = packet; }
             if (packet.frost > 0)
             {
@@ -153,17 +174,5 @@ namespace VampireLike
             yield return new WaitForSeconds(.4f);if(game!=null&&game.Ready&&IsAlive)game.Combat.EnemyShot(transform.position+Vector3.up*.9f,direction,damage);
         }
         public void DiagnosticHealth(float fraction){if(game!=null&&game.DiagnosticMode)Health=MaxHealth*Mathf.Clamp01(fraction);}
-        System.Collections.IEnumerator Death()
-        {
-            if(barRoot!=null)barRoot.gameObject.SetActive(false);
-            float start=Time.unscaledTime;
-            while(Time.unscaledTime-start<.28f)
-            {
-                float t=(Time.unscaledTime-start)/.28f;
-                visual.localScale=Vector3.one*(1-t*.85f);visual.localRotation=Quaternion.Euler(t*80,0,t*15);visual.localPosition=Vector3.up*Mathf.Sin(t*Mathf.PI)*.3f;
-                yield return null;
-            }
-            if(game.Pool!=null)game.Pool.Return(gameObject);
-        }
     }
 }

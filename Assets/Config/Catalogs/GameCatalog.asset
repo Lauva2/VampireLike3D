@@ -31,6 +31,12 @@ MonoBehaviour:
       m_SubObjectName: 
       m_SubObjectType: 
       m_EditorAssetChanged: 0
+  - id: path/network
+    reference:
+      m_AssetGUID: 795beace0fdbf1849af54ae6538515f9
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
   - id: enemy/0
     reference:
       m_AssetGUID: 7a40b6b78dfa09d478899a3ba333a279
@@ -370,6 +376,42 @@ MonoBehaviour:
   - id: vfx/warning-line
     reference:
       m_AssetGUID: a7649ac20f330d14cb92c4c1187f6925
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: vfx/arc
+    reference:
+      m_AssetGUID: d55d3071f184cb04ba68b29c464eeb28
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: vfx/slash
+    reference:
+      m_AssetGUID: af013b04aeaa78f438843155e0dd38c3
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: vfx/leafburst
+    reference:
+      m_AssetGUID: afc4ee6a5ceacf84399490a961fa95bb
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: vfx/sand
+    reference:
+      m_AssetGUID: 7bf4006d71ae0e347a9464876a1794fa
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: vfx/iceburst
+    reference:
+      m_AssetGUID: 350b9a0ddf76e0e4e8df9c782de31ab3
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: vfx/embers
+    reference:
+      m_AssetGUID: 97585a580227aae499d98a2dd311fcc4
       m_SubObjectName: 
       m_SubObjectType: 
       m_EditorAssetChanged: 0

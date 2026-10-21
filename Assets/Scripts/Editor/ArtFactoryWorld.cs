@@ -6,6 +6,12 @@ namespace VampireLike.Editor
     {
         public static readonly Color[] GroundColors = { Hex("78A75A"), Hex("D9B371"), Hex("B9D6DD"), Hex("655A66") };
         public static readonly Color[] AccentColors = { Hex("438C76"), Hex("D0934E"), Hex("62ABC7"), Hex("E17D4E") };
+        public static GameObject Paths()
+        {
+            var root=Root("PathNetwork");root.AddComponent<PathNetwork>();root.GetComponent<MeshRenderer>().sharedMaterial=master;
+            root.GetComponent<MeshRenderer>().shadowCastingMode=UnityEngine.Rendering.ShadowCastingMode.Off;
+            return SavePrefab(root,"World/Terrain","path-network");
+        }
         public static GameObject Terrain(int biome,int variant=0)
         {
             string id = new[] { "forest", "desert", "snow", "volcano" }[biome]+(variant==0?"":variant==1?"-wild":"-ridge");
@@ -19,7 +25,9 @@ namespace VampireLike.Editor
                 Color c = Color.Lerp(GroundColors[biome], biome == 2 ? Color.white : Cream, .12f + (float)random.NextDouble() * .14f);
                 Part(t, "GroundPatch", PrimitiveType.Cylinder, p, new Vector3(scale, .003f, scale * .7f), c);
             }
-            TerrainFeatures(t, biome, random,variant);
+            var landform=Root("Landform",root.transform).transform;var features=Root("Features",landform).transform;
+            TerrainFeatures(features, biome, random,variant);
+            var appearance=root.AddComponent<TerrainAppearance>();appearance.landform=landform;
             if (biome == 0 || biome == 2)
             {
                 for (int i = 0; i < 95; i++)
@@ -30,9 +38,15 @@ namespace VampireLike.Editor
                     if (i % 6 == 0) Sphere(t, "Flower", p + Vector3.up * .16f, new Vector3(.13f, .07f, .13f), i % 2 == 0 ? Cream : Hex("F3C281"));
                 }
             }
+            var reliefs=new System.Collections.Generic.List<Transform>();foreach(Transform part in features)if(part.name.StartsWith("Relief")||part.name=="Bridge")reliefs.Add(part);
+            foreach(var relief in reliefs)
+            {
+                relief.SetParent(landform,true);Bake(relief,"terrain-"+id+"-"+relief.name);
+                if(relief.name=="Bridge")appearance.bridge=relief.gameObject;else relief.gameObject.AddComponent<OcclusionFader>();
+            }
+            Bake(features,"terrain-"+id+"-features");
             Bake(t, "terrain-" + id);
             var collider = root.AddComponent<BoxCollider>(); collider.center = Vector3.down * .2f; collider.size = new Vector3(32, .4f, 32);
-            if(variant==0&&(biome==0||biome==3)){var bridge=Root("BridgeCollider",root.transform);var bridgeCollider=bridge.AddComponent<BoxCollider>();bridgeCollider.center=new Vector3(0,.14f,8);bridgeCollider.size=new Vector3(3.3f,.28f,3.9f);}
             return SavePrefab(root, "World/Terrain", id);
         }
         public static GameObject Decoration(int biome)
@@ -118,6 +132,7 @@ namespace VampireLike.Editor
         }
         public static GameObject Site(int type)
         {
+            if(type==3)return BossLandmark();
             string id = new[] { "chest", "camp", "shrine", "boss-site" }[type]; var root = Root(id); var t = Root("Model", root.transform).transform;
             if (type == 0)
             {
@@ -164,11 +179,15 @@ namespace VampireLike.Editor
                     Ring(t, "Outer", .5f, .022f, Hex("7D2048")); Ring(t, "Inner", .46f, .014f, Hex("FF5472"));
                     for(int i=0;i<8;i++) { float a=i*Mathf.PI/4; Vector3 p=new Vector3(Mathf.Sin(a)*.50f,.025f,Mathf.Cos(a)*.50f); Spike(t,"DangerChevron",p,new Vector3(Mathf.Sin(a)*.40f,.025f,Mathf.Cos(a)*.40f),.033f,Hex("E53562")); }
                 }
-                else for(int s=-1;s<=1;s+=2){Cube(t,"LaneEdge",new Vector3(s*.49f,.01f,0),new Vector3(.025f,.012f,1),Hex("A52A54"));Cube(t,"LaneEnd",new Vector3(0,.01f,s*.49f),new Vector3(1,.012f,.025f),Hex("A52A54"));}
+                else for(int s=-1;s<=1;s+=2){Cube(t,"LaneEdge",new Vector3(s*.49f,.01f,0),new Vector3(.014f,.012f,1),Hex("A52A54"));Cube(t,"LaneEnd",new Vector3(0,.01f,s*.49f),new Vector3(1,.012f,.014f),Hex("A52A54"));}
                 Bake(t, "fx-"+id+"-rim");
                 var hazard = root.AddComponent<AttackHazard>(); hazard.fill = Root("Fill", root.transform).transform;
                 // Sparse progress strokes preserve the ground and silhouettes under overlapping attacks.
-                for(int i=-2;i<=2;i++) Cube(hazard.fill,"Hatch",new Vector3(i*.16f,.02f,0),new Vector3(.014f,.005f,Mathf.Sqrt(.18f-i*i*.0256f)*2),Hex("D6426B"),new Vector3(0,25,0));
+                if(id=="warning-line")
+                {
+                    for(int i=-1;i<=1;i++)Cube(hazard.fill,"LaneProgressTick",new Vector3(0,.02f,i*.3f),new Vector3(.32f,.005f,.004f),Hex("D6426B"));
+                }
+                else for(int i=-1;i<=1;i++) Cube(hazard.fill,"Hatch",new Vector3(i*.23f,.02f,0),new Vector3(.010f,.005f,Mathf.Sqrt(.18f-i*i*.0529f)*2),Hex("D6426B"),new Vector3(0,25,0));
                 Tube(hazard.fill,"Exclamation",new Vector3(0,.03f,-.10f),new Vector3(0,.03f,.13f),.028f,Cream);Sphere(hazard.fill,"Point",new Vector3(0,.04f,-.21f),Vector3.one*.065f,Cream);
                 Bake(hazard.fill, "fx-"+id+"-fill");
             }
@@ -177,14 +196,15 @@ namespace VampireLike.Editor
                 EffectGeometry(t,id,c);
                 Bake(t, "fx-" + id); if (id != "mark"&&id!="player") root.AddComponent<TransientEffect>();
             }
-            foreach(var renderer in root.GetComponentsInChildren<Renderer>()){renderer.shadowCastingMode=UnityEngine.Rendering.ShadowCastingMode.Off;renderer.receiveShadows=false;}
+            var effectMaterial=id=="player"?IndicatorMaterial(true):id.StartsWith("warning")||id=="mark"?IndicatorMaterial(false):EffectMaterial();
+            foreach(var renderer in root.GetComponentsInChildren<Renderer>()){renderer.sharedMaterial=effectMaterial;renderer.shadowCastingMode=UnityEngine.Rendering.ShadowCastingMode.Off;renderer.receiveShadows=false;}
             return SavePrefab(root, "VFX", id);
         }
         public static GameObject Experience()
         {
             var root = Root("experience"); Spike(root.transform, "Gem", Vector3.zero, Vector3.up * .45f, .19f, Hex("8EE4DD"));
             Spike(root.transform, "Bottom", Vector3.zero, Vector3.down * .22f, .19f, Teal);
-            Bake(root.transform, "experience-orb"); root.AddComponent<ExperienceOrb>(); return SavePrefab(root, "Pickups", "experience");
+            Bake(root.transform, "experience-orb");root.GetComponent<MeshRenderer>().sharedMaterial=EffectMaterial();root.GetComponent<MeshRenderer>().shadowCastingMode=UnityEngine.Rendering.ShadowCastingMode.Off; root.AddComponent<ExperienceOrb>(); return SavePrefab(root, "Pickups", "experience");
         }
     }
 }

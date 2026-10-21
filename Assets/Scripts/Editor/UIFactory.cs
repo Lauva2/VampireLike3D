@@ -9,7 +9,7 @@ namespace VampireLike.Editor
     {
         static Font font, boldFont;
         static Sprite rounded, circle;
-        static readonly Color Ink = ArtFactory.Hex("233E46"), Muted = ArtFactory.Hex("536B66"), Paper = ArtFactory.Hex("FBF7E9"), Mint = ArtFactory.Hex("237C70"), Sand = ArtFactory.Hex("EEE5CF");
+        static readonly Color Ink = ArtFactory.Hex("233E46"), Muted = ArtFactory.Hex("435B56"), Paper = ArtFactory.Hex("FBF7E9"), Mint = ArtFactory.Hex("237C70"), Sand = ArtFactory.Hex("EEE5CF");
         public static GameObject Create()
         {
             font = AssetDatabase.LoadAssetAtPath<Font>("Assets/Art/UI/Fonts/NotoSansCJKsc-Regular.otf");
@@ -48,11 +48,11 @@ namespace VampireLike.Editor
             Label(health, "LevelText", "Lv. 1", new Vector2(-106, 23), new Vector2(90, 34), 23, Ink, TextAnchor.MiddleLeft, FontStyle.Bold);
             Label(health, "HealthCaption", "生命", new Vector2(27, 24), new Vector2(150, 28), 16, Muted);
             r.healthFill = Bar(health, "HealthBar", new Vector2(0, -12), new Vector2(292, 17), Mint);
-            Label(health, "HealthText", "100 / 100", new Vector2(0, -37), new Vector2(292, 23), 14, Muted);
+            Label(health, "HealthText", "100 / 100", new Vector2(0, -37), new Vector2(292, 23), 16, Muted);
             r.experienceFill = Bar(r.hud.transform, "ExperienceBar", new Vector2(0, 443), new Vector2(1600, 9), ArtFactory.Hex("E6B85E"));
-            var timer = Box(r.hud.transform, "TimerCard", new Vector2(0, 384), new Vector2(176, 61), Paper);
-            Label(timer, "TimerText", "00:00", Vector2.zero, new Vector2(150, 48), 31, Ink, TextAnchor.MiddleCenter, FontStyle.Bold);
-            Label(r.hud.transform, "BiomeText", "林地 · 无限探索", new Vector2(0, 335), new Vector2(400, 30), 18, Ink, TextAnchor.MiddleCenter);
+            var timer = Box(r.hud.transform, "TimerCard", new Vector2(0, 397), new Vector2(348, 106), Paper);
+            Label(timer, "TimerText", "00:00", new Vector2(0,20), new Vector2(150, 48), 31, Ink, TextAnchor.MiddleCenter, FontStyle.Bold);
+            Label(timer, "BiomeText", "林地 · 无限探索", new Vector2(0, -26), new Vector2(320, 30), 18, Ink, TextAnchor.MiddleCenter);
             Box(r.hud.transform,"CurrencyPlaque",new Vector2(490,391),new Vector2(230,38),Paper);
             Label(r.hud.transform, "RunCurrencyText", "", new Vector2(400, 391), new Vector2(400, 34), 19, Ink, TextAnchor.MiddleRight);
             Box(r.hud.transform,"KillsPlaque",new Vector2(-650,282),new Vector2(170,34),Paper);
@@ -78,8 +78,6 @@ namespace VampireLike.Editor
             Button(r.hud.transform, "HUDMap", "M  地图", new Vector2(665, -380), new Vector2(130, 46), Paper, Ink, 17);
             Button(r.hud.transform, "HUDPause", "Esc  暂停", new Vector2(665, -320), new Vector2(130, 42), Paper, Ink, 16);
             r.bossBar = Box(r.hud.transform, "BossBar", new Vector2(0, 314), new Vector2(620, 66), Paper).gameObject;
-            ((RectTransform)timer).anchoredPosition=new Vector2(0,397);
-            var biomeLabel=r.hud.transform.Find("BiomeText") as RectTransform;biomeLabel.anchoredPosition=new Vector2(0,345);
             Label(r.bossBar.transform, "BossNameText", "", new Vector2(0, 14), new Vector2(580, 42), 21, Ink, TextAnchor.MiddleCenter, FontStyle.Bold);
             r.bossFill = Bar(r.bossBar.transform, "BossHealth", new Vector2(0, -15), new Vector2(570, 12), ArtFactory.Hex("DD8462"));
             Label(r.hud.transform, "RetreatWarningText", "", new Vector2(0, 195), new Vector2(700, 35), 21, ArtFactory.Hex("B85343"), TextAnchor.MiddleCenter);
@@ -107,8 +105,8 @@ namespace VampireLike.Editor
             r.map = Screen(root.transform, "Map", "探索地图", "白色为你的位置，金色为事件，珊瑚色为 Boss 地标。", "MapClose");
             var mapFrame = Box(r.map.transform, "MapFrame", new Vector2(-165, -35), new Vector2(590, 590), Sand);
             r.largeMap = Map(mapFrame, "WorldMap", Vector2.zero, new Vector2(560, 560), 4);
-            Label(r.map.transform, "MapLegend", "世界仍在远方延伸\n\n已探索区域会保留记录。\n地标奖励领取后不会刷新。\n\n寻找石阵，主动开启 Boss 挑战。\n准备不足时可以自由脱战。", new Vector2(395, 100), new Vector2(350, 300), 21, Ink);
-            Label(r.map.transform, "MapCoordinates", "", new Vector2(320, -95), new Vector2(500, 90), 17, Muted);
+            Label(r.map.transform, "MapLegend", "世界仍在远方延伸\n\n白色方块 · 你的位置\n金色方块 · 补给宝箱\n金色三角 · 守卫营地\n金色菱形 · 恢复祭坛\n珊瑚菱形 · Boss 挑战\n\n已领取的地标不会重复奖励。\n准备不足时可以自由脱战。", new Vector2(395, 100), new Vector2(350, 300), 19, Ink);
+            Label(r.map.transform, "MapCoordinates", "", new Vector2(350, -95), new Vector2(440, 90), 17, Ink);
             Button(r.map.transform, "MapNorth", "↑", new Vector2(370, -190), new Vector2(70, 45), Sand, Ink);
             Button(r.map.transform, "MapWest", "←", new Vector2(285, -245), new Vector2(70, 45), Sand, Ink);
             Button(r.map.transform, "MapCenter", "定位", new Vector2(370, -245), new Vector2(80, 45), Mint, Color.white, 18);
@@ -151,10 +149,24 @@ namespace VampireLike.Editor
             var toast = Box(root.transform, "Toast", new Vector2(-465, -245), new Vector2(565, 64), new Color(.10f, .20f, .22f, .96f));
             Label(toast, "ToastText", "", Vector2.zero, new Vector2(535, 60), 18, Paper, TextAnchor.MiddleCenter); toast.gameObject.SetActive(false);
             var flash = Panel(root.transform, "DamageFlash", Color.clear); r.damageFlash = flash.GetComponent<Image>(); r.damageFlash.raycastTarget = false;
+            r.damageFlash.sprite=DamageVignette();r.damageFlash.type=Image.Type.Simple;
             foreach (var panel in new[] { r.selection, r.hud, r.skills, r.upgrade, r.map, r.progress, r.pause, r.settings, r.victory, r.results, r.loading }) panel.SetActive(false);
             return ArtFactory.SavePrefab(root, "UI", "UIRoot");
         }
 
+        static Sprite DamageVignette()
+        {
+            const string path="Assets/Art/UI/Generated/DamageVignette.asset";
+            foreach(var asset in AssetDatabase.LoadAllAssetsAtPath(path))if(asset is Sprite sprite)return sprite;
+            var texture=new Texture2D(128,128,TextureFormat.RGBA32,false){name="DamageVignette",wrapMode=TextureWrapMode.Clamp};
+            for(int y=0;y<128;y++)for(int x=0;x<128;x++)
+            {
+                float edge=Mathf.Min(Mathf.Min(x,127-x),Mathf.Min(y,127-y))/63.5f;
+                float alpha=1-Mathf.SmoothStep(0,1,edge/.18f);texture.SetPixel(x,y,new Color(1,1,1,alpha*alpha));
+            }
+            texture.Apply();AssetDatabase.CreateAsset(texture,path);
+            var result=UnityEngine.Sprite.Create(texture,new Rect(0,0,128,128),Vector2.one*.5f,100);result.name="DamageVignette";AssetDatabase.AddObjectToAsset(result,texture);return result;
+        }
         static Sprite Sprite(string name, float radius)
         {
             Directory.CreateDirectory("Assets/Art/UI/Generated"); string path = "Assets/Art/UI/Generated/" + name + ".asset";
@@ -208,7 +220,9 @@ namespace VampireLike.Editor
         static Image Bar(Transform parent, string name, Vector2 p, Vector2 size, Color color)
         {
             var back = Box(parent, name, p, size, Sand);
-            var fill = Box(back, name + "Fill", Vector2.zero, size, color).GetComponent<Image>(); fill.type = Image.Type.Filled; fill.fillMethod = Image.FillMethod.Horizontal; fill.fillAmount = 1; fill.raycastTarget = false; return fill;
+            var fill = Box(back, name + "Fill", Vector2.zero, Vector2.zero, color).GetComponent<Image>();
+            fill.rectTransform.anchorMin=Vector2.zero;fill.rectTransform.anchorMax=Vector2.one;fill.rectTransform.offsetMin=Vector2.zero;fill.rectTransform.offsetMax=Vector2.zero;
+            fill.fillAmount = 1; fill.raycastTarget = false; return fill;
         }
         static Transform Grid(Transform parent, string name, Vector2 p, Vector2 size, int columns, Vector2 cell)
         {
@@ -242,7 +256,7 @@ namespace VampireLike.Editor
             var title = w.title.rectTransform; title.anchorMin = new Vector2(0, 1); title.anchorMax = new Vector2(1, 1); title.pivot = new Vector2(.5f, 1); title.anchoredPosition = new Vector2(29, -13); title.sizeDelta = new Vector2(-96, 48);
             w.body = Label(t, "WidgetBody", "", Vector2.zero, new Vector2(285, 70), 16, Muted);
             var body = w.body.rectTransform; body.anchorMin = new Vector2(0, 1); body.anchorMax = new Vector2(1, 1); body.pivot = new Vector2(.5f, 1); body.anchoredPosition = new Vector2(0, -72); body.sizeDelta = new Vector2(-40, 65);
-            w.meta = Label(t, "WidgetMeta", "", Vector2.zero, new Vector2(285, 34), 15, Mint, TextAnchor.MiddleLeft);
+            w.meta = Label(t, "WidgetMeta", "", Vector2.zero, new Vector2(285, 34), 17, Ink, TextAnchor.MiddleLeft,FontStyle.Bold);
             var meta = w.meta.rectTransform; meta.anchorMin = new Vector2(0, 0); meta.anchorMax = new Vector2(1, 0); meta.pivot = new Vector2(.5f, 0); meta.anchoredPosition = new Vector2(0, 10); meta.sizeDelta = new Vector2(-40, 31);
             w.gameObject.SetActive(false); return w;
         }

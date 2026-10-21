@@ -42,13 +42,14 @@ namespace VampireLike
                 if (prefab != null) portraits[c.id] = PortraitRenderer.Create(prefab);
             }
             var previews=new AssetScope("selection-previews");
+            GameObject pathPrefab=null;yield return game.Assets.LoadPrefab("path/network",previews,p=>pathPrefab=p);
             for(int i=0;i<4;i++)
             {
                 var biome=game.Catalog.biomes[i];GameObject terrain=null,decoration=null,architecture=null;
                 yield return game.Assets.LoadPrefab(biome.terrainId,previews,p=>terrain=p);
                 yield return game.Assets.LoadPrefab(biome.decorationId,previews,p=>decoration=p);
                 yield return game.Assets.LoadPrefab("architecture/"+new[]{"forest","desert","snow","volcano"}[i],previews,p=>architecture=p);
-                if(terrain!=null&&decoration!=null)landscapes[i]=PortraitRenderer.Landscape(terrain,decoration,architecture);
+                if(terrain!=null&&decoration!=null)landscapes[i]=PortraitRenderer.Landscape(terrain,decoration,architecture,pathPrefab,(BiomeId)i);
                 yield return null;
             }
             if(landscapes.Count==4)
@@ -91,13 +92,27 @@ namespace VampireLike
             else Debug.LogError("Missing UI button: " + name);
         }
         void Set(string name, string value) { if (texts.TryGetValue(name, out var text)) text.text = value; }
+        Coroutine panelTransition;
         void ActiveOnly(GameObject selected, string reason)
         {
+            bool opening=selected!=null&&!selected.activeSelf;
+            if(panelTransition!=null){StopCoroutine(panelTransition);panelTransition=null;}
+            foreach(var panel in new[]{view.menu,view.selection,view.upgrade,view.skills,view.pause,view.map,view.progress,view.settings,view.results,view.victory,view.loading}){var sheet=panel.transform.Find("Sheet");if(sheet!=null)sheet.localScale=Vector3.one;}
+            foreach(var group in view.GetComponentsInChildren<CanvasGroup>(true))group.alpha=1;
             ClearToast();
             foreach (var panel in new[] { view.menu, view.selection, view.upgrade, view.skills, view.pause, view.map, view.progress, view.settings, view.results, view.victory, view.loading }) panel.SetActive(panel == selected);
             view.hud.SetActive(game.Flow == GameFlow.Playing && (selected == null || selected == view.upgrade));
             modal = reason;
             game.Pause("ui", game.Ready && !string.IsNullOrEmpty(reason));
+            if(opening)panelTransition=StartCoroutine(Reveal(selected));
+        }
+        IEnumerator Reveal(GameObject panel)
+        {
+            var group=panel.GetComponent<CanvasGroup>();if(group==null)group=panel.AddComponent<CanvasGroup>();
+            var sheet=panel.transform.Find("Sheet");
+            float start=Time.unscaledTime;group.alpha=0;
+            while(Time.unscaledTime-start<.16f){float t=Mathf.SmoothStep(0,1,(Time.unscaledTime-start)/.16f);group.alpha=t;if(sheet!=null)sheet.localScale=Vector3.one*Mathf.Lerp(.975f,1,t);yield return null;}
+            group.alpha=1;if(sheet!=null)sheet.localScale=Vector3.one;panelTransition=null;
         }
         public void ShowMenu() { ActiveOnly(view.menu, "menu"); Set("MenuCrystalText", "旅途晶石  " + game.Save.Profile.crystals); }
         public void ShowHUD() { ActiveOnly(null, null); nextHUD = 0; }
@@ -253,6 +268,12 @@ namespace VampireLike
             if (texts.TryGetValue("ToastText", out var toast)) toast.transform.parent.gameObject.SetActive(false);
         }
         public void DamageFlash() { if (view != null) view.damageFlash.color = new Color(1, .24f, .18f, .18f); }
+        static void SetBar(Image fill,float value)
+        {
+            value=Mathf.Clamp01(value);fill.fillAmount=value;fill.enabled=value>.001f;
+            fill.rectTransform.anchorMax=new Vector2(value,1);
+            fill.rectTransform.offsetMin=Vector2.zero;fill.rectTransform.offsetMax=Vector2.zero;
+        }
         void Update()
         {
             if (view == null) return;
@@ -261,8 +282,8 @@ namespace VampireLike
             if (!game.Ready || Time.unscaledTime < nextHUD) return;
             nextHUD = Time.unscaledTime + .1f;
             var run = game.Run; var player = game.Player;
-            view.healthFill.fillAmount = player.Health / player.MaxHealth; view.experienceFill.fillAmount = run.experience / (float)run.nextExperience;
-            view.dodgeFill.fillAmount = 1 - player.DodgeCooldown / 2.2f;
+            SetBar(view.healthFill,player.Health/player.MaxHealth);SetBar(view.experienceFill,run.experience/(float)run.nextExperience);
+            SetBar(view.dodgeFill,1-player.DodgeCooldown/2.2f);
             Set("HealthText", Mathf.CeilToInt(player.Health) + " / " + Mathf.CeilToInt(player.MaxHealth));
             Set("LevelText", "Lv. " + run.level); Set("TimerText", Clock(run.seconds));
             Set("BiomeText", game.Catalog.Biome(game.World.CurrentBiome).name + "  ·  无限探索");
@@ -282,7 +303,7 @@ namespace VampireLike
             var boss = game.Combat.Boss;
             if(texts.TryGetValue("BiomeText",out var biomeText))biomeText.gameObject.SetActive(boss==null);
             view.bossBar.SetActive(boss != null);
-            if (boss != null) { view.bossFill.fillAmount = boss.Health / boss.MaxHealth; Set("BossNameText", game.Catalog.Biome(boss.Biome).bossName + (boss.Health < boss.MaxHealth * .5f ? "  ·  狂怒阶段" : "  ·  守卫试炼")); }
+            if (boss != null) { SetBar(view.bossFill,boss.Health/boss.MaxHealth); Set("BossNameText", game.Catalog.Biome(boss.Biome).bossName + (boss.Health < boss.MaxHealth * .5f ? "  ·  狂怒阶段" : "  ·  守卫试炼")); }
             Set("RetreatWarningText", game.Combat.RetreatProgress > 0 ? "即将脱战 · " + Mathf.Max(0, 2 - game.Combat.RetreatProgress).ToString("0.0") + " 秒后 Boss 重置" : "");
             var mark = game.Combat.Marked;
             Set("MarkText", mark == null ? "右键敌人 · 标记集火" : "集火目标  " + (mark.Type == 4 ? game.Catalog.Biome(mark.Biome).bossName : mark.Elite ? "精英" : new[] { "追击怪", "迅捷怪", "冲锋怪", "投射怪" }[mark.Type]) + "  " + Mathf.CeilToInt(mark.Health));

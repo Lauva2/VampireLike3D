@@ -26,8 +26,20 @@ namespace VampireLike
         readonly List<EnemyActor> hits = new List<EnemyActor>(64);
         readonly List<EnemyActor> spreadHits = new List<EnemyActor>(24);
         GameObject markVisual;
+        readonly Dictionary<Vector2Int,ExperienceOrb> experienceCells=new Dictionary<Vector2Int,ExperienceOrb>();
+        public static Vector2Int ExperienceCell(Vector3 p)=>new Vector2Int(Mathf.FloorToInt(p.x/1.5f),Mathf.FloorToInt(p.z/1.5f));
+        public ExperienceOrb DropExperience(Vector3 point,int amount)
+        {
+            var key=ExperienceCell(point);
+            if(experienceCells.TryGetValue(key,out var existing)&&existing!=null&&existing.CanMerge(point)){existing.Add(amount);return existing;}
+            var go=game.Pool.Rent("pickup/experience",point,Quaternion.identity);if(go==null)return null;
+            var orb=go.GetComponent<ExperienceOrb>();orb.Initialize(game,amount);experienceCells[key]=orb;return orb;
+        }
+        public void ForgetExperience(ExperienceOrb orb){if(experienceCells.TryGetValue(orb.Cell,out var current)&&current==orb)experienceCells.Remove(orb.Cell);}
 
         public void Initialize(GameManager manager) { game = manager; }
+        public void SelectPriorityTarget(EnemyActor target){if(target!=null&&(!target.IsAlive||!Enemies.Contains(target)))return;SetMark(target);}
+        public void SelectPriorityFromRay(Ray ray){EnemyActor target=null;if(Physics.Raycast(ray,out var hit,160,1<<8))target=hit.collider.GetComponentInParent<EnemyActor>();SelectPriorityTarget(target!=null&&target.IsAlive?target:null);}
         void Update()
         {
             if (!game.Ready || game.IsPaused) return;
@@ -38,7 +50,7 @@ namespace VampireLike
                 int density = Mathf.Min(420, 22 + (int)(game.Run.seconds * .2f));
                 if (Enemies.Count < density)
                 {
-                    int count = 1 + (int)(game.Run.seconds / 240);
+                    int count = Mathf.Min(1 + (int)(game.Run.seconds / 240),density-Enemies.Count);
                     for (int i = 0; i < count; i++)
                     {
                         float a = Random.value * Mathf.PI * 2;
@@ -50,9 +62,7 @@ namespace VampireLike
             if (game.Inputs.Mark)
             {
                 var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                EnemyActor selected = null;
-                if (Physics.Raycast(ray, out var hit, 160, 1 << 8)) selected = hit.collider.GetComponentInParent<EnemyActor>();
-                SetMark(selected != null && selected.IsAlive ? selected : null);
+                SelectPriorityFromRay(ray);
             }
             if (Marked != null && !Marked.IsAlive) SetMark(null);
             if (Marked != null)
@@ -134,7 +144,7 @@ namespace VampireLike
             }
             return best;
         }
-        public bool Visible(Vector3 from, EnemyActor enemy) => !Physics.Linecast(from + Vector3.up, enemy.transform.position + Vector3.up, 1 << 10);
+        public bool Visible(Vector3 from, EnemyActor enemy) => !Physics.Linecast(from + Vector3.up, enemy.transform.position + Vector3.up, (1 << 10)|1);
         public void Kill(EnemyActor enemy, DamagePacket packet)
         {
             Remove(enemy); game.Run.kills++;
@@ -165,17 +175,17 @@ namespace VampireLike
             else if (enemy.Elite) game.Progression.Reward(3, 3);
             if (game.Run.kills % 7 == 0) game.Progression.Reward(0, 1);
             game.Save.MarkDirty();
-            var orb = game.Pool.Rent("pickup/experience", enemy.transform.position + Vector3.up * .4f, Quaternion.identity);
-            if (orb != null) orb.GetComponent<ExperienceOrb>().Initialize(game, enemy.Type == 4 ? 80 : enemy.Elite ? 12 : 2);
+            DropExperience(enemy.transform.position+Vector3.up*.4f,enemy.Type==4?80:enemy.Elite?12:2);
             Effect("vfx/impact", enemy.transform.position + Vector3.up * .5f, .35f, enemy.Type == 4 ? 5 : 1.1f);
             enemy.PlayDeath();
         }
         void Remove(EnemyActor enemy) { Enemies.Remove(enemy); if (Marked == enemy) SetMark(null); }
-        public void Effect(string id, Vector3 point, float duration, float size)
+        public void Effect(string id, Vector3 point, float duration, float size,bool unscaled=false,Quaternion? rotation=null,bool hostile=false)
         {
-            var go = game.Pool.Rent(id, point, Quaternion.identity);
-            if (go != null) go.GetComponent<TransientEffect>().Initialize(game.Pool, duration, size);
+            var go = game.Pool.Rent(id, point, rotation??Quaternion.identity);
+            if (go != null) go.GetComponent<TransientEffect>().Initialize(game.Pool, duration, size,unscaled,hostile);
         }
+        public void Chain(Vector3 start,Vector3 finish){if((finish-start).sqrMagnitude<.01f)return;var go=game.Pool.Rent("vfx/arc",start,Quaternion.identity);if(go!=null)go.GetComponent<TransientEffect>().InitializeLink(game.Pool,.28f,start,finish);}
         public void Hazard(Vector3 p, float radius, float delay, float active, float damage, bool boss)
         {
             var go = game.Pool.Rent("vfx/warning", p + Vector3.up * .04f, Quaternion.identity);
@@ -203,11 +213,11 @@ namespace VampireLike
             BossCenter -= shift;
             foreach (var enemy in Enemies) if (enemy != null) enemy.transform.position -= shift;
             var movers = game.GetRunObjects<ProjectileActor>(); foreach (var p in movers) p.transform.position -= shift;
-            var orbs = game.GetRunObjects<ExperienceOrb>(); foreach (var p in orbs) p.transform.position -= shift;
+            experienceCells.Clear();var orbs = game.GetRunObjects<ExperienceOrb>(); foreach (var p in orbs){p.transform.position-=shift;p.UpdateCell();experienceCells[p.Cell]=p;}
             var hazards = game.GetRunObjects<AttackHazard>(); foreach (var p in hazards) p.transform.position -= shift;
             var effects = game.GetRunObjects<TransientEffect>(); foreach (var p in effects) p.transform.position -= shift;
             RebuildGrid();
         }
-        public void Dispose() { SetMark(null); Enemies.Clear(); grid.Clear(); Boss = null; }
+        public void Dispose() { SetMark(null); Enemies.Clear(); grid.Clear();experienceCells.Clear(); Boss = null; }
     }
 }

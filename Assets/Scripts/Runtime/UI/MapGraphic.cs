@@ -26,9 +26,10 @@ namespace VampireLike
                 if(visited)
                 {
                     Color trail=Color.Lerp(c,new Color(1,.89f,.67f),.55f);
-                    Quad(vh,p,new Vector2(size-2,size*.075f),trail);Quad(vh,p,new Vector2(size*.075f,size-2),trail);
+                    int roads=game.World.RoadConnections(key);var directions=new[]{Vector2.right,Vector2.left,Vector2.up,Vector2.down};
+                    for(int edge=0;edge<4;edge++)if((roads&(1<<edge))!=0)Quad(vh,p+directions[edge]*size*.25f,edge<2?new Vector2(size*.5f,size*.075f):new Vector2(size*.075f,size*.5f),trail);
                     var biome=game.World.BiomeAt(key);
-                    if(biome==BiomeId.Forest||biome==BiomeId.Volcano)Quad(vh,p+Vector2.up*size*.25f,new Vector2(size-2,size*.07f),biome==BiomeId.Forest?new Color(.25f,.65f,.63f):new Color(.97f,.40f,.21f));
+                    if(game.World.HasWatercourse(key))Quad(vh,p+Vector2.up*size*.25f,new Vector2(size-2,size*.07f),biome==BiomeId.Forest?new Color(.25f,.65f,.63f):new Color(.97f,.40f,.21f));
                     if(biome==BiomeId.Desert)Triangle(vh,p+new Vector2(-size*.25f,size*.15f),size*.16f,new Color(.93f,.77f,.47f));
                     if(biome==BiomeId.Snow)Diamond(vh,p+new Vector2(-size*.25f,size*.15f),size*.14f,new Color(.58f,.85f,.93f));
                 }

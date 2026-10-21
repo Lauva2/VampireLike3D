@@ -95,12 +95,13 @@ namespace VampireLike
         void Shoot(AbilityKind kind, EnemyActor target, float strength)
         {
             if (target == null || !target.IsAlive) return;
-            GetComponent<CharacterAnimator>()?.Attack();
             var definition = game.Catalog.Ability(kind);
             int logicalCount = 1 + Mathf.FloorToInt(Effect(UpgradeEffect.Count, kind) + Effect(UpgradeEffect.Spread, kind) + Effect(UpgradeEffect.Burst, kind));
             int drawnCount = Mathf.Min(16, logicalCount);
             Vector3 origin = transform.position + Vector3.up * 1.05f;
             Vector3 direction = (target.transform.position + Vector3.up * .8f - origin).normalized;
+            game.Player.FaceAttack(direction);
+            GetComponent<CharacterAnimator>()?.Attack(kind,direction);
             int penetration = Mathf.FloorToInt(Effect(UpgradeEffect.Pierce, kind)) + (kind == AbilityKind.Sword ? 1 : 0);
             int bounce = Mathf.FloorToInt(Effect(UpgradeEffect.Bounce, kind));
             float splash = (kind == AbilityKind.Fireball ? 1.8f : kind == AbilityKind.Cannon ? 3.3f : 0) + Effect(UpgradeEffect.Explosion, kind);
@@ -117,7 +118,7 @@ namespace VampireLike
                 game.Combat.Query(target.transform.position, 3, targets);
                 var packet = Packet(kind, .35f);
                 foreach (var enemy in targets) if (enemy.IsAlive) enemy.Hit(packet);
-                game.Combat.Effect("vfx/rune", target.transform.position, .35f, 2.5f);
+                game.Combat.Effect("vfx/slash", target.transform.position, .35f, 2.5f,rotation:Quaternion.LookRotation(direction));
             }
             game.Audio.Play(kind == AbilityKind.Gun ? SoundCue.Gun : kind == AbilityKind.Sword ? SoundCue.Sword : SoundCue.Magic);
         }

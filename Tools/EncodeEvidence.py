@@ -3,6 +3,8 @@ Usage: python Tools/EncodeEvidence.py Artifacts/Round5
 Requires Pillow; source JPEGs and capture metadata remain the authoritative evidence.
 """
 import json
+import csv
+import statistics
 import sys
 from pathlib import Path
 from PIL import Image
@@ -20,7 +22,15 @@ for sequence in sorted((root / "Sequences").iterdir()):
             frames.append(image.resize((960, 540), Image.Resampling.LANCZOS).convert("P", palette=Image.Palette.ADAPTIVE, colors=128))
     if len(frames) != metadata["frames"]:
         raise RuntimeError(f"Incomplete sequence: {sequence.name}")
+    fps = metadata.get("fixedSimulationFps")
+    if fps:
+        durations = round(1000 / fps)
+    else:
+        with (sequence / 'timestamps.csv').open(newline='', encoding='utf-8') as source:
+            times = [float(row['wallSeconds']) for row in csv.DictReader(source)]
+        durations = [max(10, round((b-a)*1000)) for a, b in zip(times, times[1:])]
+        durations.append(round(statistics.median(durations)) if durations else 33)
     frames[0].save(destination / (sequence.name + ".gif"), save_all=True,
-                   append_images=frames[1:], duration=round(1000 / metadata["fixedSimulationFps"]),
+                   append_images=frames[1:], duration=durations,
                    loop=0, optimize=False)
     print(sequence.name, len(frames), "frames")

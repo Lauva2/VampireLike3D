@@ -1,3 +1,4 @@
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
 using System.Collections;
 using System.IO;
 using UnityEngine;
@@ -27,16 +28,39 @@ namespace VampireLike
             game.Assets.Release(pendingScope);game.StopCoroutine(routine);yield return Wait(2);
             Check(!callback&&parent.transform.childCount==0,"Cancelled AA instantiate releases late result after coroutine stops");Destroy(parent);
         }
+        IEnumerator PrepareOcclusionExit(System.Action<Renderer> done)
+        {
+            game.Inputs.ForVerification(Vector2.zero);game.Pause("occlusion-exit-probe",true);
+            var block=new MaterialPropertyBlock();int attempts=0;
+            foreach(var fader in game.GetRunObjects<OcclusionFader>())
+            {
+                if(fader==null||!fader.gameObject.activeInHierarchy)continue;
+                var renderer=fader.GetComponentInChildren<Renderer>();
+                if(renderer==null||renderer.bounds.size.y<1.5f)continue;
+                Place(fader.transform.position+Vector3.back*.2f);yield return Wait(.32f);
+                foreach(var part in fader.GetComponentsInChildren<Renderer>())
+                {
+                    part.GetPropertyBlock(block);float visibility=block.GetFloat("_Visibility");
+                    if(visibility>0&&visibility<.99f){done(part);Check(true,"Activate real scenery occlusion before settlement");yield break;}
+                }
+                if(++attempts>=20)break;
+            }
+            Check(false,"Activate real scenery occlusion before settlement");
+        }
         IEnumerator LoadingFailureProbe(string id)
         {
+            float stageDeadline=Time.realtimeSinceStartup+25;
+            while((MenuStage.Active==null||!MenuStage.Active.Ready)&&Time.realtimeSinceStartup<stageDeadline)yield return null;
             int baseline=game.Assets.LoadedPrefabCount;
             Check(game.Assets.DiagnosticFailNextPrefab(id),"Arm controlled AA failure "+id);
             game.BeginRun("adventurer",BiomeId.Forest);
             float deadline=Time.realtimeSinceStartup+90;
             while(!game.CanBeginRun&&Time.realtimeSinceStartup<deadline)yield return null;
-            yield return Wait(1);
+            while((MenuStage.Active==null||!MenuStage.Active.Ready)&&Time.realtimeSinceStartup<deadline)yield return null;
+            yield return Wait(.2f);
             Check(game.CanBeginRun&&game.Player==null&&game.World==null,"Failed content returns safely to ready menu "+id);
             Check(game.Assets.LoadedPrefabCount==baseline,"Failed content releases all run prefab leases "+id);
+            yield return Capture("load-failure-"+id.Replace('/','-'));
         }
         void Place(Vector3 position)
         {
@@ -60,6 +84,17 @@ namespace VampireLike
                 Check(!game.Player.Invulnerable,"Dodge invulnerability expires");
                 game.Player.Hurt(9);Check(game.Player.Health<health,"Damage applies outside dodge window");
                 Check(Vector3.Distance(startPosition,game.Player.transform.position)>3,"Dodge moves actual CharacterController");
+                var drop=game.Player.transform.position+Vector3.right*12+Vector3.up*.4f;var merged=game.Combat.DropExperience(drop,2);
+                for(int i=0;i<99;i++)game.Combat.DropExperience(drop,2);
+                Check(merged!=null&&merged.Amount==200,"Nearby experience drops merge without losing their full value");
+                ClearEnemies();var marked=game.Combat.Spawn(0,game.Player.transform.position+Vector3.forward*5);
+                if(marked!=null)
+                {
+                    marked.DiagnosticImmortal=true;Physics.SyncTransforms();Vector3 aim=marked.transform.position+Vector3.up*.7f;
+                    game.Combat.SelectPriorityFromRay(new Ray(aim+Vector3.up*10,Vector3.down));Check(game.Combat.Marked==marked,"World ray selects the priority target without desktop input");
+                    game.Combat.SelectPriorityFromRay(new Ray(game.Player.transform.position+Vector3.up*10+Vector3.right*10,Vector3.up));Check(game.Combat.Marked==null,"Empty-world priority marking cancels the target");
+                    game.Combat.SelectPriorityTarget(marked);marked.DiagnosticImmortal=false;marked.Hit(new DamagePacket{damage=100000,source=AbilityKind.Gun});Check(game.Combat.Marked==null,"Defeated target clears the priority marker");
+                }
                 yield return Sequence("character-move-dodge",6,true);
                 ClearEnemies();Place(Vector3.zero);yield return Wait(.3f);
                 foreach(var site in game.World.Sites)if(site.type==0){game.World.CompleteEvent(site.id);break;}
@@ -82,8 +117,10 @@ namespace VampireLike
             // Representative geography is captured from an actual neighboring chunk, not a showcase scene.
             Vector3 terrainCenter=game.World.LocalPosition(game.World.CurrentChunk);
             Place(terrainCenter+new Vector3(-3,0,5));yield return AutoBattle(1);yield return Capture("terrain-detail-"+biome);
+            if(biome<4)yield return TerrainVariants(biome);
             if(biome<4)
             {
+                yield return SanctuaryEvidence(biome);
                 ClearEnemies();Vector3 center=game.Player.transform.position+Vector3.forward*8;
                 string bossId=game.Catalog.biomes[biome].bossId;
                 game.Combat.ActivateBoss("verification-boss-"+biome,center,(BiomeId)biome,bossId);
@@ -105,7 +142,7 @@ namespace VampireLike
                         boss.DiagnosticHealth(.65f);yield return AutoBattle(.6f);yield return Capture("boss-"+biome);
                         yield return Sequence("boss-attacks-"+biome,12,false);
                         boss.DiagnosticImmortal=false;boss.Hit(new DamagePacket{damage=10000000,source=AbilityKind.Sword});
-                        game.UI.View.victory.SetActive(false);yield return RealtimeSequence("boss-death-"+biome,.65f);game.UI.View.victory.SetActive(true);
+                        game.UI.View.victory.SetActive(false);yield return RealtimeSequence("boss-death-"+biome,1.35f);game.UI.View.victory.SetActive(true);
                         yield return Capture("victory-"+biome);Check(game.Save.Profile.bossWins[biome],"Boss first victory persists "+biome);
                         Check(game.Save.MapUnlocked((BiomeId)(biome==3?4:biome+1)),"First victory unlocks next map "+biome);
                         game.UI.CloseModal();
@@ -114,6 +151,17 @@ namespace VampireLike
             }
             else
             {
+                Vector2 restore=game.World.GlobalPosition;
+                for(int step=0;step<36;step++)
+                {
+                    if(!game.Ready){Check(false,"Run remains active through rapid travel step "+step);yield break;}
+                    Place(game.World.LocalPosition(new Vector2Int(step%2==0?step+4:-step-4,step%5)));
+                    game.Player.Heal(10000);yield return null;
+                }
+                yield return AutoBattle(2);
+                Check(game.Ready&&string.IsNullOrEmpty(game.World?.LoadingError),"Rapid mixed-biome travel retains regions with pending AA loads");
+                if(!game.Ready)yield break;
+                Place(new Vector3(restore.x-game.World.OriginChunk.x*32,0,restore.y-game.World.OriginChunk.y*32));yield return AutoBattle(2);
                 int captured=0;var pairs=new System.Collections.Generic.HashSet<string>();
                 for(int x=-12;x<13&&captured<4;x++)for(int z=-8;z<9&&captured<4;z++)
                 {
@@ -122,6 +170,13 @@ namespace VampireLike
                     Place(game.World.LocalPosition(key)+Vector3.right*15);yield return AutoBattle(2);yield return Capture("mixed-boundary-"+pair);captured++;
                 }
                 Check(captured==4,"Mixed map captures four distinct neighboring biome pairs");
+                bool shore=false;
+                for(int x=-12;x<=12&&!shore;x++)for(int z=-8;z<=8&&!shore;z++)
+                {
+                    var key=new Vector2Int(x,z);if(!game.World.HasWatercourse(key)||game.World.BiomeAt(key)!=BiomeId.Volcano||game.World.BiomeAt(key+Vector2Int.right)==BiomeId.Volcano)continue;
+                    Place(game.World.LocalPosition(key)+new Vector3(9,0,5));yield return AutoBattle(2);yield return Capture("mixed-lava-shore");CameraRig.Active.DiagnosticZoom(9.5f);yield return Wait(.2f);yield return Capture("mixed-lava-shore-close");CameraRig.Active.DiagnosticZoom(13.5f);shore=true;
+                }
+                Check(shore,"Capture actual lava watercourse terminus at a mixed-biome boundary");
             }
             ClearEnemies();game.Run.seconds=1500;game.Player.Heal(10000);
             for(int i=0;i<200;i++)
@@ -137,15 +192,21 @@ namespace VampireLike
             int previous=Time.captureFramerate;Time.captureFramerate=12;
             for(int frame=0;frame<seconds*12;frame++)
             {
+                if(!game.Ready){Check(false,"Run remains active during sequence "+name+" frame "+frame);break;}
                 if(game.Player!=null)game.Player.Heal(10000);
                 if(game.UI.View.upgrade.activeSelf){var choices=game.Progression.Choices();if(choices.Count>0)game.Progression.Apply(choices[0].id,false);else game.Progression.SkipLevel();}
-                if(movement)game.Inputs.ForVerification(new Vector2(Mathf.Sin(frame*.035f),Mathf.Cos(frame*.035f))*.75f,frame%36==0);
+                if(name.StartsWith("role-closeup"))
+                {
+                    game.Inputs.ForVerification(Vector2.zero);Vector3 center=game.Player.transform.position+Vector3.up*1.4f;
+                    Camera.main.transform.position=center+new Vector3(8,5,10);Camera.main.transform.LookAt(center);
+                }
+                else if(movement)game.Inputs.ForVerification(new Vector2(Mathf.Sin(frame*.035f),Mathf.Cos(frame*.035f))*.75f,frame%36==0);
                 else game.Inputs.ForVerification(new Vector2(frame/40%2==0?1:-1,0)*.1f,frame%40==0);
                 RenderCapture(Path.Combine(folder,frame.ToString("D4")+".jpg"),1280,720,true);
                 yield return null;
             }
             game.Inputs.ForVerification(Vector2.zero);Time.captureFramerate=previous;
-            File.WriteAllText(Path.Combine(folder,"metadata.json"),"{\"source\":\"development Player Camera.Render with live UI\",\"fixedSimulationFps\":12,\"frames\":"+(seconds*12)+",\"controlledPlayerHealing\":true,\"bossImmortalForAnimationCapture\":"+(name.StartsWith("boss")?"true":"false")+"}");
+            File.WriteAllText(Path.Combine(folder,"metadata.json"),"{\"source\":\"development Player Camera.Render with live UI\",\"fixedSimulationFps\":12,\"frames\":"+(seconds*12)+",\"controlledPlayerHealing\":true,\"enemyImmortalForRoleCapture\":"+(name.StartsWith("role")?"true":"false")+",\"enemyStationaryForRoleCapture\":"+(name.StartsWith("role")?"true":"false")+",\"bossImmortalForAnimationCapture\":"+(name.StartsWith("boss")?"true":"false")+"}");
         }
         IEnumerator AdvanceGameplay(float seconds)
         {
@@ -159,3 +220,5 @@ namespace VampireLike
         }
     }
 }
+
+#endif

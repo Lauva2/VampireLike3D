@@ -33,8 +33,8 @@ Transform:
   m_Children:
   - {fileID: 2767485396120433908}
   - {fileID: 3665020169489414038}
-  - {fileID: 765453850660330125}
-  - {fileID: 3551635723980350472}
+  - {fileID: 553203785573454989}
+  - {fileID: 1037560574803684303}
   - {fileID: 2885653110516214585}
   m_Father: {fileID: 382764074712424339}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -121,7 +121,7 @@ Transform:
   - {fileID: 7593470689260092434}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1799869208187025929
+--- !u!1 &4093478035101274007
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -129,7 +129,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 765453850660330125}
+  - component: {fileID: 553203785573454989}
   m_Layer: 0
   m_Name: Band
   m_TagString: Untagged
@@ -137,13 +137,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &765453850660330125
+--- !u!4 &553203785573454989
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1799869208187025929}
+  m_GameObject: {fileID: 4093478035101274007}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.43, y: 0.45, z: 0.44}
@@ -297,7 +297,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 761863147304851448}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &7165899353820758125
+--- !u!1 &6522786927775300109
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -305,7 +305,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3551635723980350472}
+  - component: {fileID: 1037560574803684303}
   m_Layer: 0
   m_Name: Band
   m_TagString: Untagged
@@ -313,13 +313,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3551635723980350472
+--- !u!4 &1037560574803684303
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7165899353820758125}
+  m_GameObject: {fileID: 6522786927775300109}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.43, y: 0.45, z: 0.44}
