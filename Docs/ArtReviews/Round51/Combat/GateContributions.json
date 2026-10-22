@@ -1,0 +1,50 @@
+{
+  "candidate": "Round51",
+  "version": "1.2.0",
+  "reviewer": "/root/art_combat47",
+  "scope": "Only combat-relevant gate contributions; full ten-gate conclusion belongs to art lead",
+  "gates": [
+    {
+      "id": "H07",
+      "status": "pass_in_observed_visual_scope",
+      "description": "九能力实际密战持续定位玩家和危险",
+      "evidence": "96/96 density source frames on full-frame sheets + originals0018/0024/0030/0072 and seven full-size map density PNGs",
+      "limitation": "New enemy isolated abilities-disabled sequences explicitly excluded from density proof; controlled healing not natural survival test."
+    },
+    {
+      "id": "H08",
+      "status": "pass_in_observed_visual_scope",
+      "description": "六Boss及新普通/精英前摇、预警与闪避对应表现",
+      "evidence": "150 boss attack sampled frames plus six adjacent0018-0021 original sets; enemy136 sampled frames; dodge adjacent0001-0003",
+      "limitation": "12fps controlled sequence supports visible ordering/range, not subframe hit timing or quantified invulnerability. Full disengagement countdown not viewed."
+    },
+    {
+      "id": "H09",
+      "status": "pass_in_observed_visual_scope",
+      "description": "动画及反馈有连续实机证据",
+      "evidence": "All47 sequences sampled, all six141 death frames and14 player death frames and42 feedback frames viewed via complete-frame sheets; selected originals",
+      "limitation": "Not every original frame or normal-speed playback; no complete dedicated shrine pending-upgrade transition."
+    },
+    {
+      "id": "H10",
+      "status": "pass_traceability_checked",
+      "description": "仅用51原图；Round51/UI51/Probe51的29条build identity完全相同",
+      "evidence": "ObservedEvidence.identity, ObservedFiles.sha256.json, sequence metadata, BuildMatch51, Workspace51Identity and ReleaseAudit51",
+      "limitation": "Functional pass assertions establish provenance and fixture facts, do not award visual points."
+    }
+  ],
+  "dimensionContribution": {
+    "E": 18,
+    "Eminimum": 18,
+    "F1": 4,
+    "F2CombatSuggestion": 4,
+    "allAssignedItemsAtLeast4": true
+  },
+  "notClaimed": [
+    "full100pointscore",
+    "alltenoverallgatesindependentlyreviewed",
+    "7200secondtestcompleted",
+    "60fps",
+    "audioaudition"
+  ]
+}

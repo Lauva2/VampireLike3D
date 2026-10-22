@@ -45,7 +45,7 @@ namespace VampireLike
         {
             if(barRoot!=null)barRoot.gameObject.SetActive(false);if(eliteHalo!=null)eliteHalo.gameObject.SetActive(false);
             bool boss=Type==4;float duration=boss?1.05f:.32f;
-            if(boss)game.Combat.Effect(Biome==BiomeId.Forest?"vfx/leafburst":Biome==BiomeId.Desert?"vfx/sand":Biome==BiomeId.Snow?"vfx/iceburst":"vfx/embers",transform.position,duration,2.2f,true);
+            if(boss)game.Combat.Effect(Biome==BiomeId.Forest?"vfx/leafburst":Biome==BiomeId.Desert?"vfx/sand":Biome==BiomeId.Snow?"vfx/iceburst":Biome==BiomeId.Swamp?"vfx/spore":Biome==BiomeId.Crystal?"vfx/crystalburst":"vfx/embers",transform.position,duration,2.2f,true);
             float start=Time.unscaledTime;
             while(Time.unscaledTime-start<duration)
             {

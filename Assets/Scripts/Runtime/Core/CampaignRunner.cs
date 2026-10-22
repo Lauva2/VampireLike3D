@@ -30,10 +30,10 @@ namespace VampireLike
                 if(game.CanBeginRun)
                 {
                     for(int n=0;n<3;n++)for(int i=0;i<2;i++)game.Save.BuyMeta(i);
-                    while(stage<4&&game.Save.Profile.bossWins[stage])stage++;
-                    if(stage>=4&&mixedVisited&&game.Save.Profile.completedTasks.Count==game.Catalog.tasks.Length){Finish(true);yield break;}
+                    while(stage<ContentIds.Regions.Length&&game.Save.Profile.bossWins[stage])stage++;
+                    if(stage>=ContentIds.Regions.Length&&mixedVisited&&game.Save.Profile.completedTasks.Count==game.Catalog.tasks.Length){Finish(true);yield break;}
                     string character=game.Save.TaskUnlocked("swordsman")&&game.Save.Profile.swordKills<220?"swordsman":game.Save.TaskUnlocked("mage")&&game.Save.Profile.fireKills<180?"elementalist":"adventurer";
-                    game.BeginRun(character,(BiomeId)Mathf.Min(stage,4));if(stage>=4)mixedVisited=true;runs++;route=0;interacted=false;
+                    game.BeginRun(character,(stage<ContentIds.Regions.Length?ContentIds.Regions[stage]:BiomeId.Mixed));if(stage>=ContentIds.Regions.Length)mixedVisited=true;runs++;route=0;interacted=false;
                     float loadingDeadline=Time.realtimeSinceStartup+90;
                     while(!game.Ready&&game.Flow!=GameFlow.Error&&Time.realtimeSinceStartup<loadingDeadline)yield return null;
                     if(!game.Ready){errors.Add("Natural campaign could not enter a run within 90 seconds");break;}
@@ -45,7 +45,7 @@ namespace VampireLike
                     game.UI.View.results.transform.Find("ResultsContinue")?.GetComponent<UnityEngine.UI.Button>()?.onClick.Invoke();yield return null;continue;
                 }
                 if(!game.Ready){yield return null;continue;}
-                if(stage>=4&&mixedVisited&&game.Save.Profile.completedTasks.Count==game.Catalog.tasks.Length){game.FinishRun(true);yield return null;continue;}
+                if(stage>=ContentIds.Regions.Length&&mixedVisited&&game.Save.Profile.completedTasks.Count==game.Catalog.tasks.Length){game.FinishRun(true);yield return null;continue;}
                 if(game.UI.ActiveModal=="pause"||game.UI.ActiveModal=="settings"||game.UI.ActiveModal=="map"||game.UI.ActiveModal=="skills")game.UI.CloseModal();
                 if(game.UI.View.victory.activeSelf)
                 {
@@ -64,7 +64,7 @@ namespace VampireLike
         }
         float Score(UpgradeDefinition u)
         {
-            if(stage>=4&&game.Save.Profile.shatterCombo<20)
+            if(stage>=ContentIds.Regions.Length&&game.Save.Profile.shatterCombo<20)
             {
                 if(u.id=="frost")return 200;
                 if(u.effect==UpgradeEffect.NewAbility)return u.target==AbilityKind.Fireball||u.target==AbilityKind.Gun?150:-10000;
@@ -73,6 +73,18 @@ namespace VampireLike
                 if(u.id=="haste")return 80-game.Run.Level(u.id)*3;
                 if(u.id=="vitality"&&game.Player.Health/game.Player.MaxHealth<.7f)return 105;
                 if(u.target!=AbilityKind.All)return -10000;
+            }
+            if(stage>=ContentIds.Regions.Length&&game.Save.Profile.shatterCombo>=20)
+            {
+                AbilityKind desired=game.Save.Profile.crossbowKills<80?AbilityKind.Crossbow:game.Save.Profile.boomerangKills<80?AbilityKind.Boomerang:game.Save.Profile.frostStaffKills<80?AbilityKind.FrostStaff:AbilityKind.All;
+                if(desired!=AbilityKind.All)
+                {
+                    if(u.target==desired)return u.effect==UpgradeEffect.NewAbility?220:150-game.Run.Level(u.id)*4;
+                    if(u.id=="regen"&&game.Run.Level(u.id)<4)return 120;
+                    if(u.id=="magnet"&&game.Run.Level(u.id)<3)return 100;
+                    if(u.id=="haste"||u.id=="damage")return 60-game.Run.Level(u.id)*2;
+                    if(u.target!=AbilityKind.All)return -10000;
+                }
             }
             if(u.effect==UpgradeEffect.NewAbility)return u.target==AbilityKind.Fireball?100:u.target==AbilityKind.Sword?95:55;
             if(u.id=="frost"||u.id=="lightning")return 92;
@@ -86,6 +98,12 @@ namespace VampireLike
         }
         void ChooseVisibleUpgrade()
         {
+            if (game.UI.ActiveModal == "blessing")
+            {
+                foreach (Transform child in game.UI.View.upgradeList)
+                { var card = child.GetComponent<UIWidget>(); if (card != null && child.gameObject.activeSelf) { card.button.onClick.Invoke(); return; } }
+                return;
+            }
             UIWidget chosen=null;float best=-1000;
             foreach(Transform t in game.UI.View.upgradeList)
             {
@@ -108,7 +126,7 @@ namespace VampireLike
         void Move()
         {
             Vector2 global=game.World.GlobalPosition;Vector2 goal;
-            if(stage>=4)
+            if(stage>=ContentIds.Regions.Length)
             {
                 goal=new Vector2(Mathf.Sin(Time.time*.12f)*12,64+Mathf.Cos(Time.time*.12f)*12);
                 EnemyActor frozen=null;float nearest=18;foreach(var candidate in game.Combat.Enemies){if(!candidate.IsAlive||!candidate.Frozen)continue;float distance=Vector3.Distance(candidate.transform.position,game.Player.transform.position);if(distance<nearest){nearest=distance;frozen=candidate;}}

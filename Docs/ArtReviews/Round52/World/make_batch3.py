@@ -1,0 +1,4 @@
+import json
+from pathlib import Path
+b={'id':3,'scope':'荒漠与雪原各三处近广地貌、建筑水岸、Boss与完成回访','sheets':[f'Docs/ArtReviews/Round52/World/biome{i}-{j:02}.jpg' for i in [1,2] for j in range(4)],'originals':[f'Artifacts/Round52/Captures/{n}-{i}.png' for i in [1,2] for n in ['boss-closeup','waterside-architecture','sanctuary-completed']],'observation':'实际新看8表/30静态并补6原图。沙海明黄沙脊有亮暗面、青绿洲与棕榈/岩台，雪原以蓝底/白坡、冰裂湖/冰脊/雪松和蓝冰门形成独立地貌；三处近广景路径连贯，未见明显空块或白色泛曝光导致角色丢轮廓。元素学徒紫帽与御剑者深发在各自正常镜头和九能力外圈内仍可辨。沙海石碑/雪门有基础体量与基座，但门柱与石碑表面平整、建筑细节仍薄，背景同向棕榈/雪松组和岩脊组合重复感可见，保持精修意见。两完成回访原图均保留全尺寸主题地物，挑战细圈转暗，开启文字清除；玩家黄色符环不当仍亮的召唤圈。巨沙虫长分节背刺与白牙大口、霜原巨兽白毛蓝角/蓝爪/肩晶的原图模型完整有独立体量；正常Boss血条与场景比例可见，时序仍待Combat。没有将本轮像旧轮的外观认作沿用旧图，所有源路径/SHA均是52。'}
+Path('Docs/ArtReviews/Round52/World/batch3.json').write_text(json.dumps(b,ensure_ascii=False,indent=2),encoding='utf-8')

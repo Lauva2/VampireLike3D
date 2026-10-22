@@ -19,9 +19,9 @@ namespace VampireLike
             effects = gameObject.AddComponent<AudioSource>(); effects.spatialBlend = 0;
             foreach (SoundCue cue in System.Enum.GetValues(typeof(SoundCue)))
                 yield return game.Assets.LoadAudio("sound/" + cue.ToString().ToLowerInvariant(), clip => sounds[cue] = clip);
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < ContentIds.Regions.Length; i++)
             {
-                BiomeId biome = (BiomeId)i;
+                BiomeId biome = ContentIds.Regions[i];
                 yield return game.Assets.LoadAudio("music/" + i, clip => tracks[biome] = clip);
             }
             RefreshVolumes(); SetBiome(BiomeId.Forest);

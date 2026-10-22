@@ -7,6 +7,7 @@ namespace VampireLike
 {
     public sealed partial class VerificationRunner
     {
+        [System.Serializable] sealed class EventEvictionAudit {public int seed;public string eventId;public Vector2Int chunk;public bool completedBeforeEviction,evicted,revisited,completedAfterReload;}
         IEnumerator TerrainProbe()
         {
             // Controlled geometry diagnostic; it is not natural progression evidence.
@@ -73,6 +74,7 @@ namespace VampireLike
         }
         IEnumerator Scenarios(int biome)
         {
+            if (biome == 0) yield return VerifyExploration();
             if(biome==0)
             {
                 ClearEnemies();Place(Vector3.zero);yield return AdvanceGameplay(.8f);game.Player.Heal(10000);
@@ -96,15 +98,28 @@ namespace VampireLike
                     game.Combat.SelectPriorityTarget(marked);marked.DiagnosticImmortal=false;marked.Hit(new DamagePacket{damage=100000,source=AbilityKind.Gun});Check(game.Combat.Marked==null,"Defeated target clears the priority marker");
                 }
                 yield return Sequence("character-move-dodge",6,true);
-                ClearEnemies();Place(Vector3.zero);yield return Wait(.3f);
-                foreach(var site in game.World.Sites)if(site.type==0){game.World.CompleteEvent(site.id);break;}
+                ClearEnemies();game.Inputs.ForVerification(Vector2.zero);
+                var eventChunk=new Vector2Int(1,0);Place(game.World.LocalPosition(eventChunk));yield return AutoBattle(.5f);
+                float eventDeadline=Time.realtimeSinceStartup+25;
+                while(!game.World.ViewReady&&Time.realtimeSinceStartup<eventDeadline)yield return AutoBattle(.1f);
+                WorldSite completedSite=null;
+                foreach(var site in game.World.Sites)if(site.type==0&&site.chunk==eventChunk){completedSite=site;break;}
+                Check(completedSite!=null,"Locate the authored chest by its exact chunk before eviction");
+                string eventId=completedSite?.id;
+                if(completedSite!=null)game.World.CompleteEvent(eventId);
+                var eventAudit=new EventEvictionAudit{seed=game.Run.seed,eventId=eventId,chunk=eventChunk,completedBeforeEviction=completedSite!=null&&completedSite.complete};
+                Check(eventAudit.completedBeforeEviction,"Exact chest completion is recorded before unloading");
                 Place(new Vector3(640,0,0));yield return AutoBattle(3);
                 Check(game.World.OriginChunk.x!=0,"Floating origin activates beyond 500 units");
                 Check(game.World.ActiveChunks<=49,"Resident world chunks remain bounded after long travel");
+                bool stillResident=false;foreach(var site in game.World.Sites)if(site.id==eventId)stillResident=true;
+                eventAudit.evicted=!stillResident;Check(eventAudit.evicted,"The exact completed chest actually leaves resident chunks");
                 yield return Capture("world-floating-origin");
-                Place(-new Vector3(game.World.OriginChunk.x*32,0,game.World.OriginChunk.y*32));yield return AutoBattle(3);
-                bool completed=false;foreach(var site in game.World.Sites)if(site.type==0&&site.complete)completed=true;
-                Check(completed,"Completed event survives unload and revisit");
+                Place(game.World.LocalPosition(eventChunk));yield return AutoBattle(.5f);eventDeadline=Time.realtimeSinceStartup+25;
+                while(!game.World.ViewReady&&Time.realtimeSinceStartup<eventDeadline)yield return AutoBattle(.1f);
+                foreach(var site in game.World.Sites)if(site.id==eventId&&site.chunk==eventChunk){eventAudit.revisited=true;eventAudit.completedAfterReload=site.complete;}
+                File.WriteAllText(Path.Combine(output,"EventEvictionAudit.json"),JsonUtility.ToJson(eventAudit,true));
+                Check(eventAudit.revisited&&eventAudit.completedAfterReload,"The same completed event ID survives unload and exact-chunk revisit");
                 game.UI.TogglePause();yield return Capture("05-pause");game.UI.CloseModal();
                 foreach(var resolution in new[]{new Vector2Int(1280,720),new Vector2Int(1920,1080),new Vector2Int(1920,1200),new Vector2Int(2560,1080)})
                 {
@@ -117,18 +132,18 @@ namespace VampireLike
             // Representative geography is captured from an actual neighboring chunk, not a showcase scene.
             Vector3 terrainCenter=game.World.LocalPosition(game.World.CurrentChunk);
             Place(terrainCenter+new Vector3(-3,0,5));yield return AutoBattle(1);yield return Capture("terrain-detail-"+biome);
-            if(biome<4){yield return TerrainVariants(biome);yield return WatersideArchitecture(biome);}
-            if(biome<4)
+            if(biome!=4){yield return TerrainVariants(biome);yield return WatersideArchitecture(biome);}
+            if(biome!=4)
             {
                 yield return SanctuaryEvidence(biome);
                 ClearEnemies();Vector3 center=game.Player.transform.position+Vector3.forward*8;
-                string bossId=game.Catalog.biomes[biome].bossId;
+                string bossId=game.Catalog.Biome((BiomeId)biome).bossId;
                 game.Combat.ActivateBoss("verification-boss-"+biome,center,(BiomeId)biome,bossId);
                 var boss=game.Combat.Boss;Check(boss!=null,"Voluntary boss activation "+biome);
                 if(boss!=null)
                 {
                     boss.DiagnosticImmortal=true;
-                    if(biome==0)
+                    if(biome==0||biome>=5)
                     {
                         boss.Hit(new DamagePacket{damage=25,source=AbilityKind.Gun});Place(center+Vector3.back*35);yield return AutoBattle(2.5f);
                         Check(game.Combat.Boss==null,"Boss disengages after exit buffer");
@@ -143,8 +158,8 @@ namespace VampireLike
                         yield return Sequence("boss-attacks-"+biome,12,false);
                         boss.DiagnosticImmortal=false;boss.Hit(new DamagePacket{damage=10000000,source=AbilityKind.Sword});
                         game.UI.View.victory.SetActive(false);yield return RealtimeSequence("boss-death-"+biome,1.35f);game.UI.View.victory.SetActive(true);
-                        yield return Capture("victory-"+biome);Check(game.Save.Profile.bossWins[biome],"Boss first victory persists "+biome);
-                        Check(game.Save.MapUnlocked((BiomeId)(biome==3?4:biome+1)),"First victory unlocks next map "+biome);
+                        yield return Capture("victory-"+biome);Check(game.Save.Profile.bossWins[ContentIds.RegionIndex((BiomeId)biome)],"Boss first victory persists "+biome);
+                        Check(game.Save.MapUnlocked(biome>=5?BiomeId.Mixed:(BiomeId)(biome==3?4:biome+1)),"First victory unlocks next map "+biome);
                         game.UI.CloseModal();
                     }
                 }
@@ -162,14 +177,26 @@ namespace VampireLike
                 Check(game.Ready&&string.IsNullOrEmpty(game.World?.LoadingError),"Rapid mixed-biome travel retains regions with pending AA loads");
                 if(!game.Ready)yield break;
                 Place(new Vector3(restore.x-game.World.OriginChunk.x*32,0,restore.y-game.World.OriginChunk.y*32));yield return AutoBattle(2);
+                foreach(var region in ContentIds.Regions)
+                {
+                    bool found=false;
+                    for(int x=-20;x<=20&&!found;x++)for(int z=-15;z<=15&&!found;z++)
+                    {
+                        var key=new Vector2Int(x,z);if(game.World.BiomeAt(key)!=region)continue;
+                        Place(game.World.LocalPosition(key)+new Vector3(-3,0,4));yield return AutoBattle(2);
+                        Check(game.World.CurrentBiome==region,"Mixed map actually visits authored region "+region);
+                        yield return Capture("mixed-region-"+region.ToString().ToLowerInvariant());found=true;
+                    }
+                    Check(found,"Mixed seeded geography contains region "+region);
+                }
                 int captured=0;var pairs=new System.Collections.Generic.HashSet<string>();
-                for(int x=-12;x<13&&captured<4;x++)for(int z=-8;z<9&&captured<4;z++)
+                for(int x=-12;x<13&&captured<6;x++)for(int z=-8;z<9&&captured<6;z++)
                 {
                     var key=new Vector2Int(x,z);int a=(int)game.World.BiomeAt(key),b=(int)game.World.BiomeAt(key+Vector2Int.right);if(a==b)continue;
                     string pair=Mathf.Min(a,b)+"-"+Mathf.Max(a,b);if(!pairs.Add(pair))continue;
                     Place(game.World.LocalPosition(key)+Vector3.right*15);yield return AutoBattle(2);yield return Capture("mixed-boundary-"+pair);captured++;
                 }
-                Check(captured==4,"Mixed map captures four distinct neighboring biome pairs");
+                Check(captured==6,"Mixed map captures six distinct neighboring biome pairs");
                 bool shore=false;
                 for(int x=-12;x<=12&&!shore;x++)for(int z=-8;z<=8&&!shore;z++)
                 {
@@ -181,7 +208,7 @@ namespace VampireLike
             ClearEnemies();game.Run.seconds=1500;game.Player.Heal(10000);
             for(int i=0;i<200;i++)
             {
-                float a=i*2.399f;float r=7+i%18;game.Combat.Spawn(i%4,game.Player.transform.position+new Vector3(Mathf.Cos(a),0,Mathf.Sin(a))*r,i%13==0);
+                float a=i*2.399f;float r=7+i%18;game.Combat.Spawn(game.Combat.ChooseEnemy(game.World.CurrentBiome),game.Player.transform.position+new Vector3(Mathf.Cos(a),0,Mathf.Sin(a))*r,i%13==0);
             }
             yield return AutoBattle(.4f);yield return Capture("late-density-"+biome);
             if(biome==4)yield return Sequence("late-density-combinations",8,true);

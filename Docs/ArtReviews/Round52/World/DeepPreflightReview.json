@@ -1,0 +1,107 @@
+{
+  "candidate": "Round52",
+  "version": "1.2.0",
+  "reviewer": "/root/art_lead47",
+  "reviewedAt": "2026-10-22T13:42:05.216092+00:00",
+  "scope": "One current52 fixed imported deep-build original static frame, separate supplement; no continuous danger/performance verdict.",
+  "source": {
+    "path": "Artifacts/Soak52Preflight/FinalFrame.png",
+    "sha256": "0d2cad2d5b74de6279c715706a007bb03e308bddd504181e3df4bcc4f974891a",
+    "pixels": [
+      1920,
+      1080
+    ],
+    "originalOpenedIndividually": true,
+    "worldSidecar": null,
+    "qualitySidecar": null
+  },
+  "sameCandidateIdentity": {
+    "entries": 29,
+    "exactNameShaMatchWithRound52": true,
+    "path": "Artifacts/Soak52Preflight/BuildIdentity.json",
+    "sha256": "61972152a724870fb54add998fc82d0913634d313f63e348857cb13512091e41"
+  },
+  "nearFinalContext": {
+    "path": "Artifacts/Soak52Preflight/CurrentBuild.json",
+    "sha256": "696dd8c17b45bd31e7591d45efeee76d2b77924b98d89e52e508414a9682441d",
+    "seed": 438899693,
+    "wallSeconds": 180.0120391845703,
+    "gameSeconds": 9179.93359375,
+    "level": 520,
+    "abilityIds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "fixedImportedBuild": true,
+    "quality": 5,
+    "character": null,
+    "note": "No per-frame world sidecar; current-character not explicit. CurrentBuild neighboring sample remains separate from exact frame metadata. HUD152:59 is imported game clock, not152min wall duration."
+  },
+  "actualAdditionalViewing": {
+    "staticSources": 1,
+    "originalFiles": 1,
+    "dynamicFrames": 0,
+    "sheets": 0,
+    "coreViewingCountsUnchanged": true
+  },
+  "observations": [
+    "末帧画面标题为青翠林地。中心棕色头发/面部和青色足环仍可定位，绿树冠挤靠左侧但未在此帧完全遮住玩家。",
+    "青白剑列/灵体沿弧形扩展，橙火、细弹与青经验仍有分组；画面内大橙色效果和多层环轨覆盖较广，屏幕边缘精英金冠与怪身/掉落挤叠，局部拥挤继续保留。",
+    "可见地面和路径仍有绿色/浅土色层次，未见静态粉材或明显缺件；因树冠及效果覆盖多，不将单帧称所有地面已穷尽。",
+    "核心奶油/青色HUD和中文可读，能力9摘要与初段六武器图标/滚动引导可见；不能据此声称完整滚动或每个能力全程发射。",
+    "该帧无完整危险预警→生效→闪避过程，未用于补判全程H07/H08/F1/F2。"
+  ],
+  "domainScoreEffect": {
+    "ABCsubtotal": 46,
+    "changed": false,
+    "newStaticHardBlockerObserved": false,
+    "densityDeductionRetained": true,
+    "compositeCoreReview": "Separate pending merge of completed52UI andCombat reviews; no inherited51pass."
+  },
+  "runtimeNonScoringContext": {
+    "summary": {
+      "finishedUtc": "2026-10-22T13:33:04.2071584Z",
+      "wallSeconds": 180.2,
+      "requestedSeconds": 180,
+      "frameRateLimit": -1,
+      "fixedImportedBuild": true,
+      "renderResolution": "1920x1080 4x MSAA",
+      "renderEveryFrame": true,
+      "controlledHealingAndUnlockedBuild": true,
+      "samples": 6,
+      "maxChunks": 35,
+      "maxPool": 3874,
+      "maxPrefabHandles": 93,
+      "errorCount": 0
+    },
+    "analysisPath": "Artifacts/Soak52Preflight/Analysis.json",
+    "actualCameraRenders": 14746,
+    "windowFps": {
+      "available": true,
+      "minimum": 76.22,
+      "maximum": 86.05,
+      "median": 83.37,
+      "mean": 81.90666666666667,
+      "first_third_median": 81.215,
+      "last_third_median": 79.82
+    },
+    "p95MaximumMs": 17.92,
+    "longestFrameMs": 85.88,
+    "originalExitCode": 0,
+    "performanceApprovalClaimed": false
+  },
+  "limitations": [
+    "Fixed importedLv520/9abilities/controlled healing,180.2sec only; not naturally growing or7200sec.",
+    "1920x1080 raw PNG opened once,0 new dynamic frames. Static clarity does not demonstrate sustained clarity or exact warning/hit alignment.",
+    "No frame world/quality sidecar; context seed438899693 from neighboring CurrentBuild, character ID unknown.",
+    "6window throughput76.22–86.05FPS; p95max17.92ms/longest85.88ms retained, no per-frame60FPS conclusion.",
+    "Actual growing7200sec final frame not yet supplied or observed; shared final result remains unchanged."
+  ]
+}

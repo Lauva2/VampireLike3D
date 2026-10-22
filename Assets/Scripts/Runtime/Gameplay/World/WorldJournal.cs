@@ -10,6 +10,11 @@ namespace VampireLike
     {
         readonly string root;
         readonly Dictionary<Vector2Int, ChunkRecord> active = new Dictionary<Vector2Int, ChunkRecord>();
+        public const int VisitCacheCapacity = 512;
+        readonly Dictionary<Vector2Int, bool> visitedCache = new Dictionary<Vector2Int, bool>();
+        readonly Queue<Vector2Int> visitedOrder = new Queue<Vector2Int>();
+        public int CachedVisitCount => visitedCache.Count;
+        public int VisitLookupDiskChecks { get; private set; }
         public WorldJournal(string runId)
         {
             string parent=Path.GetFullPath(Path.Combine(Application.temporaryCachePath,"WorldSessions"));
@@ -21,7 +26,21 @@ namespace VampireLike
         public bool Visited(Vector2Int key)
         {
             if(active.TryGetValue(key,out var record))return record.visited;
-            try{return File.Exists(FilePath(key))&&JsonUtility.FromJson<ChunkRecord>(File.ReadAllText(FilePath(key))).visited;}catch{return false;}
+            if (visitedCache.TryGetValue(key, out bool cached)) return cached;
+            bool visited = false;
+            VisitLookupDiskChecks++;
+            try { visited = File.Exists(FilePath(key)) && JsonUtility.FromJson<ChunkRecord>(File.ReadAllText(FilePath(key)))?.visited == true; }
+            catch { /* An absent or invalid session record is unexplored. */ }
+            CacheVisit(key, visited); return visited;
+        }
+        void CacheVisit(Vector2Int key, bool visited)
+        {
+            if (!visitedCache.ContainsKey(key))
+            {
+                if (visitedCache.Count >= VisitCacheCapacity) visitedCache.Remove(visitedOrder.Dequeue());
+                visitedOrder.Enqueue(key);
+            }
+            visitedCache[key] = visited;
         }
         public void Visit(Vector2Int key){var record=Load(key);if(record.visited)return;record.visited=true;Write(key,record);}
         public ChunkRecord Load(Vector2Int key)
@@ -31,7 +50,7 @@ namespace VampireLike
             catch (Exception ex) { Debug.LogWarning("World record: " + ex.Message); }
             if (record == null) record = new ChunkRecord();
             if (record.completed == null) record.completed = new List<string>();
-            active[key] = record; return record;
+            active[key] = record; CacheVisit(key, record.visited); return record;
         }
         public void Complete(Vector2Int key, string id)
         {
@@ -40,10 +59,11 @@ namespace VampireLike
         }
         void Write(Vector2Int key, ChunkRecord record)
         {
+            CacheVisit(key, record.visited);
             try { File.WriteAllText(FilePath(key), JsonUtility.ToJson(record)); }
             catch (Exception ex) { Debug.LogError("World record write: " + ex.Message); }
         }
         public void Unload(Vector2Int key) { active.Remove(key); }
-        public void Dispose() { active.Clear();try{if(Directory.Exists(root))Directory.Delete(root,true);}catch(Exception ex){Debug.LogWarning("Journal cleanup: "+ex.Message);} }
+        public void Dispose() { active.Clear();visitedCache.Clear();visitedOrder.Clear();try{if(Directory.Exists(root))Directory.Delete(root,true);}catch(Exception ex){Debug.LogWarning("Journal cleanup: "+ex.Message);} }
     }
 }

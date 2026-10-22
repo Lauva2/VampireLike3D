@@ -6,6 +6,11 @@ import sys
 from pathlib import Path
 
 root = Path(sys.argv[1])
+# Explicit scope for expansion candidates; default preserves historical analyzer callers.
+expected_ability_count = int(sys.argv[2]) if len(sys.argv) > 2 else 6
+if expected_ability_count < 1:
+    raise SystemExit('Expected ability count must be positive')
+expected_abilities = set(range(expected_ability_count))
 with (root / 'Samples.csv').open(encoding='utf-8-sig', newline='') as stream:
     rows = list(csv.DictReader(stream))
 if not rows:
@@ -76,6 +81,9 @@ if build_path.exists():
     builds = [json.loads(line) for line in build_path.read_text(encoding='utf-8-sig').splitlines() if line.strip()]
     result['build_observations'] = dict(samples=len(builds),
         first=builds[0], last=builds[-1],
+        expected_ability_ids=sorted(expected_abilities),
+        observed_ability_counts=sorted({len(set(build['abilities'])) for build in builds}),
+        all_expected_abilities_every_sample=all(set(build['abilities']) == expected_abilities for build in builds),
         all_six_abilities_every_sample=all(set(build['abilities']) == set(range(6)) for build in builds),
         any_fixed_imported_build=any(build['fixedImportedBuild'] for build in builds),
         quality_levels=sorted({build['quality'] for build in builds}),

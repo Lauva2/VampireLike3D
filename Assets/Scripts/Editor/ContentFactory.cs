@@ -14,6 +14,15 @@ namespace VampireLike.Editor
             var c = AssetDatabase.LoadAssetAtPath<GameCatalog>(path);
             if (c == null) { c = ScriptableObject.CreateInstance<GameCatalog>(); AssetDatabase.CreateAsset(c, path); }
             c.prefabs = prefabs.ToArray(); c.audio = audio.ToArray();
+            c.blessings = new[]
+            {
+                new BlessingDefinition { id="vitality", name="生命回响", description="最大生命 +18，并立即恢复新增的生命上限。", icon="生", effect=UpgradeEffect.Health, value=18, rerolls=0, color=ArtFactory.Hex("D88171") },
+                new BlessingDefinition { id="might", name="锋芒祝福", description="所有能力伤害 +8%。与现有武器强化共同叠加。", icon="剑", effect=UpgradeEffect.Damage, value=0.08f, rerolls=0, color=ArtFactory.Hex("D3A458") },
+                new BlessingDefinition { id="momentum", name="疾风眷顾", description="移动速度 +5%，让探索和躲避更加从容。", icon="足", effect=UpgradeEffect.MoveSpeed, value=0.05f, rerolls=0, color=ArtFactory.Hex("62A990") },
+                new BlessingDefinition { id="attraction", name="星尘引路", description="经验拾取半径 +0.6米，更容易收集战场收获。", icon="引", effect=UpgradeEffect.Pickup, value=0.6f, rerolls=0, color=ArtFactory.Hex("779EC1") },
+                new BlessingDefinition { id="insight", name="战术启迪", description="获得1次本局升级重抽，可稍后使用。", icon="途", effect=UpgradeEffect.Damage, value=0, rerolls=1, color=ArtFactory.Hex("AA87BC") },
+                new BlessingDefinition { id="renewal", name="生息祝福", description="每秒恢复0.3生命。可在后续祭坛继续叠加。", icon="林", effect=UpgradeEffect.Regeneration, value=0.3f, rerolls=0, color=ArtFactory.Hex("79AA76") },
+            };
             c.characters = new[]
             {
                 new CharacterDefinition { id="adventurer", name="远行者", subtitle="弹道起步 · 灵活均衡", description="从手枪启程，移动速度提高5%。", prefabId="character/adventurer", startingAbility=AbilityKind.Gun, color=ArtFactory.Teal, speedBonus=.05f },
@@ -32,7 +41,7 @@ namespace VampireLike.Editor
             var u = new List<UpgradeDefinition>();
             u.Add(U("damage","力量汇流","所有自动能力伤害提高12%。",UpgradeEffect.Damage,.12f));
             u.Add(U("haste","疾风节拍","所有自动能力攻击速度提高10%。",UpgradeEffect.AttackSpeed,.1f));
-            u.Add(U("vitality","生机","最大生命增加20，并恢复新增的生命。",UpgradeEffect.Health,20));
+            u.Add(U("vitality","生机","最大生命 +20，并回复20点生命。",UpgradeEffect.Health,20));
             u.Add(U("swiftness","轻步","移动速度提高7%。",UpgradeEffect.MoveSpeed,.07f));
             u.Add(U("magnet","拾光","经验拾取范围增加0.7。",UpgradeEffect.Pickup,.7f));
             u.Add(U("crit","灵光一击","暴击率增加8%，暴击造成额外伤害。",UpgradeEffect.Crit,.08f));
@@ -97,6 +106,7 @@ namespace VampireLike.Editor
             string[] bosses = { "古树守卫", "巨型沙虫", "霜原巨兽", "熔岩巨像" };
             c.biomes = new BiomeDefinition[4];
             for (int i = 0; i < 4; i++) c.biomes[i] = new BiomeDefinition { id=(BiomeId)i, name=names[i], subtitle=subtitles[i], bossName=bosses[i], terrainId="terrain/"+ids[i], decorationId="decoration/"+ids[i], bossId="boss/"+ids[i], ground=ArtFactory.GroundColors[i], secondary=ArtFactory.Cream, accent=ArtFactory.AccentColors[i] };
+            ExpansionContent.Apply(c);
             EditorUtility.SetDirty(c); return c;
         }
         static AbilityDefinition A(string id,string name,string description,AbilityKind kind,float damage,float cooldown,float range,float speed,Color color,string task="") => new AbilityDefinition { id=id,name=name,description=description,kind=kind,damage=damage,cooldown=cooldown,range=range,speed=speed,color=color,taskId=task,prefabId="weapon/"+id,projectileId="projectile/"+id };

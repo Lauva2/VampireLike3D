@@ -1,0 +1,38 @@
+{
+  "candidate": "Round52",
+  "reviewer": "/root/art_combat47",
+  "gates": [
+    {
+      "id": "H07",
+      "status": "pass_in_observed_core_visual_scope",
+      "evidence": "Current52 all96 live combination frames and7 map density originals",
+      "limitation": "Abilities-disabled eight enemy isolation sequences excluded; healing fixture is not natural survival; no future deep/long frame claim."
+    },
+    {
+      "id": "H08",
+      "status": "pass_in_observed_core_visual_scope",
+      "evidence": "SixBoss150 sheet attack samples plus24 adjacent originals and other original windups; eight new normal/elite attack sequences; dodge adjacent0001-0003",
+      "limitation": "12fps visible ordering/range only, no subframe invulnerability/damage timing. Full disengagement countdown not independently viewed."
+    },
+    {
+      "id": "H09",
+      "status": "pass_in_observed_core_visual_scope",
+      "evidence": "All47 actual runtime sequences sampled; all six death available frames and14 playerdeath frames and five feedback fullframes in sheets; selected original files",
+      "limitation": "Not original-size every frame or normal-speed playback; dedicated shrine pending-upgrade transition not sampled."
+    },
+    {
+      "id": "H10",
+      "status": "pass_traceability_checked",
+      "evidence": "Current52 only;29build entries identical acrossRound52/UI52/Probe52;1309source and24AA development/release exact bridge; each observed sourceSHA256 recorded",
+      "limitation": "Identity/function assertions do not earn visual points."
+    }
+  ],
+  "dimensionContribution": {
+    "E": 18,
+    "F1": 4,
+    "F2CombatSuggestion": 4,
+    "assignedItemsMinimum": 4
+  },
+  "fullTenGateVerdict": null,
+  "noLongDurationClaim": true
+}

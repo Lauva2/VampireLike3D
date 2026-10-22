@@ -24,7 +24,8 @@ namespace ExternalValidation
         GameManager game;
         string output;
         float begin,nextDecision,nextDodge,interactAt,nextStatus;
-        int route,runs,deaths;
+        int route,runs,deaths,shrineChoices;
+        [Serializable] sealed class ShrineAudit { public string run,id; public int before,after,crystalDelta,eventDelta; public bool passed; }
         bool interacted,restart,desertVisited,settled,combatCaptured,bossCaptured;
         readonly List<string> errors=new List<string>();
         readonly Vector2[] destinations={new Vector2(32,0),Vector2.zero,new Vector2(0,32),Vector2.zero,new Vector2(-32,0),Vector2.zero,new Vector2(0,64)};
@@ -93,7 +94,7 @@ namespace ExternalValidation
                 if(cycle==0)Capture("selection-renderers");
                 close.onClick.Invoke();Canvas.ForceUpdateCanvases();yield return null;
                 if(game.UI.ActiveModal!="menu"||!game.UI.View.menu.activeSelf)errors.Add("Selection close did not restore production menu");
-                File.AppendAllText(Path.Combine(output,"SelectionRendererCycles.jsonl"),"{\"cycle\":"+(cycle+1)+",\"errorCount\":"+errors.Count+",\"closedModal\":\""+game.UI.ActiveModal+"\"}\n");
+                File.AppendAllText(Path.Combine(output,"SelectionRendererCycles.jsonl"),"{\"cycle\":"+(cycle+1)+",\"shrineChoices\":"+shrineChoices+",\"errorCount\":"+errors.Count+",\"closedModal\":\""+game.UI.ActiveModal+"\"}\n");
             }
         }
         float Score(UpgradeDefinition u)
@@ -109,6 +110,26 @@ namespace ExternalValidation
         }
         void Choose()
         {
+            if (game.UI.ActiveModal == "blessing")
+            {
+                var fade = game.UI.View.upgrade.GetComponent<CanvasGroup>(); if (fade != null && fade.alpha < .99f) return;
+                foreach (Transform child in game.UI.View.upgradeList)
+                {
+                    var card = child.GetComponent<UIWidget>(); if (card == null || !child.gameObject.activeSelf) continue;
+                    var definition = Array.Find(game.Catalog.blessings, b => b.name == card.title.text);
+                    if (definition == null) { errors.Add("Unrecognized shrine card"); return; }
+                    Capture("shrine-choice-" + (shrineChoices + 1));
+                    int crystals = game.Save.Profile.crystals, events = game.Save.Profile.events;
+                    var audit = new ShrineAudit { run = game.Run.id, id = definition.id, before = game.Run.BlessingLevel(definition.id) };
+                    card.button.onClick.Invoke(); audit.after = game.Run.BlessingLevel(definition.id);
+                    audit.crystalDelta = game.Save.Profile.crystals - crystals; audit.eventDelta = game.Save.Profile.events - events;
+                    audit.passed = audit.after == audit.before + 1 && audit.crystalDelta == 4 && audit.eventDelta == 1;
+                    File.AppendAllText(Path.Combine(output, "ShrineChoices.jsonl"), JsonUtility.ToJson(audit) + "\n");
+                    if (!audit.passed) errors.Add("Production shrine selection failed to grant exactly one blessing and base reward");
+                    shrineChoices++; return;
+                }
+                return;
+            }
             UIWidget chosen=null;float best=-1000;
             foreach(Transform t in game.UI.View.upgradeList){var w=t.GetComponent<UIWidget>();if(w==null||!w.gameObject.activeSelf)continue;var u=Array.Find(game.Catalog.upgrades,x=>x.name==w.title.text);if(u!=null&&Score(u)>best){best=Score(u);chosen=w;}}
             if(chosen!=null)chosen.button.onClick.Invoke();else game.Progression.SkipLevel();
@@ -169,8 +190,9 @@ namespace ExternalValidation
         }
         void Finish(bool passed)
         {
+            if (passed && !restart && shrineChoices == 0) { errors.Add("Natural production flow did not claim a shrine blessing"); passed = false; }
             if(game!=null)game.Save.Flush();
-            File.WriteAllText(Path.Combine(output,"Summary.json"),"{\"passed\":"+(passed?"true":"false")+",\"development\":"+Debug.isDebugBuild.ToString().ToLowerInvariant()+",\"diagnosticMode\":"+(game!=null&&game.DiagnosticMode).ToString().ToLowerInvariant()+",\"externalInputAndValidatedPurchasesOnly\":true,\"restartPhase\":"+restart.ToString().ToLowerInvariant()+",\"wallSeconds\":"+(Time.realtimeSinceStartup-begin).ToString("F1",System.Globalization.CultureInfo.InvariantCulture)+",\"runs\":"+runs+",\"deaths\":"+deaths+",\"firstBossWin\":"+(game!=null&&game.Save.Profile.bossWins[0]).ToString().ToLowerInvariant()+",\"desertVisited\":"+desertVisited.ToString().ToLowerInvariant()+",\"tasks\":"+(game==null?0:game.Save.Profile.completedTasks.Count)+",\"errorCount\":"+errors.Count+"}");
+            File.WriteAllText(Path.Combine(output,"Summary.json"),"{\"passed\":"+(passed?"true":"false")+",\"development\":"+Debug.isDebugBuild.ToString().ToLowerInvariant()+",\"diagnosticMode\":"+(game!=null&&game.DiagnosticMode).ToString().ToLowerInvariant()+",\"externalInputAndValidatedPurchasesOnly\":true,\"restartPhase\":"+restart.ToString().ToLowerInvariant()+",\"wallSeconds\":"+(Time.realtimeSinceStartup-begin).ToString("F1",System.Globalization.CultureInfo.InvariantCulture)+",\"runs\":"+runs+",\"deaths\":"+deaths+",\"firstBossWin\":"+(game!=null&&game.Save.Profile.bossWins[0]).ToString().ToLowerInvariant()+",\"desertVisited\":"+desertVisited.ToString().ToLowerInvariant()+",\"tasks\":"+(game==null?0:game.Save.Profile.completedTasks.Count)+",\"shrineChoices\":"+shrineChoices+",\"errorCount\":"+errors.Count+"}");
             File.WriteAllLines(Path.Combine(output,"Errors.txt"),errors);Application.Quit(passed?0:1);
         }
         void OnLog(string message,string stack,LogType type){if(type==LogType.Error||type==LogType.Exception||type==LogType.Assert)errors.Add(message+"\n"+stack);}

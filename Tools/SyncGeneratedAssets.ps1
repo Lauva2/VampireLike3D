@@ -3,7 +3,7 @@ $ErrorActionPreference='Stop'
 $workspaceRoot=Split-Path -Parent $PSScriptRoot
 $cloneRoot=Join-Path $workspaceRoot '.build\Project'
 $entries=@(Get-Content -LiteralPath (Join-Path $workspaceRoot $Diff) -Raw | ConvertFrom-Json)
-$allowed=@('Assets\Art\Materials\Generated\','Assets\Art\Models\Generated\','Assets\Art\UI\Generated\','Assets\Art\Prefabs\','Assets\Scenes\','Assets\AddressableAssetsData\AssetGroups\')
+$allowed=@('Assets\Art\Audio\Generated\','Assets\Art\Materials\Generated\','Assets\Art\Models\Generated\','Assets\Art\UI\Generated\','Assets\Art\Prefabs\','Assets\Scenes\','Assets\AddressableAssetsData\AssetGroups\')
 $allowedFiles=@('Assets\AddressableAssetsData\AddressableAssetSettings.asset','Assets\AddressableAssetsData\Windows.meta','Assets\AddressableAssetsData\link.xml','Assets\AddressableAssetsData\link.xml.meta','Assets\Config\Catalogs\GameCatalog.asset')
 $selected=@(foreach($entry in $entries){
     if($entry.path.StartsWith('Assets\AddressableAssetsData\Windows\')){continue}

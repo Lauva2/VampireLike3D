@@ -84,14 +84,15 @@ namespace VampireLike
             {
                 if(!game.Ready){errors.Add("Stress run left Playing unexpectedly; see Player log for recovery cause");break;}
                 game.Player.Heal(100000);
-                if(game.UI.View.upgrade.activeSelf){var choices=game.Progression.Choices();if(!fixedImportedBuild&&choices.Count>0)game.Progression.Apply(choices[0].id,false);else game.Progression.SkipLevel();}
+                if(game.UI.ActiveModal=="blessing"){foreach(Transform child in game.UI.View.upgradeList){var card=child.GetComponent<UIWidget>();if(card!=null&&child.gameObject.activeSelf){card.button.onClick.Invoke();break;}}}
+                if(game.UI.ActiveModal=="upgrade"){var choices=game.Progression.Choices();if(!fixedImportedBuild&&choices.Count>0)game.Progression.Apply(choices[0].id,false);else game.Progression.SkipLevel();}
                 if(game.UI.View.victory.activeSelf)game.UI.CloseModal();
                 Vector2 travel=TravelInput();if(Time.time>nextDodge){nextDodge=Time.time+2.4f;game.Inputs.ForVerification(travel,true);}
                 else game.Inputs.ForVerification(travel);
                 if(Time.time>nextDense&&game.Combat.Enemies.Count<300)
                 {
                     nextDense=Time.time+15;
-                    for(int n=0;n<45;n++){float a=n*2.399f;game.Combat.Spawn(n%4,game.Player.transform.position+new Vector3(Mathf.Cos(a),0,Mathf.Sin(a))*UnityEngine.Random.Range(10,22),n%11==0);}
+                    for(int n=0;n<45;n++){float a=n*2.399f;game.Combat.Spawn(game.Combat.ChooseEnemy(game.World.CurrentBiome),game.Player.transform.position+new Vector3(Mathf.Cos(a),0,Mathf.Sin(a))*UnityEngine.Random.Range(10,22),n%11==0);}
                 }
                 frames.Add(Time.unscaledDeltaTime*1000);FrameTimingManager.CaptureFrameTimings();
                 maxChunks=Mathf.Max(maxChunks,game.World.ActiveChunks);maxPool=Mathf.Max(maxPool,game.Pool.Count);maxPrefabs=Mathf.Max(maxPrefabs,game.Assets.LoadedPrefabCount);
@@ -112,8 +113,8 @@ namespace VampireLike
                 var build=JsonUtility.FromJson<BuildSample>(File.ReadAllText(path));
                 if(build==null||build.level<1||float.IsNaN(build.gameSeconds)||float.IsInfinity(build.gameSeconds)||build.gameSeconds<0||build.quality<0||build.quality>=QualitySettings.names.Length)throw new InvalidDataException("Invalid build metadata");
                 var abilities=new HashSet<AbilityKind>(build.abilities);
-                for(int kind=0;kind<6;kind++)if(!abilities.Contains((AbilityKind)kind))throw new InvalidDataException("Stress snapshot must retain all six abilities");
-                if(abilities.Count!=6)throw new InvalidDataException("Unknown ability in snapshot");
+                foreach(var kind in ContentIds.Weapons)if(!abilities.Contains(kind))throw new InvalidDataException("Stress snapshot must retain all nine abilities");
+                if(abilities.Count!=ContentIds.Weapons.Length)throw new InvalidDataException("Unknown ability in snapshot");
                 var levels=new Dictionary<string,int>();
                 foreach(var upgrade in build.upgrades)
                 {

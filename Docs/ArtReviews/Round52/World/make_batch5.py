@@ -1,0 +1,4 @@
+import json
+from pathlib import Path
+b={'id':5,'scope':'荧光菌沼三近广景、菌屋/木板/水池、巨蛙与完成回访','sheets':[f'Docs/ArtReviews/Round52/World/biome5-{j:02}.jpg' for j in range(4)],'originals':['Artifacts/Round52/Captures/'+n+'.png' for n in ['boss-closeup-5','waterside-architecture-5','sanctuary-completed-5','geography-5-2']],'observation':'实际新看4表/15静态并补4原图。灰绿地面、青水池的莲点/粉圆点、紫青菌伞/发光草和木栈板组成独立沼泽语言；三处近广景道路可连，菌伞大小层次与灰岩菌簇清楚。菌屋圆帽/小墙入口与木板为轻量简洁处理，重复木板/菌簇组仍明显，C2/C3可扣局部精修。本轮geography-5-2玩家与池边/祭坛同框，头和青圈可辨；没有迁入51该同名图中遮挡开口的观察，本帧不能证明连续消隐。52waterside原图菌屋在玩家前方，危险粉圈/青足圈可分，但动态阶段不据静态判断。巨蛙近景深青绿色、巨大眼和嘴、金冠/背菌/粗趾，正常镜头比玩家与普通蛙大，造型和体量成立；与普通蛙同家族，完整攻击死亡仍待Combat。完成回访保持菌伞/木板/水池，挑战圈暗化且开启字不见。没有粉材、明显缺件或可见硬地形洞。'}
+Path('Docs/ArtReviews/Round52/World/batch5.json').write_text(json.dumps(b,ensure_ascii=False,indent=2),encoding='utf-8')

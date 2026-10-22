@@ -1,0 +1,29 @@
+from pathlib import Path
+from PIL import Image
+import json,hashlib
+b=Path('Docs/ArtReviews/Round51/World');load=lambda p:json.loads(Path(p).read_text(encoding='utf-8-sig'))
+sheets=load(b/'CharacterSheetManifest.json')|load(b/'WorldSheetManifest.json');static=sorted(set(p for v in sheets.values() for p in v))
+names=['character-adventurer','character-elementalist','character-swordsman','enemy-5-elite','enemy-6-normal','enemy-7-elite','enemy-8-normal','enemy-1-normal','weapon-boomerang','weapon-crossbow','weapon-froststaff']
+for prefix in ['boss-closeup','waterside-architecture','sanctuary-completed']:names += [f'{prefix}-{i}' for i in [0,1,2,3,5,6]]
+names+=['mixed-boundary-0-1','mixed-boundary-0-2','mixed-boundary-0-6','mixed-boundary-1-2','mixed-boundary-2-3','mixed-boundary-3-5','mixed-lava-shore-close','geography-5-2','geography-6-1','sanctuary-close-3','enemy-combat-5-elite','enemy-combat-8-normal','experience-aggregates','experience-aggregates-low']
+originals=[f'Artifacts/Round51/Captures/{n}.png' for n in names]+[f'Artifacts/Probe51/Captures/{n}.png' for n in ['probe-max-zoom-ultrawide','probe-20-1']]
+def info(p):
+ q=Path(p);wp=q.with_suffix('.world.json');qp=q.with_suffix('.quality.json');world=load(wp) if wp.exists() else None
+ return dict(path=p,sha256=hashlib.sha256(q.read_bytes()).hexdigest(),pixels=list(Image.open(q).size),quality=load(qp) if qp.exists() else None,worldSidecar=str(wp).replace('\\','/') if wp.exists() else None,seed=world.get('seed') if world else None,character=world.get('character') if world else None,seconds=world.get('seconds') if world else None,abilities=world.get('abilities') if world else None,globalPosition=world.get('global') if world else None,sites=world.get('sites') if world else None,missingWorldMetadataReason='Presentation camera capture has no world sidecar; unknown, not inferred' if not world else None)
+rows=[]
+data=[
+('A1',5,'大头短肢与俯视轮廓清晰',['character-adventurer','character-elementalist','character-swordsman','10-biome-0','10-biome-1','10-biome-2'],'三角色大头短肢，鞋手分离，发型/帽子/长袍在正常镜头保持清楚，九能力实体围绕时头部仍可定位。','无本项必修。'),
+('A2',4,'面部服饰装备设计与辨识度',['character-adventurer','character-elementalist','character-swordsman'],'棕发橙围巾/紫尖帽白发/深发绿袍形成身份，眼白瞳孔眉嘴鼻颊色和带扣/鞋/服装分区有设计；纵长大眼偏夸张、指肘衣褶仍简。','细化手指/肘/衣褶与眼比例，保持Q版。'),
+('A3',5,'明快卡通造型材质色光协调',['terrain-detail-0','terrain-detail-1','terrain-detail-2','terrain-detail-3','terrain-detail-5','terrain-detail-6'],'六单群系青翠、金黄、冰蓝、灰紫橙火、灰绿紫菌、玫瑰赤晶均有独立色组，统一描边/柔和影与明快角色一致；雪与晶谷没有全屏泛白。','无本项必修。'),
+('B1',5,'全部首发角色模型材质与挂点完成',['character-adventurer','character-elementalist','character-swordsman'],'三角色有完整发脸、鞋手、服装、手持灰枪/法杖/背剑，正常九能力画面角色不缺件，悬浮自动武器为独立视觉，不作手持挂点缺失；连续动作由Combat复核。','无本项必修。'),
+('B2',4,'八普通敌种与精英轮廓动作标识区分',[f'enemy-{i}-{e}' for i in [0,1,2,3,5,6,7,8] for e in ['normal','elite']]+['enemy-combat-5-elite','enemy-combat-8-normal'],'旧四基型与新高孢囊、低蛙、晶甲黑足、长赤晶金弧各可辨；精英金冠及侧菌/肩甲/角/晶有差异，正常新地图镜头成立。精英仍较依赖共用金冠，差异化可精修。','强化各类精英独有盔甲/姿态，保留共同等级语汇。'),
+('B3',5,'六Boss独立主题造型体量与表现',[f'boss-closeup-{i}' for i in [0,1,2,3,5,6]]+[f'boss-{i}' for i in [0,1,2,3,5,6]],'古树根手/分节虫/白毛蓝角兽/橙核黑岩像/深青冠蛙背菌/头肩赤晶石卫各有主题轮廓，正常镜头比小怪和玩家更大。蛙沿同类基型但深青冠背菌清楚，石卫与熔像同巨像方向有独立头肩晶/核心。动态完整性另引Combat本轮报告。','无本项必修；后续可进一步拉开蛙王与普通蛙细部。'),
+('C1',5,'六单群系独立地貌装饰语言',[f'geography-{i}-{j}' for i in [0,1,2,3,5,6] for j in range(3)],'六地各有三处近广景：林河树岩、沙丘绿洲岩台、冰湖雪脊冰门、熔河桥柱、菌伞莲点池栈板菌屋、赤晶簇碎晶环门柱，保持开阔战斗面并有独立地貌。','无本项必修。'),
+('C2',4,'地面植被岩石建筑遗迹层次尺度',[f'waterside-architecture-{i}' for i in [0,1,2,3,5,6]],'大地貌/中景树石晶/小点草菌、建筑基台/门柱/桥与道路分层，六主题尺度一致；屋侧面/门柱仍平整，木板重复、晶谷留白较多。','补少量屋檐门框/材质分区和遗迹边缘，不用散点堆叠填空。'),
+('C3',4,'区块接缝遮挡重复与视觉一致',['world-floating-origin','geography-5-2','geography-wide-6-1','mixed-lava-shore-close'],'六地广景、浮动原点、Probe远坐标/超宽最大缩放无空块或硬裂面，路径桥岸衔接；菌伞开圆口后中心玩家可辨。重复树团/柱束/棱晶组方向接近，圆头岸线与消隐口边缘较硬。','增加非对称组群/大小方向变化，平滑遮挡边缘；不以静态证明所有种子或碰撞。'),
+('C4',5,'Mixed六区过渡地标路径交互清楚',['mixed-boundary-0-1','mixed-boundary-0-2','mixed-boundary-0-6','mixed-boundary-1-2','mixed-boundary-2-3','mixed-boundary-3-5','mixed-lava-shore-close']+[f'sanctuary-completed-{i}' for i in [0,1,2,3,5,6]],'Mixed六主体与六边界包括菌沼/赤晶，宽颜色渐变/地物混入、路径连续；熔河与雪侧分离。旗/箱/碧滴祭坛/主题挑战圈分工明确，六完成回访保留完整景物并熄圈清提示。','无本项必修；火山开启文字偏暗归E4局部精修。')]
+for id,score,title,evidence,observation,revision in data:rows.append(dict(id=id,score=score,max=5,title=title,evidence=[f'Artifacts/Round51/Captures/{n}.png' for n in evidence],observation=observation,revision=revision,reviewer='art_lead47 (Round51 new observations)'))
+o=dict(candidate='Round51',version='1.2.0',reviewer='art_lead47',scope='A1-A3/B1-B3/C1-C4',status='Domain observations complete; B3 dynamic corroboration and full review pending other domains',rows=rows,dimensions=dict(A=14,B=14,C=18),subtotal=46,actualViewing=dict(sheetCount=len(sheets),staticCount=len(static),originalCount=len(originals),dynamicFramesPersonallyViewed=0,sheets=list(sheets),staticImages=static,originalFiles=originals),sourceMetadata=[info(p) for p in static],limitations=['Only current51 images; no reuse of47/48/49/50 image or score.','Static146 via40 complete-frame sheets,45 original files opened; large2560 image may transport at2048px, not pixel-perfect1:1 inspection.','Character presentation PNGs have quality sidecars but no world JSON; unavailable fields stay null. Gameplay PNG world includes seed/character/seconds/abilities/sites when available.','No desktop/control/Player launch/build/runtime edit; no real-time manual play.','Whole random world/upgrade/task permutations are not exhausted.','Combat domain reviews continuous motion; this reviewer has not yet opened those dynamic frames.','Long test/final frame still pending; not declared passed.'],notes='Docs/ArtReviews/Round51/World/BatchNotes.md')
+assert len(static)==146 and len(originals)==45 and len(sheets)==40
+(b/'Review.json').write_text(json.dumps(o,ensure_ascii=False,indent=2),encoding='utf-8')
+print('146 current51 statics/45 originals/40 sheets, 10 rows recorded.')

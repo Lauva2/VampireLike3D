@@ -1,0 +1,103 @@
+{
+  "candidate": "Round51",
+  "version": "1.2.0",
+  "reviewer": "/root/art_combat47",
+  "rubricUnchanged": true,
+  "rows": [
+    {
+      "id": "E1",
+      "score": 5,
+      "max": 5,
+      "title": "武器、能力与联动形色及命中层次",
+      "evidence": [
+        "Artifacts/Round51/Captures/weapon-crossbow.png",
+        "Artifacts/Round51/Captures/weapon-boomerang.png",
+        "Artifacts/Round51/Captures/weapon-froststaff.png",
+        "13 effect-* sequences: 12 frames each; originals flame/explosion/spore/crystalburst/lightning/frost 0002 or 0003",
+        "Artifacts/Round51/Sequences/late-density-combinations/0018.jpg"
+      ],
+      "observation": "火球橙焰、金色细弹、青白飞剑、紫金折线雷、蓝冰碎片与符环具有独立轮廓；孢子紫色乳白点和晶爆粉色棱片可辨。连弩青金弓形、往返回旋刃青色折角轮廓、冰杖蓝晶杆体与冰迹实际出现。密战仍见多种发射与命中，并非只凭能力9的HUD计数判断。",
+      "revision": "无本项必修扣分；新增能力继续沿用独立形状和敌我色组。"
+    },
+    {
+      "id": "E2",
+      "score": 4,
+      "max": 5,
+      "title": "高密叠加中的玩家、危险、目标与掉落辨识",
+      "evidence": [
+        "Artifacts/Round51/Sequences/late-density-combinations/0000.jpg through 0095.jpg: all 96 in six full-frame sheets",
+        "Original frames 0018,0024,0030,0072",
+        "Artifacts/Round51/Captures/late-density-0.png through late-density-6.png: seven originals"
+      ],
+      "observation": "九能力持续密战中，玩家头帽与青色足环能连续追踪，粉红敌弹/红危险范围与青色经验有区分，目标金环可见。0018/0024/0030及0072的飞剑、蓝冰环、黄精英冠在中心和左侧拥聚，短时压缩怪物身体及地面预警的可用空隙，故扣1分。新怪隔离片段关闭能力，未用于满足本门槛。",
+      "revision": "降低精英冠重复叠加和己方冰环/剑雨覆盖的视觉权重，保留所有能力、实际发射与伤害；用同九能力高密回归玩家足环和红预警。"
+    },
+    {
+      "id": "E3",
+      "score": 5,
+      "max": 5,
+      "title": "六Boss及精英预警形状、时序和命中区域",
+      "evidence": [
+        "boss-attacks-0,1,2,3,5,6: 25 samples each over complete 144-frame source",
+        "All six bosses original adjacent 0018-0021",
+        "Additional originals boss3/0066,boss5/0054,boss6/0054 and0114",
+        "enemy-attacks-5..8-normal/elite: 17 samples each; frog6-normal0067-0069 adjacent"
+      ],
+      "observation": "树根多圆、沙虫方向长条、寒兽环震/冰点、熔岩多点爆发、菌蛙大圈/多孢圈、晶卫方向条/多晶落点具备可辨前摇，红粉圈线由淡至明确并出现条纹/感叹号，爆发在此前范围内。相邻原帧可见树根警示→命中花瓣→受击边缘的局部顺序。新孢囊/跃蛙/前甲冲锋/扇晶弹的普通精英轮廓和动作危险可辨。未见严重错位或被长时间完全遮盖；不据12fps推断精确判定毫秒。",
+      "revision": "维持敌方专用红粉形状；后续若改攻击范围，应以同版相邻原帧与正常实战回归。"
+    },
+    {
+      "id": "E4",
+      "score": 4,
+      "max": 5,
+      "title": "闪避、受击、状态、边界与交互提示",
+      "evidence": [
+        "Artifacts/Round51/Sequences/character-move-dodge/0001.jpg through0003.jpg adjacent",
+        "boss-attacks-2/0018.jpg and0021.jpg",
+        "player-defeat/0004.jpg and0009.jpg",
+        "Artifacts/Round51/Captures/sanctuary-close-3.png",
+        "Artifacts/Round51/Captures/sanctuary-close-5.png",
+        "Artifacts/Round51/Captures/sanctuary-close-6.png"
+      ],
+      "observation": "闪避弯身/浅色闪现、青色足部定位，受击红边与冻结蓝色状态在连续证据中有对应表现；目标金环与血条明确。未见严重过曝。火山祭坛深青色E开启挑战文字直接落在紫灰地面，对比偏弱但仍可读，扣1分。只观察到开战脱离提示，未看完整脱战倒计时，闪避无敌起止亦不作毫秒精度结论。",
+      "revision": "为世界交互文字加浅底或外描边，先回归火山紫灰地面，并保留祭坛5/6当前清晰度。"
+    },
+    {
+      "id": "F1",
+      "score": 4,
+      "max": 5,
+      "title": "移动、攻击、闪避、受击、死亡与Boss起收动作",
+      "evidence": [
+        "role-action-adventurer/elementalist/swordsman: 12 samples each",
+        "role-closeup-adventurer/elementalist/swordsman: 16 samples each; original0019 each",
+        "character-move-dodge:12 samples plus adjacent0001-0003",
+        "player-defeat: all14 frames",
+        "boss-death-0,1,2,3,5,6: all141 frames, original0010 each",
+        "six boss attack sequences and new enemy frog adjacent0067-0069"
+      ],
+      "observation": "三角色走转、手持动作、闪避倾身和受击死亡可辨；玩家倒下后进入结算，六Boss分别倾倒、压低或收缩后消退，树/虫/兽/岩像/菌蛙/晶卫都有实际连续死亡画面。跃蛙有离地与落点变化。短动作多以整体旋转/缩放完成，攻击后回正和Boss收招较直接，肢体重心衔接尚少层次，扣1分。青金悬浮能力枪与手中灰枪分离，不定性为断挂点。",
+      "revision": "延长角色攻击回收的缓冲，给Boss死亡/收招增加分段重心与肢体延迟，在现有三角色和六Boss原循环回归。"
+    },
+    {
+      "id": "F2-combat",
+      "score": 4,
+      "max": 5,
+      "title": "战斗侧拾取、升级、解锁和界面反馈一致性（合并建议）",
+      "evidence": [
+        "feedback-pause-open all9",
+        "feedback-skills-open all7",
+        "feedback-task-unlock all10, original0000",
+        "feedback-upgrade-open all8",
+        "feedback-upgrade-reward all8",
+        "player-defeat all14; late-density-combinations all96"
+      ],
+      "observation": "五反馈共42帧中奶油/深青页面淡入后稳定，任务完成与解锁提示清楚，升级奖励与回到世界的色彩一致，结算未见开战Toast遮住按钮。密战掉落与吸收反馈可辨。奖励主要依赖通用环和Toast，世界侧庆祝动作层次偏薄，建议4分；这是战斗侧贡献，最终F2须由总评与UI评审合并。未抽到祭坛专属打开→选项→升级恢复的完整转场。",
+      "revision": "为重大升级/首次解锁增加短促且不遮挡玩家的世界反馈；补祭坛专属连续转场用于后续回归。"
+    }
+  ],
+  "E": 18,
+  "F1": 4,
+  "F2CombatSuggestion": 4,
+  "complete100PointTotal": null,
+  "scope": "独立战斗侧核心复评，不替代总评或后续长测补充"
+}

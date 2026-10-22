@@ -1,0 +1,78 @@
+[
+  {
+    "id": "D1",
+    "score": 5,
+    "max": 5,
+    "title": "菜单/选择/任务/成长/设置/加载/结算体系",
+    "evidence": [
+      "SheetManifest.json:36类×五画幅180图",
+      "Artifacts/Probe52/Captures/load-failure-terrain-forest.png",
+      "Artifacts/Probe52/Captures/load-failure-weapon-gun.png",
+      "Artifacts/Round52/Captures/death-results.png"
+    ],
+    "observation": "本轮180图及错误恢复/死亡原图均独立看过，奶油底、青色主操作、彩色图标和白/灰卡统一；三角色七地图、新任务/技能与六祝福页面完整纳入。加载失败Toast说明返回主菜单，启程主按钮保持可读。",
+    "revision": "无本项必修；错误Toast可继续细化，当前暂遮次操作但不阻断主操作。"
+  },
+  {
+    "id": "D2",
+    "score": 5,
+    "max": 5,
+    "title": "HUD/候选/技能层级与密度",
+    "evidence": [
+      "Artifacts/UI52/Captures/ui-hud-1280x720.png",
+      "Artifacts/UI52/Captures/ui-hud-expansion-1280x720.png",
+      "Artifacts/UI52/Captures/ui-blessing-owned-1280x720.png",
+      "Artifacts/UI52/Captures/ui-skills-expansion-联动-locked-1280x720.png",
+      "Artifacts/Round52/Captures/20-skills.png"
+    ],
+    "observation": "能力9摘要和横向栏初/后段同时实看，生命/计时/资源/地图层级清楚，滚轮/拖动提示可见。普通四选、祭坛三选、层数变化、任务进度奖励及构筑价格/任务锁定/已掌握均分层。已获祝福区本轮出现×1/×2/×4并说明本局生效。",
+    "revision": "无本项必修；持续保留能力总数及滚动引导。"
+  },
+  {
+    "id": "D3",
+    "score": 4,
+    "max": 5,
+    "title": "中文完整/长文本/字号/行距/对齐",
+    "evidence": [
+      "Artifacts/UI52/Captures/ui-upgrade-1920x1200.png",
+      "Artifacts/UI52/Captures/ui-upgrade-1920x1080.png",
+      "Artifacts/UI52/Captures/ui-task-expansion-froststaff.shatter-1280x720.png",
+      "Artifacts/UI52/Captures/ui-skills-expansion-联动-locked-1920x1200.png"
+    ],
+    "observation": "本轮稳定五画幅未见缺字方框/关键裁切。扣1为原图1920×1200普通升级碎霜领域描述仅句号独占第二行；1920×1080普通升级剑气前行至“范围剑”，末行仅“气。”。两处均本轮源图独立确认；生机短句在720p完整可读。",
+    "revision": "缩短或重排碎霜领域/剑气描述，避免孤标点和单字末行；实际五画幅回归，不只依赖text fits断言。"
+  },
+  {
+    "id": "D4",
+    "score": 5,
+    "max": 5,
+    "title": "五画幅/状态/价格/锁定原因/图标",
+    "evidence": [
+      "SheetManifest.json:180图",
+      "Artifacts/UI52/Captures/ui-selection-expansion-locked-2560x1080.png",
+      "Artifacts/UI52/Captures/ui-skills-expansion-联动-locked-1280x720.png",
+      "Artifacts/UI52/Captures/ui-skills-expansion-联动-unlocked-1280x720.png",
+      "Artifacts/UI52/Captures/ui-blessing-variety-3-1280x720.png"
+    ],
+    "observation": "720p、1080p、16:10、21:9、1440p核心面板和控件未见出界/拉伸。新地图锁标/灰卡/条件与开放白卡明确；两武器锁因和三联动解锁后4点价格可辨。祭坛0→1和1→2、取消保留、已获本局生效均完整。弹道locked中连弩已掌握，如实作为已掌握状态。",
+    "revision": "无本项必修；锁态夹具与真实已获状态需继续清楚区分。"
+  },
+  {
+    "id": "F2",
+    "score": 4,
+    "max": 5,
+    "scope": "page-feedback portion recommendation only",
+    "title": "页面动效/升级及解锁反馈（页面部分）",
+    "evidence": [
+      "SequenceSheetManifest.json:五序列32帧",
+      "Artifacts/Round52/Sequences/feedback-pause-open/0001.jpg",
+      "Artifacts/Round52/Sequences/feedback-pause-open/0002.jpg",
+      "Artifacts/Round52/Sequences/feedback-upgrade-open/0001.jpg",
+      "Artifacts/Round52/Sequences/feedback-upgrade-open/0002.jpg",
+      "Artifacts/Round52/Sequences/feedback-upgrade-reward/0000.jpg",
+      "Artifacts/Round52/Sequences/feedback-task-unlock/0000.jpg"
+    ],
+    "observation": "本轮五反馈32帧从开始至末帧均看，8原帧补看；暂停/构筑/普通升级早期透明后稳定，获得叠阵及任务完成/新内容解锁/晶石+15在左下避开中心角色与主操作，未见持续闪烁/材质跳变。反馈仍主要是短淡入、通用Toast和环形变化，节奏与奖励类别差异可进一步细化，页面部分建议4。",
+    "revision": "细化不同选择确认/奖励及层数增加的视觉节奏；祭坛完整转场和HUD连续滚动待专属连续证据。完整F2交总评结合世界反馈确定。"
+  }
+]

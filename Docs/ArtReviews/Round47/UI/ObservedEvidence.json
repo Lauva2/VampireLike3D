@@ -1,0 +1,1757 @@
+{
+  "candidate": "Round47/UI47/Probe47",
+  "version": "1.1.0",
+  "reviewer": "/root/art_ui47",
+  "status": "complete_for_assigned_scope",
+  "rubric": "Docs/ArtReview.md sections 1–6 original 20-item 100-point rubric",
+  "documentsRead": [
+    "AGENTS.md",
+    "Docs/GameDesign.md including 1.1",
+    "Docs/ArtReview.md sections 1–6"
+  ],
+  "observedSheets": [
+    "Docs/ArtReviews/Round47/UI/ui-blessing-matrix.jpg",
+    "Docs/ArtReviews/Round47/UI/ui-blessing-owned-matrix.jpg",
+    "Docs/ArtReviews/Round47/UI/ui-blessing-variety-0-matrix.jpg",
+    "Docs/ArtReviews/Round47/UI/ui-blessing-variety-1-matrix.jpg",
+    "Docs/ArtReviews/Round47/UI/ui-hud-matrix.jpg",
+    "Docs/ArtReviews/Round47/UI/ui-loading-matrix.jpg",
+    "Docs/ArtReviews/Round47/UI/ui-map-matrix.jpg",
+    "Docs/ArtReviews/Round47/UI/ui-menu-matrix.jpg",
+    "Docs/ArtReviews/Round47/UI/ui-pause-matrix.jpg",
+    "Docs/ArtReviews/Round47/UI/ui-pause-settings-matrix.jpg",
+    "Docs/ArtReviews/Round47/UI/ui-progress-matrix.jpg",
+    "Docs/ArtReviews/Round47/UI/ui-results-matrix.jpg",
+    "Docs/ArtReviews/Round47/UI/ui-selection-locked-matrix.jpg",
+    "Docs/ArtReviews/Round47/UI/ui-selection-unlocked-matrix.jpg",
+    "Docs/ArtReviews/Round47/UI/ui-settings-matrix.jpg",
+    "Docs/ArtReviews/Round47/UI/ui-skills-matrix.jpg",
+    "Docs/ArtReviews/Round47/UI/ui-upgrade-matrix.jpg",
+    "Docs/ArtReviews/Round47/UI/ui-victory-matrix.jpg"
+  ],
+  "observedSequenceSheets": [
+    "Docs/ArtReviews/Round47/UI/feedback-pause-open-all.jpg",
+    "Docs/ArtReviews/Round47/UI/feedback-skills-open-all.jpg",
+    "Docs/ArtReviews/Round47/UI/feedback-task-unlock-all.jpg",
+    "Docs/ArtReviews/Round47/UI/feedback-upgrade-open-all.jpg",
+    "Docs/ArtReviews/Round47/UI/feedback-upgrade-reward-all.jpg"
+  ],
+  "staticSourcesObserved": [
+    {
+      "path": "Artifacts/UI47/Captures/ui-blessing-1280x720.png",
+      "sha256": "c04039c07afde67e64b987945eade928a24d333b9f1061f4fd4edd26db73ad88",
+      "pixels": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-blessing-1920x1080.png",
+      "sha256": "55426f220c9761e3dda2fd275f473a93fa95e1c09ad1314d02487401dedf8263",
+      "pixels": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-blessing-1920x1200.png",
+      "sha256": "ab4d4f5e43c40eea6f0272e19c412bbf28c958f63aada0d42a9bbb3552f010bd",
+      "pixels": [
+        1920,
+        1200
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-blessing-2560x1080.png",
+      "sha256": "4fb41901aff84e216f2b796d2a446f0b3c65e6c008238848a02dcb027c12a805",
+      "pixels": [
+        2560,
+        1080
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-blessing-2560x1440.png",
+      "sha256": "e63caf8e1197f601ff2b664cbebe8e4e6511dd04ec3384d09614eb6eeefffe3f",
+      "pixels": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-blessing-owned-1280x720.png",
+      "sha256": "4b7a6811c571b7e02cc29ad798a229d48296263119fb845e77366cca57d29c50",
+      "pixels": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-blessing-owned-1920x1080.png",
+      "sha256": "46cecb3aa50d20b98c5743a2bde8062325b030d0de42da4de26472a7b3163de5",
+      "pixels": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-blessing-owned-1920x1200.png",
+      "sha256": "e95acc33405a303445e64b6b5a0fc48cc637d06558fab99285b36d6c98d40330",
+      "pixels": [
+        1920,
+        1200
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-blessing-owned-2560x1080.png",
+      "sha256": "752316e0a357719d488607d3bf3df52750d44b9decb1e757a06846347e369b6f",
+      "pixels": [
+        2560,
+        1080
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-blessing-owned-2560x1440.png",
+      "sha256": "9dc4b2b8d1285044645eee868b3a23541d44016b2f5b51ebedc54f480de24f00",
+      "pixels": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-blessing-variety-0-1280x720.png",
+      "sha256": "2a1ab2dab1016655e3d6dad009d18ce703b6ecdd5157388682439bc01b450a54",
+      "pixels": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-blessing-variety-0-1920x1080.png",
+      "sha256": "d360e38e30fbb68ebc628a62b1125d487f2783a31b4eec0371c1fdc8031cb389",
+      "pixels": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-blessing-variety-0-1920x1200.png",
+      "sha256": "94bded03e1a403bc920e867836bdd37839dbb79c2f6e20709e47acb27b3f2412",
+      "pixels": [
+        1920,
+        1200
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-blessing-variety-0-2560x1080.png",
+      "sha256": "8ae8e1f9c6b6d2e7a8372774228ff5544fb2eac86e9690f785c3148fee67bb31",
+      "pixels": [
+        2560,
+        1080
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-blessing-variety-0-2560x1440.png",
+      "sha256": "d6f41e053cfcd8e1c6d41899363d589d94f00472e6e6f579d68ecc4c92bccdff",
+      "pixels": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-blessing-variety-1-1280x720.png",
+      "sha256": "bc956d355732879edd0e4be1994c8ae1eef3fd139c0e489ee49fbb5d037f81bd",
+      "pixels": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-blessing-variety-1-1920x1080.png",
+      "sha256": "84e71998b5480cd5815de02fc79f9e163203bd3856049d7fcf04b0b960203628",
+      "pixels": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-blessing-variety-1-1920x1200.png",
+      "sha256": "f225d492b6fe69d92f1307f37cece50b5a2aec9f7ad1e892462477d3c66e51dc",
+      "pixels": [
+        1920,
+        1200
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-blessing-variety-1-2560x1080.png",
+      "sha256": "d9cbd96867c9011bfa4a0ba9c3e465db8c93af9b70ed585b14e0fff72a94a90d",
+      "pixels": [
+        2560,
+        1080
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-blessing-variety-1-2560x1440.png",
+      "sha256": "ce610557b6a5efff580aa3c05c7354bb67f029dc599761e4b86c87197a9c2263",
+      "pixels": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-hud-1280x720.png",
+      "sha256": "9125935df6836e26f6ff14496fcbc0e72de821e3fdc6f0f69b26678280d0f9de",
+      "pixels": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-hud-1920x1080.png",
+      "sha256": "9bb8dc6c85bcef05ee32d37bbc0e2963185452c9370b9ad3e52cc8c895c73e5f",
+      "pixels": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-hud-1920x1200.png",
+      "sha256": "c336960a0edfe4259ebc7540684112e9ac6f3cfc8554e342d685558625539d52",
+      "pixels": [
+        1920,
+        1200
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-hud-2560x1080.png",
+      "sha256": "0c29a415f97d09b6d39b6ffed38a3a39bf81e18ac6b9f9f2dc0f98a1d3b7a984",
+      "pixels": [
+        2560,
+        1080
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-hud-2560x1440.png",
+      "sha256": "a6d2db4231b6bca8721a78c720f40b80550daffc83961bba045fcdccc787f4a9",
+      "pixels": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-loading-1280x720.png",
+      "sha256": "ac5eee9bef32d8c4aaecf4a087d8dbef74095bea2ace7dded1c43cc70f4e787e",
+      "pixels": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-loading-1920x1080.png",
+      "sha256": "c079bccedb08b67a2b4eb2c9ec1c7a5fbac9cadd24ddc6bb3dd649c433462b36",
+      "pixels": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-loading-1920x1200.png",
+      "sha256": "f9aa3caec7910d4293a637de55b02a7ac1cbf0e102f76464cc94c3c9e6c50428",
+      "pixels": [
+        1920,
+        1200
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-loading-2560x1080.png",
+      "sha256": "d681f2227cfcb364897ac06e43cddc5fa6098223a763f92c0af98a37aec586f6",
+      "pixels": [
+        2560,
+        1080
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-loading-2560x1440.png",
+      "sha256": "b54ef940bce010c6afbe6054fbd8dfa7a1810c6c7871d454a79782d0b63e738f",
+      "pixels": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-map-1280x720.png",
+      "sha256": "d2674f754236ff9563f2414dc8e92b1ff1c4ab9f3e2a4dd8de7d3e9f15123670",
+      "pixels": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-map-1920x1080.png",
+      "sha256": "b7d4c93b329fdea4edd64661ed67ee8247ee7d69e51a28ac4258c135b9f788f9",
+      "pixels": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-map-1920x1200.png",
+      "sha256": "9ac58024e538247d898952de830190e1b5a9a85ff8a40e687b7cc56b66484193",
+      "pixels": [
+        1920,
+        1200
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-map-2560x1080.png",
+      "sha256": "185e78f3d9a94bc216f5bde78a97780ad6b20cf9d8886e89a87d8293a6a7c4a3",
+      "pixels": [
+        2560,
+        1080
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-map-2560x1440.png",
+      "sha256": "6ba5fadd27bcfacf7ebe849960cf8efdf13f587cfe0f35b6e394ed9c871aada6",
+      "pixels": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-menu-1280x720.png",
+      "sha256": "3cffb0ffc5f43cf8e4af8f067162b8dcf84f80f3fd810d5599bb8a6ae3df37d2",
+      "pixels": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-menu-1920x1080.png",
+      "sha256": "050bb98f1c0f5294f19e5040e2eb70b68ed5952cf19c83d3e50f435103cd7ba1",
+      "pixels": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-menu-1920x1200.png",
+      "sha256": "d60aa8274f2744d4da62088d3712edf4537efc4c93fa0bf77cb31c8f54ae40b1",
+      "pixels": [
+        1920,
+        1200
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-menu-2560x1080.png",
+      "sha256": "33530d375b3c7f8ca4cdebd00069202df05ed136a039628c1e839bfafd004b9e",
+      "pixels": [
+        2560,
+        1080
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-menu-2560x1440.png",
+      "sha256": "130b8c3ea0c535b77240242709c4408dbb7e247c8d4b70f06d240cae5bbe21b4",
+      "pixels": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-pause-1280x720.png",
+      "sha256": "223cc9e411102a3f62d191c740426cc1347d20f3333bfd5107fdd3dddd876731",
+      "pixels": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-pause-1920x1080.png",
+      "sha256": "2fd57c57bb9982ae2a24c53000c2b8837d970e67cb7d04e3a9ae381e747077e1",
+      "pixels": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-pause-1920x1200.png",
+      "sha256": "0740239900035466ae28ac6db072d76bc6e5e263a8e8b9406a6317848d6e118b",
+      "pixels": [
+        1920,
+        1200
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-pause-2560x1080.png",
+      "sha256": "64bf9482598b1b97298273bd2e28ebff64d2bd6725fc782eeb9d57bb83cf9f20",
+      "pixels": [
+        2560,
+        1080
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-pause-2560x1440.png",
+      "sha256": "49a51a2ec03631a5bc8ac1bb8c122024970a21da113e88fde408eb2c0ca3feaf",
+      "pixels": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-pause-settings-1280x720.png",
+      "sha256": "4a4acc09431e72f5b6fc5f02ae99442edee3fb215b9b8c7ff1a36b5ae4d60ae5",
+      "pixels": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-pause-settings-1920x1080.png",
+      "sha256": "32e87c6446b71041f841cc0159d0513d1f3bc440661b7953c9a035823dfc87e0",
+      "pixels": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-pause-settings-1920x1200.png",
+      "sha256": "77ecf264520700db87883e198221e4d09ec2fa9345fc3155d96a2b617ddc3760",
+      "pixels": [
+        1920,
+        1200
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-pause-settings-2560x1080.png",
+      "sha256": "4056f49653fa33e4c2dcdefefba5fd43fb30fb7233774f16e6ba8242178de6d1",
+      "pixels": [
+        2560,
+        1080
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-pause-settings-2560x1440.png",
+      "sha256": "5e9a7fbcbe1e380b0948172271e602903311c1c9547569a0ae513530cce74f88",
+      "pixels": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-progress-1280x720.png",
+      "sha256": "c530b0945b376cab185018e4fa915bec0fa6c8f7900ebacfd126756d0c3b311f",
+      "pixels": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-progress-1920x1080.png",
+      "sha256": "1588cf71be5f97788e62b3448ba5167a77980c0273e23ee4a3db7e642389e3c1",
+      "pixels": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-progress-1920x1200.png",
+      "sha256": "1e2952aeac64e76cca1475070d0c13be4faeb750faa108f28d504f10fa9a6941",
+      "pixels": [
+        1920,
+        1200
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-progress-2560x1080.png",
+      "sha256": "34624e4973b53688dd1bc92177161a3ae014a6c8f0996dc159193c41d24f693e",
+      "pixels": [
+        2560,
+        1080
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-progress-2560x1440.png",
+      "sha256": "d01f8e09cbd59e1527ae373fe886263d570bb1f428b0acacc699891dd6ed7e8d",
+      "pixels": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-results-1280x720.png",
+      "sha256": "1fbf7a5fc7d4b354f7a06c3be5f63699d436722aeb9ec8af446491abc88e105d",
+      "pixels": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-results-1920x1080.png",
+      "sha256": "28ed6091018a3168e0639e850ad473dee3d7a49a22d931c0313689b60889bc92",
+      "pixels": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-results-1920x1200.png",
+      "sha256": "16a20efc28bda81621a4cf0640cf5dd79df88710c8630663d400dfaf30691510",
+      "pixels": [
+        1920,
+        1200
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-results-2560x1080.png",
+      "sha256": "483437eaf3a3763bd3b27b48fded3079af966f3ebd8de782045b532c6597779f",
+      "pixels": [
+        2560,
+        1080
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-results-2560x1440.png",
+      "sha256": "9575d103b60ff7a355fe7ecf3bcfab367b24758eb12d6f1ce0b6951871b183de",
+      "pixels": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-selection-locked-1280x720.png",
+      "sha256": "184db1cf5d8ca03e3494e008b8572e331318a598f5af2bd81a0603134f50ce98",
+      "pixels": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-selection-locked-1920x1080.png",
+      "sha256": "9bdda6b14738541f9530635f6eea744fd55c95ffa4f667e54020a50cd9398864",
+      "pixels": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-selection-locked-1920x1200.png",
+      "sha256": "02b5d7246d9bac2b023071c7e4abe95b64349b90663a498de579ce49b9d81ca6",
+      "pixels": [
+        1920,
+        1200
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-selection-locked-2560x1080.png",
+      "sha256": "a1007896163b215d819d68dab25efd13a5dc1e5109b1413519c18b623d26d832",
+      "pixels": [
+        2560,
+        1080
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-selection-locked-2560x1440.png",
+      "sha256": "d9fb41b2b66923d2edc3d8837b75fdb14bc6ac519de9586df1b757eb3269aa93",
+      "pixels": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-selection-unlocked-1280x720.png",
+      "sha256": "15535d2adb4214d70bde3455680ca0b903ebb26a7851976ea215cb45bdc24c71",
+      "pixels": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-selection-unlocked-1920x1080.png",
+      "sha256": "20204ebae802f2b79460b0c59b67640f00dd222a293f2f0541d88056df54928e",
+      "pixels": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-selection-unlocked-1920x1200.png",
+      "sha256": "fc311a58e94b9d2885f01ae55314ad9ab6166a0050bfbcbc73047e6f673bf556",
+      "pixels": [
+        1920,
+        1200
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-selection-unlocked-2560x1080.png",
+      "sha256": "e0113dbc1a1ac563e9380b103d1f2fd995272890f27a5ac182195ba4f89075b1",
+      "pixels": [
+        2560,
+        1080
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-selection-unlocked-2560x1440.png",
+      "sha256": "1b1e578a55d73c442e117b8718ea101ebdd7fcd283c73e7dc1a884d7c5b89964",
+      "pixels": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-settings-1280x720.png",
+      "sha256": "bdab7a1d8707caad1de0bf45d1e8134f287385f495d1c53fd7cb0050fc6f38ac",
+      "pixels": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-settings-1920x1080.png",
+      "sha256": "937906ce255f29734489590c7801deda60b4e98af14d5cc24e752945b031a820",
+      "pixels": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-settings-1920x1200.png",
+      "sha256": "017d61048920000dfd06b5f982a5428b53d9ba38da1ccc17f71d01e74ecda8cd",
+      "pixels": [
+        1920,
+        1200
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-settings-2560x1080.png",
+      "sha256": "a9fc8cf3de6451ccd26c3eeeba752c0cc6b0f74e12592b073dd41f627502044c",
+      "pixels": [
+        2560,
+        1080
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-settings-2560x1440.png",
+      "sha256": "c56c31fa6b583d3c6e3001cd0f762127f2d0e84f8483717c2a96beb8ee843096",
+      "pixels": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-skills-1280x720.png",
+      "sha256": "4cac1d2c358af8a96034fad50aa4c54015924d6156cef62c6e01bb86c1bb7c01",
+      "pixels": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-skills-1920x1080.png",
+      "sha256": "68e032f0b2f0692ce56d4bc41553305f96ac5f074f563b9d82d37ff7ff4dafb5",
+      "pixels": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-skills-1920x1200.png",
+      "sha256": "22ed693c96bd1afb2b7862d0d43f11d05b07f215fa216b7c92c115623601877c",
+      "pixels": [
+        1920,
+        1200
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-skills-2560x1080.png",
+      "sha256": "314e622b5d30e476abfd418e9c57dfe2ba74c30ce27eb7c13ec937f434c5a449",
+      "pixels": [
+        2560,
+        1080
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-skills-2560x1440.png",
+      "sha256": "7c3cf47a782235cba6443d156c508d09ae122f85582fc4f4e722e39d7f38200e",
+      "pixels": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-upgrade-1280x720.png",
+      "sha256": "30630cf5d1e0335cad9885395eb22e6746df29ea1b6705f9323b0003187db797",
+      "pixels": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-upgrade-1920x1080.png",
+      "sha256": "f0ad89163e214ea74307547b9afc6fc419ff93f74e0fe77d2f7b3fc10c66a800",
+      "pixels": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-upgrade-1920x1200.png",
+      "sha256": "fb9dfccae94a9d920ca64cc121848b6c897741930b43fcc11b32ba9509bf2f12",
+      "pixels": [
+        1920,
+        1200
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-upgrade-2560x1080.png",
+      "sha256": "37167966b1cc148a46aa9b9014697eb5915e8ea8d611abf99f8173930001b5eb",
+      "pixels": [
+        2560,
+        1080
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-upgrade-2560x1440.png",
+      "sha256": "698ef1598f4d8ab859323be5d66f648c972a05686e653296733aae19c8136432",
+      "pixels": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-victory-1280x720.png",
+      "sha256": "c35bb53f80ad0063a0dff46f0023d52ef0290de6cc0c9754d971d79aabb324d3",
+      "pixels": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-victory-1920x1080.png",
+      "sha256": "62c2924e4a62bd651eb92f653b3cc76ff562841d31ca37d1fcf275e3b507945f",
+      "pixels": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-victory-1920x1200.png",
+      "sha256": "1c1994580e126ece1bd5a57f1cc9f1b5ec344c52bb064472c6c7b1481af19230",
+      "pixels": [
+        1920,
+        1200
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-victory-2560x1080.png",
+      "sha256": "b7c7fd93dbacaa3d5a201fed10bc6bbd76e9c5c61f6d944f2251123247db9760",
+      "pixels": [
+        2560,
+        1080
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-victory-2560x1440.png",
+      "sha256": "8cb8f2f150d6f132914bee71b5ed6e357a3c7ab2e30e394b96d5a3066bb3288d",
+      "pixels": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "path": "Artifacts/Round47/Captures/20-skills.png",
+      "sha256": "32bbaacc78b1e7857da3d00205242b70e0caf7bc806a9f75a2a324477ef8ebdc",
+      "pixels": [
+        1600,
+        900
+      ]
+    },
+    {
+      "path": "Artifacts/Round47/Captures/resolution-skills-1280x720.png",
+      "sha256": "08309ee0504ee6678804e425df88fa6b764e340463f243ed7e6c0d634e47b7b2",
+      "pixels": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "Artifacts/Round47/Captures/22-upgrade.png",
+      "sha256": "f28d75d4964f36e7c018192834c89841d1bd31fa1c509c7ac5dafac5d8997631",
+      "pixels": [
+        1600,
+        900
+      ]
+    },
+    {
+      "path": "Artifacts/Round47/Captures/death-results.png",
+      "sha256": "1f2a13f8aadd1bcda2a8e9c734196af52c03d2e6b7f5688f85c7103396879f40",
+      "pixels": [
+        1600,
+        900
+      ]
+    },
+    {
+      "path": "Artifacts/Round47/Captures/ui-blessing-variety-5-1280x720.png",
+      "sha256": "958e75db3361293ad714db1b1322b066cefb12e0ff6b4ddb3dac6c1ca4dc7fd2",
+      "pixels": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "Artifacts/Probe47/Captures/load-failure-terrain-forest.png",
+      "sha256": "82838bb4d67e3aaa48cf94078b565e6d6f3a533920aac489e784e4f6038419e7",
+      "pixels": [
+        1600,
+        900
+      ]
+    },
+    {
+      "path": "Artifacts/Probe47/Captures/load-failure-weapon-gun.png",
+      "sha256": "d7243fe5589b9f0882c4fcb6c3d0be62ec0910600e4dfba989f8df5c1d9e94cf",
+      "pixels": [
+        1600,
+        900
+      ]
+    }
+  ],
+  "observedOriginals": [
+    {
+      "path": "Artifacts/UI47/Captures/ui-blessing-1280x720.png",
+      "sha256": "c04039c07afde67e64b987945eade928a24d333b9f1061f4fd4edd26db73ad88",
+      "pixels": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-blessing-owned-1280x720.png",
+      "sha256": "4b7a6811c571b7e02cc29ad798a229d48296263119fb845e77366cca57d29c50",
+      "pixels": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-blessing-variety-0-1280x720.png",
+      "sha256": "2a1ab2dab1016655e3d6dad009d18ce703b6ecdd5157388682439bc01b450a54",
+      "pixels": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-blessing-variety-1-1280x720.png",
+      "sha256": "bc956d355732879edd0e4be1994c8ae1eef3fd139c0e489ee49fbb5d037f81bd",
+      "pixels": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-hud-1280x720.png",
+      "sha256": "9125935df6836e26f6ff14496fcbc0e72de821e3fdc6f0f69b26678280d0f9de",
+      "pixels": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-loading-1280x720.png",
+      "sha256": "ac5eee9bef32d8c4aaecf4a087d8dbef74095bea2ace7dded1c43cc70f4e787e",
+      "pixels": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-map-1280x720.png",
+      "sha256": "d2674f754236ff9563f2414dc8e92b1ff1c4ab9f3e2a4dd8de7d3e9f15123670",
+      "pixels": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-menu-1280x720.png",
+      "sha256": "3cffb0ffc5f43cf8e4af8f067162b8dcf84f80f3fd810d5599bb8a6ae3df37d2",
+      "pixels": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-pause-1280x720.png",
+      "sha256": "223cc9e411102a3f62d191c740426cc1347d20f3333bfd5107fdd3dddd876731",
+      "pixels": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-pause-settings-1280x720.png",
+      "sha256": "4a4acc09431e72f5b6fc5f02ae99442edee3fb215b9b8c7ff1a36b5ae4d60ae5",
+      "pixels": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-progress-1280x720.png",
+      "sha256": "c530b0945b376cab185018e4fa915bec0fa6c8f7900ebacfd126756d0c3b311f",
+      "pixels": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-results-1280x720.png",
+      "sha256": "1fbf7a5fc7d4b354f7a06c3be5f63699d436722aeb9ec8af446491abc88e105d",
+      "pixels": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-selection-locked-1280x720.png",
+      "sha256": "184db1cf5d8ca03e3494e008b8572e331318a598f5af2bd81a0603134f50ce98",
+      "pixels": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-selection-unlocked-1280x720.png",
+      "sha256": "15535d2adb4214d70bde3455680ca0b903ebb26a7851976ea215cb45bdc24c71",
+      "pixels": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-settings-1280x720.png",
+      "sha256": "bdab7a1d8707caad1de0bf45d1e8134f287385f495d1c53fd7cb0050fc6f38ac",
+      "pixels": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-skills-1280x720.png",
+      "sha256": "4cac1d2c358af8a96034fad50aa4c54015924d6156cef62c6e01bb86c1bb7c01",
+      "pixels": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-upgrade-1280x720.png",
+      "sha256": "30630cf5d1e0335cad9885395eb22e6746df29ea1b6705f9323b0003187db797",
+      "pixels": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-victory-1280x720.png",
+      "sha256": "c35bb53f80ad0063a0dff46f0023d52ef0290de6cc0c9754d971d79aabb324d3",
+      "pixels": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-blessing-1920x1080.png",
+      "sha256": "55426f220c9761e3dda2fd275f473a93fa95e1c09ad1314d02487401dedf8263",
+      "pixels": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-blessing-variety-0-1920x1200.png",
+      "sha256": "94bded03e1a403bc920e867836bdd37839dbb79c2f6e20709e47acb27b3f2412",
+      "pixels": [
+        1920,
+        1200
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-blessing-variety-1-2560x1080.png",
+      "sha256": "d9cbd96867c9011bfa4a0ba9c3e465db8c93af9b70ed585b14e0fff72a94a90d",
+      "pixels": [
+        2560,
+        1080
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-blessing-owned-2560x1440.png",
+      "sha256": "9dc4b2b8d1285044645eee868b3a23541d44016b2f5b51ebedc54f480de24f00",
+      "pixels": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "path": "Artifacts/UI47/Captures/ui-upgrade-1920x1200.png",
+      "sha256": "fb9dfccae94a9d920ca64cc121848b6c897741930b43fcc11b32ba9509bf2f12",
+      "pixels": [
+        1920,
+        1200
+      ]
+    },
+    {
+      "path": "Artifacts/Round47/Captures/20-skills.png",
+      "sha256": "32bbaacc78b1e7857da3d00205242b70e0caf7bc806a9f75a2a324477ef8ebdc",
+      "pixels": [
+        1600,
+        900
+      ]
+    },
+    {
+      "path": "Artifacts/Round47/Captures/resolution-skills-1280x720.png",
+      "sha256": "08309ee0504ee6678804e425df88fa6b764e340463f243ed7e6c0d634e47b7b2",
+      "pixels": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "Artifacts/Round47/Captures/22-upgrade.png",
+      "sha256": "f28d75d4964f36e7c018192834c89841d1bd31fa1c509c7ac5dafac5d8997631",
+      "pixels": [
+        1600,
+        900
+      ]
+    },
+    {
+      "path": "Artifacts/Round47/Captures/death-results.png",
+      "sha256": "1f2a13f8aadd1bcda2a8e9c734196af52c03d2e6b7f5688f85c7103396879f40",
+      "pixels": [
+        1600,
+        900
+      ]
+    },
+    {
+      "path": "Artifacts/Round47/Captures/ui-blessing-variety-5-1280x720.png",
+      "sha256": "958e75db3361293ad714db1b1322b066cefb12e0ff6b4ddb3dac6c1ca4dc7fd2",
+      "pixels": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "Artifacts/Probe47/Captures/load-failure-terrain-forest.png",
+      "sha256": "82838bb4d67e3aaa48cf94078b565e6d6f3a533920aac489e784e4f6038419e7",
+      "pixels": [
+        1600,
+        900
+      ]
+    },
+    {
+      "path": "Artifacts/Probe47/Captures/load-failure-weapon-gun.png",
+      "sha256": "d7243fe5589b9f0882c4fcb6c3d0be62ec0910600e4dfba989f8df5c1d9e94cf",
+      "pixels": [
+        1600,
+        900
+      ]
+    }
+  ],
+  "observedSequenceOriginals": [
+    {
+      "path": "Artifacts/Round47/Sequences/feedback-pause-open/0001.jpg",
+      "sha256": "9548eb39842a25ad6851f56543e409855f0a5681eff781afcb3c356753333622",
+      "pixels": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "Artifacts/Round47/Sequences/feedback-pause-open/0002.jpg",
+      "sha256": "654251a840e323bc7dc18cd7821253e7a553b8e5b3674ee1daa56af0e0185236",
+      "pixels": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "Artifacts/Round47/Sequences/feedback-skills-open/0002.jpg",
+      "sha256": "b60243e39d6641dd77af99a2b94f614ed6740265455a0dcbab987ddfdea6de27",
+      "pixels": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "Artifacts/Round47/Sequences/feedback-upgrade-open/0002.jpg",
+      "sha256": "dda4d5002576c0a417b6d740aee569a017e2c8dd26ca4d1a3076eb4d09d911a7",
+      "pixels": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "Artifacts/Round47/Sequences/feedback-task-unlock/0000.jpg",
+      "sha256": "4a599879f1a41895b016e1dd5293a4b6a4993380465c52c524536ec9e4e49ff1",
+      "pixels": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "Artifacts/Round47/Sequences/feedback-task-unlock/0009.jpg",
+      "sha256": "823ac3f576c7f7f0124326a1dc2842603ba214d9d232713b69849076ac02f108",
+      "pixels": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "Artifacts/Round47/Sequences/feedback-upgrade-reward/0000.jpg",
+      "sha256": "e43c1e9cba33eaa99b59c4d4f2ca20712517feaf8db45fa9799b855149bfc89d",
+      "pixels": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "Artifacts/Round47/Sequences/feedback-upgrade-reward/0007.jpg",
+      "sha256": "970cf24b9ba60c6f5e6f5aa1f2de07eb02975cc1ac2dd8b62698e6a8482f82fc",
+      "pixels": [
+        1280,
+        720
+      ]
+    }
+  ],
+  "sequenceFrames": {
+    "feedback-pause-open": {
+      "framesObserved": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "sources": [
+        {
+          "path": "Artifacts/Round47/Sequences/feedback-pause-open/0000.jpg",
+          "sha256": "5d48be3b60f220801649d52cca3ee6b1f6268b3b410e494a5a2c619cffb94eed",
+          "pixels": [
+            1280,
+            720
+          ]
+        },
+        {
+          "path": "Artifacts/Round47/Sequences/feedback-pause-open/0001.jpg",
+          "sha256": "9548eb39842a25ad6851f56543e409855f0a5681eff781afcb3c356753333622",
+          "pixels": [
+            1280,
+            720
+          ]
+        },
+        {
+          "path": "Artifacts/Round47/Sequences/feedback-pause-open/0002.jpg",
+          "sha256": "654251a840e323bc7dc18cd7821253e7a553b8e5b3674ee1daa56af0e0185236",
+          "pixels": [
+            1280,
+            720
+          ]
+        },
+        {
+          "path": "Artifacts/Round47/Sequences/feedback-pause-open/0003.jpg",
+          "sha256": "f65ce4231eac870b479ef921a0347abab2de63e1d0382639239dd06bc35fd041",
+          "pixels": [
+            1280,
+            720
+          ]
+        },
+        {
+          "path": "Artifacts/Round47/Sequences/feedback-pause-open/0004.jpg",
+          "sha256": "a3bae086f779166a8f263cf3c4ce600263d605255cd1b4550dac0af8fb1dec60",
+          "pixels": [
+            1280,
+            720
+          ]
+        },
+        {
+          "path": "Artifacts/Round47/Sequences/feedback-pause-open/0005.jpg",
+          "sha256": "f65ce4231eac870b479ef921a0347abab2de63e1d0382639239dd06bc35fd041",
+          "pixels": [
+            1280,
+            720
+          ]
+        },
+        {
+          "path": "Artifacts/Round47/Sequences/feedback-pause-open/0006.jpg",
+          "sha256": "7dfba583c95b3bae3a18760065f5c023579c781a801b405feb1025d51d09e25b",
+          "pixels": [
+            1280,
+            720
+          ]
+        }
+      ],
+      "metadata": {
+        "source": "development Player actual runtime animation",
+        "wallClockTimestamps": true,
+        "frames": 7,
+        "requestedIntervalSeconds": 0.03333,
+        "fixedSimulationFps": null
+      },
+      "timestamps": [
+        {
+          "frame": "0",
+          "wallSeconds": "0.0003"
+        },
+        {
+          "frame": "1",
+          "wallSeconds": "0.0921"
+        },
+        {
+          "frame": "2",
+          "wallSeconds": "0.1688"
+        },
+        {
+          "frame": "3",
+          "wallSeconds": "0.2444"
+        },
+        {
+          "frame": "4",
+          "wallSeconds": "0.3141"
+        },
+        {
+          "frame": "5",
+          "wallSeconds": "0.3813"
+        },
+        {
+          "frame": "6",
+          "wallSeconds": "0.4501"
+        }
+      ],
+      "allFramesInThisSequenceObserved": true
+    },
+    "feedback-skills-open": {
+      "framesObserved": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "sources": [
+        {
+          "path": "Artifacts/Round47/Sequences/feedback-skills-open/0000.jpg",
+          "sha256": "e06115865bb346232796c5c2eaa97f0fb0067d7f8d46e5f922c43cd86046389d",
+          "pixels": [
+            1280,
+            720
+          ]
+        },
+        {
+          "path": "Artifacts/Round47/Sequences/feedback-skills-open/0001.jpg",
+          "sha256": "44c744bc39937aa4f6ef5029b3076f9f44e522ca12efaa894ba512a64740a0cc",
+          "pixels": [
+            1280,
+            720
+          ]
+        },
+        {
+          "path": "Artifacts/Round47/Sequences/feedback-skills-open/0002.jpg",
+          "sha256": "b60243e39d6641dd77af99a2b94f614ed6740265455a0dcbab987ddfdea6de27",
+          "pixels": [
+            1280,
+            720
+          ]
+        },
+        {
+          "path": "Artifacts/Round47/Sequences/feedback-skills-open/0003.jpg",
+          "sha256": "be15f43547cdfd790a77ba7949cf3730d027b6d06b39125b565d7b8e655a7dba",
+          "pixels": [
+            1280,
+            720
+          ]
+        },
+        {
+          "path": "Artifacts/Round47/Sequences/feedback-skills-open/0004.jpg",
+          "sha256": "b60243e39d6641dd77af99a2b94f614ed6740265455a0dcbab987ddfdea6de27",
+          "pixels": [
+            1280,
+            720
+          ]
+        },
+        {
+          "path": "Artifacts/Round47/Sequences/feedback-skills-open/0005.jpg",
+          "sha256": "0291f82e25cd1e49a6a4ab5a0e4c58b8c5a9cb4026cc0912fade2fad6b643272",
+          "pixels": [
+            1280,
+            720
+          ]
+        }
+      ],
+      "metadata": {
+        "source": "development Player actual runtime animation",
+        "wallClockTimestamps": true,
+        "frames": 6,
+        "requestedIntervalSeconds": 0.03333,
+        "fixedSimulationFps": null
+      },
+      "timestamps": [
+        {
+          "frame": "0",
+          "wallSeconds": "0.0003"
+        },
+        {
+          "frame": "1",
+          "wallSeconds": "0.1031"
+        },
+        {
+          "frame": "2",
+          "wallSeconds": "0.1694"
+        },
+        {
+          "frame": "3",
+          "wallSeconds": "0.2741"
+        },
+        {
+          "frame": "4",
+          "wallSeconds": "0.3660"
+        },
+        {
+          "frame": "5",
+          "wallSeconds": "0.4616"
+        }
+      ],
+      "allFramesInThisSequenceObserved": true
+    },
+    "feedback-task-unlock": {
+      "framesObserved": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "sources": [
+        {
+          "path": "Artifacts/Round47/Sequences/feedback-task-unlock/0000.jpg",
+          "sha256": "4a599879f1a41895b016e1dd5293a4b6a4993380465c52c524536ec9e4e49ff1",
+          "pixels": [
+            1280,
+            720
+          ]
+        },
+        {
+          "path": "Artifacts/Round47/Sequences/feedback-task-unlock/0001.jpg",
+          "sha256": "0b65a6ef542b828b0415141600afbe0f3bbe28b79e30415ee179c8b5e8aea712",
+          "pixels": [
+            1280,
+            720
+          ]
+        },
+        {
+          "path": "Artifacts/Round47/Sequences/feedback-task-unlock/0002.jpg",
+          "sha256": "871bae5b10097d3086ec5299d71bc1a66638d1d0dbfaaadf56b1d9d8fa7a1a4f",
+          "pixels": [
+            1280,
+            720
+          ]
+        },
+        {
+          "path": "Artifacts/Round47/Sequences/feedback-task-unlock/0003.jpg",
+          "sha256": "9a4c1aef065905a2898ec48ae69c91e9dc043797a0f215a78fd247b557b36100",
+          "pixels": [
+            1280,
+            720
+          ]
+        },
+        {
+          "path": "Artifacts/Round47/Sequences/feedback-task-unlock/0004.jpg",
+          "sha256": "60a27d5272bc8c0e68389e98644e36eba09982993d703d812553c7c99747997b",
+          "pixels": [
+            1280,
+            720
+          ]
+        },
+        {
+          "path": "Artifacts/Round47/Sequences/feedback-task-unlock/0005.jpg",
+          "sha256": "6d59470671f68565f0c6c4d35e4273159caa969889f50cd50e624da49af1be61",
+          "pixels": [
+            1280,
+            720
+          ]
+        },
+        {
+          "path": "Artifacts/Round47/Sequences/feedback-task-unlock/0006.jpg",
+          "sha256": "45a4e2dc6ba85967e615d6612228f98e96c3d98cee52c96f31ddcb37e8c64b1b",
+          "pixels": [
+            1280,
+            720
+          ]
+        },
+        {
+          "path": "Artifacts/Round47/Sequences/feedback-task-unlock/0007.jpg",
+          "sha256": "c35d6201c5136f90217e1c8656a51d1b5e6b1ff100b978e873d43d112f44c8cf",
+          "pixels": [
+            1280,
+            720
+          ]
+        },
+        {
+          "path": "Artifacts/Round47/Sequences/feedback-task-unlock/0008.jpg",
+          "sha256": "daead06e1ed56a6781b59253323878bea4953232e387376c00970e6c2fc86a3d",
+          "pixels": [
+            1280,
+            720
+          ]
+        },
+        {
+          "path": "Artifacts/Round47/Sequences/feedback-task-unlock/0009.jpg",
+          "sha256": "823ac3f576c7f7f0124326a1dc2842603ba214d9d232713b69849076ac02f108",
+          "pixels": [
+            1280,
+            720
+          ]
+        }
+      ],
+      "metadata": {
+        "source": "development Player actual runtime animation",
+        "wallClockTimestamps": true,
+        "frames": 10,
+        "requestedIntervalSeconds": 0.03333,
+        "fixedSimulationFps": null
+      },
+      "timestamps": [
+        {
+          "frame": "0",
+          "wallSeconds": "0.0003"
+        },
+        {
+          "frame": "1",
+          "wallSeconds": "0.0687"
+        },
+        {
+          "frame": "2",
+          "wallSeconds": "0.1310"
+        },
+        {
+          "frame": "3",
+          "wallSeconds": "0.1959"
+        },
+        {
+          "frame": "4",
+          "wallSeconds": "0.2635"
+        },
+        {
+          "frame": "5",
+          "wallSeconds": "0.3283"
+        },
+        {
+          "frame": "6",
+          "wallSeconds": "0.3915"
+        },
+        {
+          "frame": "7",
+          "wallSeconds": "0.4574"
+        },
+        {
+          "frame": "8",
+          "wallSeconds": "0.5231"
+        },
+        {
+          "frame": "9",
+          "wallSeconds": "0.5931"
+        }
+      ],
+      "allFramesInThisSequenceObserved": true
+    },
+    "feedback-upgrade-open": {
+      "framesObserved": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "sources": [
+        {
+          "path": "Artifacts/Round47/Sequences/feedback-upgrade-open/0000.jpg",
+          "sha256": "8d6cd461b3d9566ab9373febc0f21712dac84007e0d64b440e2f9198c13168e6",
+          "pixels": [
+            1280,
+            720
+          ]
+        },
+        {
+          "path": "Artifacts/Round47/Sequences/feedback-upgrade-open/0001.jpg",
+          "sha256": "5ac2b07aba4e48f71578ede1cdfa01b4b1e245a3f700076754268a67e828c034",
+          "pixels": [
+            1280,
+            720
+          ]
+        },
+        {
+          "path": "Artifacts/Round47/Sequences/feedback-upgrade-open/0002.jpg",
+          "sha256": "dda4d5002576c0a417b6d740aee569a017e2c8dd26ca4d1a3076eb4d09d911a7",
+          "pixels": [
+            1280,
+            720
+          ]
+        },
+        {
+          "path": "Artifacts/Round47/Sequences/feedback-upgrade-open/0003.jpg",
+          "sha256": "5ac2b07aba4e48f71578ede1cdfa01b4b1e245a3f700076754268a67e828c034",
+          "pixels": [
+            1280,
+            720
+          ]
+        },
+        {
+          "path": "Artifacts/Round47/Sequences/feedback-upgrade-open/0004.jpg",
+          "sha256": "5ac2b07aba4e48f71578ede1cdfa01b4b1e245a3f700076754268a67e828c034",
+          "pixels": [
+            1280,
+            720
+          ]
+        },
+        {
+          "path": "Artifacts/Round47/Sequences/feedback-upgrade-open/0005.jpg",
+          "sha256": "5ac2b07aba4e48f71578ede1cdfa01b4b1e245a3f700076754268a67e828c034",
+          "pixels": [
+            1280,
+            720
+          ]
+        }
+      ],
+      "metadata": {
+        "source": "development Player actual runtime animation",
+        "wallClockTimestamps": true,
+        "frames": 6,
+        "requestedIntervalSeconds": 0.03333,
+        "fixedSimulationFps": null
+      },
+      "timestamps": [
+        {
+          "frame": "0",
+          "wallSeconds": "0.0005"
+        },
+        {
+          "frame": "1",
+          "wallSeconds": "0.1362"
+        },
+        {
+          "frame": "2",
+          "wallSeconds": "0.2213"
+        },
+        {
+          "frame": "3",
+          "wallSeconds": "0.3049"
+        },
+        {
+          "frame": "4",
+          "wallSeconds": "0.3815"
+        },
+        {
+          "frame": "5",
+          "wallSeconds": "0.4480"
+        }
+      ],
+      "allFramesInThisSequenceObserved": true
+    },
+    "feedback-upgrade-reward": {
+      "framesObserved": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "sources": [
+        {
+          "path": "Artifacts/Round47/Sequences/feedback-upgrade-reward/0000.jpg",
+          "sha256": "e43c1e9cba33eaa99b59c4d4f2ca20712517feaf8db45fa9799b855149bfc89d",
+          "pixels": [
+            1280,
+            720
+          ]
+        },
+        {
+          "path": "Artifacts/Round47/Sequences/feedback-upgrade-reward/0001.jpg",
+          "sha256": "b63cd1c30f4c3e15d6c37b02b08e20730e42f61a1e36d92b9f11952011b1a497",
+          "pixels": [
+            1280,
+            720
+          ]
+        },
+        {
+          "path": "Artifacts/Round47/Sequences/feedback-upgrade-reward/0002.jpg",
+          "sha256": "2af585a14ec650adecf045db50b163d5e09a5422a5aa0245f9c69dcc12886df0",
+          "pixels": [
+            1280,
+            720
+          ]
+        },
+        {
+          "path": "Artifacts/Round47/Sequences/feedback-upgrade-reward/0003.jpg",
+          "sha256": "2934a39081832fd3d73f626977c5518fa63ec7dd1a52f37e819ac6fe898a2067",
+          "pixels": [
+            1280,
+            720
+          ]
+        },
+        {
+          "path": "Artifacts/Round47/Sequences/feedback-upgrade-reward/0004.jpg",
+          "sha256": "a623e90c95983e3efdaef3bfcdfa7c9bf4c947a95cc43f8d411bdbac6b2fabcb",
+          "pixels": [
+            1280,
+            720
+          ]
+        },
+        {
+          "path": "Artifacts/Round47/Sequences/feedback-upgrade-reward/0005.jpg",
+          "sha256": "1dd4bcd4e5e4680562e5489f8844f0dabbc679919db0629c5085f76d84299c0e",
+          "pixels": [
+            1280,
+            720
+          ]
+        },
+        {
+          "path": "Artifacts/Round47/Sequences/feedback-upgrade-reward/0006.jpg",
+          "sha256": "e2e0df595625d23d00c5c780752047b015bea02b4e6f1ab97d87242d323e43dc",
+          "pixels": [
+            1280,
+            720
+          ]
+        },
+        {
+          "path": "Artifacts/Round47/Sequences/feedback-upgrade-reward/0007.jpg",
+          "sha256": "970cf24b9ba60c6f5e6f5aa1f2de07eb02975cc1ac2dd8b62698e6a8482f82fc",
+          "pixels": [
+            1280,
+            720
+          ]
+        }
+      ],
+      "metadata": {
+        "source": "development Player actual runtime animation",
+        "wallClockTimestamps": true,
+        "frames": 8,
+        "requestedIntervalSeconds": 0.03333,
+        "fixedSimulationFps": null
+      },
+      "timestamps": [
+        {
+          "frame": "0",
+          "wallSeconds": "0.0002"
+        },
+        {
+          "frame": "1",
+          "wallSeconds": "0.0620"
+        },
+        {
+          "frame": "2",
+          "wallSeconds": "0.1272"
+        },
+        {
+          "frame": "3",
+          "wallSeconds": "0.1953"
+        },
+        {
+          "frame": "4",
+          "wallSeconds": "0.2648"
+        },
+        {
+          "frame": "5",
+          "wallSeconds": "0.3300"
+        },
+        {
+          "frame": "6",
+          "wallSeconds": "0.3952"
+        },
+        {
+          "frame": "7",
+          "wallSeconds": "0.4589"
+        }
+      ],
+      "allFramesInThisSequenceObserved": true
+    }
+  },
+  "counts": {
+    "staticDifferent": 97,
+    "staticOpenedAsSource": 30,
+    "dynamicDifferent": 37,
+    "dynamicOpenedAsSource": 8,
+    "auxiliarySheets": 23
+  },
+  "runtimeReports": {
+    "UI47": {
+      "finished": "2026-10-22T02:51:14.4516351Z",
+      "passed": true,
+      "checkCount": 124,
+      "errors": [],
+      "buildFileCount": 23,
+      "player": "E:\\UnityProject\\VampireLike3D\\Builds\\Review47\\WanXiangExpedition.exe",
+      "exitCode": 0
+    },
+    "Round47": {
+      "finished": "2026-10-22T02:54:42.1211806Z",
+      "passed": true,
+      "checkCount": 117,
+      "errors": [],
+      "buildFileCount": 23,
+      "player": "E:\\UnityProject\\VampireLike3D\\Builds\\Review47\\WanXiangExpedition.exe",
+      "exitCode": 0
+    },
+    "Probe47": {
+      "finished": "2026-10-22T02:52:09.1478853Z",
+      "passed": true,
+      "checkCount": 8,
+      "errors": [],
+      "buildFileCount": 23,
+      "player": "E:\\UnityProject\\VampireLike3D\\Builds\\Review47\\WanXiangExpedition.exe",
+      "exitCode": 0
+    }
+  },
+  "identity": {
+    "all23BuildEntriesMatch": true,
+    "releaseBridge": {
+      "development": "E:\\UnityProject\\VampireLike3D\\Builds\\Review47",
+      "release": "E:\\UnityProject\\VampireLike3D\\Builds\\Release47",
+      "development_flag": true,
+      "release_flag": false,
+      "source_files": 1072,
+      "source_differences": [],
+      "development_bundles": 18,
+      "release_bundles": 18,
+      "bundle_differences": [],
+      "exact_source_match": true,
+      "exact_bundle_match": true,
+      "scope": "Static identity only; gameplay, art and performance need their separate reports."
+    },
+    "workspace": {
+      "passed": true,
+      "checked_files": 1072,
+      "snapshot": "E:\\UnityProject\\VampireLike3D\\Builds\\Review47\\SourceIdentity.json",
+      "missing": [],
+      "different": []
+    }
+  },
+  "limits": [
+    "Only Round47/UI47/Probe47 runtime Camera.Render sources are used; no old images or historical scores migrate.",
+    "18 UI sheets cover all 90 matrix sources; 30 static source files and 8 dynamic source files additionally opened. Large source files may be downscaled by display transport to 2048px.",
+    "All 37 frames in five feedback sequences were visually observed in full-frame auxiliary sheets; this does not mean original-size opening of every frame or normal-speed live play.",
+    "Feedback sequences use wall-clock timestamps with fixedSimulationFps=null, requested interval 0.03333; actual last timestamps 0.4480–0.5931 seconds.",
+    "No shrine-specific continuous open/choose/return-to-normal-upgrade sequence was present among the five feedback directories; shrine animations and the complete new transition remain unverified here. Stable states and functional assertions do not substitute for continuous visuals.",
+    "Not a full 100-point review; A/B/C/E/F1, full-world F2, natural progression, damage timing, performance and 7200-second stability remain outside this assignment.",
+    "No desktop/window/input automation, Player launches, builds, original edits or gameplay code changes were performed."
+  ]
+}

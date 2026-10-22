@@ -44,7 +44,9 @@ MonoBehaviour:
   m_BuildAddressablesWithPlayerBuild: 0
   m_overridePlayerVersion: '[UnityEditor.PlayerSettings.bundleVersion]'
   m_GroupAssets:
+  - {fileID: 11400000, guid: fabd6f82179828d42b3c4a4004fe2162, type: 2}
   - {fileID: 11400000, guid: 814b83b21f8821746b04bf73a2106333, type: 2}
+  - {fileID: 11400000, guid: ad4113e4fc97aa14ca27429e006528e9, type: 2}
   - {fileID: 11400000, guid: 9c22da66d451891408e7686d814e402e, type: 2}
   - {fileID: 11400000, guid: 36f6c1db18cf10d4e82c198fb6abaa3d, type: 2}
   - {fileID: 11400000, guid: 4731e73d1303a6142b1978f497b11a5c, type: 2}
@@ -58,11 +60,15 @@ MonoBehaviour:
   - {fileID: 11400000, guid: eae63495765cfb4409e187d635086ccb, type: 2}
   - {fileID: 11400000, guid: 67703212f486bb14090c59028ab6e9c4, type: 2}
   - {fileID: 11400000, guid: a4977b4a8a44a0647bbc2aa9d4a8f884, type: 2}
+  - {fileID: 11400000, guid: ce3638ce2d81836409994be7e9bd2502, type: 2}
   - {fileID: 11400000, guid: 1dff75b9e10afeb47b2f6edfacb1a6b6, type: 2}
+  - {fileID: 11400000, guid: a5e5d6c58ee79324b959d89cfabff9c1, type: 2}
   - {fileID: 11400000, guid: 6f020f27d2fd3a7459d8c8627a55729a, type: 2}
   - {fileID: 11400000, guid: 4c5e41f75fd9c234e969b7e871a660e7, type: 2}
+  - {fileID: 11400000, guid: 9f96e86005402e94081aeb244a1a6eaa, type: 2}
   - {fileID: 11400000, guid: 5ec89512c17362649983c37fae218cc7, type: 2}
   - {fileID: 11400000, guid: 712f68e0168cede43bf0c8728a56ab4b, type: 2}
+  - {fileID: 11400000, guid: ddc106e00316bc7489b25dc758b8bee9, type: 2}
   m_BuildSettings:
     m_CompileScriptsInVirtualMode: 0
     m_CleanupStreamingAssetsAfterBuilds: 1

@@ -23,7 +23,7 @@ namespace VampireLike
         }
         public static Color RoadColor(BiomeId biome)
         {
-            string code=biome==BiomeId.Forest?"C3B58A":biome==BiomeId.Desert?"E8CE96":biome==BiomeId.Snow?"DBE7E3":"8A7780";
+            string code=biome==BiomeId.Forest?"C3B58A":biome==BiomeId.Desert?"E8CE96":biome==BiomeId.Snow?"DBE7E3":biome==BiomeId.Swamp?"BCC58D":biome==BiomeId.Crystal?"D5A99B":"8A7780";
             ColorUtility.TryParseHtmlString("#"+code,out var result);return result;
         }
         void Awake(){mesh=new Mesh{name="Owned generated path network"};mesh.MarkDynamic();GetComponent<MeshFilter>().sharedMesh=mesh;}

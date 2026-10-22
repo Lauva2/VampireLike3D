@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: World-swamp
+  m_EditorClassIdentifier: 
+  m_GroupName: World-swamp
+  m_Data:
+    m_SerializedData: []
+  m_GUID: b102f1b681f7c0f4c976370a81484c6d
+  m_SerializeEntries:
+  - m_GUID: 2b2f72c04677ffb49a935f0bb5587919
+    m_Address: decoration/swamp
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8ebe5ceba6a6ab64fb2718b13e290468
+    m_Address: terrain/swamp
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bd73bc75feb4711419d5a4059400e19c
+    m_Address: architecture/swamp
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d0e4fe6e14f3a204d8d0735b7482bd70
+    m_Address: boss/swamp
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: c3053bf0f14251148951535e646181e0, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: fe783a202e9219342ada1194cd3998c5, type: 2}
+    - {fileID: 11400000, guid: 6e8453c9caa2fc24ca376571d468b24b, type: 2}

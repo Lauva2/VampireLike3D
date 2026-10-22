@@ -49,7 +49,7 @@ namespace VampireLike
             if(active&&Time.time>nextEffect)
             {
                 nextEffect=Time.time+.85f;
-                string id=BossOwned?(biome==BiomeId.Forest?"vfx/roots":biome==BiomeId.Snow?"vfx/frost":biome==BiomeId.Volcano?"vfx/flame":"vfx/impact"):"vfx/impact";
+                string id=biome==BiomeId.Swamp?"vfx/spore":biome==BiomeId.Crystal?"vfx/crystalburst":BossOwned?(biome==BiomeId.Forest?"vfx/roots":biome==BiomeId.Snow?"vfx/frost":biome==BiomeId.Volcano?"vfx/flame":"vfx/impact"):"vfx/impact";
                 game.Combat.Effect(id,transform.position,.45f,Mathf.Min(radius*1.4f,3),hostile:true);
             }
             if (active && Time.time > nextHit && Contains(game.Player.transform.position,.25f))

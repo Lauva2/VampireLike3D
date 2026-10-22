@@ -43,19 +43,19 @@ namespace VampireLike
             }
             var previews=new AssetScope("selection-previews");
             GameObject pathPrefab=null;yield return game.Assets.LoadPrefab("path/network",previews,p=>pathPrefab=p);
-            for(int i=0;i<4;i++)
+            for(int i=0;i<game.Catalog.biomes.Length;i++)
             {
                 var biome=game.Catalog.biomes[i];GameObject terrain=null,decoration=null,architecture=null;
                 yield return game.Assets.LoadPrefab(biome.terrainId,previews,p=>terrain=p);
                 yield return game.Assets.LoadPrefab(biome.decorationId,previews,p=>decoration=p);
-                yield return game.Assets.LoadPrefab("architecture/"+new[]{"forest","desert","snow","volcano"}[i],previews,p=>architecture=p);
-                if(terrain!=null&&decoration!=null)landscapes[i]=PortraitRenderer.Landscape(terrain,decoration,architecture,pathPrefab,(BiomeId)i);
+                yield return game.Assets.LoadPrefab("architecture/"+ContentIds.RegionKey(biome.id),previews,p=>architecture=p);
+                if(terrain!=null&&decoration!=null)landscapes[(int)biome.id]=PortraitRenderer.Landscape(terrain,decoration,architecture,pathPrefab,biome.id);
                 yield return null;
             }
-            if(landscapes.Count==4)
+            if(landscapes.Count==ContentIds.Regions.Length)
             {
                 var mixed=new Texture2D(384,160,TextureFormat.RGB24,false);
-                for(int i=0;i<4;i++)mixed.SetPixels(i*96,0,96,160,landscapes[i].GetPixels(144,0,96,160));mixed.Apply();landscapes[4]=mixed;
+                for(int i=0;i<ContentIds.Regions.Length;i++)mixed.SetPixels(i*64,0,64,160,landscapes[(int)ContentIds.Regions[i]].GetPixels(160,0,64,160));mixed.Apply();landscapes[(int)BiomeId.Mixed]=mixed;
             }
             yield return null;game.Assets.Release(previews);
         }
@@ -71,9 +71,9 @@ namespace VampireLike
             On("PauseSettings", ShowSettings);
             On("RerollButton", () =>
             {
-                game.Progression.Reroll();
+                if (modal == "upgrade") game.Progression.Reroll();
             });
-            On("SkipUpgrade", () => game.Progression.SkipLevel());
+            On("SkipUpgrade", () => { if (modal == "blessing") CloseModal(); else if (modal == "upgrade") game.Progression.SkipLevel(); });
             foreach (var branch in new[] { "全部", "元素", "召唤", "弹道", "爆破", "剑修", "符阵", "通用", "联动" })
             { string value = branch; On("Filter" + branch, () => { filter = value; PopulateSkills(); }); }
             On("MapNorth", () => view.largeMap.offset += Vector2Int.up * 4);
@@ -95,6 +95,7 @@ namespace VampireLike
         Coroutine panelTransition;
         void ActiveOnly(GameObject selected, string reason)
         {
+            if (modal == "blessing" && reason != "blessing") game.Progression?.Shrines.Cancel();
             bool opening=selected!=null&&!selected.activeSelf;
             if(panelTransition!=null){StopCoroutine(panelTransition);panelTransition=null;}
             foreach(var panel in new[]{view.menu,view.selection,view.upgrade,view.skills,view.pause,view.map,view.progress,view.settings,view.results,view.victory,view.loading}){var sheet=panel.transform.Find("Sheet");if(sheet!=null)sheet.localScale=Vector3.one;}
@@ -143,14 +144,14 @@ namespace VampireLike
                 widget.lockIcon.gameObject.SetActive(!unlocked);Highlight(widget,unlocked&&c.id==selectedCharacter,c.color);
                 widget.button.onClick.AddListener(() => { selectedCharacter = c.id; MenuStage.Active?.SelectCharacter(c.id); ShowSelection(); });
             }
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < ContentIds.Maps.Length; i++)
             {
-                BiomeId biome = (BiomeId)i; var config = game.Catalog.Biome(biome); bool unlocked = game.Save.MapUnlocked(biome);
+                BiomeId biome = ContentIds.Maps[i]; var config = game.Catalog.Biome(biome); bool unlocked = game.Save.MapUnlocked(biome);
                 var widget = Widget(view.biomeList, true);
                 string title = i == 4 ? "万象交界" : config.name;
                 string description = i == 4 ? "所有群系交汇，无限探索与自由组合。" : config.subtitle;
-                string requirement = i == 0 ? "初始开放" : i == 4 ? "首次击败全部四个群系 Boss" : "首次击败" + game.Catalog.biomes[i - 1].bossName;
-                Fill(widget, title, description, unlocked ? selectedBiome == biome ? "已选择 · 无限地图" : "点击选择" : requirement, new[] { "林", "沙", "雪", "焰", "象" }[i], i == 4 ? new Color(.55f, .4f, .85f) : config.accent);
+                string requirement = i == 0 ? "初始开放" : i >= 4 ? "首次击败原四群系 Boss 后开放" : "首次击败" + game.Catalog.Biome((BiomeId)(i - 1)).bossName;
+                Fill(widget, title, description, unlocked ? selectedBiome == biome ? "已选择 · 无限地图" : "点击选择" : requirement, new[] { "林", "沙", "雪", "焰", "象", "菌", "晶" }[i], i == 4 ? new Color(.55f, .4f, .85f) : config.accent);
                 if(landscapes.TryGetValue(i,out var landscape))
                 {
                     widget.preview.gameObject.SetActive(true);widget.preview.texture=landscape;
@@ -169,25 +170,62 @@ namespace VampireLike
         public void ShowUpgrade(List<UpgradeDefinition> choices)
         {
             currentChoices = choices; ActiveOnly(view.upgrade, "upgrade"); Clear(view.upgradeList);
+            Set("UpgradeTitle", "灵感涌现");
+            Set("UpgradeSubtitle", "从四种可能中选择一种。其他路线仍可在之后获得。");
+            Set("SkipUpgradeLabel", "改领 2 个定向点");
+            buttons["RerollButton"].gameObject.SetActive(true);
+            var grid = view.upgradeList.GetComponent<GridLayoutGroup>();
+            grid.constraintCount = 4; grid.cellSize = new Vector2(290, 335); grid.childAlignment = TextAnchor.UpperLeft;
             Set("UpgradeHeading", "等级 " + game.Run.level + " · 选择新的力量");
             foreach (var u in choices)
             {
                 var upgrade = u; var widget = Widget(view.upgradeList, true);
                 Fill(widget, u.name, u.description, u.unique ? "新机制 · 可与其他路线叠加" : "当前等级 " + game.Run.Level(u.id) + " → " + (game.Run.Level(u.id) + 1), Icon(u), u.color);
-                var accent=(RectTransform)widget.accent.transform;accent.anchorMin=accent.anchorMax=new Vector2(.5f,1);accent.anchoredPosition=new Vector2(0,-65);accent.sizeDelta=new Vector2(86,86);
-                widget.symbol.rectTransform.sizeDelta=new Vector2(60,60);
-                widget.title.rectTransform.anchoredPosition=new Vector2(0,-122);widget.title.rectTransform.sizeDelta=new Vector2(-36,48);widget.title.alignment=TextAnchor.MiddleCenter;
-                widget.body.rectTransform.anchoredPosition=new Vector2(0,-180);widget.body.rectTransform.sizeDelta=new Vector2(-42,80);widget.body.alignment=TextAnchor.UpperLeft;
-                widget.meta.rectTransform.sizeDelta=new Vector2(-40,48);widget.meta.alignment=TextAnchor.MiddleCenter;
+                LayoutChoice(widget);
                 widget.button.onClick.AddListener(() => game.Progression.Apply(upgrade.id, false));
             }
             Set("RerollLabel", "重新抽取  " + game.Run.rerolls);
             if (buttons.TryGetValue("RerollButton", out var reroll)) reroll.interactable = game.Run.rerolls > 0;
         }
+        static void LayoutChoice(UIWidget widget)
+        {
+            var accent=(RectTransform)widget.accent.transform;accent.anchorMin=accent.anchorMax=new Vector2(.5f,1);accent.anchoredPosition=new Vector2(0,-65);accent.sizeDelta=new Vector2(86,86);
+            widget.symbol.rectTransform.sizeDelta=new Vector2(60,60);
+            widget.title.rectTransform.anchoredPosition=new Vector2(0,-122);widget.title.rectTransform.sizeDelta=new Vector2(-36,48);widget.title.alignment=TextAnchor.MiddleCenter;
+            widget.body.rectTransform.anchoredPosition=new Vector2(0,-180);widget.body.rectTransform.sizeDelta=new Vector2(-42,80);widget.body.alignment=TextAnchor.UpperLeft;
+            widget.meta.rectTransform.sizeDelta=new Vector2(-40,48);widget.meta.alignment=TextAnchor.MiddleCenter;
+        }
+        public void ShowBlessings(List<BlessingDefinition> choices, int token)
+        {
+            var owner = game.Progression.Shrines;
+            ActiveOnly(view.upgrade, "blessing"); Clear(view.upgradeList);
+            Set("UpgradeTitle", "祭坛回响");
+            Set("UpgradeSubtitle", "选择后恢复45%生命，获得3定向点、4晶石与18经验。祝福持续到本局结束。");
+            Set("UpgradeHeading", "三选一 · 后续祭坛仍可叠加");
+            Set("SkipUpgradeLabel", "暂不领取 · 保留祭坛");
+            buttons["RerollButton"].gameObject.SetActive(false);
+            var grid = view.upgradeList.GetComponent<GridLayoutGroup>();
+            grid.constraintCount = 3; grid.cellSize = new Vector2(360, 335); grid.childAlignment = TextAnchor.UpperCenter;
+            foreach (var blessing in choices)
+            {
+                var choice = blessing; var widget = Widget(view.upgradeList, true);
+                Fill(widget, choice.name, choice.description, "本局层数 " + game.Run.BlessingLevel(choice.id) + " → " + (game.Run.BlessingLevel(choice.id) + 1), choice.icon, choice.color);
+                LayoutChoice(widget);
+                widget.button.onClick.AddListener(() => owner.Select(token, choice.id));
+            }
+        }
         public void CloseUpgrade() { ShowHUD(); }
         void PopulateSkills()
         {
             Clear(view.skillList); Set("SkillPointsText", "定向点  " + game.Run.skillPoints);
+            if (filter == "全部" || filter == "通用")
+                foreach (var blessing in game.Catalog.blessings)
+                {
+                    int count = game.Run.BlessingLevel(blessing.id); if (count == 0) continue;
+                    var widget = Widget(view.skillList, true);
+                    Fill(widget, blessing.name, blessing.description, "祭坛祝福 ×" + count + " · 本局生效", blessing.icon, blessing.color);
+                    widget.button.interactable = false;
+                }
             foreach (var u in game.Catalog.upgrades)
             {
                 if (filter != "全部" && u.branch != filter) continue;
@@ -249,7 +287,7 @@ namespace VampireLike
         {
             ActiveOnly(view.victory, "victory");
             Set("VictoryName", "击败「" + game.Catalog.Biome(biome).bossName + "」");
-            Set("VictoryBody", biome == BiomeId.Volcano && game.Save.MapUnlocked(BiomeId.Mixed) ? "四方试炼完成 · 万象交界已开放！\n首胜与任务成果已经保存。" : "首胜与任务成果已经保存。\n你可以继续探索，也可以携带收获撤离。");
+            Set("VictoryBody", biome == BiomeId.Volcano && game.Save.MapUnlocked(BiomeId.Mixed) ? "四方试炼完成 · 万象交界与两处新群系开放！\n首胜与任务成果已经保存。" : "首胜与任务成果已经保存。\n你可以继续探索，也可以携带收获撤离。");
         }
         public void ShowResults(bool extraction)
         {
@@ -288,7 +326,8 @@ namespace VampireLike
             Set("LevelText", "Lv. " + run.level); Set("TimerText", Clock(run.seconds));
             Set("BiomeText", game.Catalog.Biome(game.World.CurrentBiome).name + "  ·  无限探索");
             Set("RunCurrencyText", "定向点 " + run.skillPoints + "     晶石 " + game.Save.Profile.crystals);
-            Set("KillsText", "击败 " + run.kills); Set("InteractionText", game.World.InteractionText ?? "");
+            Set("KillsText", "击败 " + run.kills + " · 能力 " + run.abilities.Count);
+            Set("ControlsText", "WASD 移动   Shift 无敌闪避\n右键标记   E 交互" + (run.abilities.Count > 6 ? "\n武器栏可用滚轮或拖动浏览" : "")); Set("InteractionText", game.World.InteractionText ?? "");
             foreach (var pair in abilityWidgets) pair.Value.gameObject.SetActive(run.abilities.Contains(pair.Key));
             foreach (var kind in run.abilities)
             {
@@ -306,13 +345,13 @@ namespace VampireLike
             if (boss != null) { SetBar(view.bossFill,boss.Health/boss.MaxHealth); Set("BossNameText", game.Catalog.Biome(boss.Biome).bossName + (boss.Health < boss.MaxHealth * .5f ? "  ·  狂怒阶段" : "  ·  守卫试炼")); }
             Set("RetreatWarningText", game.Combat.RetreatProgress > 0 ? "即将脱战 · " + Mathf.Max(0, 2 - game.Combat.RetreatProgress).ToString("0.0") + " 秒后 Boss 重置" : "");
             var mark = game.Combat.Marked;
-            Set("MarkText", mark == null ? "右键敌人 · 标记集火" : "集火目标  " + (mark.Type == 4 ? game.Catalog.Biome(mark.Biome).bossName : mark.Elite ? "精英" : new[] { "追击怪", "迅捷怪", "冲锋怪", "投射怪" }[mark.Type]) + "  " + Mathf.CeilToInt(mark.Health));
+            Set("MarkText", mark == null ? "右键敌人 · 标记集火" : "集火目标  " + (mark.Type == 4 ? game.Catalog.Biome(mark.Biome).bossName : mark.Elite ? "精英" : game.Catalog.Enemy(mark.Type).name) + "  " + Mathf.CeilToInt(mark.Health));
             Set("MapCoordinates", "世界坐标  " + game.World.GlobalPosition.x.ToString("0") + " / " + game.World.GlobalPosition.y.ToString("0") + "    种子 " + run.seed);
         }
         static string Clock(float seconds) => ((int)seconds / 60).ToString("00") + ":" + ((int)seconds % 60).ToString("00");
         public static string Icon(AbilityKind kind)
         {
-            switch (kind) { case AbilityKind.Gun: return "弹"; case AbilityKind.Fireball: return "焰"; case AbilityKind.Sword: return "剑"; case AbilityKind.Spirit: return "灵"; case AbilityKind.Cannon: return "炮"; case AbilityKind.Rune: return "符"; default: return "星"; }
+            switch (kind) { case AbilityKind.Gun: return "弹"; case AbilityKind.Fireball: return "焰"; case AbilityKind.Sword: return "剑"; case AbilityKind.Spirit: return "灵"; case AbilityKind.Cannon: return "炮"; case AbilityKind.Rune: return "符"; case AbilityKind.Crossbow: return "弩"; case AbilityKind.Boomerang: return "旋"; case AbilityKind.FrostStaff: return "杖"; default: return "星"; }
         }
         static string Icon(UpgradeDefinition upgrade)
         {

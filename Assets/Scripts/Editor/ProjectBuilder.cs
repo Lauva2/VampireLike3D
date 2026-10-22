@@ -47,7 +47,7 @@ namespace VampireLike.Editor
             }
             foreach(AbilityKind kind in Enum.GetValues(typeof(AbilityKind)))
             {
-                if(kind==AbilityKind.All)continue; string id=kind.ToString().ToLowerInvariant();
+                if(kind==AbilityKind.All || kind >= AbilityKind.Crossbow)continue; string id=kind.ToString().ToLowerInvariant();
                 Add("weapon/"+id,ArtFactory.Weapon(kind));Add("projectile/"+id,ArtFactory.Weapon(kind,true));
             }
             var enemyShot=ArtFactory.Root("EnemyProjectile");
@@ -57,15 +57,52 @@ namespace VampireLike.Editor
             foreach(string id in new[]{"impact","flame","explosion","frost","lightning","rune","roots","dodge","mark","player","warning","warning-line","arc","slash","leafburst","sand","iceburst","embers"})Add("vfx/"+id,ArtFactory.Effect(id));
             Add("pickup/experience",ArtFactory.Experience());
             Add("ui/root",UIFactory.Create());
+            AddExpansionAssets();
             var audio=AudioFactory.Create();var catalog=ContentFactory.Create(prefabs,audio);
             ConfigureAddressables(catalog,audio);CreateScenes();AssetDatabase.SaveAssets();AssetDatabase.Refresh();
             Validate();
             File.WriteAllText(Path.Combine(Workspace,"Artifacts/Generation.json"),"{\"generated\":true,\"prefabs\":"+prefabs.Count+",\"upgrades\":"+catalog.upgrades.Length+",\"tasks\":"+catalog.tasks.Length+"}");
             Debug.Log("GAME_GENERATION_COMPLETE");
         }
+        public static void ExpandVerifyAndBuild()
+        {
+            AssetDatabase.Refresh(); ArtFactory.Begin(); prefabs.Clear();
+            var existing = AssetDatabase.LoadAssetAtPath<GameCatalog>("Assets/Config/Catalogs/GameCatalog.asset");
+            prefabs.AddRange(existing.prefabs);
+            var audio = AudioFactory.Create();
+            AddExpansionAssets();
+            var catalog = ContentFactory.Create(prefabs, audio);
+            ConfigureAddressables(catalog, audio); AssetDatabase.SaveAssets(); AssetDatabase.Refresh();
+            VerifyAndBuild();
+        }
+        static void AddExpansionAssets()
+        {
+            foreach (var biome in new[] { BiomeId.Swamp, BiomeId.Crystal })
+            {
+                string id = ContentIds.RegionKey(biome);
+                Add("terrain/" + id, ArtFactory.ExpansionTerrain(biome, 0));
+                Add("terrain/" + id + "-wild", ArtFactory.ExpansionTerrain(biome, 1));
+                Add("terrain/" + id + "-ridge", ArtFactory.ExpansionTerrain(biome, 2));
+                Add("decoration/" + id, ArtFactory.ExpansionDecoration(biome));
+                Add("architecture/" + id, ArtFactory.ExpansionLandmark(biome));
+                Add("boss/" + id, ArtFactory.ExpansionEnemy(biome == BiomeId.Swamp ? 5 : 6, true));
+            }
+            for (int type = 5; type <= 8; type++) Add("enemy/" + type, ArtFactory.ExpansionEnemy(type));
+            foreach (var kind in new[] { AbilityKind.Crossbow, AbilityKind.Boomerang, AbilityKind.FrostStaff })
+            {
+                string id = kind.ToString().ToLowerInvariant();
+                Add("weapon/" + id, ArtFactory.ExpansionWeapon(kind, false));
+                Add("projectile/" + id, ArtFactory.ExpansionWeapon(kind, true));
+            }
+            Add("projectile/prism", ArtFactory.PrismProjectile());
+            Add("vfx/spore", ArtFactory.ExpansionEffect("spore")); Add("vfx/crystalburst", ArtFactory.ExpansionEffect("crystalburst"));
+            var sanctuary = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Art/Prefabs/World/Landmarks/boss-site.prefab");
+            Add("world/boss-site", ArtFactory.ExpansionSanctuary(sanctuary));
+        }
         static void Add(string id,GameObject prefab)
         {
             if(prefab==null)throw new InvalidOperationException("Failed prefab "+id);
+            prefabs.RemoveAll(entry => entry.id == id);
             prefabs.Add(new PrefabEntry{id=id,reference=new AssetReferenceGameObject(AssetDatabase.AssetPathToGUID(AssetDatabase.GetAssetPath(prefab)))});
         }
         static void ConfigureLayers()

@@ -10,26 +10,48 @@ namespace VampireLike
         Vector3 velocity;
         float expires, splash;
         int pierce, bounces;
-        bool enemy;
-        readonly HashSet<int> hitIds = new HashSet<int>();
+        bool enemy, returning, returnPhase;
+        float turnAt, returnSpeed;
+        public bool Returning => returning;
+        public bool OnReturnLeg => returning && returnPhase;
+        readonly HashSet<long> hitIds = new HashSet<long>();
         readonly List<EnemyActor> candidates = new List<EnemyActor>(20);
         readonly List<EnemyActor> splashTargets = new List<EnemyActor>(24);
         public void Initialize(GameManager manager, Vector3 direction, float speed, DamagePacket damage, int penetration, int bounce, float area)
         {
-            game = manager; packet = damage; velocity = direction.normalized * speed; enemy = false;
+            game = manager; packet = damage; velocity = direction.normalized * speed; enemy = false; returning = returnPhase = false;
             pierce = penetration; bounces = bounce; splash = area; expires = Time.time + 3; hitIds.Clear();
             transform.rotation = Quaternion.LookRotation(direction); transform.localScale = Vector3.one;
             foreach (var trail in GetComponentsInChildren<TrailRenderer>()) trail.Clear();
         }
+        public void InitializeReturn(GameManager manager, Vector3 direction, float speed, DamagePacket damage, float reach)
+        {
+            direction.y = 0;
+            Initialize(manager, direction, speed, damage, int.MaxValue, 0, 0);
+            returning = true; returnSpeed = speed;
+            float flight = Mathf.Max(2, reach) / Mathf.Max(1, speed);
+            turnAt = Time.time + flight; expires = Time.time + flight * 2 + 4;
+        }
         public void InitializeEnemy(GameManager manager, Vector3 direction, float damage)
         {
-            game = manager; velocity = direction.normalized * 7; packet.damage = damage; enemy = true;
+            game = manager; velocity = direction.normalized * 7; packet = new DamagePacket { damage=damage }; enemy = true; returning = returnPhase = false;
             expires = Time.time + 5; hitIds.Clear(); transform.localScale = Vector3.one;
         }
         void Update()
         {
             if (game == null || !game.Ready || game.IsPaused) return;
             if (Time.time >= expires) { game.Pool.Return(gameObject); return; }
+            if (returning)
+            {
+                if (!returnPhase && Time.time >= turnAt) { returnPhase = true; hitIds.Clear(); }
+                if (returnPhase)
+                {
+                    Vector3 delta = game.Player.transform.position + Vector3.up * 1.05f - transform.position;
+                    if (delta.magnitude <= returnSpeed * Time.deltaTime * 1.15f + .2f) { game.Pool.Return(gameObject); return; }
+                    velocity = delta.normalized * returnSpeed * 1.15f;
+                }
+                transform.Rotate(Vector3.up, 720 * Time.deltaTime, Space.World);
+            }
             Vector3 from = transform.position, step = velocity * Time.deltaTime, next = from + step;
             transform.position = next;
             if (Physics.Linecast(from, next, (1 << 10)|1)) { game.Pool.Return(gameObject); return; }
@@ -41,8 +63,8 @@ namespace VampireLike
             game.Combat.Query((from + next) * .5f, step.magnitude * .5f + 2, candidates);
             foreach (var target in candidates)
             {
-                if (!target.IsAlive || hitIds.Contains(target.GetInstanceID()) || SegmentDistance(target.transform.position + Vector3.up * .8f, from, next) > (target.Type == 4 ? 1.8f : .7f)) continue;
-                hitIds.Add(target.GetInstanceID());
+                if (!target.IsAlive || hitIds.Contains(target.CollisionId) || SegmentDistance(target.transform.position + Vector3.up * .8f, from, next) > (target.Type == 4 ? 1.8f : .7f)) continue;
+                hitIds.Add(target.CollisionId);
                 Vector3 impact = target.transform.position;
                 target.Hit(packet);
                 game.Combat.Effect("vfx/impact", impact + Vector3.up * .7f, .18f, .45f);
@@ -50,7 +72,7 @@ namespace VampireLike
                 {
                     game.Combat.Query(impact, splash, splashTargets);
                     foreach (var other in splashTargets) if (other != target && other.IsAlive) other.Hit(packet);
-                    game.Combat.Effect(packet.source == AbilityKind.Fireball ? "vfx/flame" : "vfx/explosion", impact, .4f, splash);
+                    game.Combat.Effect(packet.source == AbilityKind.Fireball ? "vfx/flame" : packet.source == AbilityKind.FrostStaff ? "vfx/frost" : "vfx/explosion", impact, .4f, splash);
                 }
                 if (packet.lightning > 0)
                 {

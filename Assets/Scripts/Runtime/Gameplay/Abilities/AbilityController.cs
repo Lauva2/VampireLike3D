@@ -46,7 +46,7 @@ namespace VampireLike
             {
                 damage = damage * multiplier, source = kind, critical = crit,
                 burn = Effect(UpgradeEffect.Burn, kind) * damage + (kind == AbilityKind.Sword ? Effect(UpgradeEffect.FireSword, kind) * damage : 0),
-                frost = Effect(UpgradeEffect.Frost, kind),
+                frost = Effect(UpgradeEffect.Frost, kind) + (kind == AbilityKind.FrostStaff ? .35f : 0),
                 lightning = Mathf.FloorToInt(Effect(UpgradeEffect.Chain, kind)) + (kind == AbilityKind.Gun && Effect(UpgradeEffect.ElectricAmmo, kind) > 0 ? 2 : 0),
                 shatter = Effect(UpgradeEffect.IceShatter, kind) > 0
             };
@@ -102,16 +102,17 @@ namespace VampireLike
             Vector3 direction = (target.transform.position + Vector3.up * .8f - origin).normalized;
             game.Player.FaceAttack(direction);
             GetComponent<CharacterAnimator>()?.Attack(kind,direction);
-            int penetration = Mathf.FloorToInt(Effect(UpgradeEffect.Pierce, kind)) + (kind == AbilityKind.Sword ? 1 : 0);
+            int penetration = Mathf.FloorToInt(Effect(UpgradeEffect.Pierce, kind)) + (kind == AbilityKind.Sword || kind == AbilityKind.Crossbow ? 1 : 0);
             int bounce = Mathf.FloorToInt(Effect(UpgradeEffect.Bounce, kind));
-            float splash = (kind == AbilityKind.Fireball ? 1.8f : kind == AbilityKind.Cannon ? 3.3f : 0) + Effect(UpgradeEffect.Explosion, kind);
+            float splash = (kind == AbilityKind.Fireball ? 1.8f : kind == AbilityKind.Cannon ? 3.3f : kind == AbilityKind.FrostStaff ? 2.4f : 0) + Effect(UpgradeEffect.Explosion, kind);
             for (int i = 0; i < drawnCount; i++)
             {
                 Vector3 shotDirection = Quaternion.Euler(0, (i - (drawnCount - 1) * .5f) * 7, 0) * direction;
                 var go = game.Pool.Rent(definition.projectileId, origin, Quaternion.LookRotation(shotDirection));
                 if (go == null) continue;
                 var packet = Packet(kind, strength * logicalCount / drawnCount);
-                go.GetComponent<ProjectileActor>().Initialize(game, shotDirection, definition.speed, packet, penetration, bounce, splash);
+                if (kind == AbilityKind.Boomerang) go.GetComponent<ProjectileActor>().InitializeReturn(game, shotDirection, definition.speed, packet, definition.range + Effect(UpgradeEffect.Range, kind));
+                else go.GetComponent<ProjectileActor>().Initialize(game, shotDirection, definition.speed, packet, penetration, bounce, splash);
             }
             if (kind == AbilityKind.Sword && Effect(UpgradeEffect.SwordWave, kind) > 0)
             {

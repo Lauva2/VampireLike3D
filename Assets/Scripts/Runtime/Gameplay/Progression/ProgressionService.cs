@@ -10,7 +10,8 @@ namespace VampireLike
         int pendingLevels;
         List<UpgradeDefinition> offered;
         readonly System.Random random;
-        public ProgressionService(GameManager game) { this.game = game; random = new System.Random(game.Run.seed ^ 0x24bf); }
+        public ShrineBlessings Shrines { get; }
+        public ProgressionService(GameManager game) { this.game = game; random = new System.Random(game.Run.seed ^ 0x24bf); Shrines = new ShrineBlessings(game); }
         public bool Eligible(UpgradeDefinition upgrade)
         {
             if (!game.Save.TaskUnlocked(upgrade.taskId)) return false;

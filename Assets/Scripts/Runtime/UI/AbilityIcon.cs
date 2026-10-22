@@ -34,6 +34,16 @@ namespace VampireLike
                 case "符":
                     Line(new Vector2(-.42f,-.72f),new Vector2(-.42f,.65f),.1f); Line(new Vector2(-.42f,.65f),new Vector2(.42f,.65f),.1f); Line(new Vector2(.42f,.65f),new Vector2(.42f,-.72f),.1f); Line(new Vector2(.42f,-.72f),new Vector2(-.42f,-.72f),.1f);
                     Line(new Vector2(-.23f,.25f),new Vector2(.23f,.25f),.1f); Line(new Vector2(0,.43f),new Vector2(0,-.47f),.1f); Line(new Vector2(-.19f,-.12f),new Vector2(.2f,-.36f),.1f); break;
+                case "弩":
+                    Line(new Vector2(0,-.7f),new Vector2(0,.65f),.13f);Line(new Vector2(-.7f,.3f),new Vector2(-.4f,.62f),.12f);Line(new Vector2(-.4f,.62f),new Vector2(.4f,.62f),.12f);Line(new Vector2(.4f,.62f),new Vector2(.7f,.3f),.12f);Line(new Vector2(-.7f,.3f),new Vector2(.7f,.3f),.06f);Poly(new Vector2(0,.85f),new Vector2(-.18f,.5f),new Vector2(.18f,.5f));break;
+                case "旋":
+                    Poly(new Vector2(-.8f,-.45f),new Vector2(-.32f,.56f),new Vector2(.02f,.7f),new Vector2(.3f,.48f),new Vector2(.78f,-.4f),new Vector2(.43f,-.21f),new Vector2(.04f,.14f),new Vector2(-.42f,-.22f));break;
+                case "杖":
+                    Line(new Vector2(-.4f,-.75f),new Vector2(.2f,.3f),.15f);Poly(new Vector2(.22f,.84f),new Vector2(-.12f,.46f),new Vector2(.2f,.13f),new Vector2(.58f,.5f));break;
+                case "菌":
+                    Line(new Vector2(0,-.7f),new Vector2(0,.15f),.25f);Poly(new Vector2(-.8f,.05f),new Vector2(-.55f,.55f),new Vector2(0,.78f),new Vector2(.55f,.55f),new Vector2(.8f,.05f));break;
+                case "晶":
+                    Poly(new Vector2(0,.85f),new Vector2(-.48f,.08f),new Vector2(0,-.85f),new Vector2(.48f,.08f));break;
                 case "林":
                     Line(new Vector2(0,-.75f),new Vector2(0,.5f),.18f); Disc(new Vector2(-.28f,.14f),.36f,16); Disc(new Vector2(.28f,.14f),.36f,16); Disc(new Vector2(0,.46f),.4f,16); break;
                 case "沙":

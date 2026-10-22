@@ -1,0 +1,361 @@
+{
+  "candidate": "Round51",
+  "version": "1.2.0",
+  "reviewer": "/root/art_combat47",
+  "reviewType": "Independent static deep-preflight supplement; no new scoring denominator",
+  "actualObservation": {
+    "path": "Artifacts/Soak51Preflight/FinalFrame.png",
+    "sha256": "81FC432C06710A5534F88674975054214946C11BF26EAAD223C0C0B2803A4D5B",
+    "size": [
+      1920,
+      1080
+    ],
+    "viewed": "original full frame with UI, not cropped",
+    "staticImages": 1,
+    "dynamicFrames": 0,
+    "otherCandidateImagesUsed": false
+  },
+  "provenance": {
+    "Summary": {
+      "finishedUtc": "2026-10-22T12:26:01.1727513Z",
+      "wallSeconds": 180.2,
+      "requestedSeconds": 180,
+      "frameRateLimit": -1,
+      "fixedImportedBuild": true,
+      "renderResolution": "1920x1080 4x MSAA",
+      "renderEveryFrame": true,
+      "controlledHealingAndUnlockedBuild": true,
+      "samples": 6,
+      "maxChunks": 35,
+      "maxPool": 4171,
+      "maxPrefabHandles": 93,
+      "errorCount": 0
+    },
+    "CurrentBuild": {
+      "wallSeconds": 180.00985717773438,
+      "gameSeconds": 9179.998046875,
+      "pickupRadius": 12.399999618530273,
+      "seed": 28354315,
+      "level": 520,
+      "quality": 5,
+      "frameRateLimit": -1,
+      "fixedImportedBuild": true,
+      "abilities": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "upgrades": [
+        {
+          "id": "ability.boomerang",
+          "level": 1
+        },
+        {
+          "id": "ability.cannon",
+          "level": 1
+        },
+        {
+          "id": "ability.crossbow",
+          "level": 1
+        },
+        {
+          "id": "ability.fireball",
+          "level": 1
+        },
+        {
+          "id": "ability.froststaff",
+          "level": 1
+        },
+        {
+          "id": "ability.rune",
+          "level": 1
+        },
+        {
+          "id": "ability.spirit",
+          "level": 1
+        },
+        {
+          "id": "ability.sword",
+          "level": 1
+        },
+        {
+          "id": "armor",
+          "level": 18
+        },
+        {
+          "id": "boomerang.count",
+          "level": 10
+        },
+        {
+          "id": "boomerang.damage",
+          "level": 10
+        },
+        {
+          "id": "boomerang.haste",
+          "level": 10
+        },
+        {
+          "id": "boomerang.lightning",
+          "level": 1
+        },
+        {
+          "id": "boomerang.reach",
+          "level": 10
+        },
+        {
+          "id": "bounce",
+          "level": 17
+        },
+        {
+          "id": "burn",
+          "level": 12
+        },
+        {
+          "id": "burst",
+          "level": 15
+        },
+        {
+          "id": "cannoncount",
+          "level": 13
+        },
+        {
+          "id": "cannonradius",
+          "level": 12
+        },
+        {
+          "id": "chain",
+          "level": 18
+        },
+        {
+          "id": "crit",
+          "level": 11
+        },
+        {
+          "id": "crossbow.bounce",
+          "level": 10
+        },
+        {
+          "id": "crossbow.frost",
+          "level": 1
+        },
+        {
+          "id": "crossbow.pierce",
+          "level": 10
+        },
+        {
+          "id": "crossbow.reload",
+          "level": 10
+        },
+        {
+          "id": "crossbow.volley",
+          "level": 10
+        },
+        {
+          "id": "damage",
+          "level": 20
+        },
+        {
+          "id": "electricammo",
+          "level": 1
+        },
+        {
+          "id": "explosion",
+          "level": 21
+        },
+        {
+          "id": "firesword",
+          "level": 1
+        },
+        {
+          "id": "frost",
+          "level": 1
+        },
+        {
+          "id": "froststaff.count",
+          "level": 10
+        },
+        {
+          "id": "froststaff.freeze",
+          "level": 10
+        },
+        {
+          "id": "froststaff.haste",
+          "level": 10
+        },
+        {
+          "id": "froststaff.radius",
+          "level": 10
+        },
+        {
+          "id": "froststaff.shatter",
+          "level": 1
+        },
+        {
+          "id": "haste",
+          "level": 17
+        },
+        {
+          "id": "lightning",
+          "level": 1
+        },
+        {
+          "id": "magnet",
+          "level": 14
+        },
+        {
+          "id": "orbit",
+          "level": 1
+        },
+        {
+          "id": "pierce",
+          "level": 17
+        },
+        {
+          "id": "projectiles",
+          "level": 15
+        },
+        {
+          "id": "rain",
+          "level": 1
+        },
+        {
+          "id": "range",
+          "level": 18
+        },
+        {
+          "id": "regen",
+          "level": 19
+        },
+        {
+          "id": "runecooldown",
+          "level": 15
+        },
+        {
+          "id": "runepulse",
+          "level": 14
+        },
+        {
+          "id": "runerange",
+          "level": 13
+        },
+        {
+          "id": "shatter",
+          "level": 1
+        },
+        {
+          "id": "spiritcount",
+          "level": 11
+        },
+        {
+          "id": "spiritdamage",
+          "level": 17
+        },
+        {
+          "id": "spiritspeed",
+          "level": 25
+        },
+        {
+          "id": "spread",
+          "level": 13
+        },
+        {
+          "id": "spreadfire",
+          "level": 1
+        },
+        {
+          "id": "swiftness",
+          "level": 11
+        },
+        {
+          "id": "swordcount",
+          "level": 17
+        },
+        {
+          "id": "swordpierce",
+          "level": 17
+        },
+        {
+          "id": "vitality",
+          "level": 10
+        },
+        {
+          "id": "wave",
+          "level": 1
+        }
+      ]
+    },
+    "ImportedUpgradeSource": {
+      "source": "E:\\UnityProject\\VampireLike3D\\Artifacts\\Expansion51DeepBuild.json",
+      "sha256": "6A5046909C348B46A23F77E81879A6AC23094399709FC9B5919B383DFC5AF87B",
+      "scope": "Fixed diagnostic ability/upgrade/level/difficulty/quality input only; world keeps its new seed. Not a final continuously growing soak."
+    },
+    "ProcessExit": {
+      "pid": 55876,
+      "startedUtc": "2026-10-22T12:22:52.1634795Z",
+      "player": "E:\\UnityProject\\VampireLike3D\\Builds\\Review51\\WanXiangExpedition.exe",
+      "observedExitUtc": "2026-10-22T12:26:01.9253687Z",
+      "exitCode": 0,
+      "scope": "Original launched process observed through WaitForExit; no desktop control"
+    },
+    "buildIdentityEntries": {
+      "Soak51Preflight": 29,
+      "Round51": 29
+    },
+    "exactBuildIdentityMatchesCore51": true,
+    "hashes": {
+      "Artifacts/Soak51Preflight/Summary.json": "E3223F2CC0BB3F66E26FC25A3FE5A7CB0ED97B133C7086488630BBF869D8F089",
+      "Artifacts/Soak51Preflight/CurrentBuild.json": "ED2FA091D61DFD62C167EBFE781F90458723990D26A33AB9AC7AD0C9274FCAD1",
+      "Artifacts/Soak51Preflight/BuildIdentity.json": "D4DA10DB00398BDAE4685238B7D724B174D3FAE473128F4D30217A16AD07810D",
+      "Artifacts/Soak51Preflight/SourceIdentity.json": "07AB2D4DBC6E4CFE29567294770186CF05752816123F4FF9814FDEAC83F29DDA",
+      "Artifacts/Soak51Preflight/ImportedUpgradeSource.json": "EB2700AE2525DE3D4EF7468D2D47767523610682862F24320EA2C1515AF4F818",
+      "Artifacts/Soak51Preflight/ProcessExit.json": "69753B90AB754702C3CC1EBE8CA3DAAD4997B28D1346E3C1CB9A2131766E1A9F"
+    }
+  },
+  "observations": [
+    {
+      "subject": "player",
+      "finding": "中心棕色头部、脸和青色足环可定位；武器内圈覆盖躯干下部但该静态仍可辨人物锚点。",
+      "status": "readable_in_this_frame"
+    },
+    {
+      "subject": "own_attacks",
+      "finding": "青白剑列/金柄、青白灵体弧、橙色火焰/大叶状爆发与细线弹道分组可辨。弧形轨迹数量大，内圈较拥挤；不能凭一帧确证每种武器均在此瞬间发射，九能力持有由同帧邻近CurrentBuild记录辅助。",
+      "status": "distinguishable_with_crowding"
+    },
+    {
+      "subject": "enemies",
+      "finding": "左右及下缘聚集敌人，蓝圆甲/绿圆怪/紫孢囊的主体色和轮廓可辨；金精英冠与剑/火叠在一起，局部身体被部分覆盖。仍未在本帧形成无法辨认玩家的直接阻断。",
+      "status": "readable_with_local_crowding"
+    },
+    {
+      "subject": "danger",
+      "finding": "本帧未清楚展示一轮红粉敌方预警与实际命中，不能单独判断危险时序、范围一致性或九能力深构筑全程危险可读性。",
+      "status": "not_established_by_single_frame"
+    },
+    {
+      "subject": "HUD_and_materials",
+      "finding": "Lv.520、能力9、生命300/300、时间152:59、地图和下方按钮文字清楚；黄色沙地上青色掉落可见。未见粉色错误材质或整片白爆曝光；暖色大面积覆盖使局部地表层次变弱。",
+      "status": "no_direct_static_blocker_observed"
+    }
+  ],
+  "verdict": {
+    "directStaticBlockerObserved": false,
+    "persistentDangerReadabilityEstablished": false,
+    "coreScoresChanged": false,
+    "E2CoreScore": 4,
+    "scope": "未见本帧直接视觉阻断；保留核心E2=4的局部拥挤扣分。单静态不单独重判H07/H08，也不提高原核心91分。"
+  },
+  "limitations": [
+    "Only one final static image observed; no animation, attack timing, flicker, continuous player visibility or performance conclusion.",
+    "Summary reports wallSeconds180.2/requested180,errorCount0,renderEveryFrame true,controlledHealingAndUnlockedBuild true; these are recorded runtime facts, not visual performance proof.",
+    "fixedImportedBuild true; level520 and upgrades imported at test start, not 180 seconds of natural growth to520. Displayed game clock starts around9000 seconds and is not elapsed wall time.",
+    "CurrentBuild contains nine ability IDs0-8, seed28354315, level520; renderResolution1920x1080 4x MSAA and quality5. This single desert frame cannot extend coverage to every map or all enemy attacks.",
+    "No actual7200-second final frame or full long-duration sequence observed yet. No desktop control or Player launch performed."
+  ]
+}

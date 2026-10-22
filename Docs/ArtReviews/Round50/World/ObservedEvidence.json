@@ -1,0 +1,345 @@
+{
+  "candidate": "Round50",
+  "version": "1.2.0",
+  "reviewer": "art_lead47",
+  "status": "visual precheck only; final candidate pending",
+  "sheets": {
+    "Docs/ArtReviews/Round50/World/characters-00.jpg": [
+      "Artifacts/Full50/Captures/character-adventurer.png",
+      "Artifacts/Full50/Captures/character-elementalist.png",
+      "Artifacts/Full50/Captures/character-swordsman.png"
+    ],
+    "Docs/ArtReviews/Round50/World/enemies-00.jpg": [
+      "Artifacts/Full50/Captures/enemy-0-elite.png",
+      "Artifacts/Full50/Captures/enemy-0-normal.png",
+      "Artifacts/Full50/Captures/enemy-1-elite.png",
+      "Artifacts/Full50/Captures/enemy-1-normal.png"
+    ],
+    "Docs/ArtReviews/Round50/World/enemies-01.jpg": [
+      "Artifacts/Full50/Captures/enemy-2-elite.png",
+      "Artifacts/Full50/Captures/enemy-2-normal.png",
+      "Artifacts/Full50/Captures/enemy-3-elite.png",
+      "Artifacts/Full50/Captures/enemy-3-normal.png"
+    ],
+    "Docs/ArtReviews/Round50/World/enemies-02.jpg": [
+      "Artifacts/Full50/Captures/enemy-5-elite.png",
+      "Artifacts/Full50/Captures/enemy-5-normal.png",
+      "Artifacts/Full50/Captures/enemy-6-elite.png",
+      "Artifacts/Full50/Captures/enemy-6-normal.png"
+    ],
+    "Docs/ArtReviews/Round50/World/enemies-03.jpg": [
+      "Artifacts/Full50/Captures/enemy-7-elite.png",
+      "Artifacts/Full50/Captures/enemy-7-normal.png",
+      "Artifacts/Full50/Captures/enemy-8-elite.png",
+      "Artifacts/Full50/Captures/enemy-8-normal.png"
+    ],
+    "Docs/ArtReviews/Round50/World/weapons-00.jpg": [
+      "Artifacts/Full50/Captures/weapon-boomerang.png",
+      "Artifacts/Full50/Captures/weapon-crossbow.png",
+      "Artifacts/Full50/Captures/weapon-froststaff.png"
+    ]
+  },
+  "staticSources": [
+    {
+      "path": "Artifacts/Full50/Captures/character-adventurer.png",
+      "sha256": "cc4245e6c9ebe3e990310325cb8efc02fc731fa6a05bcb1cfa52ac07b561c09d",
+      "pixels": [
+        1600,
+        900
+      ],
+      "seed": null
+    },
+    {
+      "path": "Artifacts/Full50/Captures/character-elementalist.png",
+      "sha256": "7fce8707d333802e71ee17b9023dd1357f12d80ebfee21220abfb2291dc83ba4",
+      "pixels": [
+        1600,
+        900
+      ],
+      "seed": null
+    },
+    {
+      "path": "Artifacts/Full50/Captures/character-swordsman.png",
+      "sha256": "d1dbbfa18688ec0014188db1c5401668f4c3b5b7a96567cd986940879fb6c4e0",
+      "pixels": [
+        1600,
+        900
+      ],
+      "seed": null
+    },
+    {
+      "path": "Artifacts/Full50/Captures/enemy-0-elite.png",
+      "sha256": "0bb1141000fc313d8befdb1004cdae90908feeb863668ac3bcbe872b8764d50b",
+      "pixels": [
+        1600,
+        1200
+      ],
+      "seed": 1923739004
+    },
+    {
+      "path": "Artifacts/Full50/Captures/enemy-0-normal.png",
+      "sha256": "b88bc92d6bb45d486fa317edce266efd047ccfaa5696c6bb5f566fc939b89155",
+      "pixels": [
+        1600,
+        1200
+      ],
+      "seed": 1923739004
+    },
+    {
+      "path": "Artifacts/Full50/Captures/enemy-1-elite.png",
+      "sha256": "3d4e07f932b2f3ba0c2f945b1c57cb07e770d05cd0a0472a3aceedce2c00845b",
+      "pixels": [
+        1600,
+        1200
+      ],
+      "seed": 1923739004
+    },
+    {
+      "path": "Artifacts/Full50/Captures/enemy-1-normal.png",
+      "sha256": "b42f52eecf6052ecee06638e5e6b155d050dbb9c43101b6fbbaec9b7e852cdf3",
+      "pixels": [
+        1600,
+        1200
+      ],
+      "seed": 1923739004
+    },
+    {
+      "path": "Artifacts/Full50/Captures/enemy-2-elite.png",
+      "sha256": "053818746a825fd8062350155b3bf4d00751a223f0eb5dc1e24bb236607c1ade",
+      "pixels": [
+        1600,
+        1200
+      ],
+      "seed": 1923739004
+    },
+    {
+      "path": "Artifacts/Full50/Captures/enemy-2-normal.png",
+      "sha256": "66dd7a208cad8f4508d58c5f9f8245e9dbc1d53aea7080ca09ba7aa7bfe5ed1c",
+      "pixels": [
+        1600,
+        1200
+      ],
+      "seed": 1923739004
+    },
+    {
+      "path": "Artifacts/Full50/Captures/enemy-3-elite.png",
+      "sha256": "64bb8125ac147d44b84689650842340b2807f3c4804dfe7abacc9b66209d2ab8",
+      "pixels": [
+        1600,
+        1200
+      ],
+      "seed": 1923739004
+    },
+    {
+      "path": "Artifacts/Full50/Captures/enemy-3-normal.png",
+      "sha256": "deb11d1cbf31ef4271404254da77a09a0a59cf2bd36169793adb54f1e238cd68",
+      "pixels": [
+        1600,
+        1200
+      ],
+      "seed": 1923739004
+    },
+    {
+      "path": "Artifacts/Full50/Captures/enemy-5-elite.png",
+      "sha256": "a6b8b695f8fe3c9348eefc8d4ae805f21ca3a02e498568c946aa35974b4da9ce",
+      "pixels": [
+        1600,
+        1200
+      ],
+      "seed": 1923739004
+    },
+    {
+      "path": "Artifacts/Full50/Captures/enemy-5-normal.png",
+      "sha256": "70436765c9548e5f96fbb10b9c34e280fb82886e8731e7f3603c434788693341",
+      "pixels": [
+        1600,
+        1200
+      ],
+      "seed": 1923739004
+    },
+    {
+      "path": "Artifacts/Full50/Captures/enemy-6-elite.png",
+      "sha256": "2e4b720586e42a15bc3594ff395c8828afb066b373dbade127e826429d13b7ab",
+      "pixels": [
+        1600,
+        1200
+      ],
+      "seed": 1923739004
+    },
+    {
+      "path": "Artifacts/Full50/Captures/enemy-6-normal.png",
+      "sha256": "7aa1f8387d92df0c29e627b210900ac86b129e318f9c5dadf25941cf60b7a63a",
+      "pixels": [
+        1600,
+        1200
+      ],
+      "seed": 1923739004
+    },
+    {
+      "path": "Artifacts/Full50/Captures/enemy-7-elite.png",
+      "sha256": "f06c62f0eb99479970c6d8786bfa4ae6627700361e885fa549f36462f0e4b825",
+      "pixels": [
+        1600,
+        1200
+      ],
+      "seed": 1923739004
+    },
+    {
+      "path": "Artifacts/Full50/Captures/enemy-7-normal.png",
+      "sha256": "fc261efbcee61f11db71afb293fb0eb590b541579dfb5470ec8e28d12b016914",
+      "pixels": [
+        1600,
+        1200
+      ],
+      "seed": 1923739004
+    },
+    {
+      "path": "Artifacts/Full50/Captures/enemy-8-elite.png",
+      "sha256": "b8efa8a0d7dcf7e9849da48a10036bdbbf440565761f38de972397cb22ad2ca9",
+      "pixels": [
+        1600,
+        1200
+      ],
+      "seed": 1923739004
+    },
+    {
+      "path": "Artifacts/Full50/Captures/enemy-8-normal.png",
+      "sha256": "7f721cc9cd246e3bf281d05f482dfaea2a1e92be7968fba77345ad9bf591e019",
+      "pixels": [
+        1600,
+        1200
+      ],
+      "seed": 1923739004
+    },
+    {
+      "path": "Artifacts/Full50/Captures/weapon-boomerang.png",
+      "sha256": "4bafbf0c279e2a1107d39dc6a893bb44ac95f7d2a354e5d7097b9f81ba9bc95d",
+      "pixels": [
+        1600,
+        1200
+      ],
+      "seed": 1923739004
+    },
+    {
+      "path": "Artifacts/Full50/Captures/weapon-crossbow.png",
+      "sha256": "3a29a026bc7f64bca41a5ce91bd042adb8ee314b5d5428b3469dd6c0406e0ec7",
+      "pixels": [
+        1600,
+        1200
+      ],
+      "seed": 1923739004
+    },
+    {
+      "path": "Artifacts/Full50/Captures/weapon-froststaff.png",
+      "sha256": "466f85b8a4e1e3a7268471b6941d7c068084537a476250e5e07cf88f8ff1d415",
+      "pixels": [
+        1600,
+        1200
+      ],
+      "seed": 1923739004
+    }
+  ],
+  "originals": [
+    {
+      "path": "Artifacts/Full50/Captures/character-adventurer.png",
+      "sha256": "cc4245e6c9ebe3e990310325cb8efc02fc731fa6a05bcb1cfa52ac07b561c09d",
+      "pixels": [
+        1600,
+        900
+      ],
+      "seed": null
+    },
+    {
+      "path": "Artifacts/Full50/Captures/character-elementalist.png",
+      "sha256": "7fce8707d333802e71ee17b9023dd1357f12d80ebfee21220abfb2291dc83ba4",
+      "pixels": [
+        1600,
+        900
+      ],
+      "seed": null
+    },
+    {
+      "path": "Artifacts/Full50/Captures/character-swordsman.png",
+      "sha256": "d1dbbfa18688ec0014188db1c5401668f4c3b5b7a96567cd986940879fb6c4e0",
+      "pixels": [
+        1600,
+        900
+      ],
+      "seed": null
+    },
+    {
+      "path": "Artifacts/Full50/Captures/enemy-5-elite.png",
+      "sha256": "a6b8b695f8fe3c9348eefc8d4ae805f21ca3a02e498568c946aa35974b4da9ce",
+      "pixels": [
+        1600,
+        1200
+      ],
+      "seed": 1923739004
+    },
+    {
+      "path": "Artifacts/Full50/Captures/enemy-6-normal.png",
+      "sha256": "7aa1f8387d92df0c29e627b210900ac86b129e318f9c5dadf25941cf60b7a63a",
+      "pixels": [
+        1600,
+        1200
+      ],
+      "seed": 1923739004
+    },
+    {
+      "path": "Artifacts/Full50/Captures/enemy-7-elite.png",
+      "sha256": "f06c62f0eb99479970c6d8786bfa4ae6627700361e885fa549f36462f0e4b825",
+      "pixels": [
+        1600,
+        1200
+      ],
+      "seed": 1923739004
+    },
+    {
+      "path": "Artifacts/Full50/Captures/enemy-8-normal.png",
+      "sha256": "7f721cc9cd246e3bf281d05f482dfaea2a1e92be7968fba77345ad9bf591e019",
+      "pixels": [
+        1600,
+        1200
+      ],
+      "seed": 1923739004
+    },
+    {
+      "path": "Artifacts/Full50/Captures/weapon-boomerang.png",
+      "sha256": "4bafbf0c279e2a1107d39dc6a893bb44ac95f7d2a354e5d7097b9f81ba9bc95d",
+      "pixels": [
+        1600,
+        1200
+      ],
+      "seed": 1923739004
+    },
+    {
+      "path": "Artifacts/Full50/Captures/weapon-crossbow.png",
+      "sha256": "3a29a026bc7f64bca41a5ce91bd042adb8ee314b5d5428b3469dd6c0406e0ec7",
+      "pixels": [
+        1600,
+        1200
+      ],
+      "seed": 1923739004
+    },
+    {
+      "path": "Artifacts/Full50/Captures/weapon-froststaff.png",
+      "sha256": "466f85b8a4e1e3a7268471b6941d7c068084537a476250e5e07cf88f8ff1d415",
+      "pixels": [
+        1600,
+        1200
+      ],
+      "seed": 1923739004
+    }
+  ],
+  "counts": {
+    "sheets": 6,
+    "staticDifferent": 22,
+    "originalsOpened": 10
+  },
+  "limitations": [
+    "Full50 event-revisit fixture failed; this is no complete 20-item score or shared art verdict.",
+    "No World/Boss/continuous-motion/final-frame complete coverage yet.",
+    "No desktop/Player launch/build/original edit.",
+    "Future51 requires new same-candidate visual observations, not migration of these50 images or score."
+  ]
+}

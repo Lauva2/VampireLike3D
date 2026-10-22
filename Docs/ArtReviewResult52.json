@@ -1,0 +1,603 @@
+{
+  "candidate": "Round52",
+  "version": "1.2.0",
+  "passed": true,
+  "status": "核心完整美术通过（52同候选视觉范围，含固定预检静态）；实际7200秒末帧待追加，共享最终结论未更新",
+  "total": 91,
+  "max": 100,
+  "dimensions": {
+    "A": 14,
+    "B": 14,
+    "C": 18,
+    "D": 19,
+    "E": 18,
+    "F": 8
+  },
+  "dimensionMaximum": {
+    "A": 15,
+    "B": 15,
+    "C": 20,
+    "D": 20,
+    "E": 20,
+    "F": 10
+  },
+  "items": [
+    {
+      "id": "A1",
+      "score": 5,
+      "max": 5,
+      "title": "大头短肢与俯视轮廓清晰",
+      "evidence": [
+        "Artifacts/Round52/Captures/character-adventurer.png",
+        "Artifacts/Round52/Captures/character-elementalist.png",
+        "Artifacts/Round52/Captures/character-swordsman.png",
+        "Artifacts/Round52/Captures/10-biome-0.png",
+        "Artifacts/Round52/Captures/10-biome-1.png",
+        "Artifacts/Round52/Captures/10-biome-2.png"
+      ],
+      "observation": "三角色均头大短肢、鞋手分离，冒险者棕发/学徒紫尖帽/御剑者深蓝发在各自正常俯视镜头和外侧九能力体间仍可定位。",
+      "revision": "保持当前头身与帽发外轮廓。",
+      "reviewer": "/root/art_lead47 actual52 static observation"
+    },
+    {
+      "id": "A2",
+      "score": 4,
+      "max": 5,
+      "title": "面部、服饰与装备设计辨识",
+      "evidence": [
+        "Artifacts/Round52/Captures/character-adventurer.png",
+        "Artifacts/Round52/Captures/character-elementalist.png",
+        "Artifacts/Round52/Captures/character-swordsman.png"
+      ],
+      "observation": "近景可见瞳孔高光/眉嘴鼻/颊红、围巾/金边/腰带/衣摆与装备；三角色青橙短衣、紫袍、绿长衣有身份。冒险者眼形纵长较夸张，手肘与衣褶处理仍简，扣1分；学徒本帧闭眼仅按所见表情记录。",
+      "revision": "调整冒险者眼形比例，补少量关节/衣褶细节并保持俯视辨识。",
+      "reviewer": "/root/art_lead47 actual52 static observation"
+    },
+    {
+      "id": "A3",
+      "score": 5,
+      "max": 5,
+      "title": "明快卡通的造型、材质、色彩与光照协调",
+      "evidence": [
+        "Artifacts/Round52/Captures/terrain-detail-0.png",
+        "Artifacts/Round52/Captures/terrain-detail-1.png",
+        "Artifacts/Round52/Captures/terrain-detail-2.png",
+        "Artifacts/Round52/Captures/terrain-detail-3.png",
+        "Artifacts/Round52/Captures/terrain-detail-5.png",
+        "Artifacts/Round52/Captures/terrain-detail-6.png",
+        "Artifacts/Round52/Captures/mixed-boundary-1-2.png"
+      ],
+      "observation": "六环境的绿/金/冰蓝/灰紫橙/灰绿紫菌/玫瑰赤晶各有主辅色，角色与世界一致描边、分面与柔和阴影；雪地保留蓝白层次，未见整体泛白导致轮廓丢失。",
+      "revision": "保持敌我形色区分与雪地的层次。",
+      "reviewer": "/root/art_lead47 actual52 static observation"
+    },
+    {
+      "id": "B1",
+      "score": 5,
+      "max": 5,
+      "title": "全部角色模型、材质与装备挂点完成",
+      "evidence": [
+        "Artifacts/Round52/Captures/character-adventurer.png",
+        "Artifacts/Round52/Captures/character-elementalist.png",
+        "Artifacts/Round52/Captures/character-swordsman.png",
+        "Artifacts/Round52/Captures/10-biome-0.png",
+        "Artifacts/Round52/Captures/10-biome-1.png",
+        "Artifacts/Round52/Captures/10-biome-2.png"
+      ],
+      "observation": "三角色近景原图模型/材质完整，冒险者手持灰枪、学徒长杖和御剑者肩后剑柄可见；正常镜头同样保留帽发/衣装轮廓。外侧能力展示体为独立对象，不从单图间距推定手持断挂点；完整动作由Combat另审。",
+      "revision": "保持手持装备与独立能力体的清楚关系。",
+      "reviewer": "/root/art_lead47 actual52 static observation"
+    },
+    {
+      "id": "B2",
+      "score": 4,
+      "max": 5,
+      "title": "八普通与八精英的轮廓、动作与标识辨识",
+      "evidence": [
+        "Artifacts/Round52/Captures/enemy-0-normal.png",
+        "Artifacts/Round52/Captures/enemy-0-elite.png",
+        "Artifacts/Round52/Captures/enemy-1-normal.png",
+        "Artifacts/Round52/Captures/enemy-1-elite.png",
+        "Artifacts/Round52/Captures/enemy-2-normal.png",
+        "Artifacts/Round52/Captures/enemy-2-elite.png",
+        "Artifacts/Round52/Captures/enemy-3-normal.png",
+        "Artifacts/Round52/Captures/enemy-3-elite.png",
+        "Artifacts/Round52/Captures/enemy-5-normal.png",
+        "Artifacts/Round52/Captures/enemy-5-elite.png",
+        "Artifacts/Round52/Captures/enemy-6-normal.png",
+        "Artifacts/Round52/Captures/enemy-6-elite.png",
+        "Artifacts/Round52/Captures/enemy-7-normal.png",
+        "Artifacts/Round52/Captures/enemy-7-elite.png",
+        "Artifacts/Round52/Captures/enemy-8-normal.png",
+        "Artifacts/Round52/Captures/enemy-8-elite.png",
+        "Artifacts/Round52/Captures/enemy-combat-5-elite.png",
+        "Artifacts/Round52/Captures/enemy-combat-8-normal.png"
+      ],
+      "observation": "八基础轮廓有绿团/黄长耳/蓝壳角/紫伞菌/高孢囊/低伏蛙/黑足晶甲/竖晶灵，近景及新增正常视角可分。精英有金冠加角、肩块、侧菌或晶片，但主要识别仍依赖共用冠形，扣1分；动作由Combat补充。",
+      "revision": "加强不同敌种精英专用甲片、姿态或局部轮廓，降低重复冠形依赖。",
+      "reviewer": "/root/art_lead47 actual52 static observation"
+    },
+    {
+      "id": "B3",
+      "score": 5,
+      "max": 5,
+      "title": "六Boss独立造型、体量层级与完整表现",
+      "evidence": [
+        "Artifacts/Round52/Captures/boss-closeup-0.png",
+        "Artifacts/Round52/Captures/boss-closeup-1.png",
+        "Artifacts/Round52/Captures/boss-closeup-2.png",
+        "Artifacts/Round52/Captures/boss-closeup-3.png",
+        "Artifacts/Round52/Captures/boss-closeup-5.png",
+        "Artifacts/Round52/Captures/boss-closeup-6.png",
+        "Artifacts/Round52/Captures/boss-0.png",
+        "Artifacts/Round52/Captures/boss-1.png",
+        "Artifacts/Round52/Captures/boss-2.png",
+        "Artifacts/Round52/Captures/boss-3.png",
+        "Artifacts/Round52/Captures/boss-5.png",
+        "Artifacts/Round52/Captures/boss-6.png",
+        "Docs/ArtReviews/Round52/Combat/IndependentCombatReview.md"
+      ],
+      "observation": "六Boss静态均实际看：根爪宽冠树、背刺长分节虫、蓝角白毛兽、橙核黑岩像、深青金冠背菌巨蛙、头肩赤晶石卫。近景无明显缺件/粉材，正常镜头体量高于玩家，蛙与普通蛙同家族但体量/深色/冠背菌可分，石卫与熔像主题及头肩核心轮廓不同。 六套攻击168不同帧与130/130死亡帧由art_combat47独立实看佐证完整表现；总评本人未宣称看过其全部动态。",
+      "revision": "保持六Boss独立头肩/核心/肢体语言，改动后连同攻击死亡回归。",
+      "reviewer": "/root/art_lead47 actual52 static observation"
+    },
+    {
+      "id": "C1",
+      "score": 5,
+      "max": 5,
+      "title": "六单群系独立地貌与装饰语言",
+      "evidence": [
+        "Artifacts/Round52/Captures/geography-0-0.png",
+        "Artifacts/Round52/Captures/geography-0-1.png",
+        "Artifacts/Round52/Captures/geography-0-2.png",
+        "Artifacts/Round52/Captures/geography-1-0.png",
+        "Artifacts/Round52/Captures/geography-1-1.png",
+        "Artifacts/Round52/Captures/geography-1-2.png",
+        "Artifacts/Round52/Captures/geography-2-0.png",
+        "Artifacts/Round52/Captures/geography-2-1.png",
+        "Artifacts/Round52/Captures/geography-2-2.png",
+        "Artifacts/Round52/Captures/geography-3-0.png",
+        "Artifacts/Round52/Captures/geography-3-1.png",
+        "Artifacts/Round52/Captures/geography-3-2.png",
+        "Artifacts/Round52/Captures/geography-5-0.png",
+        "Artifacts/Round52/Captures/geography-5-1.png",
+        "Artifacts/Round52/Captures/geography-5-2.png",
+        "Artifacts/Round52/Captures/geography-6-0.png",
+        "Artifacts/Round52/Captures/geography-6-1.png",
+        "Artifacts/Round52/Captures/geography-6-2.png"
+      ],
+      "observation": "每单群系三个位置近广景均实看：树河岩脊、沙丘/绿洲/岩台、冰湖/雪坡/冰脊、熔河/桥/岩柱、菌伞池莲点/木板、赤晶簇/晶门/石环分别建立主题，新增两地并非仅换地面颜色。",
+      "revision": "保持三处以上地貌变化与战斗留白。",
+      "reviewer": "/root/art_lead47 actual52 static observation"
+    },
+    {
+      "id": "C2",
+      "score": 4,
+      "max": 5,
+      "title": "地面植被岩石建筑与遗迹层次尺度完整",
+      "evidence": [
+        "Artifacts/Round52/Captures/waterside-architecture-0.png",
+        "Artifacts/Round52/Captures/waterside-architecture-1.png",
+        "Artifacts/Round52/Captures/waterside-architecture-2.png",
+        "Artifacts/Round52/Captures/waterside-architecture-3.png",
+        "Artifacts/Round52/Captures/waterside-architecture-5.png",
+        "Artifacts/Round52/Captures/waterside-architecture-6.png",
+        "Artifacts/Round52/Captures/geography-6-1.png"
+      ],
+      "observation": "六地大中小地物、基座、路径、建筑/门柱/菌屋与挑战场景尺度成立；林地小屋墙面和各地门柱/碑面平整，菌沼木板简，晶谷大面留白及建筑细节偏少，扣1分。",
+      "revision": "增加适量檐口、门框、材料分区和破边，避免只散布更多小物。",
+      "reviewer": "/root/art_lead47 actual52 static observation"
+    },
+    {
+      "id": "C3",
+      "score": 4,
+      "max": 5,
+      "title": "随机接缝、遮挡、重复与碰撞视觉一致",
+      "evidence": [
+        "Artifacts/Round52/Captures/geography-wide-0-2.png",
+        "Artifacts/Round52/Captures/geography-wide-1-2.png",
+        "Artifacts/Round52/Captures/geography-wide-2-2.png",
+        "Artifacts/Round52/Captures/geography-wide-3-2.png",
+        "Artifacts/Round52/Captures/geography-wide-5-2.png",
+        "Artifacts/Round52/Captures/geography-wide-6-2.png",
+        "Artifacts/Round52/Captures/mixed-boundary-0-3.png",
+        "Artifacts/Round52/Captures/mixed-boundary-0-6.png",
+        "Artifacts/Round52/Captures/world-floating-origin.png"
+      ],
+      "observation": "本轮近广景、六边界、浮动原点与Probe所见无可见连续洞/缺块/断路。0-3/0-6树冠为玩家开口，头帽/青圈可辨但开口边缘硬；树/柱/晶簇同向组群与规则圆岸端重复感仍明显，扣1分。静态不证明全随机种子、动态消隐、碰撞和流送。",
+      "revision": "增加组群非对称与尺度朝向变化，柔化遮挡开口边缘，并在运动中回归。",
+      "reviewer": "/root/art_lead47 actual52 static observation"
+    },
+    {
+      "id": "C4",
+      "score": 5,
+      "max": 5,
+      "title": "Mixed过渡、地标、路径与交互探索清楚",
+      "evidence": [
+        "Artifacts/Round52/Captures/mixed-boundary-0-1.png",
+        "Artifacts/Round52/Captures/mixed-boundary-0-3.png",
+        "Artifacts/Round52/Captures/mixed-boundary-0-5.png",
+        "Artifacts/Round52/Captures/mixed-boundary-0-6.png",
+        "Artifacts/Round52/Captures/mixed-boundary-1-2.png",
+        "Artifacts/Round52/Captures/mixed-boundary-3-5.png",
+        "Artifacts/Round52/Captures/mixed-lava-shore-close.png",
+        "Artifacts/Round52/Captures/sanctuary-completed-0.png",
+        "Artifacts/Round52/Captures/sanctuary-completed-1.png",
+        "Artifacts/Round52/Captures/sanctuary-completed-2.png",
+        "Artifacts/Round52/Captures/sanctuary-completed-3.png",
+        "Artifacts/Round52/Captures/sanctuary-completed-5.png",
+        "Artifacts/Round52/Captures/sanctuary-completed-6.png"
+      ],
+      "observation": "本轮六实际边界和六区域都有宽色带与两侧地物交融、道路连续，无方形硬拼；熔河圆端仍在火山侧，桥岸可辨。营地青旗火、补给箱、蓝滴祭坛、主题挑战圈明确，六地完成回访保留全尺寸地物、召唤圈暗化及E提示清除。",
+      "revision": "保持过渡宽度与独立交互标识；完成功能幂等另由玩法验证。",
+      "reviewer": "/root/art_lead47 actual52 static observation"
+    },
+    {
+      "id": "D1",
+      "score": 5,
+      "max": 5,
+      "title": "菜单/选择/任务/成长/设置/加载/结算体系",
+      "evidence": [
+        "Docs/ArtReviews/Round52/UI/SheetManifest.json",
+        "Artifacts/Probe52/Captures/load-failure-terrain-forest.png",
+        "Artifacts/Probe52/Captures/load-failure-weapon-gun.png",
+        "Artifacts/Round52/Captures/death-results.png"
+      ],
+      "observation": "本轮180图及错误恢复/死亡原图均独立看过，奶油底、青色主操作、彩色图标和白/灰卡统一；三角色七地图、新任务/技能与六祝福页面完整纳入。加载失败Toast说明返回主菜单，启程主按钮保持可读。",
+      "revision": "无本项必修；错误Toast可继续细化，当前暂遮次操作但不阻断主操作。",
+      "reviewer": "/root/art_ui47"
+    },
+    {
+      "id": "D2",
+      "score": 5,
+      "max": 5,
+      "title": "HUD/候选/技能层级与密度",
+      "evidence": [
+        "Artifacts/UI52/Captures/ui-hud-1280x720.png",
+        "Artifacts/UI52/Captures/ui-hud-expansion-1280x720.png",
+        "Artifacts/UI52/Captures/ui-blessing-owned-1280x720.png",
+        "Artifacts/UI52/Captures/ui-skills-expansion-联动-locked-1280x720.png",
+        "Artifacts/Round52/Captures/20-skills.png"
+      ],
+      "observation": "能力9摘要和横向栏初/后段同时实看，生命/计时/资源/地图层级清楚，滚轮/拖动提示可见。普通四选、祭坛三选、层数变化、任务进度奖励及构筑价格/任务锁定/已掌握均分层。已获祝福区本轮出现×1/×2/×4并说明本局生效。",
+      "revision": "无本项必修；持续保留能力总数及滚动引导。",
+      "reviewer": "/root/art_ui47"
+    },
+    {
+      "id": "D3",
+      "score": 4,
+      "max": 5,
+      "title": "中文完整/长文本/字号/行距/对齐",
+      "evidence": [
+        "Artifacts/UI52/Captures/ui-upgrade-1920x1200.png",
+        "Artifacts/UI52/Captures/ui-upgrade-1920x1080.png",
+        "Artifacts/UI52/Captures/ui-task-expansion-froststaff.shatter-1280x720.png",
+        "Artifacts/UI52/Captures/ui-skills-expansion-联动-locked-1920x1200.png"
+      ],
+      "observation": "本轮稳定五画幅未见缺字方框/关键裁切。扣1为原图1920×1200普通升级碎霜领域描述仅句号独占第二行；1920×1080普通升级剑气前行至“范围剑”，末行仅“气。”。两处均本轮源图独立确认；生机短句在720p完整可读。",
+      "revision": "缩短或重排碎霜领域/剑气描述，避免孤标点和单字末行；实际五画幅回归，不只依赖text fits断言。",
+      "reviewer": "/root/art_ui47"
+    },
+    {
+      "id": "D4",
+      "score": 5,
+      "max": 5,
+      "title": "五画幅/状态/价格/锁定原因/图标",
+      "evidence": [
+        "Docs/ArtReviews/Round52/UI/SheetManifest.json",
+        "Artifacts/UI52/Captures/ui-selection-expansion-locked-2560x1080.png",
+        "Artifacts/UI52/Captures/ui-skills-expansion-联动-locked-1280x720.png",
+        "Artifacts/UI52/Captures/ui-skills-expansion-联动-unlocked-1280x720.png",
+        "Artifacts/UI52/Captures/ui-blessing-variety-3-1280x720.png"
+      ],
+      "observation": "720p、1080p、16:10、21:9、1440p核心面板和控件未见出界/拉伸。新地图锁标/灰卡/条件与开放白卡明确；两武器锁因和三联动解锁后4点价格可辨。祭坛0→1和1→2、取消保留、已获本局生效均完整。弹道locked中连弩已掌握，如实作为已掌握状态。",
+      "revision": "无本项必修；锁态夹具与真实已获状态需继续清楚区分。",
+      "reviewer": "/root/art_ui47"
+    },
+    {
+      "id": "E1",
+      "score": 5,
+      "max": 5,
+      "title": "九武器/能力与联动的形色、命中层次",
+      "evidence": [
+        "Artifacts/Round52/Captures/weapon-crossbow.png",
+        "Artifacts/Round52/Captures/weapon-boomerang.png",
+        "Artifacts/Round52/Captures/weapon-froststaff.png",
+        "Artifacts/Round52/Sequences/effect-frost/0002.jpg",
+        "Artifacts/Round52/Sequences/effect-flame/0002.jpg",
+        "Artifacts/Round52/Sequences/effect-lightning/0002.jpg",
+        "Artifacts/Round52/Sequences/effect-crystalburst/0002.jpg",
+        "Artifacts/Round52/Sequences/effect-spore/0002.jpg",
+        "Artifacts/Round52/Sequences/late-density-combinations/0018.jpg",
+        "Docs/ArtReviews/Round52/Combat/IndependentCombatReview.md",
+        "Docs/ArtReviews/Round52/Combat/SequenceInventory.json"
+      ],
+      "observation": "本轮原图中橙焰/暖色爆瓣、细金弹、青白剑列、青白灵体、紫金折雷、蓝冰碎片、金符环与紫乳白孢点/粉晶棱各有形状。新弩青金弓形、青色折刃、蓝晶杖可区分；密战实际同时出现多类发射/命中，未只凭HUD能力9计分。",
+      "revision": "本项无必修扣分；后续继续保持敌我形色、发射体和命中体层次。",
+      "reviewer": "/root/art_combat47"
+    },
+    {
+      "id": "E2",
+      "score": 4,
+      "max": 5,
+      "title": "密战中的玩家、标记、敌弹和拾取物",
+      "evidence": [
+        "Artifacts/Round52/Sequences/late-density-combinations/0000.jpg",
+        "Artifacts/Round52/Sequences/late-density-combinations/0018.jpg",
+        "Artifacts/Round52/Sequences/late-density-combinations/0030.jpg",
+        "Artifacts/Round52/Sequences/late-density-combinations/0072.jpg",
+        "Artifacts/Round52/Sequences/late-density-combinations/0086.jpg",
+        "Artifacts/Round52/Sequences/late-density-combinations/0095.jpg",
+        "Artifacts/Round52/Captures/late-density-0.png",
+        "Artifacts/Round52/Captures/late-density-1.png",
+        "Artifacts/Round52/Captures/late-density-2.png",
+        "Artifacts/Round52/Captures/late-density-3.png",
+        "Artifacts/Round52/Captures/late-density-4.png",
+        "Artifacts/Round52/Captures/late-density-5.png",
+        "Artifacts/Round52/Captures/late-density-6.png",
+        "Docs/ArtReviews/Round52/Combat/IndependentCombatReview.md",
+        "Docs/ArtReviews/Round52/Combat/SequenceInventory.json"
+      ],
+      "observation": "玩家头帽/青足环在96帧中可跟随，七地图密图中心均可找到人物；粉敌弹/红粉危险与青经验、金目标圈有区分。0018/0030的剑列/冰环，0072/0086和左侧敌群的精英冠叠加，挤压身体及地面可用空隙，扣1分；未观察到玩家持续完全不可见。新怪关闭能力的隔离图不计密战证明。",
+      "revision": "减少重复精英冠和己方冰圈/剑列的视觉权重；保持九能力、实际发射和伤害后回归中心脚环与红危险。",
+      "reviewer": "/root/art_combat47"
+    },
+    {
+      "id": "E3",
+      "score": 5,
+      "max": 5,
+      "title": "六Boss/普通精英的前摇、范围与命中视觉",
+      "evidence": [
+        "Artifacts/Round52/Sequences/boss-attacks-0/0018.jpg",
+        "Artifacts/Round52/Sequences/boss-attacks-0/0019.jpg",
+        "Artifacts/Round52/Sequences/boss-attacks-0/0020.jpg",
+        "Artifacts/Round52/Sequences/boss-attacks-0/0021.jpg",
+        "Artifacts/Round52/Sequences/boss-attacks-1/0018.jpg",
+        "Artifacts/Round52/Sequences/boss-attacks-1/0019.jpg",
+        "Artifacts/Round52/Sequences/boss-attacks-1/0020.jpg",
+        "Artifacts/Round52/Sequences/boss-attacks-1/0021.jpg",
+        "Artifacts/Round52/Sequences/boss-attacks-2/0018.jpg",
+        "Artifacts/Round52/Sequences/boss-attacks-2/0019.jpg",
+        "Artifacts/Round52/Sequences/boss-attacks-2/0020.jpg",
+        "Artifacts/Round52/Sequences/boss-attacks-2/0021.jpg",
+        "Artifacts/Round52/Sequences/boss-attacks-3/0018.jpg",
+        "Artifacts/Round52/Sequences/boss-attacks-3/0019.jpg",
+        "Artifacts/Round52/Sequences/boss-attacks-3/0020.jpg",
+        "Artifacts/Round52/Sequences/boss-attacks-3/0021.jpg",
+        "Artifacts/Round52/Sequences/boss-attacks-5/0018.jpg",
+        "Artifacts/Round52/Sequences/boss-attacks-5/0019.jpg",
+        "Artifacts/Round52/Sequences/boss-attacks-5/0020.jpg",
+        "Artifacts/Round52/Sequences/boss-attacks-5/0021.jpg",
+        "Artifacts/Round52/Sequences/boss-attacks-6/0018.jpg",
+        "Artifacts/Round52/Sequences/boss-attacks-6/0019.jpg",
+        "Artifacts/Round52/Sequences/boss-attacks-6/0020.jpg",
+        "Artifacts/Round52/Sequences/boss-attacks-6/0021.jpg",
+        "Artifacts/Round52/Sequences/enemy-attacks-6-normal/0067.jpg",
+        "Artifacts/Round52/Sequences/enemy-attacks-6-normal/0068.jpg",
+        "Artifacts/Round52/Sequences/enemy-attacks-6-normal/0069.jpg",
+        "Docs/ArtReviews/Round52/Combat/IndependentCombatReview.md",
+        "Docs/ArtReviews/Round52/Combat/SequenceInventory.json"
+      ],
+      "observation": "树根三圆、虫向长条、寒兽大震圈/小冰点、熔岩多爆点、菌蛙大圈/多孢点、晶卫多方向条/落晶圈的危险形状与作用区域相符。原树18-21看见警示→圈内爆发→受击边缘，熔岩18-21看见圈内先后爆瓣。新怪孢点、跃蛙落点、甲虫直条、晶妖扇弹能区分；甲虫/晶卫条线早段偏淡，但原0054轴线和之后移动仍可辨。没有严重范围错位或长时间遮没危险，时间精度限于采样。",
+      "revision": "保持红粉危险专用形状；若改范围/动作必须回归相邻原帧和多能力密战。",
+      "reviewer": "/root/art_combat47"
+    },
+    {
+      "id": "E4",
+      "score": 4,
+      "max": 5,
+      "title": "闪避、受击、状态、边界及交互提示",
+      "evidence": [
+        "Artifacts/Round52/Sequences/character-move-dodge/0001.jpg",
+        "Artifacts/Round52/Sequences/character-move-dodge/0002.jpg",
+        "Artifacts/Round52/Sequences/character-move-dodge/0003.jpg",
+        "Artifacts/Round52/Sequences/boss-attacks-2/0018.jpg",
+        "Artifacts/Round52/Sequences/boss-attacks-2/0019.jpg",
+        "Artifacts/Round52/Sequences/boss-attacks-2/0020.jpg",
+        "Artifacts/Round52/Sequences/boss-attacks-2/0021.jpg",
+        "Artifacts/Round52/Sequences/boss-attacks-2/0030.jpg",
+        "Artifacts/Round52/Sequences/player-defeat/0004.jpg",
+        "Artifacts/Round52/Sequences/player-defeat/0009.jpg",
+        "Artifacts/Round52/Captures/sanctuary-close-3.png",
+        "Docs/ArtReviews/Round52/Combat/IndependentCombatReview.md",
+        "Docs/ArtReviews/Round52/Combat/SequenceInventory.json"
+      ],
+      "observation": "闪避浅色闪身、倾身位移、青足环与红边受击可见；普通怪部分蓝色状态覆盖与邻居基础色并存，寒兽18奶油色→19-21蓝色→30恢复奶油色已看。未见整片错误染色/严重过曝。火山深青交互字直接压紫灰地，偏暗但可读，扣1分。没有把Boss变色当作普通怪完整出池重设证明。",
+      "revision": "给世界交互字浅底/描边，先回归火山地面；若继续改染色，补同一个普通/精英敌人状态结束及重新出池的连续原帧。",
+      "reviewer": "/root/art_combat47"
+    },
+    {
+      "id": "F1",
+      "score": 4,
+      "max": 5,
+      "title": "三角色动作与六Boss起收、受击及死亡衔接",
+      "evidence": [
+        "Artifacts/Round52/Sequences/role-action-adventurer/0000.jpg",
+        "Artifacts/Round52/Sequences/role-action-elementalist/0000.jpg",
+        "Artifacts/Round52/Sequences/role-action-swordsman/0000.jpg",
+        "Artifacts/Round52/Sequences/role-closeup-adventurer/0019.jpg",
+        "Artifacts/Round52/Sequences/boss-death-0/0010.jpg",
+        "Artifacts/Round52/Sequences/boss-death-1/0010.jpg",
+        "Artifacts/Round52/Sequences/boss-death-2/0010.jpg",
+        "Artifacts/Round52/Sequences/boss-death-3/0010.jpg",
+        "Artifacts/Round52/Sequences/boss-death-5/0010.jpg",
+        "Artifacts/Round52/Sequences/boss-death-6/0010.jpg",
+        "Artifacts/Round52/Sequences/player-defeat/0004.jpg",
+        "Docs/ArtReviews/Round52/Combat/IndependentCombatReview.md",
+        "Docs/ArtReviews/Round52/Combat/SequenceInventory.json"
+      ],
+      "observation": "三角色走转/出手/施法可辨，闪避有身体和位置反馈；玩家倾倒后进入结算。六Boss确有前摇与死亡连续表现，树倾、虫压缩/消退、寒兽翻倒、岩像压平、菌蛙侧倒、晶卫下沉。短循环和收招仍较直接，多用整体旋转/缩放，重心/肢体延迟层次不足，扣1分；无已见明显断肢/整段缺动画。",
+      "revision": "增加角色回收缓冲与Boss分段重心、肢体延迟，三角色六Boss循环一起回归。",
+      "reviewer": "/root/art_combat47"
+    },
+    {
+      "id": "F2",
+      "score": 4,
+      "max": 5,
+      "title": "页面动效、拾取/升级/解锁反馈与世界一致性",
+      "reviewer": "/root/art_ui47 + /root/art_combat47 actual observations; /root/art_lead47 synthesis",
+      "evidence": [
+        "Artifacts/Round52/Sequences/feedback-upgrade-open/0006.jpg",
+        "Artifacts/Round52/Sequences/feedback-upgrade-reward/0005.jpg",
+        "Artifacts/Round52/Sequences/feedback-task-unlock/0000.jpg",
+        "Artifacts/Round52/Sequences/player-defeat/0009.jpg",
+        "Artifacts/Round52/Sequences/late-density-combinations/0072.jpg",
+        "Docs/ArtReviews/Round52/UI/IndependentUIReview.md",
+        "Docs/ArtReviews/Round52/Combat/IndependentCombatReview.md"
+      ],
+      "observation": "UI与Combat分别实看本轮五反馈32/32帧，页面淡入后稳定，获得叠阵/任务完成/晶石+15及拾取色系与世界一致，结算未见开战Toast遮返回按钮。反馈多用短淡入/通用环与Toast，世界侧重大解锁动作薄，扣1分。角色近景0000跨诊断BeginRun保留上一局25:00后刷新0:00，按采集边界明确记录，未称全转场无跳变。",
+      "revision": "细化重大升级/首解锁与层数改变的低遮挡反馈；祭坛专属全转场和HUD连续滚动另补。"
+    }
+  ],
+  "hardGates": [
+    {
+      "id": "total",
+      "rubricCode": "H01",
+      "requirement": "总分至少91/100",
+      "passed": true,
+      "evidence": "本轮20项合计91/100。"
+    },
+    {
+      "id": "dimensions",
+      "rubricCode": "H02",
+      "requirement": "A/B≥13、C/D/E≥18、F≥8",
+      "passed": true,
+      "evidence": "{'A': 14, 'B': 14, 'C': 18, 'D': 19, 'E': 18, 'F': 8}"
+    },
+    {
+      "id": "items",
+      "rubricCode": "H03",
+      "requirement": "原20项每项≥4",
+      "passed": true,
+      "evidence": "保持100分/20整数子项，最低4分。"
+    },
+    {
+      "id": "frozen_content",
+      "rubricCode": "H04",
+      "requirement": "全部冻结内容同版实机覆盖，无未评分内容",
+      "passed": true,
+      "evidence": "三角色、八普通/八精英、六Boss、六单群系/Mixed六区域与52六实际边界、九武器/新联动、升级任务所属页面及新增目标行和正式UI均入原项；47序列抽样，不穷尽全部组合。"
+    },
+    {
+      "id": "finished_assets",
+      "rubricCode": "H05",
+      "requirement": "无占位、粉材、缺贴图或明显破损模型",
+      "passed": true,
+      "evidence": "World146/UI185/Combat35静态与动态抽样、52预检补帧所见无该类硬缺陷。独立悬浮能力体与手持装备分开观察，未由间距臆判断挂点。"
+    },
+    {
+      "id": "chinese_layout",
+      "rubricCode": "H06",
+      "requirement": "中文无缺字、关键裁切、不可读主按钮、遮罩错误或核心出界",
+      "passed": true,
+      "evidence": "36状态×五画幅180图及额外5图独立查看；本轮1920×1200碎霜句号孤行、1080剑气“气。”末行扣D3，文字未丢失。"
+    },
+    {
+      "id": "dense_readability",
+      "rubricCode": "H07",
+      "requirement": "密战持续定位玩家与危险，不靠停射/删能力/关闭实际伤害作图",
+      "passed": true,
+      "evidence": "96/96九能力实际密战帧和七地图密图见玩家头帽青圈、敌危与实际发射命中，受控治疗不等于关闭伤害。八新怪隔离关Abilities/不死只评敌动作，排除出H07证明。预检末帧仅静态补充。"
+    },
+    {
+      "id": "danger_and_invulnerability",
+      "rubricCode": "H08",
+      "requirement": "六Boss前摇/危险和闪避有可辨表现，无持续全遮挡/严重范围错位",
+      "passed": true,
+      "evidence": "六Boss攻击168帧含六组18–21原图、新怪139帧、闪避相邻1–3支撑所见阶段与范围。菌蛙短暂身体遮挡仍有青圈可追；不证明每帧身体全露或亚帧伤害/无敌精度。"
+    },
+    {
+      "id": "continuous_feedback",
+      "rubricCode": "H09",
+      "requirement": "动画与反馈有真实运行连续证据",
+      "passed": true,
+      "evidence": "47条序列均有抽样；130/130六Boss死亡、14/14玩家死亡、32/32五反馈、96/96密战全表看并补关键相邻原帧。祭坛专属转场/HUD连续滚动未验，角色近景跨测试局边界刷新如实保留。"
+    },
+    {
+      "id": "same_candidate",
+      "rubricCode": "H10",
+      "requirement": "同一可追溯候选，不跨版拼图",
+      "passed": true,
+      "evidence": "Round52/UI52/Probe52三套29条BuildIdentity同名/SHA相同；预检同29条。1.2.0/1309源文件/24AA与Release52精确一致，Workspace/ReleaseAudit通过；只有52实际图，没有用51分/图作为52通过。"
+    }
+  ],
+  "actualViewing": {
+    "reviewers": [
+      "/root/art_lead47",
+      "/root/art_ui47",
+      "/root/art_combat47"
+    ],
+    "uniqueStaticImagesViewed": 337,
+    "uniqueSequenceFramesViewed": 838,
+    "sequenceFramesAvailable": 2505,
+    "sequenceCount": 47,
+    "uniqueOriginalFilesOpened": 170,
+    "uniqueAuxiliarySheetsViewed": 157
+  },
+  "coreActualViewing": {
+    "uniqueStaticImagesViewed": 336,
+    "uniqueSequenceFramesViewed": 838,
+    "sequenceFramesAvailable": 2505,
+    "sequenceCount": 47,
+    "uniqueOriginalFilesOpened": 169,
+    "uniqueAuxiliarySheetsViewed": 157
+  },
+  "supplementaryVisualEvidence": [
+    {
+      "path": "Artifacts/Soak52Preflight/FinalFrame.png",
+      "sha256": "0d2cad2d5b74de6279c715706a007bb03e308bddd504181e3df4bcc4f974891a",
+      "reviewers": [
+        "art_lead47",
+        "art_combat47"
+      ],
+      "WorldReview": "Docs/ArtReviews/Round52/World/DeepPreflightReview.json",
+      "CombatReview": "Docs/ArtReviews/Round52/Combat/DeepPreflightReview.json",
+      "newUniqueStatic": 1,
+      "newUniqueOriginal": 1,
+      "newDynamic": 0,
+      "newSheets": 0
+    }
+  ],
+  "limitations": [
+    "Only listed52 observations; no older screenshots/scores/counts migrated.",
+    "Contact sheets preserve full frames but are reduced indexes; originals additionally opened are explicit. Larger original files may be downscaled by image transport; not pixel-perfect1:1 display of every file.",
+    "Fixed12fps controlled-healing/immortal capture flags are retained per sequence; do not prove subframe damage timing, natural difficulty or normal-speed hands-on play. Realtime effects/death/feedback instead use actual wall-clock timestamps, not the requested interval as measured FPS.",
+    "Some presentation/load-failure PNGs lack world sidecars; seed remains unknown. Dynamic metadata usually lacks per-frame seed/role/abilities: adjacent PNG world snapshots remain separate contexts.",
+    "Shrine-specific complete open/cancel/reopen/choose/restore regular upgrade sequence and HUD continuous scrolling were not sampled. Stable state pairs and functional logs do not replace those continuous observations.",
+    "Not every60 upgrade/25 task row and all state permutations or all random terrain seeds exhaustively viewed.",
+    "Actual52 terrain-selected60-image assessment reports zero exact camera-clear pixels and no inactive chunks; broad194-image audit with intentional studio clear backgrounds is separately retained and not a world-hole verdict. Neither audit awards art points.",
+    "Fixed-depth180.2sec preflight final frame now independently opened by World/Combat; actual growing7200sec final frame not supplied/observed. No long-run/performance conclusion.",
+    "No audio listening, desktop control, Player launch, build, runtime edit or original image modification by these reviewers.",
+    "52 actor base tint/status sampled visibly; same ordinary/elite full freeze/burn-end -> pool -> reinitialize colour lifecycle not independently tracked.",
+    "Role closeup frame0000 crosses diagnostic BeginRun: prior25:00HUD then0:00 refresh retained. Do not claim all transitions free of jumps or use fixture boundary to prove normal startup.",
+    "Core+fixed preflight art conclusion does not certify gameplay/performance/natural difficulty/audio or all random-state permutations. Actual7200 final frame still pending."
+  ],
+  "missingRequiredArtEvidence": [],
+  "additionalUnverifiedSampling": [
+    "祭坛专属完整打开/取消/重开/选择/恢复普通升级连续流程与HUD连续滚动",
+    "同一普通/精英冻结/燃烧结束→回池→重新初始化染色完整视觉生命周期",
+    "角色近景跨诊断局HUD边界，正常产品加载全转场未据此验证",
+    "全部60升级/25任务每行/所有状态组合、全部随机种子",
+    "完整脱战倒计时与亚帧命中/无敌精度",
+    "实际持续成长7200秒末帧尚待提供复核"
+  ],
+  "supplementStatus": {
+    "exclusiveNineWeaponDeepBuildFinalFrame": "reviewed static only,180.2s fixedLv520 diagnostic workload",
+    "actual7200SecondFinalFrame": "pending",
+    "sharedFinalConclusionUpdated": false
+  },
+  "reviewedAt": "2026-10-22T21:49:22.746031+08:00",
+  "independentReview": "Docs/ArtReviews/Round52/IndependentReview.md",
+  "observedEvidence": "Docs/ArtReviews/Round52/ObservedEvidence.json",
+  "identityAudit": "Docs/ArtReviews/Round52/IdentityAudit.json",
+  "terrainHeuristic": {
+    "selectedAssessment": "Artifacts/TerrainCoverage52Assessment.json",
+    "selectedRawAudit": "Artifacts/TerrainCoverage52Audit.json",
+    "selectedImageCount": 60,
+    "selectedPassed": true,
+    "selectedClearRGBPixels": 0,
+    "selectedInactiveChunkEntries": 0,
+    "broadRawAudit": "Artifacts/AllCaptureClear52Audit.json",
+    "scope": "Broad194 capture audit includes intentional studio clear backgrounds and is retained separately; not a world-hole verdict. No scoring points from pixel heuristic."
+  }
+}

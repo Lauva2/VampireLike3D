@@ -38,7 +38,7 @@ namespace VampireLike
             game.UI.ShowSelection(); yield return Wait(.5f); yield return Capture("02-selection"); game.UI.CloseModal();
             game.UI.ShowProgress(); yield return Wait(.5f); yield return Capture("03-progression"); game.UI.CloseModal();
             game.UI.ShowSettings(); yield return Wait(.3f); yield return Capture("04-settings"); game.UI.CloseModal();
-            for (int biome = 0; biome < 5; biome++)
+            for (int biome = 0; biome < ContentIds.Maps.Length; biome++)
             {
                 foreach (var task in game.Catalog.tasks) if (!game.Save.Profile.completedTasks.Contains(task.id)) game.Save.Profile.completedTasks.Add(task.id);
                 game.BeginRun(game.Catalog.characters[biome % 3].id, (BiomeId)biome);
@@ -57,14 +57,16 @@ namespace VampireLike
                 foreach (var u in game.Catalog.upgrades)
                     if (game.Progression.Eligible(u)) game.Progression.GrantForDiagnostic(u.id);
                 game.UI.ShowHUD();
-                Check(game.Run.abilities.Count == 6, "Six abilities coexist in biome " + biome);
+                Check(game.Run.abilities.Count == ContentIds.Weapons.Length, "All nine abilities coexist in biome " + biome);
                 if(biome==0)yield return VerifyExperience();
+                if(biome==0)yield return VerifyExpansionWeapons();
+                if(biome>=5)yield return VerifyExpansionEnemies();
                 if(biome==0)yield return EnemyGallery();
                 if(biome==0)yield return EffectGallery();
                 for (int i = 0; i < 55; i++)
                 {
                     float a = i * 2.399f; float r = 9 + i % 9;
-                    game.Combat.Spawn(i % 4, game.Player.transform.position + new Vector3(Mathf.Cos(a), 0, Mathf.Sin(a)) * r, i % 15 == 0);
+                    game.Combat.Spawn(game.Combat.ChooseEnemy(game.World.CurrentBiome), game.Player.transform.position + new Vector3(Mathf.Cos(a), 0, Mathf.Sin(a)) * r, i % 15 == 0);
                 }
                 yield return AutoBattle(5);
                 yield return Capture("10-biome-" + biome);
@@ -141,7 +143,7 @@ namespace VampireLike
             while (Time.realtimeSinceStartup < end)
             {
                 if (game.Player != null) game.Player.Heal(100);
-                if (game.IsPaused && game.UI.View.upgrade.activeSelf)
+                if (game.IsPaused && game.UI.ActiveModal == "upgrade")
                 { var options = game.Progression.Choices(); if (options.Count > 0) game.Progression.Apply(options[0].id, false); else game.Progression.SkipLevel(); }
                 yield return null;
             }
@@ -193,7 +195,8 @@ namespace VampireLike
         }
         void Update()
         {
-            if (output == null || Time.realtimeSinceStartup - started < 1000) return;
+            if(output!=null)ObserveExpansionAttack();
+            if (output == null || Time.realtimeSinceStartup - started < 1400) return;
             report.errors.Add("Verification timed out"); Finish();
         }
         void OnDestroy() { Application.logMessageReceived -= OnLog; }

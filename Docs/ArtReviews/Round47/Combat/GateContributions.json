@@ -1,0 +1,16 @@
+{
+  "candidate": "Round47",
+  "reviewer": "/root/art_combat47",
+  "scope": "E1-E4/F1 and F2 combat contribution only",
+  "dimensionE": {"score": 18, "max": 20, "minimum": 18, "meetsMinimum": true},
+  "itemMinimum": {"items": ["E1", "E2", "E3", "E4", "F1"], "minimumObserved": 4, "meetsMinimum": true},
+  "H07_denseCombat": {"visualResult": "pass in observed scope", "evidence": "All 96 late-density-combinations frames via sheets plus originals; five maps' dense originals; four Boss sequences", "limits": "No natural-difficulty or performance conclusion; all abilities remain represented; controlled healing in capture"},
+  "H08_warningAndDodge": {"visualResult": "pass in observed scope", "evidence": "Four Boss attacks 25 samples each and 0018-0021 adjacent originals each, danger examples, dodge adjacent originals and freeze/hurt originals", "limits": "Visual stages/ranges only; no independent exhaustive subframe damage/collider/random-seed measurement; no complete retreat countdown sequence observed"},
+  "H09_continuousAnimationFeedback": {"visualResult": "pass in observed scope", "evidence": "33 sequences sampled; all Boss deaths, player defeat, dense combat and five feedback sequences seen via full-frame sheets", "limits": "588/1420 dynamic frames observed, no complete normal-speed playback; shrine-specific transition not observed"},
+  "H10_identityContribution": {"result": "verified 23-file BuildIdentity sets equal for Round47/UI47/Probe47/Soak47Short", "note": "All visual scoring from current 47 captures, no reuse of older scoring/evidence"},
+  "newHardCombatBlockerObserved": false,
+  "completeArtVerdict": null,
+  "report": "Docs/ArtReviews/Round47/Combat/IndependentCombatReview.md",
+  "rows": "Docs/ArtReviews/Round47/Combat/Scores.json",
+  "observedEvidence": "Docs/ArtReviews/Round47/Combat/ObservedEvidence.json"
+}

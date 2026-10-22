@@ -64,7 +64,7 @@ namespace VampireLike
                     {
                         float a = Random.value * Mathf.PI * 2;
                         Vector3 pos = game.Player.transform.position + new Vector3(Mathf.Cos(a), 0, Mathf.Sin(a)) * Random.Range(20, 27);
-                        Spawn(Random.Range(0, game.Run.seconds < 50 ? 2 : 4), pos, Random.value < .025f + game.Run.seconds / 20000);
+                        Spawn(ChooseEnemy(game.World.CurrentBiome), pos, Random.value < .025f + game.Run.seconds / 20000);
                     }
                 }
             }
@@ -90,6 +90,12 @@ namespace VampireLike
                     game.UI.Toast("已脱离挑战 · Boss 已重置，准备好后可再次开启。", 5);
                 }
             }
+        }
+        public int ChooseEnemy(BiomeId biome)
+        {
+            var types = game.Catalog.Biome(biome).enemyTypes;
+            int count = game.Run.seconds < 50 ? Mathf.Min(2, types.Length) : types.Length;
+            return types[Random.Range(0, count)];
         }
         public EnemyActor Spawn(int type, Vector3 pos, bool elite = false)
         {
@@ -140,13 +146,13 @@ namespace VampireLike
                 if (grid.TryGetValue(new Vector2Int(x, z), out var list)) foreach (var enemy in list)
                     if (enemy != null && enemy.IsAlive && (enemy.transform.position - p).sqrMagnitude <= square) result.Add(enemy);
         }
-        public EnemyActor Target(Vector3 from, float range, HashSet<int> exclude = null)
+        public EnemyActor Target(Vector3 from, float range, HashSet<long> exclude = null)
         {
-            if (Marked != null && Marked.IsAlive && (Marked.transform.position - from).sqrMagnitude < range * range && (exclude == null || !exclude.Contains(Marked.GetInstanceID())) && Visible(from, Marked)) return Marked;
+            if (Marked != null && Marked.IsAlive && (Marked.transform.position - from).sqrMagnitude < range * range && (exclude == null || !exclude.Contains(Marked.CollisionId)) && Visible(from, Marked)) return Marked;
             Query(from, range, hits); EnemyActor best = null; float distance = range * range;
             foreach (var enemy in hits)
             {
-                if (exclude != null && exclude.Contains(enemy.GetInstanceID())) continue;
+                if (exclude != null && exclude.Contains(enemy.CollisionId)) continue;
                 float d = (enemy.transform.position - from).sqrMagnitude;
                 if (d >= distance || !Visible(from, enemy)) continue;
                 distance = d; best = enemy;
@@ -159,6 +165,9 @@ namespace VampireLike
             Remove(enemy); game.Run.kills++;
             game.World.NotifyKill(enemy.transform.position);
             var p = game.Save.Profile; p.totalKills++;
+            if (packet.source == AbilityKind.Crossbow) p.crossbowKills++;
+            if (packet.source == AbilityKind.Boomerang) p.boomerangKills++;
+            if (packet.source == AbilityKind.FrostStaff) p.frostStaffKills++;
             if (packet.source == AbilityKind.Gun) p.gunKills++;
             if (packet.source == AbilityKind.Fireball || packet.burn > 0 || packet.burning) p.fireKills++;
             if (packet.source == AbilityKind.Sword) p.swordKills++;
@@ -175,7 +184,7 @@ namespace VampireLike
             if (enemy == Boss)
             {
                 var biome = enemy.Biome;
-                p.bossWins[(int)biome] = true;
+                p.bossWins[ContentIds.RegionIndex(biome)] = true;
                 game.Progression.Reward(15, 60); game.Progression.CheckTasks();
                 game.World.CompleteEvent(BossSiteId);
                 game.Save.MarkDirty(); game.Save.Flush(); Boss = null; RetreatProgress = 0; ClearBossHazards();
@@ -206,9 +215,9 @@ namespace VampireLike
             var go=game.Pool.Rent("vfx/warning-line",start,Quaternion.identity);
             if(go!=null)go.GetComponent<AttackHazard>().InitializeLine(game,start,end,width,delay,active,damage,boss);
         }
-        public void EnemyShot(Vector3 origin, Vector3 direction, float damage)
+        public void EnemyShot(Vector3 origin, Vector3 direction, float damage, string prefabId = "projectile/enemy")
         {
-            var go = game.Pool.Rent("projectile/enemy", origin, Quaternion.LookRotation(direction));
+            var go = game.Pool.Rent(prefabId, origin, Quaternion.LookRotation(direction));
             if (go != null) go.GetComponent<ProjectileActor>().InitializeEnemy(game, direction, damage);
         }
         void ClearBossHazards()
@@ -220,7 +229,7 @@ namespace VampireLike
         public void ShiftOrigin(Vector3 shift)
         {
             BossCenter -= shift;
-            foreach (var enemy in Enemies) if (enemy != null) enemy.transform.position -= shift;
+            foreach (var enemy in Enemies) if (enemy != null) enemy.ShiftOrigin(shift);
             var movers = game.GetRunObjects<ProjectileActor>(); foreach (var p in movers) p.transform.position -= shift;
             experienceCells.Clear();var orbs = game.GetRunObjects<ExperienceOrb>(); foreach (var p in orbs){p.transform.position-=shift;p.UpdateCell();experienceCells[p.Cell]=p;}
             var hazards = game.GetRunObjects<AttackHazard>(); foreach (var p in hazards) p.transform.position -= shift;

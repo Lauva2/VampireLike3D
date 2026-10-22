@@ -35,6 +35,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - game
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0b8ea18cbbbddb74eb5812824f644b6f
+    m_Address: projectile/froststaff
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 11f8e1cebe599c340b38507e5dff7dce
     m_Address: world/chest
     m_ReadOnly: 0
@@ -89,6 +95,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - game
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 47b4b63e05d98c64187b9399135cbfd4
+    m_Address: vfx/crystalburst
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4ed6026ad2d3e914ba0758a2aa28fd2f
     m_Address: character/adventurer
     m_ReadOnly: 0
@@ -103,6 +115,24 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5b170fecc35e8984bb03f20f50cf58c7
     m_Address: projectile/gun
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5df5789e565a4e84f83c412f8f162f7c
+    m_Address: weapon/boomerang
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6569d3fc2528d24489a1e066d9f94d80
+    m_Address: projectile/boomerang
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 659ac2dc409eb2b47b62a15fe36b4aed
+    m_Address: enemy/7
     m_ReadOnly: 0
     m_SerializedLabels:
     - game
@@ -179,8 +209,26 @@ MonoBehaviour:
     m_SerializedLabels:
     - game
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9e41c966e5a2f844cbfe9df3c7ac1dd2
+    m_Address: weapon/crossbow
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9f0435210e063fe46afc1367a8013bb8
+    m_Address: enemy/6
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a248879672498524d994eb61f971b92b
     m_Address: world/boss-site
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a53361dbd6bc0a342a2cd653aea4483d
+    m_Address: enemy/8
     m_ReadOnly: 0
     m_SerializedLabels:
     - game
@@ -233,6 +281,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - game
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cc11c64eafe0e194ea648461a890068b
+    m_Address: vfx/spore
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d55d3071f184cb04ba68b29c464eeb28
     m_Address: vfx/arc
     m_ReadOnly: 0
@@ -263,8 +317,20 @@ MonoBehaviour:
     m_SerializedLabels:
     - game
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e53fda57ecef171408ef587b86165419
+    m_Address: enemy/5
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e8f41d85d471fe24795ab620d4e00ea9
     m_Address: weapon/sword
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ec832fb44aab06d4e87fd0a041094715
+    m_Address: projectile/crossbow
     m_ReadOnly: 0
     m_SerializedLabels:
     - game
@@ -275,8 +341,20 @@ MonoBehaviour:
     m_SerializedLabels:
     - game
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f10924d4e2129844983db05787adb865
+    m_Address: projectile/prism
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f916ce0f3c4541d468a1914ad12018b0
     m_Address: world/camp
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f9a2c1fad920a164abe9daba1ab707bf
+    m_Address: weapon/froststaff
     m_ReadOnly: 0
     m_SerializedLabels:
     - game

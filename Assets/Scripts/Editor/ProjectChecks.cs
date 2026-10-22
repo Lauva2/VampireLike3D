@@ -8,7 +8,7 @@ namespace VampireLike.Editor
 {
     public static class ProjectChecks
     {
-        [Serializable] sealed class Results { public bool passed; public long warmedUpgradeLookupAllocatedBytes; public List<string> checks = new List<string>(); }
+        [Serializable] sealed class Results { public bool passed; public long warmedUpgradeLookupAllocatedBytes, warmedBiomeLookupAllocatedBytes; public List<string> checks = new List<string>(); }
         public static void Run()
         {
             var result = new Results();
@@ -42,7 +42,31 @@ namespace VampireLike.Editor
             for(int n=0;n<10000;n++)lookupChecksum+=catalog.Upgrade(catalog.upgrades[n%catalog.upgrades.Length].id).cost;
             result.warmedUpgradeLookupAllocatedBytes=GC.GetAllocatedBytesForCurrentThread()-allocatedBefore;
             check(lookupChecksum>0&&result.warmedUpgradeLookupAllocatedBytes==0,"Warmed upgrade lookup performs ten thousand queries without managed allocations");
-            check(catalog.characters.Length==3,"Three characters");check(catalog.biomes.Length==4,"Four biomes");check(catalog.abilities.Length==6,"Six abilities");check(catalog.upgrades.Length>=30,"At least thirty upgrades");
+            bool biomeLookupMatches=true;
+            foreach(var definition in catalog.biomes)if(!ReferenceEquals(catalog.Biome(definition.id),definition))biomeLookupMatches=false;
+            check(biomeLookupMatches&&ReferenceEquals(catalog.Biome(BiomeId.Mixed),catalog.Biome(BiomeId.Forest))&&catalog.Biome((BiomeId)999)==null,"Biome lookup preserves six authored IDs, Mixed forest fallback and unknown-ID rejection");
+            long biomeAllocatedBefore=GC.GetAllocatedBytesForCurrentThread();int biomeChecksum=0;
+            for(int n=0;n<10000;n++)biomeChecksum+=(int)catalog.Biome(ContentIds.Maps[n%ContentIds.Maps.Length]).id+1;
+            result.warmedBiomeLookupAllocatedBytes=GC.GetAllocatedBytesForCurrentThread()-biomeAllocatedBefore;
+            check(biomeChecksum>0&&result.warmedBiomeLookupAllocatedBytes==0,"Biome lookup performs ten thousand mixed-region queries without managed allocations");
+            var biomeProbe=ScriptableObject.CreateInstance<GameCatalog>();
+            try
+            {
+                var before=new BiomeDefinition{id=BiomeId.Swamp};var after=new BiomeDefinition{id=BiomeId.Crystal};
+                biomeProbe.biomes=new[]{before};bool first=ReferenceEquals(biomeProbe.Biome(BiomeId.Swamp),before);
+                biomeProbe.biomes=new[]{after};
+                check(first&&biomeProbe.Biome(BiomeId.Swamp)==null&&ReferenceEquals(biomeProbe.Biome(BiomeId.Crystal),after),"Biome lookup follows replacement arrays without retaining stale definitions");
+            }
+            finally{UnityEngine.Object.DestroyImmediate(biomeProbe);}
+            check(catalog.characters.Length==3,"Three characters");check(catalog.biomes.Length==6,"Six authored biomes");check(catalog.abilities.Length==9,"Nine parallel abilities");check(catalog.upgrades.Length==60,"Sixty upgrades including eighteen expansion choices");
+            check((int)BiomeId.Mixed==4&&(int)AbilityKind.Rune==5&&(int)TaskMetric.SwordFireCombo==11,"Original serialized enum values remain stable");
+            check(catalog.enemies.Length==8&&catalog.Enemy(4)==null&&catalog.tasks.Length==25,"Eight enemy archetypes reserve Boss type four and twenty-five tasks");
+            foreach(var biome in catalog.biomes)
+            {
+                check(ContentIds.RegionIndex(biome.id)>=0&&catalog.Prefab(biome.terrainId)!=null&&catalog.Prefab(biome.bossId)!=null,"Biome content resolves through AA catalog "+biome.id);
+                foreach(int type in biome.enemyTypes)check(catalog.Enemy(type)!=null,"Biome spawn table resolves enemy "+biome.id+" / "+type);
+            }
+            foreach(var weapon in ContentIds.Weapons)check(catalog.Ability(weapon)!=null&&catalog.Prefab(catalog.Ability(weapon).projectileId)!=null,"Every weapon has an AA projectile "+weapon);
             var tasks=new HashSet<string>();foreach(var task in catalog.tasks)check(tasks.Add(task.id),"Unique task "+task.id);
             foreach(var upgrade in catalog.upgrades)check(string.IsNullOrEmpty(upgrade.taskId)||tasks.Contains(upgrade.taskId),"Reachable upgrade reference "+upgrade.id);
             foreach(var task in catalog.tasks)
@@ -54,6 +78,26 @@ namespace VampireLike.Editor
             check(Mathf.Approximately(run.Effect(catalog,UpgradeEffect.Damage,AbilityKind.Gun),.36f),"Generic modifier stacks");
             check(Mathf.Approximately(run.Effect(catalog,UpgradeEffect.Count,AbilityKind.Gun),0),"Specific modifier does not leak");
             check(Mathf.Approximately(run.Effect(catalog,UpgradeEffect.Count,AbilityKind.Sword),4),"Sword modifier applies");
+            check(catalog.blessings != null && catalog.blessings.Length == 6, "Six authored AA catalog blessings");
+            var blessingIds = new HashSet<string>();
+            foreach (var b in catalog.blessings) check(blessingIds.Add(b.id) && !string.IsNullOrEmpty(b.name) && !string.IsNullOrEmpty(b.description), "Unique described blessing " + b.id);
+            var offerA = ShrineBlessings.Offers(catalog, 157, new Vector2Int(-3, 7));
+            var offerB = ShrineBlessings.Offers(catalog, 157, new Vector2Int(-3, 7));
+            var seenBlessings = new HashSet<string>(); bool stableOffers = true;
+            for (int x = -8; x <= 8; x++)
+            {
+                var options = ShrineBlessings.Offers(catalog, 157, new Vector2Int(x, 7));
+                var unique = new HashSet<string>(); foreach (var b in options) { unique.Add(b.id); seenBlessings.Add(b.id); }
+                stableOffers &= options.Count == 3 && unique.Count == 3;
+            }
+            for (int i = 0; i < 3; i++) stableOffers &= offerA[i].id == offerB[i].id;
+            check(stableOffers && seenBlessings.Count == 6, "Seeded shrine offers have three distinct stable choices and cover all six blessings");
+            run.blessings["might"] = 2;
+            check(Mathf.Approximately(run.Effect(catalog, UpgradeEffect.Damage, AbilityKind.Gun), .52f) && Mathf.Approximately(run.Effect(catalog, UpgradeEffect.Damage, AbilityKind.Sword), .52f), "Repeated shrine damage stacks with upgrades for every weapon");
+            run.blessings["vitality"] = 2; run.blessings["momentum"] = 3; run.blessings["attraction"] = 2; run.blessings["renewal"] = 4;
+            check(Mathf.Approximately(run.Effect(catalog, UpgradeEffect.Health), 36) && Mathf.Approximately(run.Effect(catalog, UpgradeEffect.MoveSpeed), .15f) && Mathf.Approximately(run.Effect(catalog, UpgradeEffect.Pickup), 1.2f) && Mathf.Approximately(run.Effect(catalog, UpgradeEffect.Regeneration), 1.2f), "Health movement pickup and regeneration blessings retain independent repeatable stacks");
+            check(catalog.Blessing("insight").rerolls == 1 && new RunState().blessings.Count == 0, "Insight grants one reroll and new runs start without blessings");
+            run.blessings.Clear();
             run.upgrades["orbit"]=1;run.upgrades["rain"]=1;check(run.Level("orbit")==1&&run.Level("rain")==1,"Parallel routes coexist");
             check(WorldService.SeedHash(13,-99,45)==WorldService.SeedHash(13,-99,45),"Stable chunk hash");
             check(WorldService.SeedHash(13,-99,45)!=WorldService.SeedHash(13,-98,45),"Distinct chunk coordinates");
@@ -136,8 +180,37 @@ namespace VampireLike.Editor
             check(recovered.MapUnlocked(BiomeId.Forest)&&!recovered.MapUnlocked(BiomeId.Desert),"Initial biome gate");
             recovered.Profile.bossWins[0]=true;check(recovered.MapUnlocked(BiomeId.Desert)&&!recovered.MapUnlocked(BiomeId.Mixed),"Sequential biome gate");
             for(int i=0;i<4;i++)recovered.Profile.bossWins[i]=true;check(recovered.MapUnlocked(BiomeId.Mixed),"All-boss mixed gate");
+            check(recovered.MapUnlocked(BiomeId.Swamp)&&recovered.MapUnlocked(BiomeId.Crystal)&&!recovered.Profile.bossWins[4]&&!recovered.Profile.bossWins[5],"Original four wins unlock optional regions without requiring their own Boss wins");
+            string legacyPath=System.IO.Path.Combine(dir,"legacy-"+Guid.NewGuid().ToString("N")+".json");
+            var legacy=new PlayerProfile{version=1,bossWins=new[]{true,true,true,true},crystals=731,gunKills=193,freezes=41};
+            legacy.completedTasks.Add("frost");legacy.settledRuns.Add("retained-run");
+            File.WriteAllText(legacyPath,JsonUtility.ToJson(legacy));
+            var migrated=new SaveService(legacyPath);
+            check(migrated.Profile.version==2&&migrated.Profile.bossWins.Length==6&&migrated.Profile.crystals==731&&migrated.Profile.gunKills==193&&migrated.Profile.freezes==41&&migrated.Profile.completedTasks.Contains("frost")&&!migrated.Settle("retained-run",1),"Version one migration retains currency metrics tasks and settlement identity");
+            check(migrated.MapUnlocked(BiomeId.Mixed)&&migrated.MapUnlocked(BiomeId.Swamp)&&migrated.MapUnlocked(BiomeId.Crystal)&&!migrated.Profile.bossWins[4]&&!migrated.Profile.bossWins[5],"Migrated four-Boss profile keeps Mixed and expansion regions unlocked");
+            migrated.Profile.bossWins[4]=true;migrated.Profile.bossWins[5]=true;migrated.Profile.boomerangKills=81;migrated.MarkDirty();migrated.Flush();
+            var restarted=new SaveService(legacyPath);
+            check(restarted.Profile.bossWins[4]&&restarted.Profile.bossWins[5]&&restarted.Profile.Metric(TaskMetric.BoomerangKills)==81,"Expansion Boss wins and weapon metrics survive restart");
+            File.WriteAllText(legacyPath,"{broken");var legacyBackup=new SaveService(legacyPath);
+            check(legacyBackup.Profile.version==2&&legacyBackup.MapUnlocked(BiomeId.Mixed)&&legacyBackup.Profile.crystals==731,"Corrupt new primary recovers and migrates its old version one backup");
+            legacyBackup.MarkDirty();legacyBackup.Flush();
+            File.WriteAllText(legacyPath,"{\"version\":99,\"crystals\":9999}");
+            check(new SaveService(legacyPath).Profile.crystals==731,"Unknown future save version recovers known backup instead of erasing it");
             var journal=new WorldJournal("test-"+Guid.NewGuid().ToString("N"));var key=new Vector2Int(-2,5);journal.Load(key);journal.Complete(key,"chest");journal.Unload(key);
-            check(journal.Load(key).completed.Contains("chest"),"World event survives chunk eviction");journal.Dispose();
+            check(journal.Load(key).completed.Contains("chest"),"World event survives chunk eviction");
+            var unseen = new Vector2Int(-100, 9);
+            check(!journal.Visited(unseen), "Unseen map coordinate caches a negative lookup");
+            journal.Visit(unseen); journal.Unload(unseen);
+            check(journal.Visited(unseen), "Visiting a cached unseen coordinate immediately invalidates its negative result");
+            journal.Visit(key); journal.Unload(key);
+            int diskBefore = journal.VisitLookupDiskChecks; bool warmValues = true;
+            for (int n = 0; n < 10000; n++) warmValues &= journal.Visited(key) && journal.Visited(unseen);
+            check(warmValues && journal.VisitLookupDiskChecks == diskBefore, "Twenty thousand warmed explored-map lookups perform no additional disk checks");
+            for (int n = 0; n <= WorldJournal.VisitCacheCapacity; n++) journal.Visited(new Vector2Int(1000 + n, 0));
+            check(journal.CachedVisitCount == WorldJournal.VisitCacheCapacity, "Visit lookup cache remains bounded across unexplored map panning");
+            diskBefore = journal.VisitLookupDiskChecks;
+            check(journal.Visited(key) && journal.VisitLookupDiskChecks == diskBefore + 1 && journal.Load(key).completed.Contains("chest"), "Evicted visited entry reloads its true value without losing completed events");
+            journal.Dispose(); check(journal.CachedVisitCount == 0, "Journal disposal clears visit lookup data");
             result.passed=true;File.WriteAllText(Path.Combine(ProjectBuilder.Workspace,"Artifacts/EditorChecks.json"),JsonUtility.ToJson(result,true));Debug.Log("EDITOR_CHECKS_PASSED "+result.checks.Count);
         }
     }

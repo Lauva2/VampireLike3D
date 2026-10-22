@@ -5,10 +5,10 @@ using UnityEngine.AddressableAssets;
 
 namespace VampireLike
 {
-    public enum BiomeId { Forest, Desert, Snow, Volcano, Mixed }
-    public enum AbilityKind { All = -1, Gun, Fireball, Sword, Spirit, Cannon, Rune }
+    public enum BiomeId { Forest = 0, Desert = 1, Snow = 2, Volcano = 3, Mixed = 4, Swamp = 5, Crystal = 6 }
+    public enum AbilityKind { All = -1, Gun, Fireball, Sword, Spirit, Cannon, Rune, Crossbow, Boomerang, FrostStaff }
     public enum UpgradeEffect { Damage, AttackSpeed, MoveSpeed, Health, Pickup, Count, Range, Pierce, Bounce, Burn, Frost, Lightning, Orbit, SwordRain, SwordWave, Spread, Burst, Explosion, NewAbility, Chain, FireSword, IceShatter, ElectricAmmo, Duration, Crit, Armor, Regeneration, Resource, SummonSpeed, RunePulse, FireSpread }
-    public enum TaskMetric { Kills, GunKills, FireKills, SwordKills, Freezes, EliteKills, BestSeconds, Bosses, Events, ElectricCombo, ShatterCombo, SwordFireCombo }
+    public enum TaskMetric { Kills, GunKills, FireKills, SwordKills, Freezes, EliteKills, BestSeconds, Bosses, Events, ElectricCombo, ShatterCombo, SwordFireCombo, CrossbowKills, BoomerangKills, FrostStaffKills }
     public enum UnlockKind { Upgrade, Ability, Character }
 
     [Serializable] public sealed class PrefabEntry { public string id; public AssetReferenceGameObject reference; }
@@ -37,6 +37,14 @@ namespace VampireLike
         public bool unique;
         public Color color = Color.white;
     }
+    [Serializable] public sealed class BlessingDefinition
+    {
+        public string id, name, description, icon;
+        public UpgradeEffect effect;
+        public float value;
+        public int rerolls;
+        public Color color = Color.white;
+    }
     [Serializable] public sealed class TaskDefinition
     {
         public string id, name, description, rewardId;
@@ -44,11 +52,18 @@ namespace VampireLike
         public int target, crystals = 15;
         public UnlockKind rewardKind;
     }
+    [Serializable] public sealed class EnemyDefinition
+    {
+        public int type;
+        public string name, description, prefabId;
+        public float health = 15, speed = 2.45f, damage = 7;
+    }
     [Serializable] public sealed class BiomeDefinition
     {
         public BiomeId id;
         public string name, subtitle, bossName, terrainId, decorationId, bossId;
         public Color ground, secondary, accent;
+        public int[] enemyTypes = { 0, 1, 2, 3 };
     }
 
     [CreateAssetMenu(menuName = "VampireLike/Game Catalog")]
@@ -61,6 +76,10 @@ namespace VampireLike
         public UpgradeDefinition[] upgrades;
         public TaskDefinition[] tasks;
         public BiomeDefinition[] biomes;
+        public BlessingDefinition[] blessings;
+        public EnemyDefinition[] enemies;
+        public EnemyDefinition Enemy(int type) => enemies == null ? null : Array.Find(enemies, e => e.type == type);
+        public BlessingDefinition Blessing(string id) => blessings == null ? null : Array.Find(blessings, b => b.id == id);
 
         [NonSerialized] UpgradeDefinition[] indexedUpgrades;
         [NonSerialized] Dictionary<string, UpgradeDefinition> upgradeIndex;
@@ -75,7 +94,12 @@ namespace VampireLike
         }
         public AbilityDefinition Ability(AbilityKind kind) => Array.Find(abilities, a => a.kind == kind);
         public CharacterDefinition Character(string id) => Array.Find(characters, a => a.id == id) ?? characters[0];
-        public BiomeDefinition Biome(BiomeId id) => biomes[(int)(id == BiomeId.Mixed ? BiomeId.Forest : id)];
+        public BiomeDefinition Biome(BiomeId id)
+        {
+            if (id == BiomeId.Mixed) id = BiomeId.Forest;
+            foreach (var biome in biomes) if (biome.id == id) return biome;
+            return null;
+        }
         public UpgradeDefinition Upgrade(string id)
         {
             if (string.IsNullOrEmpty(id)) return null;
@@ -94,18 +118,22 @@ namespace VampireLike
 
     [Serializable] public sealed class PlayerProfile
     {
-        public int version = 1, crystals, totalKills, gunKills, fireKills, swordKills, freezes, elites, events;
+        public int version = 2, crystals, totalKills, gunKills, fireKills, swordKills, freezes, elites, events;
         public int damageLevel, healthLevel, speedLevel, pickupLevel;
         public int electricCombo, shatterCombo, swordFireCombo;
         public float bestSeconds, musicVolume = .35f, soundVolume = .65f;
         public int quality = 2;
-        public bool[] bossWins = new bool[4];
+        public bool[] bossWins = new bool[6];
+        public int crossbowKills, boomerangKills, frostStaffKills;
         public List<string> completedTasks = new List<string>();
         public List<string> settledRuns = new List<string>();
         public int Metric(TaskMetric metric)
         {
             switch (metric)
             {
+                case TaskMetric.CrossbowKills: return crossbowKills;
+                case TaskMetric.BoomerangKills: return boomerangKills;
+                case TaskMetric.FrostStaffKills: return frostStaffKills;
                 case TaskMetric.Kills: return totalKills;
                 case TaskMetric.GunKills: return gunKills;
                 case TaskMetric.FireKills: return fireKills;
@@ -132,6 +160,8 @@ namespace VampireLike
         public CharacterDefinition character;
         public bool settled;
         public readonly Dictionary<string, int> upgrades = new Dictionary<string, int>();
+        public readonly Dictionary<string, int> blessings = new Dictionary<string, int>();
+        public int BlessingLevel(string id) => blessings.TryGetValue(id, out int n) ? n : 0;
         public readonly HashSet<AbilityKind> abilities = new HashSet<AbilityKind>();
         public readonly HashSet<string> completedWorldEvents = new HashSet<string>();
         public int Level(string id) => upgrades.TryGetValue(id, out int n) ? n : 0;
@@ -143,6 +173,9 @@ namespace VampireLike
                 var u = catalog.Upgrade(p.Key);
                 if (u != null && u.effect == effect && (u.target == AbilityKind.All || u.target == target)) result += u.value * p.Value;
             }
+            if (catalog.blessings != null)
+                foreach (var definition in catalog.blessings)
+                    if (definition.effect == effect) result += definition.value * BlessingLevel(definition.id);
             return result;
         }
     }

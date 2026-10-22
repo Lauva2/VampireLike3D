@@ -1,5 +1,5 @@
 param(
-    [ValidateSet('Generate','Check','Development','GenerateDevelopment','Release')]
+    [ValidateSet('Generate','Check','Development','GenerateDevelopment','ExpandDevelopment','Release')]
     [string]$Mode = 'Development',
     [string]$UnityPath = $env:UNITY_EDITOR_PATH
 )
@@ -26,7 +26,7 @@ if ($editorVersion -notmatch '^2022\.3\.62f2(?:\b|_)') {
 New-Item -ItemType Directory -Path $validationRoot,$artifactsRoot -Force | Out-Null
 $generationBaseline=@{}
 $baselineRelative=''
-if($Mode -in @('Generate','GenerateDevelopment')){
+if($Mode -in @('Generate','GenerateDevelopment','ExpandDevelopment')){
     $baselineRelative='Artifacts\GenerationInput-'+(Get-Date -Format 'yyyyMMdd-HHmmss')+'.json'
     $entries=@(foreach($item in Get-ChildItem -LiteralPath (Join-Path $workspaceRoot 'Assets') -Recurse -File){
         $relative=$item.FullName.Substring($workspaceRoot.Length+1);$hash=(Get-FileHash -LiteralPath $item.FullName).Hash
@@ -46,13 +46,14 @@ $method = switch ($Mode) {
     'Check' { 'VampireLike.Editor.ProjectChecks.Run' }
     'Development' { 'VampireLike.Editor.ProjectBuilder.VerifyAndBuild' }
     'GenerateDevelopment' { 'VampireLike.Editor.ProjectBuilder.GenerateVerifyAndBuild' }
+    'ExpandDevelopment' { 'VampireLike.Editor.ProjectBuilder.ExpandVerifyAndBuild' }
     'Release' { 'VampireLike.Editor.ProjectBuilder.BuildRelease' }
 }
 $logPath = Join-Path $artifactsRoot ($Mode + '.log')
 $arguments = @('-batchmode','-nographics','-quit','-projectPath',('"' + $validationRoot + '"'),'-executeMethod',$method,'-logFile',('"' + $logPath + '"'))
 $buildProcess = Start-Process -FilePath $UnityPath -ArgumentList $arguments -WindowStyle Hidden -Wait -PassThru
 if ($buildProcess.ExitCode -ne 0) { throw "Unity failed with exit code $($buildProcess.ExitCode). See $logPath" }
-if ($Mode -in @('Generate','GenerateDevelopment')) {
+if ($Mode -in @('Generate','GenerateDevelopment','ExpandDevelopment')) {
     $diffRelative='Artifacts\GeneratedSync-'+(Get-Date -Format 'yyyyMMdd-HHmmss')+'.json'
     & (Join-Path $PSScriptRoot 'CompareGeneratedAssets.ps1') -Output $diffRelative -Baseline $baselineRelative
     & (Join-Path $PSScriptRoot 'SyncGeneratedAssets.ps1') -Diff $diffRelative

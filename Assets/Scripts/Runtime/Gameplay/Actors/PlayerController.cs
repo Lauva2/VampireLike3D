@@ -34,7 +34,7 @@ namespace VampireLike
         }
         void Update()
         {
-            if (game == null || !game.Ready || game.IsPaused) return;
+            if (game == null || !game.Ready || game.IsPaused || Health <= 0) return;
             Vector2 input = game.Inputs.Move;
             Vector3 direction = new Vector3(input.x, 0, input.y);
             if (direction.sqrMagnitude > .01f) lastDirection = direction.normalized;
@@ -63,6 +63,7 @@ namespace VampireLike
             Health = Mathf.Max(0, Health - damage / (1 + armor));
             animator?.Flash(); game.Audio.Play(SoundCue.Hurt);
             game.UI.DamageFlash(); CameraRig.Active?.Shake(.12f);
+            if (Health <= 0) game.FinishRun(false);
         }
         public void Heal(float value) { Health = Mathf.Min(MaxHealth, Health + value); }
         public System.Collections.IEnumerator PlayDefeat()

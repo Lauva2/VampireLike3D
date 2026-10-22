@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: World-crystal
+  m_EditorClassIdentifier: 
+  m_GroupName: World-crystal
+  m_Data:
+    m_SerializedData: []
+  m_GUID: c5517477a46aaeb42bbd40d497e85b56
+  m_SerializeEntries:
+  - m_GUID: 755f7bc517108574bb42308b6b42bfc4
+    m_Address: decoration/crystal
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7e99218c255560049b91624c47676ec9
+    m_Address: terrain/crystal
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9a0b9f40a82a51a4fbbc9d1849b21538
+    m_Address: boss/crystal
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b43aec1daa1b1f7469ded97be786c444
+    m_Address: architecture/crystal
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: c3053bf0f14251148951535e646181e0, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: c78d318cfce201e40a83469c0d2b8875, type: 2}
+    - {fileID: 11400000, guid: c0eb1e24a1b9e954388698045233a7d8, type: 2}

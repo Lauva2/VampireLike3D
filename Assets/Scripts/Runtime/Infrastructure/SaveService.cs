@@ -18,7 +18,8 @@ namespace VampireLike
             var primary = Read(Path); invalidPrimary = File.Exists(Path) && primary == null;
             Profile = primary ?? Read(Path + ".bak") ?? new PlayerProfile();
             if (invalidPrimary) RecoveryMessage = "存档异常，已恢复备份或创建新档。";
-            Normalize(Profile);
+            bool migrated = Profile.version < 2 || Profile.bossWins == null || Profile.bossWins.Length != ContentIds.Regions.Length;
+            Normalize(Profile); dirty = migrated;
         }
         static PlayerProfile Read(string path)
         {
@@ -27,13 +28,15 @@ namespace VampireLike
                 if (!File.Exists(path)) return null;
                 var p = JsonUtility.FromJson<PlayerProfile>(File.ReadAllText(path));
                 if (p != null && p.version == 0) p.version = 1;
-                return p != null && p.version == 1 ? p : null;
+                return p != null && (p.version == 1 || p.version == 2) ? p : null;
             }
             catch (Exception ex) { Debug.LogWarning("Save read: " + ex.Message); return null; }
         }
         static void Normalize(PlayerProfile p)
         {
-            if (p.bossWins == null || p.bossWins.Length != 4) p.bossWins = new bool[4];
+            if (p.bossWins == null || p.bossWins.Length != ContentIds.Regions.Length)
+            { var previous = p.bossWins; p.bossWins = new bool[ContentIds.Regions.Length]; if (previous != null) Array.Copy(previous, p.bossWins, Math.Min(previous.Length, p.bossWins.Length)); }
+            p.version = 2;
             if (p.completedTasks == null) p.completedTasks = new System.Collections.Generic.List<string>();
             if (p.settledRuns == null) p.settledRuns = new System.Collections.Generic.List<string>();
             p.crystals = Mathf.Max(0, p.crystals);
@@ -70,8 +73,9 @@ namespace VampireLike
         public bool MapUnlocked(BiomeId biome)
         {
             if (biome == BiomeId.Forest) return true;
-            if (biome != BiomeId.Mixed) return Profile.bossWins[(int)biome - 1];
-            foreach (bool win in Profile.bossWins) if (!win) return false;
+            if (biome == BiomeId.Desert || biome == BiomeId.Snow || biome == BiomeId.Volcano) return Profile.bossWins[(int)biome - 1];
+            if (biome != BiomeId.Mixed && biome != BiomeId.Swamp && biome != BiomeId.Crystal) return false;
+            for (int i = 0; i < 4; i++) if (!Profile.bossWins[i]) return false;
             return true;
         }
         public int MetaCost(int level) => 20 + level * 15;

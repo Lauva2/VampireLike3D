@@ -1,0 +1,28 @@
+import json,os
+from pathlib import Path
+out=Path('Docs/ArtReviews/Round52/World');p=out/'ObservedEvidence.json';o=json.loads(p.read_text(encoding='utf-8-sig'));pre='Artifacts/Round52/Captures/'
+rows=[]
+def row(id,score,title,names,obs,rev):
+ evidence=[pre+n+'.png' for n in names]
+ for f in evidence:assert Path(f).exists(),f
+ rows.append({'id':id,'score':score,'max':5,'title':title,'evidence':evidence,'observation':obs,'revision':rev,'reviewer':'/root/art_lead47 actual52 static observation'})
+chars=['character-adventurer','character-elementalist','character-swordsman']
+row('A1',5,'大头短肢与俯视轮廓清晰',chars+['10-biome-0','10-biome-1','10-biome-2'],'三角色均头大短肢、鞋手分离，冒险者棕发/学徒紫尖帽/御剑者深蓝发在各自正常俯视镜头和外侧九能力体间仍可定位。','保持当前头身与帽发外轮廓。')
+row('A2',4,'面部、服饰与装备设计辨识',chars,'近景可见瞳孔高光/眉嘴鼻/颊红、围巾/金边/腰带/衣摆与装备；三角色青橙短衣、紫袍、绿长衣有身份。冒险者眼形纵长较夸张，手肘与衣褶处理仍简，扣1分；学徒本帧闭眼仅按所见表情记录。','调整冒险者眼形比例，补少量关节/衣褶细节并保持俯视辨识。')
+row('A3',5,'明快卡通的造型、材质、色彩与光照协调',['terrain-detail-'+str(i) for i in [0,1,2,3,5,6]]+['mixed-boundary-1-2'],'六环境的绿/金/冰蓝/灰紫橙/灰绿紫菌/玫瑰赤晶各有主辅色，角色与世界一致描边、分面与柔和阴影；雪地保留蓝白层次，未见整体泛白导致轮廓丢失。','保持敌我形色区分与雪地的层次。')
+row('B1',5,'全部角色模型、材质与装备挂点完成',chars+['10-biome-0','10-biome-1','10-biome-2'],'三角色近景原图模型/材质完整，冒险者手持灰枪、学徒长杖和御剑者肩后剑柄可见；正常镜头同样保留帽发/衣装轮廓。外侧能力展示体为独立对象，不从单图间距推定手持断挂点；完整动作由Combat另审。','保持手持装备与独立能力体的清楚关系。')
+row('B2',4,'八普通与八精英的轮廓、动作与标识辨识',['enemy-'+str(i)+'-'+kind for i in [0,1,2,3,5,6,7,8] for kind in ['normal','elite']]+['enemy-combat-5-elite','enemy-combat-8-normal'],'八基础轮廓有绿团/黄长耳/蓝壳角/紫伞菌/高孢囊/低伏蛙/黑足晶甲/竖晶灵，近景及新增正常视角可分。精英有金冠加角、肩块、侧菌或晶片，但主要识别仍依赖共用冠形，扣1分；动作由Combat补充。','加强不同敌种精英专用甲片、姿态或局部轮廓，降低重复冠形依赖。')
+row('B3',5,'六Boss独立造型、体量层级与完整表现',['boss-closeup-'+str(i) for i in [0,1,2,3,5,6]]+['boss-'+str(i) for i in [0,1,2,3,5,6]],'六Boss静态均实际看：根爪宽冠树、背刺长分节虫、蓝角白毛兽、橙核黑岩像、深青金冠背菌巨蛙、头肩赤晶石卫。近景无明显缺件/粉材，正常镜头体量高于玩家，蛙与普通蛙同家族但体量/深色/冠背菌可分，石卫与熔像主题及头肩核心轮廓不同。本项完整表现待Combat六攻击/死亡独立佐证后才能最终确认。','维持六种主题的头肩/核心/肢体轮廓；动态完整性未补齐前不将静态当完整表现通过。')
+row('C1',5,'六单群系独立地貌与装饰语言',['geography-'+str(i)+'-'+str(j) for i in [0,1,2,3,5,6] for j in range(3)],'每单群系三个位置近广景均实看：树河岩脊、沙丘/绿洲/岩台、冰湖/雪坡/冰脊、熔河/桥/岩柱、菌伞池莲点/木板、赤晶簇/晶门/石环分别建立主题，新增两地并非仅换地面颜色。','保持三处以上地貌变化与战斗留白。')
+row('C2',4,'地面植被岩石建筑与遗迹层次尺度完整',['waterside-architecture-'+str(i) for i in [0,1,2,3,5,6]]+['geography-6-1'],'六地大中小地物、基座、路径、建筑/门柱/菌屋与挑战场景尺度成立；林地小屋墙面和各地门柱/碑面平整，菌沼木板简，晶谷大面留白及建筑细节偏少，扣1分。','增加适量檐口、门框、材料分区和破边，避免只散布更多小物。')
+row('C3',4,'随机接缝、遮挡、重复与碰撞视觉一致',['geography-wide-'+str(i)+'-2' for i in [0,1,2,3,5,6]]+['mixed-boundary-0-3','mixed-boundary-0-6','world-floating-origin'],'本轮近广景、六边界、浮动原点与Probe所见无可见连续洞/缺块/断路。0-3/0-6树冠为玩家开口，头帽/青圈可辨但开口边缘硬；树/柱/晶簇同向组群与规则圆岸端重复感仍明显，扣1分。静态不证明全随机种子、动态消隐、碰撞和流送。','增加组群非对称与尺度朝向变化，柔化遮挡开口边缘，并在运动中回归。')
+row('C4',5,'Mixed过渡、地标、路径与交互探索清楚',['mixed-boundary-'+s for s in ['0-1','0-3','0-5','0-6','1-2','3-5']]+['mixed-lava-shore-close']+['sanctuary-completed-'+str(i) for i in [0,1,2,3,5,6]],'本轮六实际边界和六区域都有宽色带与两侧地物交融、道路连续，无方形硬拼；熔河圆端仍在火山侧，桥岸可辨。营地青旗火、补给箱、蓝滴祭坛、主题挑战圈明确，六地完成回访保留全尺寸地物、召唤圈暗化及E提示清除。','保持过渡宽度与独立交互标识；完成功能幂等另由玩法验证。')
+limits=['只以52实际原图观察评分，不使用51/更旧图或成绩；Source51To52仅是源码差异旁证，不能替代复评。','40完整画幅辅助表内146不同静态，另开46原图；总评本人本轮尚未看动态，B3完整动作待Combat独立观察佐证。','2560最大Probe工具显示缩至2048×864；辅助表只作索引，不宣称全部原图逐像素1:1显示。','3角色展示及2Probe加载失败PNG无world sidecar，seed等未知；其余逐图world/seed/角色/能力/时间/site原值保留。','静态不能证明所有随机种子、碰撞/流送、遮挡时序、危险精度、持续密战或正常速度手动体验。','完整60升级/25任务及UI所有状态组合、音频、自然平衡不由本域穷尽。','深构筑与实际7200秒末帧待提供后另补；不作性能/长期运行通过。','无桌面控制、Player启动、构建、运行时代码或原图改动。']
+o['status']='assigned static domain complete; B3 motion corroboration and full composite review pending independent Combat/UI; later final frames pending';o['limitations']=limits;p.write_text(json.dumps(o,ensure_ascii=False,indent=2),encoding='utf-8')
+r={'candidate':'Round52','version':'1.2.0','reviewer':'/root/art_lead47','scope':'A1-A3/B1-B3/C1-C4','rubric':'Docs/ArtReview.md original100points20items10gates unchanged; expanded six biomes/six bosses included','status':o['status'],'rows':rows,'dimensions':{'A':14,'B':14,'C':18},'subtotal':46,'actualViewing':o['actualViewing'],'sourceMetadata':o['sourceMetadata'],'limitations':limits,'notes':'Docs/ArtReviews/Round52/World/BatchNotes.md','identityAudit':'Docs/ArtReviews/Round52/IdentityAudit.json'}
+(out/'Review.json').write_text(json.dumps(r,ensure_ascii=False,indent=2),encoding='utf-8')
+lines=['# Round52 独立角色与世界评审','', '**本域静态观察A14/B14/C18，46/50；B3完整表现须等Combat连续观察佐证，尚不形成完整100分结论。** 原量表、分母与10门槛不变，六群系+Mixed/六Boss/八普通精英/三角色/九武器归原项；52原图逐批重看，未将51分数迁入。','', '评审人`/root/art_lead47`：实际40张完整画幅辅助表内146不同静态、另开46原图，本人本轮0动态帧。每源SHA/像素/quality/world/seed与真实观看方式见[ObservedEvidence.json](ObservedEvidence.json)，评分证据见[Review.json](Review.json)，事实逐批见[BatchNotes.md](BatchNotes.md)。','', '| 原子项 | 分/5 | 本轮观察与修改方向 |','| --- | ---: | --- |']
+for x in rows:lines.append(f"| {x['id']} {x['title']} | {x['score']} | {x['observation']} 修改：{x['revision']} |")
+lines+=['', '扣分关联原图与修订方向已逐项存机器记录；上述是52新观察，即使数字与旧轮相同也不构成继承其评分依据。本轮Mixed实际边界为0-1/0-3/0-5/0-6/1-2/3-5，按各自新原图观察，未照搬51边界列表或其等色单像素审计。','', '身份与采集仅作非评分旁证：[IdentityAudit.json](../IdentityAudit.json)从实际JSON数组统计Round52=244、UI52=222、Probe52=8，均finished/passed/errors=[]、原退出0；三套29条构建文件名/SHA一致，1309源文件/24AA与Release52精确匹配，ReleaseAudit通过。47条序列共2505帧已存在，不等于本人已看动态；其观察等独立Combat报告。','', '逐图seed保留，三个角色展示和两个Probe加载失败图没有world sidecar，未知不推定。有world的site/角色/能力/时间等完整值见JSON；RuntimeStatus不冒充最终帧。主要世界图1600×900 Ultra/4x、模型与武器近景1600×1200；Probe最大2560×1080工具运输缩至2048×864。辅助表不裁画面，不修改原始源图。','', '静态范围未见世界或模型硬阻断，门槛H04/H05/C项视觉部分有覆盖；H01–H03及全局H04–H10仍由全20项和动态/UI合并判定。没有桌面控制、Player启动、构建或runtime改动。六Boss完整表现/状态恢复和动态危险由Combat独立负责；同候选深构筑和实际7200秒末帧尚待另补，不宣称性能或整项目通过。','']
+(out/'IndependentWorldReview.md').write_text('\n'.join(lines),encoding='utf-8')
+print('World52 rows',len(rows),'subtotal',sum(x['score'] for x in rows),'sources',o['actualViewing']['staticCount'])

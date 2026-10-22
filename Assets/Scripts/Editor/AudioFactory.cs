@@ -27,7 +27,7 @@ namespace VampireLike.Editor
                 });
                 result.Add(Entry("sound/" + cue.ToString().ToLowerInvariant(), path));
             }
-            for (int biome = 0; biome < 4; biome++)
+            for (int biome = 0; biome < 6; biome++)
             {
                 int b = biome; string path = "Assets/Art/Audio/Generated/music-" + b + ".wav";
                 Write(path, 24, (t, i) =>

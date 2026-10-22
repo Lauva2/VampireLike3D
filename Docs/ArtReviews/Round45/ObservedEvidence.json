@@ -1,0 +1,63 @@
+{
+  "candidate": "Round45",
+  "version": "1.1.0",
+  "status": "PARTIAL_UI_REVIEW_STOPPED_FOR_NEW_CANDIDATE_46",
+  "completeArtReview": false,
+  "total": null,
+  "passed": null,
+  "reason": "Parent explicitly stopped costly complete Round45 review; Round46 will revise text/capture coverage and requires fresh full review.",
+  "originalFilesActuallyViewed": [
+    "Artifacts/UI45/Captures/ui-blessing-1280x720.png",
+    "Artifacts/UI45/Captures/ui-blessing-1920x1080.png",
+    "Artifacts/UI45/Captures/ui-blessing-1920x1200.png",
+    "Artifacts/UI45/Captures/ui-blessing-2560x1080.png",
+    "Artifacts/UI45/Captures/ui-blessing-2560x1440.png",
+    "Artifacts/UI45/Captures/ui-blessing-owned.png",
+    "Artifacts/UI45/Captures/ui-menu-1280x720.png",
+    "Artifacts/UI45/Captures/ui-selection-locked-1280x720.png",
+    "Artifacts/UI45/Captures/ui-selection-unlocked-1280x720.png",
+    "Artifacts/UI45/Captures/ui-progress-1280x720.png",
+    "Artifacts/UI45/Captures/ui-settings-1280x720.png",
+    "Artifacts/UI45/Captures/ui-loading-1280x720.png",
+    "Artifacts/UI45/Captures/ui-hud-1280x720.png",
+    "Artifacts/UI45/Captures/ui-skills-1280x720.png"
+  ],
+  "originalFilesActuallyViewedCount": 14,
+  "scope": "UI45 only: five shrine offer aspect ratios, transient owned capture, and eight 720p ordinary UI screenshots. Full/Probe images/sequences not visually reviewed; no score assigned.",
+  "observations": [
+    {
+      "evidence": "Artifacts/UI45/Captures/ui-blessing-1280x720.png",
+      "finding": "战术启迪说明把使用拆为使/用。，末行只有用。；完整可读且无关键裁切，属于局部排版问题。",
+      "suggestion": "缩短文案，五画幅回归。",
+      "hardBlockingObserved": false
+    },
+    {
+      "evidence": "Artifacts/UI45/Captures/ui-blessing-owned.png",
+      "finding": "该命名原图仍在淡入早期、几乎透明，不能据此验收稳定层数排版。",
+      "suggestion": "等待淡入稳定再采原图，或提供完整淡入后帧。",
+      "productFailureConfirmed": false
+    },
+    {
+      "evidence": "Artifacts/UI45/Captures/ui-skills-1280x720.png",
+      "finding": "后续正常稳定构筑页能读到战术启迪、祭坛祝福×1·本局生效，说明单种已获层数在此页成立；这不替代全部六种/叠两层覆盖。",
+      "hardBlockingObserved": false
+    },
+    {
+      "evidence": [
+        "Artifacts/UI45/Captures/ui-blessing-1280x720.png",
+        "Artifacts/UI45/Captures/ui-blessing-1920x1080.png",
+        "Artifacts/UI45/Captures/ui-blessing-1920x1200.png",
+        "Artifacts/UI45/Captures/ui-blessing-2560x1080.png",
+        "Artifacts/UI45/Captures/ui-blessing-2560x1440.png"
+      ],
+      "finding": "五祭坛原图均同一组三项：战术启迪/星尘引路/生命回响，三卡、图标、层数0→1、暂不领取按钮与画幅完整；其他三祝福未见。",
+      "remaining": "锋芒祝福/疾风眷顾/生息祝福的实际卡片/已获行、至少一种二层及稳定owned五画幅待新候选。"
+    }
+  ],
+  "limitations": [
+    "没有Round45完整总分或通过结论。",
+    "没有把功能检查、42旧美术/长测或待完成的Full当作45通过。",
+    "后续46需同版全角色/群系/mixed/Boss/UI/动态重新实看；本记录不跨版作为46视觉依据。",
+    "原2560像素图经view_image显示上限缩放，完整画幅/UI保留。"
+  ]
+}

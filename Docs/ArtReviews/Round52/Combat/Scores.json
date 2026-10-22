@@ -1,0 +1,90 @@
+{
+  "candidate": "Round52",
+  "version": "1.2.0",
+  "reviewer": "/root/art_combat47",
+  "rubricUnchanged": true,
+  "freshReview": true,
+  "rows": [
+    {
+      "id": "E1",
+      "score": 5,
+      "max": 5,
+      "title": "九武器/能力与联动的形色、命中层次",
+      "evidence": [
+        "13 effect-* sequences,12 samples each; originals frost/flame/lightning/crystalburst/spore0002",
+        "weapon-crossbow/boomerang/froststaff current52 original PNGs",
+        "late-density-combinations0018,0030,0072,0086; all96frames in full-frame sheets"
+      ],
+      "observation": "本轮原图中橙焰/暖色爆瓣、细金弹、青白剑列、青白灵体、紫金折雷、蓝冰碎片、金符环与紫乳白孢点/粉晶棱各有形状。新弩青金弓形、青色折刃、蓝晶杖可区分；密战实际同时出现多类发射/命中，未只凭HUD能力9计分。",
+      "revision": "本项无必修扣分；后续继续保持敌我形色、发射体和命中体层次。"
+    },
+    {
+      "id": "E2",
+      "score": 4,
+      "max": 5,
+      "title": "密战中的玩家、标记、敌弹和拾取物",
+      "evidence": [
+        "late-density-combinations0000-0095 all96 full-frame sheet frames; originals0018/0030/0072/0086",
+        "late-density-0..6 seven current52 original PNGs"
+      ],
+      "observation": "玩家头帽/青足环在96帧中可跟随，七地图密图中心均可找到人物；粉敌弹/红粉危险与青经验、金目标圈有区分。0018/0030的剑列/冰环，0072/0086和左侧敌群的精英冠叠加，挤压身体及地面可用空隙，扣1分；未观察到玩家持续完全不可见。新怪关闭能力的隔离图不计密战证明。",
+      "revision": "减少重复精英冠和己方冰圈/剑列的视觉权重；保持九能力、实际发射和伤害后回归中心脚环与红危险。"
+    },
+    {
+      "id": "E3",
+      "score": 5,
+      "max": 5,
+      "title": "六Boss/普通精英的前摇、范围与命中视觉",
+      "evidence": [
+        "boss-attacks0/1/2/3/5/6各25表样本并补0018-0021相邻原图；5/0054和6/0054原图",
+        "enemy-attacks5..8-normal/elite各17表样本；5elite0018、6normal0067-0069、7normal/elite0054、8normal/elite0018原图"
+      ],
+      "observation": "树根三圆、虫向长条、寒兽大震圈/小冰点、熔岩多爆点、菌蛙大圈/多孢点、晶卫多方向条/落晶圈的危险形状与作用区域相符。原树18-21看见警示→圈内爆发→受击边缘，熔岩18-21看见圈内先后爆瓣。新怪孢点、跃蛙落点、甲虫直条、晶妖扇弹能区分；甲虫/晶卫条线早段偏淡，但原0054轴线和之后移动仍可辨。没有严重范围错位或长时间遮没危险，时间精度限于采样。",
+      "revision": "保持红粉危险专用形状；若改范围/动作必须回归相邻原帧和多能力密战。"
+    },
+    {
+      "id": "E4",
+      "score": 4,
+      "max": 5,
+      "title": "闪避、受击、状态、边界及交互提示",
+      "evidence": [
+        "character-move-dodge0001-0003 original adjacent",
+        "boss-attacks2 original0018-0021 and0030; density0030/0086",
+        "player-defeat0004/0009; sanctuary-close-3 current52 original"
+      ],
+      "observation": "闪避浅色闪身、倾身位移、青足环与红边受击可见；普通怪部分蓝色状态覆盖与邻居基础色并存，寒兽18奶油色→19-21蓝色→30恢复奶油色已看。未见整片错误染色/严重过曝。火山深青交互字直接压紫灰地，偏暗但可读，扣1分。没有把Boss变色当作普通怪完整出池重设证明。",
+      "revision": "给世界交互字浅底/描边，先回归火山地面；若继续改染色，补同一个普通/精英敌人状态结束及重新出池的连续原帧。"
+    },
+    {
+      "id": "F1",
+      "score": 4,
+      "max": 5,
+      "title": "三角色动作与六Boss起收、受击及死亡衔接",
+      "evidence": [
+        "three role-action sequences12 samples each and three closeup sequences16 each; adventurer0019 original",
+        "character-move-dodge12samples+0001-0003 original",
+        "player-defeat all14 sheetframes+0004/0009 originals",
+        "all six boss-death sequences full available frames in sheets;0010 original each; six attack sequences"
+      ],
+      "observation": "三角色走转/出手/施法可辨，闪避有身体和位置反馈；玩家倾倒后进入结算。六Boss确有前摇与死亡连续表现，树倾、虫压缩/消退、寒兽翻倒、岩像压平、菌蛙侧倒、晶卫下沉。短循环和收招仍较直接，多用整体旋转/缩放，重心/肢体延迟层次不足，扣1分；无已见明显断肢/整段缺动画。",
+      "revision": "增加角色回收缓冲与Boss分段重心、肢体延迟，三角色六Boss循环一起回归。"
+    },
+    {
+      "id": "F2-combat",
+      "score": 4,
+      "max": 5,
+      "title": "拾取、升级、解锁与页面反馈的战斗侧建议",
+      "evidence": [
+        "all five feedback sequences full frames; task-unlock0000 original",
+        "player-defeat all14 and settlement0009 original; density all96"
+      ],
+      "observation": "奶油深青页面从淡入至稳定，任务完成/晶石+15提示清楚；拾取、升级和解锁与世界色系统一，结算原0009无开战Toast挡返回按钮。世界奖励多依靠通用环和Toast，重大解锁的动作层次偏薄，建议4分。最终F2应与UI评审合并，不另增评分项。祭坛专属选择后带待升级恢复转场未抽样。 角色近景跨测试局首帧HUD25:00随后刷新0:00，保留局部采集边界限制，未声称全转场无跳变。",
+      "revision": "为重大升级/首次解锁加短促且不遮挡玩家的世界反馈，并补祭坛专属连续转场。"
+    }
+  ],
+  "E": 18,
+  "F1": 4,
+  "F2CombatSuggestion": 4,
+  "complete100PointTotal": null,
+  "status": "core combat visual review complete; no long-duration conclusion"
+}

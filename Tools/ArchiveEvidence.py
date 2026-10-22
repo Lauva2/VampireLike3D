@@ -19,6 +19,8 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--candidate', type=int, required=True)
     parser.add_argument('--version', required=True)
+    parser.add_argument('--include', action='append', default=[],
+                        help='Additional workspace-relative evidence file or directory; repeatable')
     args = parser.parse_args()
     if not args.version or any(c not in 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789._-' for c in args.version):
         raise SystemExit('Invalid version')
@@ -37,6 +39,14 @@ def main():
         if not (root / relative).is_file():
             raise SystemExit(f'Missing finished evidence: {relative}')
     paths = set()
+    for relative in args.include:
+        extra = (root / relative).resolve()
+        if not extra.is_relative_to(root) or not extra.exists():
+            raise SystemExit(f'Invalid additional evidence path: {relative}')
+        if extra.is_dir():
+            paths.update(p for p in extra.rglob('*') if p.is_file())
+        elif extra.is_file():
+            paths.add(extra)
     for relative in folders:
         paths.update(p for p in (root / relative).rglob('*') if p.is_file())
     paths.update(root / p for p in required)

@@ -1,0 +1,86 @@
+{
+  "candidate": "Round51",
+  "version": "1.2.0",
+  "reviewer": "/root/art_lead47",
+  "reviewedAt": "2026-10-22T12:29:23.688407+00:00",
+  "kind": "Supplemental original static inspection only; fixed imported preflight not7200 continuous growth",
+  "source": {
+    "path": "Artifacts/Soak51Preflight/FinalFrame.png",
+    "sha256": "81fc432c06710a5534f88674975054214946c11bf26eaad223c0c0b2803a4d5b",
+    "pixels": [
+      1920,
+      1080
+    ],
+    "originalOpenedIndividually": true,
+    "worldSidecar": null,
+    "qualitySidecar": null
+  },
+  "sameCandidateIdentity": {
+    "fileCount": 29,
+    "exactFileNameShaMatchWithRound51": true,
+    "buildIdentityPath": "Artifacts/Soak51Preflight/BuildIdentity.json",
+    "buildIdentitySha256": "d4da10db00398bdae4685238b7d724b174d3fae473128f4d30217a16ad07810d"
+  },
+  "context": {
+    "source": "Artifacts/Soak51Preflight/CurrentBuild.json",
+    "sourceSha256": "ed2fa091d61dfd62c167ebfe781f90458723990d26a33ab9ac7ad0c9274fcad1",
+    "wallSecondsAtSample": 180.00985717773438,
+    "gameSecondsAtSample": 9179.998046875,
+    "seedAtSample": 28354315,
+    "characterId": null,
+    "characterIdReason": "No explicit current-character field in CurrentBuild or frame sidecar; not inferred from unlocked profile.",
+    "level": 520,
+    "abilityIds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "fixedImportedBuild": true,
+    "qualityAtSample": 5,
+    "renderResolutionFromSummary": "1920x1080 4x MSAA",
+    "scope": "Nearby final build sample, not a per-PNG exact-timestamp world sidecar. HUD shows152:59 from imported game clock, not evidence of152min wall run."
+  },
+  "sampling": {
+    "newStaticSourcesPersonallyViewed": 1,
+    "newOriginalFilesOpened": 1,
+    "newDynamicFramesViewed": 0,
+    "newAuxiliarySheets": 0,
+    "coreCountsUnchanged": true
+  },
+  "observations": [
+    "完整原图为明亮沙海：金黄沙脊、路径阴影、绿掌/棕榈和散石可辨，未见连续地形洞、粉材或明显缺块。",
+    "中心玩家棕色头发/面部与青色足环仍可定位；周围青白灵体/飞剑弧线、橙焰、弹道等有分组，不能仅凭HUD能力9断言每一能力的全程发射。",
+    "屏幕两侧精英金冠密集重复，并与青蓝攻击轨迹/经验/冻结圈局部挤在一起；己方环轨和大橙色效果占据较大面积。既有E2局部拥挤4分扣分保留，不提高为5。",
+    "本帧没有出现持续玩家失踪或核心HUD/中文关键裁切的静态直接阻断。能力栏显示九能力摘要但只露初段六图标和滚动尾部，单帧不证明完整连续滚动。",
+    "单帧没有完整Boss预警/危险生效/闪避过程，不能补判全程H07/H08或F1/F2时序。"
+  ],
+  "scoreEffect": {
+    "coreTotal": 91,
+    "changed": false,
+    "existingDeductionsRetained": true,
+    "newStaticArtBlockerObserved": false
+  },
+  "runtimeContextNonScoring": {
+    "wallSeconds": 180.2,
+    "actualCameraRenders": 13516,
+    "errorCount": 0,
+    "originalExitCode": 0,
+    "minimumWindowFps": 59.42,
+    "windowsBelow60": 1,
+    "performancePassClaimed": false
+  },
+  "limits": [
+    "Fixed imported520-level nine-ability diagnostic load, controlled healing,180.2sec only; not natural growth or actual7200sec run.",
+    "One full window59.42FPS and five windows p95>16.67ms retained. No60FPS/performance pass derived from art review.",
+    "One1920x1080 raw frame actually opened; no continuous footage or every preflight frame viewed.",
+    "CurrentBuild is a neighboring sample; no exact frame role/time/position sidecar. Seed28354315 recorded with that provenance.",
+    "Actual nonfixed7200sec run has started only; final frame not yet supplied/observed.",
+    "Shared ArtReview.md/ArtReviewResult.json and core observation counts unchanged pending final supplement."
+  ]
+}

@@ -1,0 +1,361 @@
+{
+  "candidate": "Round52",
+  "version": "1.2.0",
+  "reviewer": "/root/art_combat47",
+  "scope": "Independent new52 fixed-depth final static frame supplement only; no inherited51 frame or score",
+  "observation": {
+    "path": "Artifacts/Soak52Preflight/FinalFrame.png",
+    "sha256": "0D2CAD2D5B74DE6279C715706A007BB03E308BDDD504181E3DF4BCC4F974891A",
+    "originalSize": [
+      1920,
+      1080
+    ],
+    "viewedOriginalFullFrame": true,
+    "staticImagesObserved": 1,
+    "dynamicFramesObserved": 0
+  },
+  "provenance": {
+    "Summary": {
+      "finishedUtc": "2026-10-22T13:33:04.2071584Z",
+      "wallSeconds": 180.2,
+      "requestedSeconds": 180,
+      "frameRateLimit": -1,
+      "fixedImportedBuild": true,
+      "renderResolution": "1920x1080 4x MSAA",
+      "renderEveryFrame": true,
+      "controlledHealingAndUnlockedBuild": true,
+      "samples": 6,
+      "maxChunks": 35,
+      "maxPool": 3874,
+      "maxPrefabHandles": 93,
+      "errorCount": 0
+    },
+    "ProcessExit": {
+      "pid": 25688,
+      "startedUtc": "2026-10-22T13:29:55.8301605Z",
+      "player": "E:\\UnityProject\\VampireLike3D\\Builds\\Review52\\WanXiangExpedition.exe",
+      "observedExitUtc": "2026-10-22T13:33:04.7673931Z",
+      "exitCode": 0,
+      "scope": "Original launched process observed through WaitForExit; no desktop control"
+    },
+    "CurrentBuild": {
+      "wallSeconds": 180.0120391845703,
+      "gameSeconds": 9179.93359375,
+      "pickupRadius": 12.399999618530273,
+      "seed": 438899693,
+      "level": 520,
+      "quality": 5,
+      "frameRateLimit": -1,
+      "fixedImportedBuild": true,
+      "abilities": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "upgrades": [
+        {
+          "id": "ability.boomerang",
+          "level": 1
+        },
+        {
+          "id": "ability.cannon",
+          "level": 1
+        },
+        {
+          "id": "ability.crossbow",
+          "level": 1
+        },
+        {
+          "id": "ability.fireball",
+          "level": 1
+        },
+        {
+          "id": "ability.froststaff",
+          "level": 1
+        },
+        {
+          "id": "ability.rune",
+          "level": 1
+        },
+        {
+          "id": "ability.spirit",
+          "level": 1
+        },
+        {
+          "id": "ability.sword",
+          "level": 1
+        },
+        {
+          "id": "armor",
+          "level": 18
+        },
+        {
+          "id": "boomerang.count",
+          "level": 10
+        },
+        {
+          "id": "boomerang.damage",
+          "level": 10
+        },
+        {
+          "id": "boomerang.haste",
+          "level": 10
+        },
+        {
+          "id": "boomerang.lightning",
+          "level": 1
+        },
+        {
+          "id": "boomerang.reach",
+          "level": 10
+        },
+        {
+          "id": "bounce",
+          "level": 17
+        },
+        {
+          "id": "burn",
+          "level": 12
+        },
+        {
+          "id": "burst",
+          "level": 15
+        },
+        {
+          "id": "cannoncount",
+          "level": 13
+        },
+        {
+          "id": "cannonradius",
+          "level": 12
+        },
+        {
+          "id": "chain",
+          "level": 18
+        },
+        {
+          "id": "crit",
+          "level": 11
+        },
+        {
+          "id": "crossbow.bounce",
+          "level": 10
+        },
+        {
+          "id": "crossbow.frost",
+          "level": 1
+        },
+        {
+          "id": "crossbow.pierce",
+          "level": 10
+        },
+        {
+          "id": "crossbow.reload",
+          "level": 10
+        },
+        {
+          "id": "crossbow.volley",
+          "level": 10
+        },
+        {
+          "id": "damage",
+          "level": 20
+        },
+        {
+          "id": "electricammo",
+          "level": 1
+        },
+        {
+          "id": "explosion",
+          "level": 21
+        },
+        {
+          "id": "firesword",
+          "level": 1
+        },
+        {
+          "id": "frost",
+          "level": 1
+        },
+        {
+          "id": "froststaff.count",
+          "level": 10
+        },
+        {
+          "id": "froststaff.freeze",
+          "level": 10
+        },
+        {
+          "id": "froststaff.haste",
+          "level": 10
+        },
+        {
+          "id": "froststaff.radius",
+          "level": 10
+        },
+        {
+          "id": "froststaff.shatter",
+          "level": 1
+        },
+        {
+          "id": "haste",
+          "level": 17
+        },
+        {
+          "id": "lightning",
+          "level": 1
+        },
+        {
+          "id": "magnet",
+          "level": 14
+        },
+        {
+          "id": "orbit",
+          "level": 1
+        },
+        {
+          "id": "pierce",
+          "level": 17
+        },
+        {
+          "id": "projectiles",
+          "level": 15
+        },
+        {
+          "id": "rain",
+          "level": 1
+        },
+        {
+          "id": "range",
+          "level": 18
+        },
+        {
+          "id": "regen",
+          "level": 19
+        },
+        {
+          "id": "runecooldown",
+          "level": 15
+        },
+        {
+          "id": "runepulse",
+          "level": 14
+        },
+        {
+          "id": "runerange",
+          "level": 13
+        },
+        {
+          "id": "shatter",
+          "level": 1
+        },
+        {
+          "id": "spiritcount",
+          "level": 11
+        },
+        {
+          "id": "spiritdamage",
+          "level": 17
+        },
+        {
+          "id": "spiritspeed",
+          "level": 25
+        },
+        {
+          "id": "spread",
+          "level": 13
+        },
+        {
+          "id": "spreadfire",
+          "level": 1
+        },
+        {
+          "id": "swiftness",
+          "level": 11
+        },
+        {
+          "id": "swordcount",
+          "level": 17
+        },
+        {
+          "id": "swordpierce",
+          "level": 17
+        },
+        {
+          "id": "vitality",
+          "level": 10
+        },
+        {
+          "id": "wave",
+          "level": 1
+        }
+      ]
+    },
+    "ImportedUpgradeSource": {
+      "source": "E:\\UnityProject\\VampireLike3D\\Artifacts\\Expansion52DeepBuild.json",
+      "sha256": "6A5046909C348B46A23F77E81879A6AC23094399709FC9B5919B383DFC5AF87B",
+      "scope": "Fixed diagnostic ability/upgrade/level/difficulty/quality input only; world keeps its new seed. Not a final continuously growing soak."
+    },
+    "buildIdentityCounts": {
+      "Soak52Preflight": 29,
+      "Round52": 29
+    },
+    "buildIdentityExactlyMatchesCore52": true,
+    "hashes": {
+      "Artifacts/Soak52Preflight/Summary.json": "03E8BF90577CB432220928957BDF98D72C61F91505274D9C56E2E674560DD7FB",
+      "Artifacts/Soak52Preflight/CurrentBuild.json": "696DD8C17B45BD31E7591D45EFEEE76D2B77924B98D89E52E508414A9682441D",
+      "Artifacts/Soak52Preflight/BuildIdentity.json": "61972152A724870FB54ADD998FC82D0913634D313F63E348857CB13512091E41",
+      "Artifacts/Soak52Preflight/SourceIdentity.json": "736C2E0752BE78E09EE2824216575F4473275EDC14F8E7476687366B37A5101E",
+      "Artifacts/Soak52Preflight/ProcessExit.json": "6A3A75957D2BB46F980744C864B7C19BAEF3CCFFFBEEB930E76090B0175E7580",
+      "Artifacts/Soak52Preflight/ImportedUpgradeSource.json": "F376AFA82B5C5EEF695EF4CCFADC3626BDA8DA795A2F721645B1B0E924ED5E64"
+    }
+  },
+  "visualFindings": [
+    {
+      "subject": "player",
+      "observation": "中央棕发/头脸与青色足环可定位，围绕身体的橙色内圈和青白武器遮住部分躯干；附近大树冠没有在这张原图里完全挡住定位锚点。",
+      "status": "readable_in_this_frame"
+    },
+    {
+      "subject": "attacks",
+      "observation": "右侧青白剑刃/金柄列、青白灵体弧、橙色内圈和远处橙焰可凭形色分组；青经验与细弹道可见。层数多且大面积金黄/橙色爆发压低地面细节，局部视觉拥挤。",
+      "status": "distinguishable_with_crowding"
+    },
+    {
+      "subject": "enemy_density",
+      "observation": "左右及下方敌群拥密，绿色圆怪、蓝甲虫、紫色菌怪和金精英冠仍能区分；边缘部分身体被攻击/树冠/其他敌人遮盖，冠与暖色攻击相互争夺注意力。中央人物仍可见。",
+      "status": "local_occlusion_without_direct_static_player_loss"
+    },
+    {
+      "subject": "danger",
+      "observation": "本图没有足够明确的一轮红粉敌方预警起止/命中过程，不能独立判深构筑中危险时序或全程可躲避性。不能将大金黄自身攻击区域当成已核实的敌方预警。",
+      "status": "not_established_by_single_frame"
+    },
+    {
+      "subject": "HUD_materials",
+      "observation": "Lv520/生命300/300/能力9/时间152:59、地图与底部按钮可读。未见粉材、整幅白爆或明显模型缺件；金黄攻击大片覆盖部分森林地表。",
+      "status": "no_direct_static_blocker_seen"
+    }
+  ],
+  "verdict": {
+    "directStaticVisualBlockerObserved": false,
+    "coreScoresChanged": false,
+    "E2CoreScore": 4,
+    "persistentVisibilityOrDangerEstablished": false,
+    "scope": "仅该帧未见直接阻断，局部拥挤保持核心E2扣1；不提高分数、不单独重判完整H07/H08或性能。"
+  },
+  "limitations": [
+    "Only one original1920x1080 static image observed; no animation/flicker/timing/full180secondreadability/FPS inference.",
+    "Summary reports180.2 wallSeconds/requested180/errorCount0/renderEveryFrame true and original process exit0. These runtime records do not turn one image into performance proof.",
+    "fixedImportedBuild=true, controlledHealingAndUnlockedBuild=true; level520 and upgrades imported at start, not natural growth to520 in180seconds. HUD152:59 is preloaded game clock, not wall elapsed.",
+    "CurrentBuild seed438899693, level520, quality5, abilityIDs0-8; cannot establish every ability firing in this exact instant merely from nine acquired IDs.",
+    "This is current52 mixed Forest/Desert region image, not51 desert final frame. Does not cover every biome or all enemy warnings.",
+    "Actual7200-second growing soak final frame not observed yet; no long-duration verdict. No desktop or Player control performed."
+  ]
+}

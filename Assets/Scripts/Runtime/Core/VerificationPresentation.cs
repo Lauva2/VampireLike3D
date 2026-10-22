@@ -12,10 +12,13 @@ namespace VampireLike
             Vector2 previous=game.World.GlobalPosition;
             for(int variant=0;variant<3;variant++)
             {
-                Vector2Int chosen=new Vector2Int(2+variant,variant==0?1:0);
-                if((biome==0||biome==3)&&variant==0)for(int z=-7;z<=7;z++)if(game.World.HasWatercourse(new Vector2Int(2,z))){chosen=new Vector2Int(2,z);break;}
-                if(biome==1||biome==2){for(int x=2;x<18;x++)if(WorldService.SeedHash(game.Run.seed,x,2)%3==variant){chosen=new Vector2Int(x,2);break;}}
-                else if(variant>0){for(int x=2;x<18;x++)if(1+WorldService.SeedHash(game.Run.seed,x,0)%2==variant){chosen=new Vector2Int(x,0);break;}}
+                Vector2Int chosen=Vector2Int.zero;bool found=false;
+                for(int x=2;x<=32&&!found;x++)for(int z=-7;z<=7&&!found;z++)
+                {
+                    var key=new Vector2Int(x,z);
+                    if(game.World.TerrainVariant(key,(BiomeId)biome)==variant){chosen=key;found=true;}
+                }
+                Check(found,"Locate actual terrain variant "+biome+" / "+variant);
                 Place(game.World.LocalPosition(chosen)+new Vector3(-3,0,4));yield return AutoBattle(2);
                 yield return Capture("geography-"+biome+"-"+variant);
                 CameraRig.Active.DiagnosticZoom(19);yield return Wait(.2f);yield return Capture("geography-wide-"+biome+"-"+variant);CameraRig.Active.DiagnosticZoom(13.5f);
@@ -25,9 +28,9 @@ namespace VampireLike
         IEnumerator EnemyGallery()
         {
             game.Pause("gallery",true);
-            for(int type=0;type<4;type++)for(int elite=0;elite<2;elite++)
+            foreach(var enemyDefinition in game.Catalog.enemies)for(int elite=0;elite<2;elite++)
             {
-                EnemyActor enemy=null;
+                int type=enemyDefinition.type;EnemyActor enemy=null;
                 for(int attempt=0;attempt<24&&enemy==null;attempt++)
                 {
                     float angle=attempt*2.399f;Vector3 point=game.Player.transform.position+new Vector3(Mathf.Sin(angle),0,Mathf.Cos(angle))*(5+attempt%3);
@@ -52,14 +55,14 @@ namespace VampireLike
                 game.World.CompleteEvent(site.id);game.World.CompleteEvent(site.id);
                 Check(site.visual.transform.localScale==scale&&game.Save.Profile.events==events+1,"Challenge completion preserves scenery and grants progress once "+biome);
                 var appearance=site.visual.GetComponent<BossSiteAppearance>();
-                Check(appearance!=null&&appearance.invocationSeals.Length==4&&!appearance.invocationSeals[biome].activeSelf,"Completed challenge extinguishes its invocation seal "+biome);
+                Check(appearance!=null&&appearance.invocationSeals.Length==ContentIds.Regions.Length&&!appearance.invocationSeals[ContentIds.RegionIndex((BiomeId)biome)].activeSelf,"Completed challenge extinguishes its invocation seal "+biome);
                 yield return AutoBattle(.5f);
                 Check(string.IsNullOrEmpty(game.World.InteractionText),"Completed challenge clears its interaction prompt "+biome);
                 yield return Capture("sanctuary-completed-"+biome);
                 Place(game.World.LocalPosition(new Vector2Int(14,2)));yield return AutoBattle(2);
                 Place(game.World.LocalPosition(new Vector2Int(0,2))+Vector3.back*4);yield return AutoBattle(2);
                 WorldSite revisited=null;foreach(var candidate in game.World.Sites)if(candidate.chunk==new Vector2Int(0,2)&&candidate.type==3){revisited=candidate;break;}
-                Check(revisited!=null&&revisited.complete&&revisited.visual!=null&&revisited.visual.transform.localScale==scale&&!revisited.visual.GetComponent<BossSiteAppearance>().invocationSeals[biome].activeSelf,"Challenge completion survives chunk unload with full-size scenery "+biome);
+                Check(revisited!=null&&revisited.complete&&revisited.visual!=null&&revisited.visual.transform.localScale==scale&&!revisited.visual.GetComponent<BossSiteAppearance>().invocationSeals[ContentIds.RegionIndex((BiomeId)biome)].activeSelf,"Challenge completion survives chunk unload with full-size scenery "+biome);
             }
             Place(new Vector3(previous.x-game.World.OriginChunk.x*32,0,previous.y-game.World.OriginChunk.y*32));yield return AutoBattle(1);
         }
@@ -142,7 +145,9 @@ namespace VampireLike
         }
         IEnumerator DefeatEvidence()
         {
-            ClearEnemies();game.Inputs.ForVerification(Vector2.zero);yield return Wait(.8f);
+            ClearEnemies();ClearExpansionEffects();game.Inputs.ForVerification(Vector2.zero);game.Abilities.enabled=false;
+            yield return AdvanceGameplay(.8f);ClearEnemies();ClearExpansionEffects();
+            Check(!game.IsPaused&&!game.Player.Invulnerable,"Death capture begins after pending upgrade and invulnerability windows expire");
             game.Player.Hurt(100000);yield return RealtimeSequence("player-defeat",.85f);
             Check(game.Flow==GameFlow.Settling&&game.UI.View.results.activeSelf,"Player defeat animation reaches death settlement");
             yield return Capture("death-results");

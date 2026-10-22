@@ -1,0 +1,40 @@
+from pathlib import Path
+from PIL import Image
+import json,hashlib,csv
+root=Path('E:/UnityProject/VampireLike3D');out=root/'Docs/ArtReviews/Round51/UI'
+read=lambda p:json.loads((root/p).read_text(encoding='utf-8-sig'))
+man=read('Docs/ArtReviews/Round51/UI/SheetManifest.json'); seqman=read('Docs/ArtReviews/Round51/UI/SequenceSheetManifest.json')
+static=[f for g in man for f in g['sources']]
+orig=[f for f in static if f.endswith('-1280x720.png')]+['Artifacts/UI51/Captures/'+n+'.png' for n in ['ui-upgrade-2560x1440','ui-upgrade-1920x1080','ui-selection-expansion-locked-2560x1080','ui-skills-expansion-联动-locked-1920x1200']]
+extra=['Artifacts/Round51/Captures/'+n+'.png' for n in ['20-skills','22-upgrade','death-results']]+['Artifacts/Probe51/Captures/load-failure-'+n+'.png' for n in ['terrain-forest','weapon-gun']]
+orig+=extra;static+=extra
+seqorig=['Artifacts/Round51/Sequences/'+f+'.jpg' for f in ['feedback-pause-open/0001','feedback-pause-open/0002','feedback-skills-open/0002','feedback-upgrade-open/0001','feedback-upgrade-open/0002','feedback-upgrade-reward/0000','feedback-task-unlock/0000','feedback-task-unlock/0009']]
+def item(p):
+ f=root/p
+ with Image.open(f) as im: wh=list(im.size)
+ return {'path':p,'sha256':hashlib.sha256(f.read_bytes()).hexdigest(),'pixels':wh}
+seq={}
+for m in seqman:
+ prefix=Path(m['sources'][0]).parent;name=prefix.name; rows=list(csv.DictReader((root/prefix/'timestamps.csv').open()))
+ seq[name]={'framesObserved':list(range(len(m['sources']))),'sources':[item(f) for f in m['sources']],'metadata':read(str(prefix/'metadata.json')),'timestamps':rows,'allFramesInThisSequenceObserved':True}
+reports={}
+for name in ['UI51','Round51','Probe51']:
+ v=read('Artifacts/'+name+'/Verification.json');b=read('Artifacts/'+name+'/BuildIdentity.json');e=read('Artifacts/'+name+'/ProcessExit.json')
+ reports[name]={'finished':v['finished'],'passed':v['passed'],'checkCount':len(v['checks']),'errors':v['errors'],'buildFileCount':len(b['files']),'player':b['player'],'exitCode':e['exitCode']}
+pairs=lambda a:sorted((x['file'],x['sha256']) for x in a)
+base=read('Artifacts/UI51/BuildIdentity.json')['files']
+identity={'all29BuildEntriesMatch':all(pairs(base)==pairs(read('Artifacts/'+n+'/BuildIdentity.json')['files']) for n in ['Round51','Probe51']),'releaseBridge':read('Artifacts/BuildMatch51.json'),'workspace':read('Artifacts/Workspace51Identity.json'),'releaseAuditPassed':read('Artifacts/ReleaseAudit51.json')['passed']}
+world={}
+for p in ['Artifacts/UI51/Captures/ui-hud-1280x720.world.json','Artifacts/Round51/Captures/20-skills.world.json']:
+ j=read(p);world[p]={k:j.get(k) for k in ['seed','character','abilities']}
+limits=['Independent51 observations only; no47/50 images, scores or observation counts migrate.','All180 UI matrix sources observed in36 full-frame auxiliary sheets;45 static source files additionally opened, including all36 720p pages. Large source display transport may downscale to2048px.','All42 frames in five feedback sequences observed in5 full-frame auxiliary sheets,8 originals additionally opened; this is not normal-speed live play or original-size opening of every frame.','All five feedback sequences use wallClockTimestamps=true and fixedSimulationFps=null. Actual last wall times are recorded per-sequence; not fixed12fps.','Shrine-specific complete open/cancel/reopen/choose/return-to-regular-upgrade continuous sequence and weapon-HUD continuous scrolling not observed. Static state pairs and functional assertions do not replace dynamic coverage.','Added five task rows and new Crossbow/Boomerang/FrostStaff category and three linkage rows are covered; not every one of60 upgrades and25 tasks was separately read in every possible scroll state.','Locked skill screenshots change unlock/task completion visibility while all nine acquired weapons remain in world metadata; these are UI-state fixtures, not dense-combat capability removal.','A/B/C/E/F1 and complete world F2, damage timing, natural difficulty, performance and long-run stability are outside this assignment.','No desktop controls, Player launches, builds, runtime edits or original-image modifications.']
+obs={'candidate':'Round51/UI51/Probe51','version':'1.2.0','reviewer':'/root/art_ui47','status':'complete_for_assigned_scope','rubric':'Docs/ArtReview.md original sections1–6,100 points20 items and10 hard gates','observedSheets':[m['sheet'] for m in man],'observedSequenceSheets':[m['sheet'] for m in seqman],'staticSourcesObserved':[item(p) for p in static],'observedOriginals':[item(p) for p in orig],'observedSequenceOriginals':[item(p) for p in seqorig],'sequenceFrames':seq,'counts':{'staticDifferent':len(set(static)),'staticOpenedAsSource':len(set(orig)),'dynamicDifferent':sum(len(v['framesObserved']) for v in seq.values()),'dynamicOpenedAsSource':len(seqorig),'auxiliarySheets':len(man)+len(seqman)},'runtimeReports':reports,'identity':identity,'worldContext':world,'quality':read('Artifacts/UI51/Captures/ui-hud-1280x720.quality.json'),'limits':limits}
+(out/'ObservedEvidence.json').write_text(json.dumps(obs,ensure_ascii=False,indent=2),encoding='utf-8')
+rows=[
+{'id':'D1','score':5,'max':5,'title':'完整UI视觉体系','evidence':['SheetManifest.json:36页面/状态×五画幅180图','Artifacts/Probe51/Captures/load-failure-terrain-forest.png','Artifacts/Probe51/Captures/load-failure-weapon-gun.png','Artifacts/Round51/Captures/death-results.png'],'observation':'主菜单、三角色/七地图选择、任务/永久成长、设置、加载、暂停/暂停设置、地图、构筑、普通升级、六祝福三选一、胜利及撤离/死亡结算完整保持奶油底/青色主操作/彩色图标体系；新增地图缩略图、任务/技能也纳入。加载失败返回菜单有明确提示，启程主按钮可见。','revision':'无本项必修；新增页面继续保持当前主题、层级与资源完成度。'},
+{'id':'D2','score':5,'max':5,'title':'HUD/升级/技能树层级与密度','evidence':['Artifacts/UI51/Captures/ui-hud-1280x720.png','Artifacts/UI51/Captures/ui-hud-expansion-1280x720.png','Artifacts/UI51/Captures/ui-skills-expansion-联动-locked-1280x720.png','Artifacts/UI51/Captures/ui-blessing-owned-1280x720.png','Artifacts/Round51/Captures/20-skills.png'],'observation':'生命/计时/资源/地图/能力9摘要分层；九武器条初段和后段均实看，有滚轮/拖动提示，不引入槽位上限。普通四选和祭坛三选有名称、效果、等级/层数/机制叠加说明。任务名称/目标/进度/奖励与技能分类/价格/锁定原因/已掌握区分清楚，祝福×2卡说明本局生效。','revision':'无本项必修；新增量继续通过可滚动容器表达，保留能力总数与滚动引导。'},
+{'id':'D3','score':4,'max':5,'title':'中文字形、长文本、字号行距对齐','evidence':['Artifacts/UI51/Captures/ui-upgrade-2560x1440.png','Artifacts/UI51/Captures/ui-upgrade-1920x1080.png','Artifacts/UI51/Captures/ui-task-expansion-boomerang-1280x720.png','Artifacts/UI51/Captures/ui-task-expansion-froststaff.shatter-1280x720.png','Artifacts/UI51/Captures/ui-skills-expansion-联动-locked-1920x1200.png'],'observation':'已看稳定页面、新五任务与新武器/三联动文字无缺字方框或关键裁切；本轮生机短文在1080原图完整一行。扣1来自本版2560×1440普通升级碎霜领域：前行到“冰晶对冻结目标额外造成60%伤害”，下一行仅句号。原图独立打开确认；非沿用50。','revision':'使碎霜描述句末标点跟随正文，重排短句或调整卡内排版；用该候选在五画幅回归，不能只检查自动fits断言。'},
+{'id':'D4','score':5,'max':5,'title':'五画幅与交互状态、价格、锁定原因','evidence':['SheetManifest.json:180图','Artifacts/UI51/Captures/ui-selection-expansion-locked-2560x1080.png','Artifacts/UI51/Captures/ui-skills-expansion-联动-locked-1280x720.png','Artifacts/UI51/Captures/ui-skills-expansion-联动-unlocked-1280x720.png','Artifacts/UI51/Captures/ui-blessing-variety-4-1280x720.png'],'observation':'720p/1080p/16:10/21:9/1440p均实看，核心面板未见拉伸/出界。新两地图锁定灰卡/锁标与原四Boss条件、开放白卡/点击选择清楚。两武器锁定任务原因、三联动灰锁与解锁后4点价格明确；已获九武器始终保留，仅任务完成可见状态被临时切换。祭坛0→1/1→2与取消保留清楚。','revision':'无本项必修；继续区分已获、可购、任务锁定三种状态。'},
+{'id':'F2','score':4,'max':5,'scope':'page-feedback portion recommendation only','title':'页面及升级/任务反馈（页面部分）','evidence':['SequenceSheetManifest.json:五序列42帧','Artifacts/Round51/Sequences/feedback-pause-open/0001.jpg','Artifacts/Round51/Sequences/feedback-pause-open/0002.jpg','Artifacts/Round51/Sequences/feedback-upgrade-open/0002.jpg','Artifacts/Round51/Sequences/feedback-task-unlock/0000.jpg','Artifacts/Round51/Sequences/feedback-upgrade-reward/0000.jpg'],'observation':'五条本版连续反馈实看：暂停/构筑/普通升级从淡入到稳定不透明，任务解锁/晶石+15及获得穿透弹Toast避开中心玩家与主操作，无持续闪烁/材质跳变。反馈主要是短淡入/通用Toast/环形世界变化，种类与节奏仍可精修，页面部分建议4；不据此给完整世界F2满分。','revision':'保持低遮挡的同时细化不同奖励、选择确认及层数改变的节奏；祭坛完整取消/重开/选择/恢复普通升级及HUD连续滚动仍需专属连续证据。'}]
+(out/'UIReviewRows.json').write_text(json.dumps(rows,ensure_ascii=False,indent=2),encoding='utf-8')
+print(obs['counts']);print(reports)

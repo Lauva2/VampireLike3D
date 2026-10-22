@@ -78,9 +78,9 @@ namespace VampireLike
                 int hash=SeedHash(game.Run.seed,x,z);
                 Vector2 site=new Vector2((x+.2f+(hash%997)/1661f)*5,(z+.2f+((hash/997)%997)/1661f)*5);
                 float distance=(site-new Vector2(key.x,key.y)).sqrMagnitude;
-                if(distance<best){best=distance;selected=((x+z*2)%4+4)%4;}
+                if(distance<best){best=distance;selected=((x+z*2)%ContentIds.Regions.Length+ContentIds.Regions.Length)%ContentIds.Regions.Length;}
             }
-            return (BiomeId)selected;
+            return ContentIds.Regions[selected];
         }
         public bool Visited(Vector2Int key) => journal != null && journal.Visited(key);
         public Vector3 LocalPosition(Vector2Int chunk) => new Vector3((chunk.x - OriginChunk.x) * ChunkSize, 0, (chunk.y - OriginChunk.y) * ChunkSize);
@@ -97,7 +97,7 @@ namespace VampireLike
                 yield return game.Assets.LoadPrefab(data.terrainId, region.scope, p => RegisterRegion(region,data.terrainId,p));
                 foreach(string suffix in new[]{"-wild","-ridge"}){string terrain=data.terrainId+suffix;yield return game.Assets.LoadPrefab(terrain,region.scope,p=>RegisterRegion(region,terrain,p));}
                 yield return game.Assets.LoadPrefab(data.decorationId, region.scope, p => RegisterRegion(region,data.decorationId, p));
-                string architecture="architecture/"+new[]{"forest","desert","snow","volcano"}[(int)biome];
+                string architecture="architecture/"+ContentIds.RegionKey(biome);
                 yield return game.Assets.LoadPrefab(architecture, region.scope, p => RegisterRegion(region,architecture, p));
                 yield return game.Assets.LoadPrefab(data.bossId, game.RunAssets, p => {if(p==null)LoadingError="缺少挑战资源";game.Pool.Register(data.bossId,p);});
                 region.loading = false;
@@ -172,7 +172,7 @@ namespace VampireLike
             architectureHere&=architecturePlaced;
             if(architectureHere)
             {
-                string architecture="architecture/"+new[]{"forest","desert","snow","volcano"}[(int)biome];
+                string architecture="architecture/"+ContentIds.RegionKey(biome);
                 Vector3 approach=path.NearestPoint(architectureOffset)-architectureOffset;approach.y=0;
                 Quaternion facing=approach.sqrMagnitude>.01f?Quaternion.LookRotation(approach):Quaternion.identity;
                 var buildingObject=region.pool.Rent(architecture,GroundPosition(chunk.root.transform.position+architectureOffset),facing);
@@ -220,7 +220,7 @@ namespace VampireLike
             return random.NextDouble() < .28 ? random.Next(3) : -1;
         }
         void RegisterRegion(Region region,string id,GameObject prefab){if(prefab==null)LoadingError="缺少地图资源: "+id;else region.pool.Register(id,prefab);}
-        int TerrainVariant(Vector2Int key,BiomeId biome)
+        public int TerrainVariant(Vector2Int key,BiomeId biome)
         {
             if(biome==BiomeId.Forest||biome==BiomeId.Volcano)return RiverAt(key)?0:1+SeedHash(game.Run.seed,key.x,key.y)%2;
             int shape=SeedHash(game.Run.seed,key.x,key.y)%7;
@@ -258,11 +258,14 @@ namespace VampireLike
         }
         static Vector3 GroundPosition(Vector3 p){if(Physics.Raycast(p+Vector3.up*8,Vector3.down,out var hit,20,1<<0))p.y=hit.point.y;return p;}
         [System.Serializable] sealed class ChunkEvidence {public Vector2Int key;public string biome,terrain;public Vector3 position,min,max;public bool active;public int vertices;public Vector4 blend;}
-        [System.Serializable] sealed class WorldEvidence {public Vector2 global;public Vector2Int current,origin;public Vector3 camera;public float zoom;public List<ChunkEvidence> chunks=new List<ChunkEvidence>();}
+        [System.Serializable] sealed class SiteEvidence {public string id;public int type;public Vector2Int chunk;public bool complete;}
+        [System.Serializable] sealed class WorldEvidence {public List<SiteEvidence> sites=new List<SiteEvidence>();public List<string> abilities=new List<string>();public string character;public float seconds;public int seed;public Vector2 global;public Vector2Int current,origin;public Vector3 camera;public float zoom;public List<ChunkEvidence> chunks=new List<ChunkEvidence>();}
         public string DiagnosticSnapshot()
         {
             if(!game.DiagnosticMode)return "{}";
-            var data=new WorldEvidence{global=GlobalPosition,current=CurrentChunk,origin=OriginChunk,camera=Camera.main.transform.position,zoom=Camera.main.orthographicSize};
+            var data=new WorldEvidence{seed=game.Run.seed,seconds=game.Run.seconds,character=game.Run.character.id,global=GlobalPosition,current=CurrentChunk,origin=OriginChunk,camera=Camera.main.transform.position,zoom=Camera.main.orthographicSize};
+            foreach(var ability in game.Run.abilities)data.abilities.Add(ability.ToString());
+            foreach(var site in sites)data.sites.Add(new SiteEvidence{id=site.id,type=site.type,chunk=site.chunk,complete=site.complete});
             foreach(var pair in chunks)
             {
                 var chunk=pair.Value;var evidence=new ChunkEvidence{key=pair.Key,biome=BiomeAt(pair.Key).ToString(),position=chunk.root.transform.position};
@@ -357,7 +360,7 @@ namespace VampireLike
             if (nearest.type == 3) InteractionText = game.Combat.Boss == null ? "E  开启挑战 · " + game.Catalog.Biome(nearest.biome).bossName : "Boss 挑战中 · 离开区域可脱战";
             else if (nearest.type == 0) InteractionText = "E  打开补给箱 · 定向点与晶石";
             else if (nearest.type == 1) InteractionText = nearest.started ? "营地肃清 " + nearest.kills + "/6" : "E  挑战营地 · 击败6个守卫";
-            else InteractionText = "E  激活祭坛 · 恢复生命并获得成长";
+            else InteractionText = "E  祭坛祝福 · 三选一，可叠加";
             if (game.Inputs.Interact) Interact(nearest);
         }
         void Interact(WorldSite site)
@@ -367,11 +370,11 @@ namespace VampireLike
             if (site.type == 1)
             {
                 if (site.started) return; site.started = true;
-                for (int i = 0; i < 6; i++) game.Combat.Spawn(i % 4, site.position + Quaternion.Euler(0, i * 60, 0) * Vector3.forward * 7, i % 3 == 0);
+                for (int i = 0; i < 6; i++) game.Combat.Spawn(game.Combat.ChooseEnemy(site.biome), site.position + Quaternion.Euler(0, i * 60, 0) * Vector3.forward * 7, i % 3 == 0);
                 game.UI.Toast("营地挑战 · 在附近击败6个守卫。"); return;
             }
-            if (site.type == 2) { game.Player.Heal(game.Player.MaxHealth * .45f); game.Progression.Reward(3, 4); game.Progression.Experience(18); }
-            else { game.Progression.Reward(5, 8); game.Progression.Experience(12); }
+            if (site.type == 2) { game.Progression.Shrines.Open(site); return; }
+            game.Progression.Reward(5, 8); game.Progression.Experience(12);
             CompleteEvent(site.id);
             game.Audio.Play(SoundCue.Unlock); game.Combat.Effect("vfx/rune", site.position, .8f, 4);
             game.UI.Toast(site.type == 2 ? "祭坛祝福 · 生命恢复，定向点 +3" : "发现补给 · 定向点 +5，晶石 +8");
@@ -380,15 +383,17 @@ namespace VampireLike
         {
             foreach (var site in sites) if (site.type == 1 && site.started && !site.complete && Vector3.Distance(position, site.position) < 20) site.kills++;
         }
-        public void CompleteEvent(string id)
+        public bool IsActiveSite(WorldSite site) => !disposed && sites.Contains(site);
+        public bool CompleteEvent(string id)
         {
             foreach (var site in sites)
             {
                 if (site.id != id || site.complete) continue;
                 site.complete = true; journal.Complete(site.chunk, id);
                 UpdateSiteAppearance(site);
-                game.Save.Profile.events++; game.Save.MarkDirty(); game.Save.Flush(); return;
+                game.Save.Profile.events++; game.Save.MarkDirty(); game.Save.Flush(); return true;
             }
+            return false;
         }
         static void UpdateSiteAppearance(WorldSite site)
         {

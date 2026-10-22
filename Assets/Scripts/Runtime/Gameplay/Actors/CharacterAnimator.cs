@@ -25,8 +25,8 @@ namespace VampireLike
             {
                 Vector3 localAim=transform.InverseTransformDirection(aim);
                 float swing=Mathf.Sin((1-(attackUntil-Time.time)/.26f)*Mathf.PI),yaw=Mathf.Clamp(Mathf.Atan2(localAim.x,localAim.z)*Mathf.Rad2Deg,-55,55);
-                if(attackKind==AbilityKind.Fireball||attackKind==AbilityKind.Spirit){if(leftArm!=null)leftArm.localRotation=Quaternion.Euler(-72-swing*18,-yaw*.35f,-18);if(rightArm!=null)rightArm.localRotation=Quaternion.Euler(-45,yaw*.3f,25);}
-                else if(attackKind==AbilityKind.Sword){if(rightArm!=null)rightArm.localRotation=Quaternion.Euler(-105+45*swing,yaw,-25+45*swing);if(leftArm!=null)leftArm.localRotation=Quaternion.Euler(-24,0,-30);}
+                if(attackKind==AbilityKind.Fireball||attackKind==AbilityKind.Spirit||attackKind==AbilityKind.FrostStaff){if(leftArm!=null)leftArm.localRotation=Quaternion.Euler(-72-swing*18,-yaw*.35f,-18);if(rightArm!=null)rightArm.localRotation=Quaternion.Euler(-45,yaw*.3f,25);}
+                else if(attackKind==AbilityKind.Sword||attackKind==AbilityKind.Boomerang){if(rightArm!=null)rightArm.localRotation=Quaternion.Euler(-105+45*swing,yaw,-25+45*swing);if(leftArm!=null)leftArm.localRotation=Quaternion.Euler(-24,0,-30);}
                 else if(rightArm!=null)rightArm.localRotation=Quaternion.Euler(-68-swing*8,yaw,8);
             }
             if (leftLeg != null) leftLeg.localRotation = Quaternion.Euler(-Mathf.Sin(t) * 32 * movement, 0, 0);
