@@ -58,6 +58,7 @@ namespace VampireLike
                     if (game.Progression.Eligible(u)) game.Progression.GrantForDiagnostic(u.id);
                 game.UI.ShowHUD();
                 Check(game.Run.abilities.Count == 6, "Six abilities coexist in biome " + biome);
+                if(biome==0)yield return VerifyExperience();
                 if(biome==0)yield return EnemyGallery();
                 if(biome==0)yield return EffectGallery();
                 for (int i = 0; i < 55; i++)
@@ -98,6 +99,42 @@ namespace VampireLike
             }
             Finish();
         }
+        IEnumerator VerifyExperience()
+        {
+            foreach(var old in game.GetRunObjects<ExperienceOrb>())game.Pool.Return(old.gameObject);
+            Vector3 point=game.Player.transform.position+Vector3.forward*(game.Player.PickupRadius+4)+Vector3.up*.4f;
+            // These points are within the physical merge radius but two hash cells apart.
+            point.x=Mathf.Floor(point.x/CombatWorld.ExperienceCellSize)*CombatWorld.ExperienceCellSize+1.49f;
+            var first=game.Combat.DropExperience(point,7);
+            var adjacent=game.Combat.DropExperience(point+Vector3.right*1.52f,11);
+            Check(first==adjacent&&first.Amount==18,"Experience merges across neighboring hash-cell boundaries without losing value");
+            foreach(var old in game.GetRunObjects<ExperienceOrb>())game.Pool.Return(old.gameObject);
+            int expected=0;
+            for(int i=0;i<1200;i++)
+            {
+                int value=1+i%4;expected+=value;
+                game.Combat.DropExperience(point+new Vector3(i%18*.47f,0,i/18%18*.47f),value);
+            }
+            var orbs=game.GetRunObjects<ExperienceOrb>();int total=0;foreach(var orb in orbs)total+=orb.Amount;
+            Check(total==expected&&orbs.Length<=64,"Dense experience drops conserve all value with bounded nearby aggregates");
+            Vector3 shift=new Vector3(64,0,-96);
+            int beforeCount=orbs.Length;Vector3 mergePoint=orbs[0].transform.position;
+            game.Combat.ShiftOrigin(shift);game.Combat.DropExperience(mergePoint-shift,17);game.Combat.ShiftOrigin(-shift);
+            orbs=game.GetRunObjects<ExperienceOrb>();total=0;foreach(var orb in orbs)total+=orb.Amount;
+            Check(total==expected+17&&orbs.Length==beforeCount,"Floating origin rebuild preserves experience merge ownership and exact value");
+            yield return Capture("experience-aggregates");
+            int previousQuality=QualitySettings.GetQualityLevel();QualitySettings.SetQualityLevel(0,true);
+            yield return Capture("experience-aggregates-low");QualitySettings.SetQualityLevel(previousQuality,true);
+            foreach(var orb in game.GetRunObjects<ExperienceOrb>())game.Pool.Return(orb.gameObject);
+            var collecting=game.Combat.DropExperience(game.Player.transform.position+Vector3.right*(game.Player.PickupRadius-.2f)+Vector3.up*.6f,3);
+            yield return null;yield return null;
+            Vector3 target=game.Player.transform.position+Vector3.up*.6f;
+            collecting.transform.position=target+Vector3.right*(game.Player.PickupRadius+3);
+            float previousDistance=Vector3.Distance(collecting.transform.position,target);
+            yield return AutoBattle(.2f);
+            Check(collecting.isActiveAndEnabled&&Vector3.Distance(collecting.transform.position,target)<previousDistance-.5f,"An attracted experience gem keeps homing after the player moves beyond the initial pickup radius");
+            game.Pool.Return(collecting.gameObject);
+        }
         IEnumerator AutoBattle(float seconds)
         {
             float end = Time.realtimeSinceStartup + seconds;
@@ -133,6 +170,7 @@ namespace VampireLike
             var texture = new Texture2D(width,height,TextureFormat.RGB24,false);
             texture.ReadPixels(new Rect(0,0,width,height),0,0);texture.Apply();
             File.WriteAllBytes(path,jpeg?texture.EncodeToJPG(88):texture.EncodeToPNG());
+            if(!jpeg)File.WriteAllText(Path.ChangeExtension(path,"quality.json"),"{\"quality\":"+QualitySettings.GetQualityLevel()+",\"qualityName\":\""+QualitySettings.names[QualitySettings.GetQualityLevel()]+"\",\"antiAliasing\":"+target.antiAliasing+",\"width\":"+width+",\"height\":"+height+",\"originalCameraRender\":true}");
             if(auditLayout&&!jpeg)AuditLayout(path,width,height);
             if(!jpeg&&game.Ready)
             {

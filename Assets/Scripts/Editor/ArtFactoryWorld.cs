@@ -28,6 +28,7 @@ namespace VampireLike.Editor
             var landform=Root("Landform",root.transform).transform;var features=Root("Features",landform).transform;
             TerrainFeatures(features, biome, random,variant);
             var appearance=root.AddComponent<TerrainAppearance>();appearance.landform=landform;
+            if(variant==0&&(biome==1||biome==2)){appearance.waterCenter=new Vector2(biome==1?-9:-8,biome==1?8:7);appearance.waterRadii=biome==1?new Vector2(3.5f,2.5f):new Vector2(5,3.25f);}
             if (biome == 0 || biome == 2)
             {
                 for (int i = 0; i < 95; i++)
@@ -204,7 +205,7 @@ namespace VampireLike.Editor
         {
             var root = Root("experience"); Spike(root.transform, "Gem", Vector3.zero, Vector3.up * .45f, .19f, Hex("8EE4DD"));
             Spike(root.transform, "Bottom", Vector3.zero, Vector3.down * .22f, .19f, Teal);
-            Bake(root.transform, "experience-orb");root.GetComponent<MeshRenderer>().sharedMaterial=EffectMaterial();root.GetComponent<MeshRenderer>().shadowCastingMode=UnityEngine.Rendering.ShadowCastingMode.Off; root.AddComponent<ExperienceOrb>(); return SavePrefab(root, "Pickups", "experience");
+            Bake(root.transform, "experience-orb");root.GetComponent<MeshRenderer>().sharedMaterial=PickupMaterial();root.GetComponent<MeshRenderer>().shadowCastingMode=UnityEngine.Rendering.ShadowCastingMode.Off; root.AddComponent<ExperienceOrb>(); return SavePrefab(root, "Pickups", "experience");
         }
     }
 }

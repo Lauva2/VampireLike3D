@@ -152,7 +152,7 @@ namespace VampireLike
             }
             Vector2 direction=Vector2.ClampMagnitude(goal-global,1);
             Vector3 move=new Vector3(direction.x,0,direction.y);
-            if(Physics.SphereCast(game.Player.transform.position+Vector3.up*.8f,.45f,move,out var hit,2,1<<10))
+            if(Physics.SphereCast(game.Player.transform.position+Vector3.up*.8f,.45f,move,out var hit,2,(1<<0)|(1<<10)))
             {
                 Vector3 side=Vector3.Cross(hit.normal,Vector3.up);if(Vector3.Dot(side,move)<0)side=-side;direction=new Vector2(side.x,side.z);
             }

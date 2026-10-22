@@ -1,0 +1,2802 @@
+{
+  "candidate": "Round39",
+  "reviewedDate": "2026-10-22 Asia/Shanghai",
+  "reviewer": "independent art review subagent /root/art_review38",
+  "method": "本轮72表和55原图重新实际查看，按原20项及全部硬门槛独立评分；没有继承38的分数或观看记录。",
+  "rulesRead": [
+    "AGENTS.md",
+    "Docs/ArtReview.md §§2–5 原量表与全部硬门槛",
+    "Docs/GameDesign.md",
+    "Docs/ContentScope.md",
+    "Docs/SessionHandoff.md"
+  ],
+  "identity": {
+    "player": "Builds/Review39/WanXiangExpedition.exe",
+    "unity": "2022.3.62f2",
+    "source": "development Player Camera.Render with live UI",
+    "desktopControl": false,
+    "qualityDefault": 2,
+    "qualityLabel": "精致",
+    "pickupQualityChecks": [
+      {
+        "path": "Artifacts/Round39/Captures/experience-aggregates.png",
+        "quality": 5,
+        "name": "Ultra",
+        "antiAliasing": 4,
+        "resolution": "1600x900"
+      },
+      {
+        "path": "Artifacts/Round39/Captures/experience-aggregates-low.png",
+        "quality": 0,
+        "name": "Very Low",
+        "antiAliasing": 1,
+        "resolution": "1600x900"
+      }
+    ],
+    "mapSeedObserved": {
+      "path": "Artifacts/Round39/Captures/21-map.png",
+      "seed": 705960096,
+      "worldCoordinate": "21 / 15"
+    },
+    "buildIdentities": [
+      "Artifacts/Round39/BuildIdentity.json",
+      "Artifacts/UI39/BuildIdentity.json",
+      "Artifacts/Probe39/BuildIdentity.json"
+    ],
+    "identicalFileHashes": 23,
+    "assemblySha256": "11171D7EDAA9D0E5316119F472801A8286D7CDC52D44EA3AF61081E1F74D5098",
+    "catalogSha256": "C738005569E0EC902F91086D3C8ACB074A611BE5727619B11CC56F1CC14C21B1",
+    "sourceDeltaReport": "Artifacts/Source38To39.json",
+    "releaseIdentityBridge": "Artifacts/Release39BuildMatch.json",
+    "releaseBridgeScope": "1068源文件/18AA一致只是身份佐证，不给美术分"
+  },
+  "verificationReports": [
+    {
+      "path": "Artifacts/Round39/Verification.json",
+      "finishedUtc": "2026-10-21T18:09:00.989816Z",
+      "checks": 95,
+      "errors": 0,
+      "passed": true
+    },
+    {
+      "path": "Artifacts/UI39/Verification.json",
+      "finishedUtc": "2026-10-21T18:11:32.6496914Z",
+      "checks": 72,
+      "errors": 0,
+      "passed": true
+    },
+    {
+      "path": "Artifacts/Probe39/Verification.json",
+      "finishedUtc": "2026-10-21T18:11:05.5512326Z",
+      "checks": 8,
+      "errors": 0,
+      "passed": true
+    }
+  ],
+  "actualViewing": {
+    "sheets": 72,
+    "staticImagesViaSheets": 190,
+    "sequences": 33,
+    "totalRecordedFrames": 1414,
+    "sequenceFramesViaSheets": 571,
+    "additionalOriginalSequenceFrames": 18,
+    "distinctSequenceFramesObserved": 589,
+    "originalImagesOpened": 55,
+    "originalPngOpened": 29,
+    "originalJpgOpened": 26,
+    "viewedSheets": [
+      {
+        "sheet": "Round39-00.png",
+        "sources": [
+          "Artifacts/Round39/Captures/01-menu.png",
+          "Artifacts/Round39/Captures/02-selection.png",
+          "Artifacts/Round39/Captures/03-progression.png",
+          "Artifacts/Round39/Captures/04-settings.png",
+          "Artifacts/Round39/Captures/05-pause.png",
+          "Artifacts/Round39/Captures/10-biome-0.png"
+        ]
+      },
+      {
+        "sheet": "Round39-01.png",
+        "sources": [
+          "Artifacts/Round39/Captures/10-biome-1.png",
+          "Artifacts/Round39/Captures/10-biome-2.png",
+          "Artifacts/Round39/Captures/10-biome-3.png",
+          "Artifacts/Round39/Captures/10-biome-4.png",
+          "Artifacts/Round39/Captures/20-skills.png",
+          "Artifacts/Round39/Captures/21-map.png"
+        ]
+      },
+      {
+        "sheet": "Round39-02.png",
+        "sources": [
+          "Artifacts/Round39/Captures/22-upgrade.png",
+          "Artifacts/Round39/Captures/30-results-0.png",
+          "Artifacts/Round39/Captures/30-results-1.png",
+          "Artifacts/Round39/Captures/30-results-2.png",
+          "Artifacts/Round39/Captures/30-results-3.png",
+          "Artifacts/Round39/Captures/30-results-4.png"
+        ]
+      },
+      {
+        "sheet": "Round39-03.png",
+        "sources": [
+          "Artifacts/Round39/Captures/boss-0.png",
+          "Artifacts/Round39/Captures/boss-1.png",
+          "Artifacts/Round39/Captures/boss-2.png",
+          "Artifacts/Round39/Captures/boss-3.png",
+          "Artifacts/Round39/Captures/boss-closeup-0.png",
+          "Artifacts/Round39/Captures/boss-closeup-1.png"
+        ]
+      },
+      {
+        "sheet": "Round39-04.png",
+        "sources": [
+          "Artifacts/Round39/Captures/boss-closeup-2.png",
+          "Artifacts/Round39/Captures/boss-closeup-3.png",
+          "Artifacts/Round39/Captures/character-adventurer.png",
+          "Artifacts/Round39/Captures/character-elementalist.png",
+          "Artifacts/Round39/Captures/character-swordsman.png",
+          "Artifacts/Round39/Captures/death-results.png"
+        ]
+      },
+      {
+        "sheet": "Round39-05.png",
+        "sources": [
+          "Artifacts/Round39/Captures/enemy-0-elite.png",
+          "Artifacts/Round39/Captures/enemy-0-normal.png",
+          "Artifacts/Round39/Captures/enemy-1-elite.png",
+          "Artifacts/Round39/Captures/enemy-1-normal.png",
+          "Artifacts/Round39/Captures/enemy-2-elite.png",
+          "Artifacts/Round39/Captures/enemy-2-normal.png"
+        ]
+      },
+      {
+        "sheet": "Round39-06.png",
+        "sources": [
+          "Artifacts/Round39/Captures/enemy-3-elite.png",
+          "Artifacts/Round39/Captures/enemy-3-normal.png",
+          "Artifacts/Round39/Captures/experience-aggregates-low.png",
+          "Artifacts/Round39/Captures/experience-aggregates.png",
+          "Artifacts/Round39/Captures/geography-0-0.png",
+          "Artifacts/Round39/Captures/geography-0-1.png"
+        ]
+      },
+      {
+        "sheet": "Round39-07.png",
+        "sources": [
+          "Artifacts/Round39/Captures/geography-0-2.png",
+          "Artifacts/Round39/Captures/geography-1-0.png",
+          "Artifacts/Round39/Captures/geography-1-1.png",
+          "Artifacts/Round39/Captures/geography-1-2.png",
+          "Artifacts/Round39/Captures/geography-2-0.png",
+          "Artifacts/Round39/Captures/geography-2-1.png"
+        ]
+      },
+      {
+        "sheet": "Round39-08.png",
+        "sources": [
+          "Artifacts/Round39/Captures/geography-2-2.png",
+          "Artifacts/Round39/Captures/geography-3-0.png",
+          "Artifacts/Round39/Captures/geography-3-1.png",
+          "Artifacts/Round39/Captures/geography-3-2.png",
+          "Artifacts/Round39/Captures/geography-wide-0-0.png",
+          "Artifacts/Round39/Captures/geography-wide-0-1.png"
+        ]
+      },
+      {
+        "sheet": "Round39-09.png",
+        "sources": [
+          "Artifacts/Round39/Captures/geography-wide-0-2.png",
+          "Artifacts/Round39/Captures/geography-wide-1-0.png",
+          "Artifacts/Round39/Captures/geography-wide-1-1.png",
+          "Artifacts/Round39/Captures/geography-wide-1-2.png",
+          "Artifacts/Round39/Captures/geography-wide-2-0.png",
+          "Artifacts/Round39/Captures/geography-wide-2-1.png"
+        ]
+      },
+      {
+        "sheet": "Round39-10.png",
+        "sources": [
+          "Artifacts/Round39/Captures/geography-wide-2-2.png",
+          "Artifacts/Round39/Captures/geography-wide-3-0.png",
+          "Artifacts/Round39/Captures/geography-wide-3-1.png",
+          "Artifacts/Round39/Captures/geography-wide-3-2.png",
+          "Artifacts/Round39/Captures/late-density-0.png",
+          "Artifacts/Round39/Captures/late-density-1.png"
+        ]
+      },
+      {
+        "sheet": "Round39-11.png",
+        "sources": [
+          "Artifacts/Round39/Captures/late-density-2.png",
+          "Artifacts/Round39/Captures/late-density-3.png",
+          "Artifacts/Round39/Captures/late-density-4.png",
+          "Artifacts/Round39/Captures/mixed-boundary-0-2.png",
+          "Artifacts/Round39/Captures/mixed-boundary-0-3.png",
+          "Artifacts/Round39/Captures/mixed-boundary-1-2.png"
+        ]
+      },
+      {
+        "sheet": "Round39-12.png",
+        "sources": [
+          "Artifacts/Round39/Captures/mixed-boundary-2-3.png",
+          "Artifacts/Round39/Captures/mixed-lava-shore-close.png",
+          "Artifacts/Round39/Captures/mixed-lava-shore.png",
+          "Artifacts/Round39/Captures/resolution-hud-1280x720.png",
+          "Artifacts/Round39/Captures/resolution-hud-1920x1080.png",
+          "Artifacts/Round39/Captures/resolution-hud-1920x1200.png"
+        ]
+      },
+      {
+        "sheet": "Round39-13.png",
+        "sources": [
+          "Artifacts/Round39/Captures/resolution-hud-2560x1080.png",
+          "Artifacts/Round39/Captures/resolution-skills-1280x720.png",
+          "Artifacts/Round39/Captures/resolution-skills-1920x1080.png",
+          "Artifacts/Round39/Captures/resolution-skills-1920x1200.png",
+          "Artifacts/Round39/Captures/resolution-skills-2560x1080.png",
+          "Artifacts/Round39/Captures/sanctuary-0.png"
+        ]
+      },
+      {
+        "sheet": "Round39-14.png",
+        "sources": [
+          "Artifacts/Round39/Captures/sanctuary-1.png",
+          "Artifacts/Round39/Captures/sanctuary-2.png",
+          "Artifacts/Round39/Captures/sanctuary-3.png",
+          "Artifacts/Round39/Captures/sanctuary-close-0.png",
+          "Artifacts/Round39/Captures/sanctuary-close-1.png",
+          "Artifacts/Round39/Captures/sanctuary-close-2.png"
+        ]
+      },
+      {
+        "sheet": "Round39-15.png",
+        "sources": [
+          "Artifacts/Round39/Captures/sanctuary-close-3.png",
+          "Artifacts/Round39/Captures/sanctuary-completed-0.png",
+          "Artifacts/Round39/Captures/sanctuary-completed-1.png",
+          "Artifacts/Round39/Captures/sanctuary-completed-2.png",
+          "Artifacts/Round39/Captures/sanctuary-completed-3.png",
+          "Artifacts/Round39/Captures/terrain-detail-0.png"
+        ]
+      },
+      {
+        "sheet": "Round39-16.png",
+        "sources": [
+          "Artifacts/Round39/Captures/terrain-detail-1.png",
+          "Artifacts/Round39/Captures/terrain-detail-2.png",
+          "Artifacts/Round39/Captures/terrain-detail-3.png",
+          "Artifacts/Round39/Captures/terrain-detail-4.png",
+          "Artifacts/Round39/Captures/victory-0.png",
+          "Artifacts/Round39/Captures/victory-1.png"
+        ]
+      },
+      {
+        "sheet": "Round39-17.png",
+        "sources": [
+          "Artifacts/Round39/Captures/victory-2.png",
+          "Artifacts/Round39/Captures/victory-3.png",
+          "Artifacts/Round39/Captures/waterside-architecture-0.png",
+          "Artifacts/Round39/Captures/waterside-architecture-1.png",
+          "Artifacts/Round39/Captures/waterside-architecture-2.png",
+          "Artifacts/Round39/Captures/waterside-architecture-3.png"
+        ]
+      },
+      {
+        "sheet": "Round39-18.png",
+        "sources": [
+          "Artifacts/Round39/Captures/waterside-architecture-wide-0.png",
+          "Artifacts/Round39/Captures/waterside-architecture-wide-1.png",
+          "Artifacts/Round39/Captures/waterside-architecture-wide-2.png",
+          "Artifacts/Round39/Captures/waterside-architecture-wide-3.png",
+          "Artifacts/Round39/Captures/world-floating-origin.png"
+        ]
+      },
+      {
+        "sheet": "UI39-00.png",
+        "sources": [
+          "Artifacts/UI39/Captures/ui-hud-1280x720.png",
+          "Artifacts/UI39/Captures/ui-hud-1920x1080.png",
+          "Artifacts/UI39/Captures/ui-hud-1920x1200.png",
+          "Artifacts/UI39/Captures/ui-hud-2560x1080.png",
+          "Artifacts/UI39/Captures/ui-hud-2560x1440.png",
+          "Artifacts/UI39/Captures/ui-loading-1280x720.png"
+        ]
+      },
+      {
+        "sheet": "UI39-01.png",
+        "sources": [
+          "Artifacts/UI39/Captures/ui-loading-1920x1080.png",
+          "Artifacts/UI39/Captures/ui-loading-1920x1200.png",
+          "Artifacts/UI39/Captures/ui-loading-2560x1080.png",
+          "Artifacts/UI39/Captures/ui-loading-2560x1440.png",
+          "Artifacts/UI39/Captures/ui-map-1280x720.png",
+          "Artifacts/UI39/Captures/ui-map-1920x1080.png"
+        ]
+      },
+      {
+        "sheet": "UI39-02.png",
+        "sources": [
+          "Artifacts/UI39/Captures/ui-map-1920x1200.png",
+          "Artifacts/UI39/Captures/ui-map-2560x1080.png",
+          "Artifacts/UI39/Captures/ui-map-2560x1440.png",
+          "Artifacts/UI39/Captures/ui-menu-1280x720.png",
+          "Artifacts/UI39/Captures/ui-menu-1920x1080.png",
+          "Artifacts/UI39/Captures/ui-menu-1920x1200.png"
+        ]
+      },
+      {
+        "sheet": "UI39-03.png",
+        "sources": [
+          "Artifacts/UI39/Captures/ui-menu-2560x1080.png",
+          "Artifacts/UI39/Captures/ui-menu-2560x1440.png",
+          "Artifacts/UI39/Captures/ui-pause-1280x720.png",
+          "Artifacts/UI39/Captures/ui-pause-1920x1080.png",
+          "Artifacts/UI39/Captures/ui-pause-1920x1200.png",
+          "Artifacts/UI39/Captures/ui-pause-2560x1080.png"
+        ]
+      },
+      {
+        "sheet": "UI39-04.png",
+        "sources": [
+          "Artifacts/UI39/Captures/ui-pause-2560x1440.png",
+          "Artifacts/UI39/Captures/ui-pause-settings-1280x720.png",
+          "Artifacts/UI39/Captures/ui-pause-settings-1920x1080.png",
+          "Artifacts/UI39/Captures/ui-pause-settings-1920x1200.png",
+          "Artifacts/UI39/Captures/ui-pause-settings-2560x1080.png",
+          "Artifacts/UI39/Captures/ui-pause-settings-2560x1440.png"
+        ]
+      },
+      {
+        "sheet": "UI39-05.png",
+        "sources": [
+          "Artifacts/UI39/Captures/ui-progress-1280x720.png",
+          "Artifacts/UI39/Captures/ui-progress-1920x1080.png",
+          "Artifacts/UI39/Captures/ui-progress-1920x1200.png",
+          "Artifacts/UI39/Captures/ui-progress-2560x1080.png",
+          "Artifacts/UI39/Captures/ui-progress-2560x1440.png",
+          "Artifacts/UI39/Captures/ui-results-1280x720.png"
+        ]
+      },
+      {
+        "sheet": "UI39-06.png",
+        "sources": [
+          "Artifacts/UI39/Captures/ui-results-1920x1080.png",
+          "Artifacts/UI39/Captures/ui-results-1920x1200.png",
+          "Artifacts/UI39/Captures/ui-results-2560x1080.png",
+          "Artifacts/UI39/Captures/ui-results-2560x1440.png",
+          "Artifacts/UI39/Captures/ui-selection-locked-1280x720.png",
+          "Artifacts/UI39/Captures/ui-selection-locked-1920x1080.png"
+        ]
+      },
+      {
+        "sheet": "UI39-07.png",
+        "sources": [
+          "Artifacts/UI39/Captures/ui-selection-locked-1920x1200.png",
+          "Artifacts/UI39/Captures/ui-selection-locked-2560x1080.png",
+          "Artifacts/UI39/Captures/ui-selection-locked-2560x1440.png",
+          "Artifacts/UI39/Captures/ui-selection-unlocked-1280x720.png",
+          "Artifacts/UI39/Captures/ui-selection-unlocked-1920x1080.png",
+          "Artifacts/UI39/Captures/ui-selection-unlocked-1920x1200.png"
+        ]
+      },
+      {
+        "sheet": "UI39-08.png",
+        "sources": [
+          "Artifacts/UI39/Captures/ui-selection-unlocked-2560x1080.png",
+          "Artifacts/UI39/Captures/ui-selection-unlocked-2560x1440.png",
+          "Artifacts/UI39/Captures/ui-settings-1280x720.png",
+          "Artifacts/UI39/Captures/ui-settings-1920x1080.png",
+          "Artifacts/UI39/Captures/ui-settings-1920x1200.png",
+          "Artifacts/UI39/Captures/ui-settings-2560x1080.png"
+        ]
+      },
+      {
+        "sheet": "UI39-09.png",
+        "sources": [
+          "Artifacts/UI39/Captures/ui-settings-2560x1440.png",
+          "Artifacts/UI39/Captures/ui-skills-1280x720.png",
+          "Artifacts/UI39/Captures/ui-skills-1920x1080.png",
+          "Artifacts/UI39/Captures/ui-skills-1920x1200.png",
+          "Artifacts/UI39/Captures/ui-skills-2560x1080.png",
+          "Artifacts/UI39/Captures/ui-skills-2560x1440.png"
+        ]
+      },
+      {
+        "sheet": "UI39-10.png",
+        "sources": [
+          "Artifacts/UI39/Captures/ui-upgrade-1280x720.png",
+          "Artifacts/UI39/Captures/ui-upgrade-1920x1080.png",
+          "Artifacts/UI39/Captures/ui-upgrade-1920x1200.png",
+          "Artifacts/UI39/Captures/ui-upgrade-2560x1080.png",
+          "Artifacts/UI39/Captures/ui-upgrade-2560x1440.png",
+          "Artifacts/UI39/Captures/ui-victory-1280x720.png"
+        ]
+      },
+      {
+        "sheet": "UI39-11.png",
+        "sources": [
+          "Artifacts/UI39/Captures/ui-victory-1920x1080.png",
+          "Artifacts/UI39/Captures/ui-victory-1920x1200.png",
+          "Artifacts/UI39/Captures/ui-victory-2560x1080.png",
+          "Artifacts/UI39/Captures/ui-victory-2560x1440.png"
+        ]
+      },
+      {
+        "sheet": "Probe39-00.png",
+        "sources": [
+          "Artifacts/Probe39/Captures/load-failure-terrain-forest.png",
+          "Artifacts/Probe39/Captures/load-failure-weapon-gun.png",
+          "Artifacts/Probe39/Captures/probe--2-3.png",
+          "Artifacts/Probe39/Captures/probe-0-0.png",
+          "Artifacts/Probe39/Captures/probe-1-1.png",
+          "Artifacts/Probe39/Captures/probe-20-1.png"
+        ]
+      },
+      {
+        "sheet": "Probe39-01.png",
+        "sources": [
+          "Artifacts/Probe39/Captures/probe-max-zoom-ultrawide.png"
+        ]
+      },
+      {
+        "sheet": "boss-attacks-0-00.png",
+        "sources": [
+          "Artifacts/Round39/Sequences/boss-attacks-0/0000.jpg",
+          "Artifacts/Round39/Sequences/boss-attacks-0/0013.jpg",
+          "Artifacts/Round39/Sequences/boss-attacks-0/0026.jpg",
+          "Artifacts/Round39/Sequences/boss-attacks-0/0039.jpg",
+          "Artifacts/Round39/Sequences/boss-attacks-0/0052.jpg",
+          "Artifacts/Round39/Sequences/boss-attacks-0/0065.jpg",
+          "Artifacts/Round39/Sequences/boss-attacks-0/0078.jpg",
+          "Artifacts/Round39/Sequences/boss-attacks-0/0091.jpg",
+          "Artifacts/Round39/Sequences/boss-attacks-0/0104.jpg",
+          "Artifacts/Round39/Sequences/boss-attacks-0/0117.jpg",
+          "Artifacts/Round39/Sequences/boss-attacks-0/0130.jpg",
+          "Artifacts/Round39/Sequences/boss-attacks-0/0143.jpg"
+        ]
+      },
+      {
+        "sheet": "boss-attacks-1-00.png",
+        "sources": [
+          "Artifacts/Round39/Sequences/boss-attacks-1/0000.jpg",
+          "Artifacts/Round39/Sequences/boss-attacks-1/0013.jpg",
+          "Artifacts/Round39/Sequences/boss-attacks-1/0026.jpg",
+          "Artifacts/Round39/Sequences/boss-attacks-1/0039.jpg",
+          "Artifacts/Round39/Sequences/boss-attacks-1/0052.jpg",
+          "Artifacts/Round39/Sequences/boss-attacks-1/0065.jpg",
+          "Artifacts/Round39/Sequences/boss-attacks-1/0078.jpg",
+          "Artifacts/Round39/Sequences/boss-attacks-1/0091.jpg",
+          "Artifacts/Round39/Sequences/boss-attacks-1/0104.jpg",
+          "Artifacts/Round39/Sequences/boss-attacks-1/0117.jpg",
+          "Artifacts/Round39/Sequences/boss-attacks-1/0130.jpg",
+          "Artifacts/Round39/Sequences/boss-attacks-1/0143.jpg"
+        ]
+      },
+      {
+        "sheet": "boss-attacks-2-00.png",
+        "sources": [
+          "Artifacts/Round39/Sequences/boss-attacks-2/0000.jpg",
+          "Artifacts/Round39/Sequences/boss-attacks-2/0013.jpg",
+          "Artifacts/Round39/Sequences/boss-attacks-2/0026.jpg",
+          "Artifacts/Round39/Sequences/boss-attacks-2/0039.jpg",
+          "Artifacts/Round39/Sequences/boss-attacks-2/0052.jpg",
+          "Artifacts/Round39/Sequences/boss-attacks-2/0065.jpg",
+          "Artifacts/Round39/Sequences/boss-attacks-2/0078.jpg",
+          "Artifacts/Round39/Sequences/boss-attacks-2/0091.jpg",
+          "Artifacts/Round39/Sequences/boss-attacks-2/0104.jpg",
+          "Artifacts/Round39/Sequences/boss-attacks-2/0117.jpg",
+          "Artifacts/Round39/Sequences/boss-attacks-2/0130.jpg",
+          "Artifacts/Round39/Sequences/boss-attacks-2/0143.jpg"
+        ]
+      },
+      {
+        "sheet": "boss-attacks-3-00.png",
+        "sources": [
+          "Artifacts/Round39/Sequences/boss-attacks-3/0000.jpg",
+          "Artifacts/Round39/Sequences/boss-attacks-3/0013.jpg",
+          "Artifacts/Round39/Sequences/boss-attacks-3/0026.jpg",
+          "Artifacts/Round39/Sequences/boss-attacks-3/0039.jpg",
+          "Artifacts/Round39/Sequences/boss-attacks-3/0052.jpg",
+          "Artifacts/Round39/Sequences/boss-attacks-3/0065.jpg",
+          "Artifacts/Round39/Sequences/boss-attacks-3/0078.jpg",
+          "Artifacts/Round39/Sequences/boss-attacks-3/0091.jpg",
+          "Artifacts/Round39/Sequences/boss-attacks-3/0104.jpg",
+          "Artifacts/Round39/Sequences/boss-attacks-3/0117.jpg",
+          "Artifacts/Round39/Sequences/boss-attacks-3/0130.jpg",
+          "Artifacts/Round39/Sequences/boss-attacks-3/0143.jpg"
+        ]
+      },
+      {
+        "sheet": "boss-death-0-00.png",
+        "sources": [
+          "Artifacts/Round39/Sequences/boss-death-0/0000.jpg",
+          "Artifacts/Round39/Sequences/boss-death-0/0002.jpg",
+          "Artifacts/Round39/Sequences/boss-death-0/0004.jpg",
+          "Artifacts/Round39/Sequences/boss-death-0/0006.jpg",
+          "Artifacts/Round39/Sequences/boss-death-0/0008.jpg",
+          "Artifacts/Round39/Sequences/boss-death-0/0010.jpg",
+          "Artifacts/Round39/Sequences/boss-death-0/0012.jpg",
+          "Artifacts/Round39/Sequences/boss-death-0/0014.jpg",
+          "Artifacts/Round39/Sequences/boss-death-0/0016.jpg",
+          "Artifacts/Round39/Sequences/boss-death-0/0018.jpg",
+          "Artifacts/Round39/Sequences/boss-death-0/0020.jpg",
+          "Artifacts/Round39/Sequences/boss-death-0/0022.jpg"
+        ]
+      },
+      {
+        "sheet": "boss-death-1-00.png",
+        "sources": [
+          "Artifacts/Round39/Sequences/boss-death-1/0000.jpg",
+          "Artifacts/Round39/Sequences/boss-death-1/0002.jpg",
+          "Artifacts/Round39/Sequences/boss-death-1/0004.jpg",
+          "Artifacts/Round39/Sequences/boss-death-1/0006.jpg",
+          "Artifacts/Round39/Sequences/boss-death-1/0008.jpg",
+          "Artifacts/Round39/Sequences/boss-death-1/0010.jpg",
+          "Artifacts/Round39/Sequences/boss-death-1/0013.jpg",
+          "Artifacts/Round39/Sequences/boss-death-1/0015.jpg",
+          "Artifacts/Round39/Sequences/boss-death-1/0017.jpg",
+          "Artifacts/Round39/Sequences/boss-death-1/0019.jpg",
+          "Artifacts/Round39/Sequences/boss-death-1/0021.jpg",
+          "Artifacts/Round39/Sequences/boss-death-1/0023.jpg"
+        ]
+      },
+      {
+        "sheet": "boss-death-2-00.png",
+        "sources": [
+          "Artifacts/Round39/Sequences/boss-death-2/0000.jpg",
+          "Artifacts/Round39/Sequences/boss-death-2/0002.jpg",
+          "Artifacts/Round39/Sequences/boss-death-2/0004.jpg",
+          "Artifacts/Round39/Sequences/boss-death-2/0006.jpg",
+          "Artifacts/Round39/Sequences/boss-death-2/0008.jpg",
+          "Artifacts/Round39/Sequences/boss-death-2/0010.jpg",
+          "Artifacts/Round39/Sequences/boss-death-2/0013.jpg",
+          "Artifacts/Round39/Sequences/boss-death-2/0015.jpg",
+          "Artifacts/Round39/Sequences/boss-death-2/0017.jpg",
+          "Artifacts/Round39/Sequences/boss-death-2/0019.jpg",
+          "Artifacts/Round39/Sequences/boss-death-2/0021.jpg",
+          "Artifacts/Round39/Sequences/boss-death-2/0023.jpg"
+        ]
+      },
+      {
+        "sheet": "boss-death-3-00.png",
+        "sources": [
+          "Artifacts/Round39/Sequences/boss-death-3/0000.jpg",
+          "Artifacts/Round39/Sequences/boss-death-3/0002.jpg",
+          "Artifacts/Round39/Sequences/boss-death-3/0004.jpg",
+          "Artifacts/Round39/Sequences/boss-death-3/0006.jpg",
+          "Artifacts/Round39/Sequences/boss-death-3/0008.jpg",
+          "Artifacts/Round39/Sequences/boss-death-3/0010.jpg",
+          "Artifacts/Round39/Sequences/boss-death-3/0013.jpg",
+          "Artifacts/Round39/Sequences/boss-death-3/0015.jpg",
+          "Artifacts/Round39/Sequences/boss-death-3/0017.jpg",
+          "Artifacts/Round39/Sequences/boss-death-3/0019.jpg",
+          "Artifacts/Round39/Sequences/boss-death-3/0021.jpg",
+          "Artifacts/Round39/Sequences/boss-death-3/0023.jpg"
+        ]
+      },
+      {
+        "sheet": "role-closeup-adventurer-00.png",
+        "sources": [
+          "Artifacts/Round39/Sequences/role-closeup-adventurer/0000.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-adventurer/0001.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-adventurer/0002.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-adventurer/0003.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-adventurer/0004.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-adventurer/0005.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-adventurer/0006.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-adventurer/0007.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-adventurer/0008.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-adventurer/0009.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-adventurer/0010.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-adventurer/0011.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-adventurer/0012.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-adventurer/0013.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-adventurer/0014.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-adventurer/0015.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-adventurer/0016.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-adventurer/0017.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-adventurer/0018.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-adventurer/0019.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-adventurer/0020.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-adventurer/0021.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-adventurer/0022.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-adventurer/0023.jpg"
+        ]
+      },
+      {
+        "sheet": "role-closeup-adventurer-01.png",
+        "sources": [
+          "Artifacts/Round39/Sequences/role-closeup-adventurer/0024.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-adventurer/0025.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-adventurer/0026.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-adventurer/0027.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-adventurer/0028.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-adventurer/0029.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-adventurer/0030.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-adventurer/0031.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-adventurer/0032.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-adventurer/0033.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-adventurer/0034.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-adventurer/0035.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-adventurer/0036.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-adventurer/0037.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-adventurer/0038.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-adventurer/0039.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-adventurer/0040.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-adventurer/0041.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-adventurer/0042.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-adventurer/0043.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-adventurer/0044.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-adventurer/0045.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-adventurer/0046.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-adventurer/0047.jpg"
+        ]
+      },
+      {
+        "sheet": "role-closeup-elementalist-00.png",
+        "sources": [
+          "Artifacts/Round39/Sequences/role-closeup-elementalist/0000.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-elementalist/0001.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-elementalist/0002.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-elementalist/0003.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-elementalist/0004.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-elementalist/0005.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-elementalist/0006.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-elementalist/0007.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-elementalist/0008.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-elementalist/0009.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-elementalist/0010.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-elementalist/0011.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-elementalist/0012.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-elementalist/0013.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-elementalist/0014.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-elementalist/0015.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-elementalist/0016.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-elementalist/0017.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-elementalist/0018.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-elementalist/0019.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-elementalist/0020.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-elementalist/0021.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-elementalist/0022.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-elementalist/0023.jpg"
+        ]
+      },
+      {
+        "sheet": "role-closeup-elementalist-01.png",
+        "sources": [
+          "Artifacts/Round39/Sequences/role-closeup-elementalist/0024.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-elementalist/0025.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-elementalist/0026.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-elementalist/0027.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-elementalist/0028.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-elementalist/0029.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-elementalist/0030.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-elementalist/0031.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-elementalist/0032.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-elementalist/0033.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-elementalist/0034.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-elementalist/0035.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-elementalist/0036.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-elementalist/0037.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-elementalist/0038.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-elementalist/0039.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-elementalist/0040.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-elementalist/0041.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-elementalist/0042.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-elementalist/0043.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-elementalist/0044.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-elementalist/0045.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-elementalist/0046.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-elementalist/0047.jpg"
+        ]
+      },
+      {
+        "sheet": "role-closeup-swordsman-00.png",
+        "sources": [
+          "Artifacts/Round39/Sequences/role-closeup-swordsman/0000.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-swordsman/0001.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-swordsman/0002.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-swordsman/0003.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-swordsman/0004.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-swordsman/0005.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-swordsman/0006.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-swordsman/0007.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-swordsman/0008.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-swordsman/0009.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-swordsman/0010.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-swordsman/0011.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-swordsman/0012.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-swordsman/0013.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-swordsman/0014.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-swordsman/0015.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-swordsman/0016.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-swordsman/0017.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-swordsman/0018.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-swordsman/0019.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-swordsman/0020.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-swordsman/0021.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-swordsman/0022.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-swordsman/0023.jpg"
+        ]
+      },
+      {
+        "sheet": "role-closeup-swordsman-01.png",
+        "sources": [
+          "Artifacts/Round39/Sequences/role-closeup-swordsman/0024.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-swordsman/0025.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-swordsman/0026.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-swordsman/0027.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-swordsman/0028.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-swordsman/0029.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-swordsman/0030.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-swordsman/0031.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-swordsman/0032.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-swordsman/0033.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-swordsman/0034.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-swordsman/0035.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-swordsman/0036.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-swordsman/0037.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-swordsman/0038.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-swordsman/0039.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-swordsman/0040.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-swordsman/0041.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-swordsman/0042.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-swordsman/0043.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-swordsman/0044.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-swordsman/0045.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-swordsman/0046.jpg",
+          "Artifacts/Round39/Sequences/role-closeup-swordsman/0047.jpg"
+        ]
+      },
+      {
+        "sheet": "role-action-adventurer-00.png",
+        "sources": [
+          "Artifacts/Round39/Sequences/role-action-adventurer/0000.jpg",
+          "Artifacts/Round39/Sequences/role-action-adventurer/0005.jpg",
+          "Artifacts/Round39/Sequences/role-action-adventurer/0011.jpg",
+          "Artifacts/Round39/Sequences/role-action-adventurer/0016.jpg",
+          "Artifacts/Round39/Sequences/role-action-adventurer/0021.jpg",
+          "Artifacts/Round39/Sequences/role-action-adventurer/0027.jpg",
+          "Artifacts/Round39/Sequences/role-action-adventurer/0032.jpg",
+          "Artifacts/Round39/Sequences/role-action-adventurer/0038.jpg",
+          "Artifacts/Round39/Sequences/role-action-adventurer/0043.jpg",
+          "Artifacts/Round39/Sequences/role-action-adventurer/0048.jpg",
+          "Artifacts/Round39/Sequences/role-action-adventurer/0054.jpg",
+          "Artifacts/Round39/Sequences/role-action-adventurer/0059.jpg"
+        ]
+      },
+      {
+        "sheet": "role-action-elementalist-00.png",
+        "sources": [
+          "Artifacts/Round39/Sequences/role-action-elementalist/0000.jpg",
+          "Artifacts/Round39/Sequences/role-action-elementalist/0005.jpg",
+          "Artifacts/Round39/Sequences/role-action-elementalist/0011.jpg",
+          "Artifacts/Round39/Sequences/role-action-elementalist/0016.jpg",
+          "Artifacts/Round39/Sequences/role-action-elementalist/0021.jpg",
+          "Artifacts/Round39/Sequences/role-action-elementalist/0027.jpg",
+          "Artifacts/Round39/Sequences/role-action-elementalist/0032.jpg",
+          "Artifacts/Round39/Sequences/role-action-elementalist/0038.jpg",
+          "Artifacts/Round39/Sequences/role-action-elementalist/0043.jpg",
+          "Artifacts/Round39/Sequences/role-action-elementalist/0048.jpg",
+          "Artifacts/Round39/Sequences/role-action-elementalist/0054.jpg",
+          "Artifacts/Round39/Sequences/role-action-elementalist/0059.jpg"
+        ]
+      },
+      {
+        "sheet": "role-action-swordsman-00.png",
+        "sources": [
+          "Artifacts/Round39/Sequences/role-action-swordsman/0000.jpg",
+          "Artifacts/Round39/Sequences/role-action-swordsman/0005.jpg",
+          "Artifacts/Round39/Sequences/role-action-swordsman/0011.jpg",
+          "Artifacts/Round39/Sequences/role-action-swordsman/0016.jpg",
+          "Artifacts/Round39/Sequences/role-action-swordsman/0021.jpg",
+          "Artifacts/Round39/Sequences/role-action-swordsman/0027.jpg",
+          "Artifacts/Round39/Sequences/role-action-swordsman/0032.jpg",
+          "Artifacts/Round39/Sequences/role-action-swordsman/0038.jpg",
+          "Artifacts/Round39/Sequences/role-action-swordsman/0043.jpg",
+          "Artifacts/Round39/Sequences/role-action-swordsman/0048.jpg",
+          "Artifacts/Round39/Sequences/role-action-swordsman/0054.jpg",
+          "Artifacts/Round39/Sequences/role-action-swordsman/0059.jpg"
+        ]
+      },
+      {
+        "sheet": "character-move-dodge-00.png",
+        "sources": [
+          "Artifacts/Round39/Sequences/character-move-dodge/0000.jpg",
+          "Artifacts/Round39/Sequences/character-move-dodge/0006.jpg",
+          "Artifacts/Round39/Sequences/character-move-dodge/0013.jpg",
+          "Artifacts/Round39/Sequences/character-move-dodge/0019.jpg",
+          "Artifacts/Round39/Sequences/character-move-dodge/0026.jpg",
+          "Artifacts/Round39/Sequences/character-move-dodge/0032.jpg",
+          "Artifacts/Round39/Sequences/character-move-dodge/0039.jpg",
+          "Artifacts/Round39/Sequences/character-move-dodge/0045.jpg",
+          "Artifacts/Round39/Sequences/character-move-dodge/0052.jpg",
+          "Artifacts/Round39/Sequences/character-move-dodge/0058.jpg",
+          "Artifacts/Round39/Sequences/character-move-dodge/0065.jpg",
+          "Artifacts/Round39/Sequences/character-move-dodge/0071.jpg"
+        ]
+      },
+      {
+        "sheet": "player-defeat-00.png",
+        "sources": [
+          "Artifacts/Round39/Sequences/player-defeat/0000.jpg",
+          "Artifacts/Round39/Sequences/player-defeat/0001.jpg",
+          "Artifacts/Round39/Sequences/player-defeat/0003.jpg",
+          "Artifacts/Round39/Sequences/player-defeat/0004.jpg",
+          "Artifacts/Round39/Sequences/player-defeat/0005.jpg",
+          "Artifacts/Round39/Sequences/player-defeat/0006.jpg",
+          "Artifacts/Round39/Sequences/player-defeat/0008.jpg",
+          "Artifacts/Round39/Sequences/player-defeat/0009.jpg",
+          "Artifacts/Round39/Sequences/player-defeat/0010.jpg",
+          "Artifacts/Round39/Sequences/player-defeat/0011.jpg",
+          "Artifacts/Round39/Sequences/player-defeat/0013.jpg",
+          "Artifacts/Round39/Sequences/player-defeat/0014.jpg"
+        ]
+      },
+      {
+        "sheet": "effect-arc-00.png",
+        "sources": [
+          "Artifacts/Round39/Sequences/effect-arc/0000.jpg",
+          "Artifacts/Round39/Sequences/effect-arc/0002.jpg",
+          "Artifacts/Round39/Sequences/effect-arc/0003.jpg",
+          "Artifacts/Round39/Sequences/effect-arc/0005.jpg",
+          "Artifacts/Round39/Sequences/effect-arc/0006.jpg",
+          "Artifacts/Round39/Sequences/effect-arc/0008.jpg",
+          "Artifacts/Round39/Sequences/effect-arc/0009.jpg",
+          "Artifacts/Round39/Sequences/effect-arc/0011.jpg",
+          "Artifacts/Round39/Sequences/effect-arc/0012.jpg",
+          "Artifacts/Round39/Sequences/effect-arc/0014.jpg",
+          "Artifacts/Round39/Sequences/effect-arc/0015.jpg",
+          "Artifacts/Round39/Sequences/effect-arc/0017.jpg"
+        ]
+      },
+      {
+        "sheet": "effect-embers-00.png",
+        "sources": [
+          "Artifacts/Round39/Sequences/effect-embers/0000.jpg",
+          "Artifacts/Round39/Sequences/effect-embers/0002.jpg",
+          "Artifacts/Round39/Sequences/effect-embers/0003.jpg",
+          "Artifacts/Round39/Sequences/effect-embers/0005.jpg",
+          "Artifacts/Round39/Sequences/effect-embers/0006.jpg",
+          "Artifacts/Round39/Sequences/effect-embers/0008.jpg",
+          "Artifacts/Round39/Sequences/effect-embers/0009.jpg",
+          "Artifacts/Round39/Sequences/effect-embers/0011.jpg",
+          "Artifacts/Round39/Sequences/effect-embers/0012.jpg",
+          "Artifacts/Round39/Sequences/effect-embers/0014.jpg",
+          "Artifacts/Round39/Sequences/effect-embers/0015.jpg",
+          "Artifacts/Round39/Sequences/effect-embers/0017.jpg"
+        ]
+      },
+      {
+        "sheet": "effect-explosion-00.png",
+        "sources": [
+          "Artifacts/Round39/Sequences/effect-explosion/0000.jpg",
+          "Artifacts/Round39/Sequences/effect-explosion/0001.jpg",
+          "Artifacts/Round39/Sequences/effect-explosion/0003.jpg",
+          "Artifacts/Round39/Sequences/effect-explosion/0004.jpg",
+          "Artifacts/Round39/Sequences/effect-explosion/0006.jpg",
+          "Artifacts/Round39/Sequences/effect-explosion/0007.jpg",
+          "Artifacts/Round39/Sequences/effect-explosion/0009.jpg",
+          "Artifacts/Round39/Sequences/effect-explosion/0010.jpg",
+          "Artifacts/Round39/Sequences/effect-explosion/0012.jpg",
+          "Artifacts/Round39/Sequences/effect-explosion/0013.jpg",
+          "Artifacts/Round39/Sequences/effect-explosion/0015.jpg",
+          "Artifacts/Round39/Sequences/effect-explosion/0016.jpg"
+        ]
+      },
+      {
+        "sheet": "effect-flame-00.png",
+        "sources": [
+          "Artifacts/Round39/Sequences/effect-flame/0000.jpg",
+          "Artifacts/Round39/Sequences/effect-flame/0001.jpg",
+          "Artifacts/Round39/Sequences/effect-flame/0003.jpg",
+          "Artifacts/Round39/Sequences/effect-flame/0004.jpg",
+          "Artifacts/Round39/Sequences/effect-flame/0006.jpg",
+          "Artifacts/Round39/Sequences/effect-flame/0007.jpg",
+          "Artifacts/Round39/Sequences/effect-flame/0009.jpg",
+          "Artifacts/Round39/Sequences/effect-flame/0010.jpg",
+          "Artifacts/Round39/Sequences/effect-flame/0012.jpg",
+          "Artifacts/Round39/Sequences/effect-flame/0013.jpg",
+          "Artifacts/Round39/Sequences/effect-flame/0015.jpg",
+          "Artifacts/Round39/Sequences/effect-flame/0016.jpg"
+        ]
+      },
+      {
+        "sheet": "effect-frost-00.png",
+        "sources": [
+          "Artifacts/Round39/Sequences/effect-frost/0000.jpg",
+          "Artifacts/Round39/Sequences/effect-frost/0002.jpg",
+          "Artifacts/Round39/Sequences/effect-frost/0003.jpg",
+          "Artifacts/Round39/Sequences/effect-frost/0005.jpg",
+          "Artifacts/Round39/Sequences/effect-frost/0006.jpg",
+          "Artifacts/Round39/Sequences/effect-frost/0008.jpg",
+          "Artifacts/Round39/Sequences/effect-frost/0009.jpg",
+          "Artifacts/Round39/Sequences/effect-frost/0011.jpg",
+          "Artifacts/Round39/Sequences/effect-frost/0012.jpg",
+          "Artifacts/Round39/Sequences/effect-frost/0014.jpg",
+          "Artifacts/Round39/Sequences/effect-frost/0015.jpg",
+          "Artifacts/Round39/Sequences/effect-frost/0017.jpg"
+        ]
+      },
+      {
+        "sheet": "effect-iceburst-00.png",
+        "sources": [
+          "Artifacts/Round39/Sequences/effect-iceburst/0000.jpg",
+          "Artifacts/Round39/Sequences/effect-iceburst/0002.jpg",
+          "Artifacts/Round39/Sequences/effect-iceburst/0003.jpg",
+          "Artifacts/Round39/Sequences/effect-iceburst/0005.jpg",
+          "Artifacts/Round39/Sequences/effect-iceburst/0006.jpg",
+          "Artifacts/Round39/Sequences/effect-iceburst/0008.jpg",
+          "Artifacts/Round39/Sequences/effect-iceburst/0009.jpg",
+          "Artifacts/Round39/Sequences/effect-iceburst/0011.jpg",
+          "Artifacts/Round39/Sequences/effect-iceburst/0012.jpg",
+          "Artifacts/Round39/Sequences/effect-iceburst/0014.jpg",
+          "Artifacts/Round39/Sequences/effect-iceburst/0015.jpg",
+          "Artifacts/Round39/Sequences/effect-iceburst/0017.jpg"
+        ]
+      },
+      {
+        "sheet": "effect-leafburst-00.png",
+        "sources": [
+          "Artifacts/Round39/Sequences/effect-leafburst/0000.jpg",
+          "Artifacts/Round39/Sequences/effect-leafburst/0002.jpg",
+          "Artifacts/Round39/Sequences/effect-leafburst/0003.jpg",
+          "Artifacts/Round39/Sequences/effect-leafburst/0005.jpg",
+          "Artifacts/Round39/Sequences/effect-leafburst/0006.jpg",
+          "Artifacts/Round39/Sequences/effect-leafburst/0008.jpg",
+          "Artifacts/Round39/Sequences/effect-leafburst/0009.jpg",
+          "Artifacts/Round39/Sequences/effect-leafburst/0011.jpg",
+          "Artifacts/Round39/Sequences/effect-leafburst/0012.jpg",
+          "Artifacts/Round39/Sequences/effect-leafburst/0014.jpg",
+          "Artifacts/Round39/Sequences/effect-leafburst/0015.jpg",
+          "Artifacts/Round39/Sequences/effect-leafburst/0017.jpg"
+        ]
+      },
+      {
+        "sheet": "effect-lightning-00.png",
+        "sources": [
+          "Artifacts/Round39/Sequences/effect-lightning/0000.jpg",
+          "Artifacts/Round39/Sequences/effect-lightning/0002.jpg",
+          "Artifacts/Round39/Sequences/effect-lightning/0003.jpg",
+          "Artifacts/Round39/Sequences/effect-lightning/0005.jpg",
+          "Artifacts/Round39/Sequences/effect-lightning/0006.jpg",
+          "Artifacts/Round39/Sequences/effect-lightning/0008.jpg",
+          "Artifacts/Round39/Sequences/effect-lightning/0009.jpg",
+          "Artifacts/Round39/Sequences/effect-lightning/0011.jpg",
+          "Artifacts/Round39/Sequences/effect-lightning/0012.jpg",
+          "Artifacts/Round39/Sequences/effect-lightning/0014.jpg",
+          "Artifacts/Round39/Sequences/effect-lightning/0015.jpg",
+          "Artifacts/Round39/Sequences/effect-lightning/0017.jpg"
+        ]
+      },
+      {
+        "sheet": "effect-rune-00.png",
+        "sources": [
+          "Artifacts/Round39/Sequences/effect-rune/0000.jpg",
+          "Artifacts/Round39/Sequences/effect-rune/0002.jpg",
+          "Artifacts/Round39/Sequences/effect-rune/0003.jpg",
+          "Artifacts/Round39/Sequences/effect-rune/0005.jpg",
+          "Artifacts/Round39/Sequences/effect-rune/0006.jpg",
+          "Artifacts/Round39/Sequences/effect-rune/0008.jpg",
+          "Artifacts/Round39/Sequences/effect-rune/0009.jpg",
+          "Artifacts/Round39/Sequences/effect-rune/0011.jpg",
+          "Artifacts/Round39/Sequences/effect-rune/0012.jpg",
+          "Artifacts/Round39/Sequences/effect-rune/0014.jpg",
+          "Artifacts/Round39/Sequences/effect-rune/0015.jpg",
+          "Artifacts/Round39/Sequences/effect-rune/0017.jpg"
+        ]
+      },
+      {
+        "sheet": "effect-sand-00.png",
+        "sources": [
+          "Artifacts/Round39/Sequences/effect-sand/0000.jpg",
+          "Artifacts/Round39/Sequences/effect-sand/0001.jpg",
+          "Artifacts/Round39/Sequences/effect-sand/0003.jpg",
+          "Artifacts/Round39/Sequences/effect-sand/0004.jpg",
+          "Artifacts/Round39/Sequences/effect-sand/0005.jpg",
+          "Artifacts/Round39/Sequences/effect-sand/0006.jpg",
+          "Artifacts/Round39/Sequences/effect-sand/0008.jpg",
+          "Artifacts/Round39/Sequences/effect-sand/0009.jpg",
+          "Artifacts/Round39/Sequences/effect-sand/0010.jpg",
+          "Artifacts/Round39/Sequences/effect-sand/0011.jpg",
+          "Artifacts/Round39/Sequences/effect-sand/0013.jpg",
+          "Artifacts/Round39/Sequences/effect-sand/0014.jpg"
+        ]
+      },
+      {
+        "sheet": "effect-slash-00.png",
+        "sources": [
+          "Artifacts/Round39/Sequences/effect-slash/0000.jpg",
+          "Artifacts/Round39/Sequences/effect-slash/0002.jpg",
+          "Artifacts/Round39/Sequences/effect-slash/0003.jpg",
+          "Artifacts/Round39/Sequences/effect-slash/0005.jpg",
+          "Artifacts/Round39/Sequences/effect-slash/0006.jpg",
+          "Artifacts/Round39/Sequences/effect-slash/0008.jpg",
+          "Artifacts/Round39/Sequences/effect-slash/0009.jpg",
+          "Artifacts/Round39/Sequences/effect-slash/0011.jpg",
+          "Artifacts/Round39/Sequences/effect-slash/0012.jpg",
+          "Artifacts/Round39/Sequences/effect-slash/0014.jpg",
+          "Artifacts/Round39/Sequences/effect-slash/0015.jpg",
+          "Artifacts/Round39/Sequences/effect-slash/0017.jpg"
+        ]
+      },
+      {
+        "sheet": "feedback-pause-open-00.png",
+        "sources": [
+          "Artifacts/Round39/Sequences/feedback-pause-open/0000.jpg",
+          "Artifacts/Round39/Sequences/feedback-pause-open/0001.jpg",
+          "Artifacts/Round39/Sequences/feedback-pause-open/0002.jpg",
+          "Artifacts/Round39/Sequences/feedback-pause-open/0003.jpg",
+          "Artifacts/Round39/Sequences/feedback-pause-open/0004.jpg",
+          "Artifacts/Round39/Sequences/feedback-pause-open/0005.jpg",
+          "Artifacts/Round39/Sequences/feedback-pause-open/0006.jpg",
+          "Artifacts/Round39/Sequences/feedback-pause-open/0007.jpg",
+          "Artifacts/Round39/Sequences/feedback-pause-open/0008.jpg"
+        ]
+      },
+      {
+        "sheet": "feedback-skills-open-00.png",
+        "sources": [
+          "Artifacts/Round39/Sequences/feedback-skills-open/0000.jpg",
+          "Artifacts/Round39/Sequences/feedback-skills-open/0001.jpg",
+          "Artifacts/Round39/Sequences/feedback-skills-open/0002.jpg",
+          "Artifacts/Round39/Sequences/feedback-skills-open/0003.jpg",
+          "Artifacts/Round39/Sequences/feedback-skills-open/0004.jpg",
+          "Artifacts/Round39/Sequences/feedback-skills-open/0005.jpg",
+          "Artifacts/Round39/Sequences/feedback-skills-open/0006.jpg"
+        ]
+      },
+      {
+        "sheet": "feedback-task-unlock-00.png",
+        "sources": [
+          "Artifacts/Round39/Sequences/feedback-task-unlock/0000.jpg",
+          "Artifacts/Round39/Sequences/feedback-task-unlock/0001.jpg",
+          "Artifacts/Round39/Sequences/feedback-task-unlock/0002.jpg",
+          "Artifacts/Round39/Sequences/feedback-task-unlock/0003.jpg",
+          "Artifacts/Round39/Sequences/feedback-task-unlock/0004.jpg",
+          "Artifacts/Round39/Sequences/feedback-task-unlock/0005.jpg",
+          "Artifacts/Round39/Sequences/feedback-task-unlock/0006.jpg",
+          "Artifacts/Round39/Sequences/feedback-task-unlock/0007.jpg",
+          "Artifacts/Round39/Sequences/feedback-task-unlock/0008.jpg",
+          "Artifacts/Round39/Sequences/feedback-task-unlock/0009.jpg"
+        ]
+      },
+      {
+        "sheet": "feedback-upgrade-open-00.png",
+        "sources": [
+          "Artifacts/Round39/Sequences/feedback-upgrade-open/0000.jpg",
+          "Artifacts/Round39/Sequences/feedback-upgrade-open/0001.jpg",
+          "Artifacts/Round39/Sequences/feedback-upgrade-open/0002.jpg",
+          "Artifacts/Round39/Sequences/feedback-upgrade-open/0003.jpg",
+          "Artifacts/Round39/Sequences/feedback-upgrade-open/0004.jpg",
+          "Artifacts/Round39/Sequences/feedback-upgrade-open/0005.jpg",
+          "Artifacts/Round39/Sequences/feedback-upgrade-open/0006.jpg",
+          "Artifacts/Round39/Sequences/feedback-upgrade-open/0007.jpg"
+        ]
+      },
+      {
+        "sheet": "feedback-upgrade-reward-00.png",
+        "sources": [
+          "Artifacts/Round39/Sequences/feedback-upgrade-reward/0000.jpg",
+          "Artifacts/Round39/Sequences/feedback-upgrade-reward/0001.jpg",
+          "Artifacts/Round39/Sequences/feedback-upgrade-reward/0002.jpg",
+          "Artifacts/Round39/Sequences/feedback-upgrade-reward/0003.jpg",
+          "Artifacts/Round39/Sequences/feedback-upgrade-reward/0004.jpg",
+          "Artifacts/Round39/Sequences/feedback-upgrade-reward/0005.jpg",
+          "Artifacts/Round39/Sequences/feedback-upgrade-reward/0006.jpg",
+          "Artifacts/Round39/Sequences/feedback-upgrade-reward/0007.jpg",
+          "Artifacts/Round39/Sequences/feedback-upgrade-reward/0008.jpg"
+        ]
+      },
+      {
+        "sheet": "late-density-combinations-00.png",
+        "sources": [
+          "Artifacts/Round39/Sequences/late-density-combinations/0000.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0001.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0002.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0003.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0004.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0005.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0006.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0007.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0008.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0009.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0010.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0011.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0012.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0013.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0014.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0015.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0016.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0017.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0018.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0019.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0020.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0021.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0022.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0023.jpg"
+        ]
+      },
+      {
+        "sheet": "late-density-combinations-01.png",
+        "sources": [
+          "Artifacts/Round39/Sequences/late-density-combinations/0024.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0025.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0026.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0027.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0028.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0029.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0030.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0031.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0032.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0033.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0034.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0035.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0036.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0037.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0038.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0039.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0040.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0041.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0042.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0043.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0044.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0045.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0046.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0047.jpg"
+        ]
+      },
+      {
+        "sheet": "late-density-combinations-02.png",
+        "sources": [
+          "Artifacts/Round39/Sequences/late-density-combinations/0048.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0049.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0050.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0051.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0052.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0053.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0054.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0055.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0056.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0057.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0058.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0059.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0060.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0061.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0062.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0063.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0064.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0065.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0066.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0067.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0068.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0069.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0070.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0071.jpg"
+        ]
+      },
+      {
+        "sheet": "late-density-combinations-03.png",
+        "sources": [
+          "Artifacts/Round39/Sequences/late-density-combinations/0072.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0073.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0074.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0075.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0076.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0077.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0078.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0079.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0080.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0081.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0082.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0083.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0084.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0085.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0086.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0087.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0088.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0089.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0090.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0091.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0092.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0093.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0094.jpg",
+          "Artifacts/Round39/Sequences/late-density-combinations/0095.jpg"
+        ]
+      }
+    ],
+    "originalsOpened": [
+      "Artifacts/Round39/Captures/waterside-architecture-0.png",
+      "Artifacts/Round39/Captures/waterside-architecture-1.png",
+      "Artifacts/Round39/Captures/waterside-architecture-2.png",
+      "Artifacts/Round39/Captures/waterside-architecture-3.png",
+      "Artifacts/Round39/Captures/experience-aggregates.png",
+      "Artifacts/Round39/Captures/experience-aggregates-low.png",
+      "Artifacts/UI39/Captures/ui-selection-locked-1280x720.png",
+      "Artifacts/UI39/Captures/ui-progress-1280x720.png",
+      "Artifacts/UI39/Captures/ui-skills-1280x720.png",
+      "Artifacts/UI39/Captures/ui-upgrade-2560x1440.png",
+      "Artifacts/Round39/Captures/character-adventurer.png",
+      "Artifacts/Round39/Captures/character-elementalist.png",
+      "Artifacts/Round39/Captures/character-swordsman.png",
+      "Artifacts/Round39/Captures/boss-closeup-0.png",
+      "Artifacts/Round39/Captures/boss-closeup-1.png",
+      "Artifacts/Round39/Captures/boss-closeup-2.png",
+      "Artifacts/Round39/Captures/boss-closeup-3.png",
+      "Artifacts/Round39/Captures/sanctuary-completed-0.png",
+      "Artifacts/Round39/Captures/sanctuary-completed-1.png",
+      "Artifacts/Round39/Captures/sanctuary-completed-2.png",
+      "Artifacts/Round39/Captures/sanctuary-completed-3.png",
+      "Artifacts/Round39/Captures/sanctuary-0.png",
+      "Artifacts/Round39/Captures/sanctuary-1.png",
+      "Artifacts/Round39/Captures/sanctuary-2.png",
+      "Artifacts/Round39/Captures/sanctuary-close-3.png",
+      "Artifacts/Round39/Captures/geography-wide-3-2.png",
+      "Artifacts/Round39/Captures/mixed-boundary-2-3.png",
+      "Artifacts/Round39/Captures/mixed-lava-shore-close.png",
+      "Artifacts/Round39/Sequences/boss-attacks-0/0018.jpg",
+      "Artifacts/Round39/Sequences/boss-attacks-0/0019.jpg",
+      "Artifacts/Round39/Sequences/boss-attacks-0/0020.jpg",
+      "Artifacts/Round39/Sequences/boss-attacks-0/0021.jpg",
+      "Artifacts/Round39/Sequences/boss-attacks-0/0026.jpg",
+      "Artifacts/Round39/Sequences/boss-attacks-1/0018.jpg",
+      "Artifacts/Round39/Sequences/boss-attacks-1/0019.jpg",
+      "Artifacts/Round39/Sequences/boss-attacks-1/0020.jpg",
+      "Artifacts/Round39/Sequences/boss-attacks-1/0021.jpg",
+      "Artifacts/Round39/Sequences/boss-attacks-1/0026.jpg",
+      "Artifacts/Round39/Sequences/boss-attacks-2/0018.jpg",
+      "Artifacts/Round39/Sequences/boss-attacks-2/0019.jpg",
+      "Artifacts/Round39/Sequences/boss-attacks-2/0020.jpg",
+      "Artifacts/Round39/Sequences/boss-attacks-2/0021.jpg",
+      "Artifacts/Round39/Sequences/boss-attacks-2/0026.jpg",
+      "Artifacts/Round39/Sequences/boss-attacks-3/0018.jpg",
+      "Artifacts/Round39/Sequences/boss-attacks-3/0019.jpg",
+      "Artifacts/Round39/Sequences/boss-attacks-3/0020.jpg",
+      "Artifacts/Round39/Sequences/boss-attacks-3/0021.jpg",
+      "Artifacts/Round39/Sequences/boss-attacks-3/0026.jpg",
+      "Artifacts/Round39/Sequences/late-density-combinations/0016.jpg",
+      "Artifacts/Round39/Sequences/late-density-combinations/0024.jpg",
+      "Artifacts/Round39/Sequences/late-density-combinations/0055.jpg",
+      "Artifacts/Round39/Sequences/late-density-combinations/0078.jpg",
+      "Artifacts/Round39/Sequences/character-move-dodge/0038.jpg",
+      "Artifacts/Round39/Sequences/effect-frost/0010.jpg",
+      "Artifacts/Round39/Captures/21-map.png"
+    ],
+    "samplingIndex": "Docs/ArtReviews/Round39/ReviewSampling.json",
+    "sequenceSampling": [
+      {
+        "sequence": "boss-attacks-0",
+        "totalFrames": 144,
+        "reviewedFrames": [
+          "0000.jpg",
+          "0013.jpg",
+          "0026.jpg",
+          "0039.jpg",
+          "0052.jpg",
+          "0065.jpg",
+          "0078.jpg",
+          "0091.jpg",
+          "0104.jpg",
+          "0117.jpg",
+          "0130.jpg",
+          "0143.jpg"
+        ],
+        "metadata": {
+          "source": "development Player Camera.Render with live UI",
+          "fixedSimulationFps": 12,
+          "frames": 144,
+          "controlledPlayerHealing": true,
+          "enemyImmortalForRoleCapture": false,
+          "enemyStationaryForRoleCapture": false,
+          "bossImmortalForAnimationCapture": true
+        }
+      },
+      {
+        "sequence": "boss-attacks-1",
+        "totalFrames": 144,
+        "reviewedFrames": [
+          "0000.jpg",
+          "0013.jpg",
+          "0026.jpg",
+          "0039.jpg",
+          "0052.jpg",
+          "0065.jpg",
+          "0078.jpg",
+          "0091.jpg",
+          "0104.jpg",
+          "0117.jpg",
+          "0130.jpg",
+          "0143.jpg"
+        ],
+        "metadata": {
+          "source": "development Player Camera.Render with live UI",
+          "fixedSimulationFps": 12,
+          "frames": 144,
+          "controlledPlayerHealing": true,
+          "enemyImmortalForRoleCapture": false,
+          "enemyStationaryForRoleCapture": false,
+          "bossImmortalForAnimationCapture": true
+        }
+      },
+      {
+        "sequence": "boss-attacks-2",
+        "totalFrames": 144,
+        "reviewedFrames": [
+          "0000.jpg",
+          "0013.jpg",
+          "0026.jpg",
+          "0039.jpg",
+          "0052.jpg",
+          "0065.jpg",
+          "0078.jpg",
+          "0091.jpg",
+          "0104.jpg",
+          "0117.jpg",
+          "0130.jpg",
+          "0143.jpg"
+        ],
+        "metadata": {
+          "source": "development Player Camera.Render with live UI",
+          "fixedSimulationFps": 12,
+          "frames": 144,
+          "controlledPlayerHealing": true,
+          "enemyImmortalForRoleCapture": false,
+          "enemyStationaryForRoleCapture": false,
+          "bossImmortalForAnimationCapture": true
+        }
+      },
+      {
+        "sequence": "boss-attacks-3",
+        "totalFrames": 144,
+        "reviewedFrames": [
+          "0000.jpg",
+          "0013.jpg",
+          "0026.jpg",
+          "0039.jpg",
+          "0052.jpg",
+          "0065.jpg",
+          "0078.jpg",
+          "0091.jpg",
+          "0104.jpg",
+          "0117.jpg",
+          "0130.jpg",
+          "0143.jpg"
+        ],
+        "metadata": {
+          "source": "development Player Camera.Render with live UI",
+          "fixedSimulationFps": 12,
+          "frames": 144,
+          "controlledPlayerHealing": true,
+          "enemyImmortalForRoleCapture": false,
+          "enemyStationaryForRoleCapture": false,
+          "bossImmortalForAnimationCapture": true
+        }
+      },
+      {
+        "sequence": "boss-death-0",
+        "totalFrames": 23,
+        "reviewedFrames": [
+          "0000.jpg",
+          "0002.jpg",
+          "0004.jpg",
+          "0006.jpg",
+          "0008.jpg",
+          "0010.jpg",
+          "0012.jpg",
+          "0014.jpg",
+          "0016.jpg",
+          "0018.jpg",
+          "0020.jpg",
+          "0022.jpg"
+        ],
+        "metadata": {
+          "source": "development Player actual runtime animation",
+          "wallClockTimestamps": true,
+          "frames": 23,
+          "requestedIntervalSeconds": 0.03333,
+          "fixedSimulationFps": null
+        }
+      },
+      {
+        "sequence": "boss-death-1",
+        "totalFrames": 24,
+        "reviewedFrames": [
+          "0000.jpg",
+          "0002.jpg",
+          "0004.jpg",
+          "0006.jpg",
+          "0008.jpg",
+          "0010.jpg",
+          "0013.jpg",
+          "0015.jpg",
+          "0017.jpg",
+          "0019.jpg",
+          "0021.jpg",
+          "0023.jpg"
+        ],
+        "metadata": {
+          "source": "development Player actual runtime animation",
+          "wallClockTimestamps": true,
+          "frames": 24,
+          "requestedIntervalSeconds": 0.03333,
+          "fixedSimulationFps": null
+        }
+      },
+      {
+        "sequence": "boss-death-2",
+        "totalFrames": 24,
+        "reviewedFrames": [
+          "0000.jpg",
+          "0002.jpg",
+          "0004.jpg",
+          "0006.jpg",
+          "0008.jpg",
+          "0010.jpg",
+          "0013.jpg",
+          "0015.jpg",
+          "0017.jpg",
+          "0019.jpg",
+          "0021.jpg",
+          "0023.jpg"
+        ],
+        "metadata": {
+          "source": "development Player actual runtime animation",
+          "wallClockTimestamps": true,
+          "frames": 24,
+          "requestedIntervalSeconds": 0.03333,
+          "fixedSimulationFps": null
+        }
+      },
+      {
+        "sequence": "boss-death-3",
+        "totalFrames": 24,
+        "reviewedFrames": [
+          "0000.jpg",
+          "0002.jpg",
+          "0004.jpg",
+          "0006.jpg",
+          "0008.jpg",
+          "0010.jpg",
+          "0013.jpg",
+          "0015.jpg",
+          "0017.jpg",
+          "0019.jpg",
+          "0021.jpg",
+          "0023.jpg"
+        ],
+        "metadata": {
+          "source": "development Player actual runtime animation",
+          "wallClockTimestamps": true,
+          "frames": 24,
+          "requestedIntervalSeconds": 0.03333,
+          "fixedSimulationFps": null
+        }
+      },
+      {
+        "sequence": "character-move-dodge",
+        "totalFrames": 72,
+        "reviewedFrames": [
+          "0000.jpg",
+          "0006.jpg",
+          "0013.jpg",
+          "0019.jpg",
+          "0026.jpg",
+          "0032.jpg",
+          "0039.jpg",
+          "0045.jpg",
+          "0052.jpg",
+          "0058.jpg",
+          "0065.jpg",
+          "0071.jpg"
+        ],
+        "metadata": {
+          "source": "development Player Camera.Render with live UI",
+          "fixedSimulationFps": 12,
+          "frames": 72,
+          "controlledPlayerHealing": true,
+          "enemyImmortalForRoleCapture": false,
+          "enemyStationaryForRoleCapture": false,
+          "bossImmortalForAnimationCapture": false
+        }
+      },
+      {
+        "sequence": "effect-arc",
+        "totalFrames": 18,
+        "reviewedFrames": [
+          "0000.jpg",
+          "0002.jpg",
+          "0003.jpg",
+          "0005.jpg",
+          "0006.jpg",
+          "0008.jpg",
+          "0009.jpg",
+          "0011.jpg",
+          "0012.jpg",
+          "0014.jpg",
+          "0015.jpg",
+          "0017.jpg"
+        ],
+        "metadata": {
+          "source": "development Player actual runtime animation",
+          "wallClockTimestamps": true,
+          "frames": 18,
+          "requestedIntervalSeconds": 0.03333,
+          "fixedSimulationFps": null
+        }
+      },
+      {
+        "sequence": "effect-embers",
+        "totalFrames": 18,
+        "reviewedFrames": [
+          "0000.jpg",
+          "0002.jpg",
+          "0003.jpg",
+          "0005.jpg",
+          "0006.jpg",
+          "0008.jpg",
+          "0009.jpg",
+          "0011.jpg",
+          "0012.jpg",
+          "0014.jpg",
+          "0015.jpg",
+          "0017.jpg"
+        ],
+        "metadata": {
+          "source": "development Player actual runtime animation",
+          "wallClockTimestamps": true,
+          "frames": 18,
+          "requestedIntervalSeconds": 0.03333,
+          "fixedSimulationFps": null
+        }
+      },
+      {
+        "sequence": "effect-explosion",
+        "totalFrames": 17,
+        "reviewedFrames": [
+          "0000.jpg",
+          "0001.jpg",
+          "0003.jpg",
+          "0004.jpg",
+          "0006.jpg",
+          "0007.jpg",
+          "0009.jpg",
+          "0010.jpg",
+          "0012.jpg",
+          "0013.jpg",
+          "0015.jpg",
+          "0016.jpg"
+        ],
+        "metadata": {
+          "source": "development Player actual runtime animation",
+          "wallClockTimestamps": true,
+          "frames": 17,
+          "requestedIntervalSeconds": 0.03333,
+          "fixedSimulationFps": null
+        }
+      },
+      {
+        "sequence": "effect-flame",
+        "totalFrames": 17,
+        "reviewedFrames": [
+          "0000.jpg",
+          "0001.jpg",
+          "0003.jpg",
+          "0004.jpg",
+          "0006.jpg",
+          "0007.jpg",
+          "0009.jpg",
+          "0010.jpg",
+          "0012.jpg",
+          "0013.jpg",
+          "0015.jpg",
+          "0016.jpg"
+        ],
+        "metadata": {
+          "source": "development Player actual runtime animation",
+          "wallClockTimestamps": true,
+          "frames": 17,
+          "requestedIntervalSeconds": 0.03333,
+          "fixedSimulationFps": null
+        }
+      },
+      {
+        "sequence": "effect-frost",
+        "totalFrames": 18,
+        "reviewedFrames": [
+          "0000.jpg",
+          "0002.jpg",
+          "0003.jpg",
+          "0005.jpg",
+          "0006.jpg",
+          "0008.jpg",
+          "0009.jpg",
+          "0011.jpg",
+          "0012.jpg",
+          "0014.jpg",
+          "0015.jpg",
+          "0017.jpg"
+        ],
+        "metadata": {
+          "source": "development Player actual runtime animation",
+          "wallClockTimestamps": true,
+          "frames": 18,
+          "requestedIntervalSeconds": 0.03333,
+          "fixedSimulationFps": null
+        }
+      },
+      {
+        "sequence": "effect-iceburst",
+        "totalFrames": 18,
+        "reviewedFrames": [
+          "0000.jpg",
+          "0002.jpg",
+          "0003.jpg",
+          "0005.jpg",
+          "0006.jpg",
+          "0008.jpg",
+          "0009.jpg",
+          "0011.jpg",
+          "0012.jpg",
+          "0014.jpg",
+          "0015.jpg",
+          "0017.jpg"
+        ],
+        "metadata": {
+          "source": "development Player actual runtime animation",
+          "wallClockTimestamps": true,
+          "frames": 18,
+          "requestedIntervalSeconds": 0.03333,
+          "fixedSimulationFps": null
+        }
+      },
+      {
+        "sequence": "effect-leafburst",
+        "totalFrames": 18,
+        "reviewedFrames": [
+          "0000.jpg",
+          "0002.jpg",
+          "0003.jpg",
+          "0005.jpg",
+          "0006.jpg",
+          "0008.jpg",
+          "0009.jpg",
+          "0011.jpg",
+          "0012.jpg",
+          "0014.jpg",
+          "0015.jpg",
+          "0017.jpg"
+        ],
+        "metadata": {
+          "source": "development Player actual runtime animation",
+          "wallClockTimestamps": true,
+          "frames": 18,
+          "requestedIntervalSeconds": 0.03333,
+          "fixedSimulationFps": null
+        }
+      },
+      {
+        "sequence": "effect-lightning",
+        "totalFrames": 18,
+        "reviewedFrames": [
+          "0000.jpg",
+          "0002.jpg",
+          "0003.jpg",
+          "0005.jpg",
+          "0006.jpg",
+          "0008.jpg",
+          "0009.jpg",
+          "0011.jpg",
+          "0012.jpg",
+          "0014.jpg",
+          "0015.jpg",
+          "0017.jpg"
+        ],
+        "metadata": {
+          "source": "development Player actual runtime animation",
+          "wallClockTimestamps": true,
+          "frames": 18,
+          "requestedIntervalSeconds": 0.03333,
+          "fixedSimulationFps": null
+        }
+      },
+      {
+        "sequence": "effect-rune",
+        "totalFrames": 18,
+        "reviewedFrames": [
+          "0000.jpg",
+          "0002.jpg",
+          "0003.jpg",
+          "0005.jpg",
+          "0006.jpg",
+          "0008.jpg",
+          "0009.jpg",
+          "0011.jpg",
+          "0012.jpg",
+          "0014.jpg",
+          "0015.jpg",
+          "0017.jpg"
+        ],
+        "metadata": {
+          "source": "development Player actual runtime animation",
+          "wallClockTimestamps": true,
+          "frames": 18,
+          "requestedIntervalSeconds": 0.03333,
+          "fixedSimulationFps": null
+        }
+      },
+      {
+        "sequence": "effect-sand",
+        "totalFrames": 15,
+        "reviewedFrames": [
+          "0000.jpg",
+          "0001.jpg",
+          "0003.jpg",
+          "0004.jpg",
+          "0005.jpg",
+          "0006.jpg",
+          "0008.jpg",
+          "0009.jpg",
+          "0010.jpg",
+          "0011.jpg",
+          "0013.jpg",
+          "0014.jpg"
+        ],
+        "metadata": {
+          "source": "development Player actual runtime animation",
+          "wallClockTimestamps": true,
+          "frames": 15,
+          "requestedIntervalSeconds": 0.03333,
+          "fixedSimulationFps": null
+        }
+      },
+      {
+        "sequence": "effect-slash",
+        "totalFrames": 18,
+        "reviewedFrames": [
+          "0000.jpg",
+          "0002.jpg",
+          "0003.jpg",
+          "0005.jpg",
+          "0006.jpg",
+          "0008.jpg",
+          "0009.jpg",
+          "0011.jpg",
+          "0012.jpg",
+          "0014.jpg",
+          "0015.jpg",
+          "0017.jpg"
+        ],
+        "metadata": {
+          "source": "development Player actual runtime animation",
+          "wallClockTimestamps": true,
+          "frames": 18,
+          "requestedIntervalSeconds": 0.03333,
+          "fixedSimulationFps": null
+        }
+      },
+      {
+        "sequence": "feedback-pause-open",
+        "totalFrames": 9,
+        "reviewedFrames": [
+          "0000.jpg",
+          "0001.jpg",
+          "0002.jpg",
+          "0003.jpg",
+          "0004.jpg",
+          "0005.jpg",
+          "0006.jpg",
+          "0007.jpg",
+          "0008.jpg"
+        ],
+        "metadata": {
+          "source": "development Player actual runtime animation",
+          "wallClockTimestamps": true,
+          "frames": 9,
+          "requestedIntervalSeconds": 0.03333,
+          "fixedSimulationFps": null
+        }
+      },
+      {
+        "sequence": "feedback-skills-open",
+        "totalFrames": 7,
+        "reviewedFrames": [
+          "0000.jpg",
+          "0001.jpg",
+          "0002.jpg",
+          "0003.jpg",
+          "0004.jpg",
+          "0005.jpg",
+          "0006.jpg"
+        ],
+        "metadata": {
+          "source": "development Player actual runtime animation",
+          "wallClockTimestamps": true,
+          "frames": 7,
+          "requestedIntervalSeconds": 0.03333,
+          "fixedSimulationFps": null
+        }
+      },
+      {
+        "sequence": "feedback-task-unlock",
+        "totalFrames": 10,
+        "reviewedFrames": [
+          "0000.jpg",
+          "0001.jpg",
+          "0002.jpg",
+          "0003.jpg",
+          "0004.jpg",
+          "0005.jpg",
+          "0006.jpg",
+          "0007.jpg",
+          "0008.jpg",
+          "0009.jpg"
+        ],
+        "metadata": {
+          "source": "development Player actual runtime animation",
+          "wallClockTimestamps": true,
+          "frames": 10,
+          "requestedIntervalSeconds": 0.03333,
+          "fixedSimulationFps": null
+        }
+      },
+      {
+        "sequence": "feedback-upgrade-open",
+        "totalFrames": 8,
+        "reviewedFrames": [
+          "0000.jpg",
+          "0001.jpg",
+          "0002.jpg",
+          "0003.jpg",
+          "0004.jpg",
+          "0005.jpg",
+          "0006.jpg",
+          "0007.jpg"
+        ],
+        "metadata": {
+          "source": "development Player actual runtime animation",
+          "wallClockTimestamps": true,
+          "frames": 8,
+          "requestedIntervalSeconds": 0.03333,
+          "fixedSimulationFps": null
+        }
+      },
+      {
+        "sequence": "feedback-upgrade-reward",
+        "totalFrames": 9,
+        "reviewedFrames": [
+          "0000.jpg",
+          "0001.jpg",
+          "0002.jpg",
+          "0003.jpg",
+          "0004.jpg",
+          "0005.jpg",
+          "0006.jpg",
+          "0007.jpg",
+          "0008.jpg"
+        ],
+        "metadata": {
+          "source": "development Player actual runtime animation",
+          "wallClockTimestamps": true,
+          "frames": 9,
+          "requestedIntervalSeconds": 0.03333,
+          "fixedSimulationFps": null
+        }
+      },
+      {
+        "sequence": "late-density-combinations",
+        "totalFrames": 96,
+        "reviewedFrames": [
+          "0000.jpg",
+          "0001.jpg",
+          "0002.jpg",
+          "0003.jpg",
+          "0004.jpg",
+          "0005.jpg",
+          "0006.jpg",
+          "0007.jpg",
+          "0008.jpg",
+          "0009.jpg",
+          "0010.jpg",
+          "0011.jpg",
+          "0012.jpg",
+          "0013.jpg",
+          "0014.jpg",
+          "0015.jpg",
+          "0016.jpg",
+          "0017.jpg",
+          "0018.jpg",
+          "0019.jpg",
+          "0020.jpg",
+          "0021.jpg",
+          "0022.jpg",
+          "0023.jpg",
+          "0024.jpg",
+          "0025.jpg",
+          "0026.jpg",
+          "0027.jpg",
+          "0028.jpg",
+          "0029.jpg",
+          "0030.jpg",
+          "0031.jpg",
+          "0032.jpg",
+          "0033.jpg",
+          "0034.jpg",
+          "0035.jpg",
+          "0036.jpg",
+          "0037.jpg",
+          "0038.jpg",
+          "0039.jpg",
+          "0040.jpg",
+          "0041.jpg",
+          "0042.jpg",
+          "0043.jpg",
+          "0044.jpg",
+          "0045.jpg",
+          "0046.jpg",
+          "0047.jpg",
+          "0048.jpg",
+          "0049.jpg",
+          "0050.jpg",
+          "0051.jpg",
+          "0052.jpg",
+          "0053.jpg",
+          "0054.jpg",
+          "0055.jpg",
+          "0056.jpg",
+          "0057.jpg",
+          "0058.jpg",
+          "0059.jpg",
+          "0060.jpg",
+          "0061.jpg",
+          "0062.jpg",
+          "0063.jpg",
+          "0064.jpg",
+          "0065.jpg",
+          "0066.jpg",
+          "0067.jpg",
+          "0068.jpg",
+          "0069.jpg",
+          "0070.jpg",
+          "0071.jpg",
+          "0072.jpg",
+          "0073.jpg",
+          "0074.jpg",
+          "0075.jpg",
+          "0076.jpg",
+          "0077.jpg",
+          "0078.jpg",
+          "0079.jpg",
+          "0080.jpg",
+          "0081.jpg",
+          "0082.jpg",
+          "0083.jpg",
+          "0084.jpg",
+          "0085.jpg",
+          "0086.jpg",
+          "0087.jpg",
+          "0088.jpg",
+          "0089.jpg",
+          "0090.jpg",
+          "0091.jpg",
+          "0092.jpg",
+          "0093.jpg",
+          "0094.jpg",
+          "0095.jpg"
+        ],
+        "metadata": {
+          "source": "development Player Camera.Render with live UI",
+          "fixedSimulationFps": 12,
+          "frames": 96,
+          "controlledPlayerHealing": true,
+          "enemyImmortalForRoleCapture": false,
+          "enemyStationaryForRoleCapture": false,
+          "bossImmortalForAnimationCapture": false
+        }
+      },
+      {
+        "sequence": "player-defeat",
+        "totalFrames": 15,
+        "reviewedFrames": [
+          "0000.jpg",
+          "0001.jpg",
+          "0003.jpg",
+          "0004.jpg",
+          "0005.jpg",
+          "0006.jpg",
+          "0008.jpg",
+          "0009.jpg",
+          "0010.jpg",
+          "0011.jpg",
+          "0013.jpg",
+          "0014.jpg"
+        ],
+        "metadata": {
+          "source": "development Player actual runtime animation",
+          "wallClockTimestamps": true,
+          "frames": 15,
+          "requestedIntervalSeconds": 0.03333,
+          "fixedSimulationFps": null
+        }
+      },
+      {
+        "sequence": "role-action-adventurer",
+        "totalFrames": 60,
+        "reviewedFrames": [
+          "0000.jpg",
+          "0005.jpg",
+          "0011.jpg",
+          "0016.jpg",
+          "0021.jpg",
+          "0027.jpg",
+          "0032.jpg",
+          "0038.jpg",
+          "0043.jpg",
+          "0048.jpg",
+          "0054.jpg",
+          "0059.jpg"
+        ],
+        "metadata": {
+          "source": "development Player Camera.Render with live UI",
+          "fixedSimulationFps": 12,
+          "frames": 60,
+          "controlledPlayerHealing": true,
+          "enemyImmortalForRoleCapture": true,
+          "enemyStationaryForRoleCapture": true,
+          "bossImmortalForAnimationCapture": false
+        }
+      },
+      {
+        "sequence": "role-action-elementalist",
+        "totalFrames": 60,
+        "reviewedFrames": [
+          "0000.jpg",
+          "0005.jpg",
+          "0011.jpg",
+          "0016.jpg",
+          "0021.jpg",
+          "0027.jpg",
+          "0032.jpg",
+          "0038.jpg",
+          "0043.jpg",
+          "0048.jpg",
+          "0054.jpg",
+          "0059.jpg"
+        ],
+        "metadata": {
+          "source": "development Player Camera.Render with live UI",
+          "fixedSimulationFps": 12,
+          "frames": 60,
+          "controlledPlayerHealing": true,
+          "enemyImmortalForRoleCapture": true,
+          "enemyStationaryForRoleCapture": true,
+          "bossImmortalForAnimationCapture": false
+        }
+      },
+      {
+        "sequence": "role-action-swordsman",
+        "totalFrames": 60,
+        "reviewedFrames": [
+          "0000.jpg",
+          "0005.jpg",
+          "0011.jpg",
+          "0016.jpg",
+          "0021.jpg",
+          "0027.jpg",
+          "0032.jpg",
+          "0038.jpg",
+          "0043.jpg",
+          "0048.jpg",
+          "0054.jpg",
+          "0059.jpg"
+        ],
+        "metadata": {
+          "source": "development Player Camera.Render with live UI",
+          "fixedSimulationFps": 12,
+          "frames": 60,
+          "controlledPlayerHealing": true,
+          "enemyImmortalForRoleCapture": true,
+          "enemyStationaryForRoleCapture": true,
+          "bossImmortalForAnimationCapture": false
+        }
+      },
+      {
+        "sequence": "role-closeup-adventurer",
+        "totalFrames": 48,
+        "reviewedFrames": [
+          "0000.jpg",
+          "0001.jpg",
+          "0002.jpg",
+          "0003.jpg",
+          "0004.jpg",
+          "0005.jpg",
+          "0006.jpg",
+          "0007.jpg",
+          "0008.jpg",
+          "0009.jpg",
+          "0010.jpg",
+          "0011.jpg",
+          "0012.jpg",
+          "0013.jpg",
+          "0014.jpg",
+          "0015.jpg",
+          "0016.jpg",
+          "0017.jpg",
+          "0018.jpg",
+          "0019.jpg",
+          "0020.jpg",
+          "0021.jpg",
+          "0022.jpg",
+          "0023.jpg",
+          "0024.jpg",
+          "0025.jpg",
+          "0026.jpg",
+          "0027.jpg",
+          "0028.jpg",
+          "0029.jpg",
+          "0030.jpg",
+          "0031.jpg",
+          "0032.jpg",
+          "0033.jpg",
+          "0034.jpg",
+          "0035.jpg",
+          "0036.jpg",
+          "0037.jpg",
+          "0038.jpg",
+          "0039.jpg",
+          "0040.jpg",
+          "0041.jpg",
+          "0042.jpg",
+          "0043.jpg",
+          "0044.jpg",
+          "0045.jpg",
+          "0046.jpg",
+          "0047.jpg"
+        ],
+        "metadata": {
+          "source": "development Player Camera.Render with live UI",
+          "fixedSimulationFps": 12,
+          "frames": 48,
+          "controlledPlayerHealing": true,
+          "enemyImmortalForRoleCapture": true,
+          "enemyStationaryForRoleCapture": true,
+          "bossImmortalForAnimationCapture": false
+        }
+      },
+      {
+        "sequence": "role-closeup-elementalist",
+        "totalFrames": 48,
+        "reviewedFrames": [
+          "0000.jpg",
+          "0001.jpg",
+          "0002.jpg",
+          "0003.jpg",
+          "0004.jpg",
+          "0005.jpg",
+          "0006.jpg",
+          "0007.jpg",
+          "0008.jpg",
+          "0009.jpg",
+          "0010.jpg",
+          "0011.jpg",
+          "0012.jpg",
+          "0013.jpg",
+          "0014.jpg",
+          "0015.jpg",
+          "0016.jpg",
+          "0017.jpg",
+          "0018.jpg",
+          "0019.jpg",
+          "0020.jpg",
+          "0021.jpg",
+          "0022.jpg",
+          "0023.jpg",
+          "0024.jpg",
+          "0025.jpg",
+          "0026.jpg",
+          "0027.jpg",
+          "0028.jpg",
+          "0029.jpg",
+          "0030.jpg",
+          "0031.jpg",
+          "0032.jpg",
+          "0033.jpg",
+          "0034.jpg",
+          "0035.jpg",
+          "0036.jpg",
+          "0037.jpg",
+          "0038.jpg",
+          "0039.jpg",
+          "0040.jpg",
+          "0041.jpg",
+          "0042.jpg",
+          "0043.jpg",
+          "0044.jpg",
+          "0045.jpg",
+          "0046.jpg",
+          "0047.jpg"
+        ],
+        "metadata": {
+          "source": "development Player Camera.Render with live UI",
+          "fixedSimulationFps": 12,
+          "frames": 48,
+          "controlledPlayerHealing": true,
+          "enemyImmortalForRoleCapture": true,
+          "enemyStationaryForRoleCapture": true,
+          "bossImmortalForAnimationCapture": false
+        }
+      },
+      {
+        "sequence": "role-closeup-swordsman",
+        "totalFrames": 48,
+        "reviewedFrames": [
+          "0000.jpg",
+          "0001.jpg",
+          "0002.jpg",
+          "0003.jpg",
+          "0004.jpg",
+          "0005.jpg",
+          "0006.jpg",
+          "0007.jpg",
+          "0008.jpg",
+          "0009.jpg",
+          "0010.jpg",
+          "0011.jpg",
+          "0012.jpg",
+          "0013.jpg",
+          "0014.jpg",
+          "0015.jpg",
+          "0016.jpg",
+          "0017.jpg",
+          "0018.jpg",
+          "0019.jpg",
+          "0020.jpg",
+          "0021.jpg",
+          "0022.jpg",
+          "0023.jpg",
+          "0024.jpg",
+          "0025.jpg",
+          "0026.jpg",
+          "0027.jpg",
+          "0028.jpg",
+          "0029.jpg",
+          "0030.jpg",
+          "0031.jpg",
+          "0032.jpg",
+          "0033.jpg",
+          "0034.jpg",
+          "0035.jpg",
+          "0036.jpg",
+          "0037.jpg",
+          "0038.jpg",
+          "0039.jpg",
+          "0040.jpg",
+          "0041.jpg",
+          "0042.jpg",
+          "0043.jpg",
+          "0044.jpg",
+          "0045.jpg",
+          "0046.jpg",
+          "0047.jpg"
+        ],
+        "metadata": {
+          "source": "development Player Camera.Render with live UI",
+          "fixedSimulationFps": 12,
+          "frames": 48,
+          "controlledPlayerHealing": true,
+          "enemyImmortalForRoleCapture": true,
+          "enemyStationaryForRoleCapture": true,
+          "bossImmortalForAnimationCapture": false
+        }
+      }
+    ]
+  },
+  "coverage": {
+    "characters": [
+      "adventurer",
+      "elementalist",
+      "swordsman"
+    ],
+    "enemyFamilies": "4普通+4精英造型/战斗",
+    "bosses": [
+      "古树守卫",
+      "巨型沙虫",
+      "霜原巨兽",
+      "熔岩巨像"
+    ],
+    "maps": [
+      "Forest",
+      "Desert",
+      "Snow",
+      "Volcano",
+      "Mixed"
+    ],
+    "mixedBoundaries": [
+      "0-2",
+      "0-3",
+      "1-2",
+      "2-3",
+      "lava-shore"
+    ],
+    "worldStates": "正常/广角三处地貌、挑战前/近景/完成后、近水建筑/广角、浮动原点、五探针",
+    "ui": "菜单、选择锁定/解锁、成长/任务、设置、暂停及设置、加载、HUD、技能、地图、升级、死亡/胜利结算、两类错误恢复",
+    "resolutions": [
+      "1280x720",
+      "1920x1080",
+      "1920x1200",
+      "2560x1080",
+      "2560x1440"
+    ],
+    "abilities": [
+      "自动手枪",
+      "火球",
+      "飞剑",
+      "灵体",
+      "爆破炮",
+      "符阵"
+    ],
+    "dynamic": "三角色动作/侧前近景、移动闪避、玩家死亡、四Boss攻击/死亡、11特效、96帧密战联动、5页面/奖励反馈",
+    "newPickupChecks": "经验聚合高低质量两原图与质量元数据，正常移动/密战中的拾取与遮挡复核"
+  },
+  "specificFindings": [
+    {
+      "topic": "experience material",
+      "evidence": [
+        "Artifacts/Round39/Captures/experience-aggregates.png",
+        "Artifacts/Round39/Captures/experience-aggregates-low.png"
+      ],
+      "finding": "两质量原图青蓝晶体轮廓和遮挡关系成立；低画质锯齿更显，没有粉材/矩形遮片/持续遮住角色。此项不证明GPU耗时或保值算法。"
+    },
+    {
+      "topic": "completed-site apparent E shape",
+      "evidence": [
+        "Artifacts/Round39/Captures/sanctuary-completed-3.png",
+        "Artifacts/Round39/Captures/sanctuary-2.png",
+        "Assets/Scripts/Editor/ArtFactoryContent.cs"
+      ],
+      "finding": "角色附近金环内三纹来自符阵武器，随角色出现，不能误作残留E交互。真正挑战文字在四完成图均已清除。"
+    },
+    {
+      "topic": "waterside foundation",
+      "evidence": [
+        "Artifacts/Round39/Captures/waterside-architecture-3.png",
+        "Artifacts/Round39/Captures/waterside-architecture-3.placement.json"
+      ],
+      "finding": "火山建筑完整圆基位于熔岩北岸，右接支路；玩家/投影覆盖河道不等于基座压河，未据缩略图误判。"
+    }
+  ],
+  "limits": [
+    "离线查看现成development Windows Player Camera.Render原始完整画幅及同一Canvas；未控制桌面、未启动Player/构建、未独立交互试玩。辅助表是全部原图的缩略索引；另开原图55张，2560×1440图由查看器适配为2048×1152显示，不声称逐像素原比例检查。",
+    "33序列固定12fps、共1414帧，实际571表内帧加18张额外原帧，共589张不同动态帧；未逐帧看全部1414帧。144帧三角色近景、96帧密战及短UI反馈全帧覆盖，其余跨阶段抽样；不能用此判断60fps或正常速度流畅度。",
+    "序列有controlledPlayerHealing=true；角色动作/近景的敌人静止且不死，Boss动作录制中Boss不死。它们保证可观察动作，不能证明自然生存/平衡。密战所见六能力持续、击败数与等级推进，未以停止发射/删除能力/关闭伤害求干净画面。",
+    "预警与攻击范围判断是所见视觉阶段/区域的一致性及同版窗口断言，不是穷举所有随机种子、每个碰撞体或亚帧判定；经验精确保值/磁吸算法正确性属于技术报告，不因源码修改或95功能检查增加美术分。",
+    "只评价Round39冻结首发美术。FormalGameplay39近景、旧38画面/分数、Campaign或Soak运行进度均未用于补美术覆盖；不代表整项目、正式版完整功能、音频或连续7200秒性能通过。"
+  ],
+  "missingRequiredArtEvidence": [],
+  "hardGates": [
+    {
+      "id": "total",
+      "passed": true,
+      "evidence": "92 >= 91，整数原100分量表"
+    },
+    {
+      "id": "dimensions",
+      "passed": true,
+      "evidence": "A14>=13、B14>=13、C18>=18、D20>=18、E18>=18、F8>=8"
+    },
+    {
+      "id": "items",
+      "passed": true,
+      "evidence": "20项逐项重新评分，最低4"
+    },
+    {
+      "id": "frozen_content",
+      "passed": true,
+      "evidence": "3角色、4普通/精英族、4Boss、4群系+Mixed、全部正式UI与要求画幅均有39实机覆盖"
+    },
+    {
+      "id": "finished_assets",
+      "passed": true,
+      "evidence": "190静态与33序列实际观看范围未见占位角色/敌/场景/默认UI、粉材、缺贴图或明显破网格"
+    },
+    {
+      "id": "chinese_layout",
+      "passed": true,
+      "evidence": "五画幅70页矩阵及中文原图无缺字、关键裁切、核心UI出界"
+    },
+    {
+      "id": "dense_readability",
+      "passed": true,
+      "evidence": "96帧密战全帧观看，头/足圈与敌方危险可定位，六能力持续；运行报告补充同版六能力/伤害断言，未以关伤害造图"
+    },
+    {
+      "id": "danger_and_invulnerability",
+      "passed": true,
+      "evidence": "四Boss起手/预警/生效/回收及精英危险有实录；闪避反馈与窗口内外伤害断言同版，未见持续遮挡或严重范围偏离"
+    },
+    {
+      "id": "continuous_feedback",
+      "passed": true,
+      "evidence": "33条12fps实际Player序列，571表内+18额外原帧；不是只用静态姿态"
+    },
+    {
+      "id": "same_candidate",
+      "passed": true,
+      "evidence": "所有评分图仅Round39/UI39/Probe39；BuildIdentity中23个文件集合及SHA256相同"
+    }
+  ],
+  "total": 92,
+  "dimensions": {
+    "A": 14,
+    "B": 14,
+    "C": 18,
+    "D": 20,
+    "E": 18,
+    "F": 8
+  },
+  "items": [
+    {
+      "id": "A1",
+      "score": 5,
+      "max": 5,
+      "title": "Q版比例与俯视轮廓",
+      "evidence": [
+        "Artifacts/Round39/Captures/character-adventurer.png",
+        "Artifacts/Round39/Captures/character-elementalist.png",
+        "Artifacts/Round39/Captures/character-swordsman.png",
+        "Artifacts/Round39/Sequences/role-closeup-swordsman",
+        "Artifacts/Round39/Sequences/late-density-combinations"
+      ],
+      "observation": "39三角色的大头、短肢、宽发型/帽型和小躯干比例一致；正常俯视中的紫帽、深发和青色足圈提供可靠锚点，近景也未失去Q版体积。",
+      "revision": null
+    },
+    {
+      "id": "A2",
+      "score": 4,
+      "max": 5,
+      "title": "面部服饰装备设计",
+      "evidence": [
+        "Artifacts/Round39/Captures/character-adventurer.png",
+        "Artifacts/Round39/Captures/character-elementalist.png",
+        "Artifacts/Round39/Captures/character-swordsman.png",
+        "Artifacts/Round39/Sequences/role-closeup-adventurer"
+      ],
+      "observation": "护目镜/围巾与短夹克、紫帽金扣法袍、青衣背剑分别可辨；连续近景有睁闭眼。手掌和袖口的转接、腰带附件仍较概括，三张脸的细节语言接近。",
+      "revision": "调整握持手型及袖口厚度，给各角色增加少量不同的眉眼/配件细节。"
+    },
+    {
+      "id": "A3",
+      "score": 5,
+      "max": 5,
+      "title": "明快卡通材质色光",
+      "evidence": [
+        "Artifacts/Round39/Captures/10-biome-0.png",
+        "Artifacts/Round39/Captures/10-biome-1.png",
+        "Artifacts/Round39/Captures/10-biome-2.png",
+        "Artifacts/Round39/Captures/10-biome-3.png",
+        "Artifacts/Round39/Captures/experience-aggregates.png",
+        "Artifacts/Round39/Captures/experience-aggregates-low.png",
+        "Artifacts/Round39/Sequences/boss-attacks-2"
+      ],
+      "observation": "林地绿、荒漠金、雪地蓝白、火山紫灰橙各有清楚色域；人物与奶油UI协调。冻结染色和短闪能回到原色；晶体在Ultra/Very Low原图均有青蓝实体轮廓，无粉材或大片透明遮挡。",
+      "revision": null
+    },
+    {
+      "id": "B1",
+      "score": 4,
+      "max": 5,
+      "title": "三首发角色模型材质挂点",
+      "evidence": [
+        "Artifacts/Round39/Captures/character-adventurer.png",
+        "Artifacts/Round39/Sequences/role-action-adventurer",
+        "Artifacts/Round39/Sequences/role-closeup-adventurer",
+        "Artifacts/Round39/Captures/character-elementalist.png",
+        "Artifacts/Round39/Sequences/role-action-elementalist",
+        "Artifacts/Round39/Sequences/role-closeup-elementalist",
+        "Artifacts/Round39/Captures/character-swordsman.png",
+        "Artifacts/Round39/Sequences/role-action-swordsman",
+        "Artifacts/Round39/Sequences/role-closeup-swordsman"
+      ],
+      "observation": "三角色都有完整衣物、手脚和对应武器，抬臂、朝向变化及发射时挂点跟随，背剑/法杖/手枪未丢失。小手与柄的握持、共用躯干关节转折仍简单。",
+      "revision": "按枪、杖、剑分别校准掌腕角度和持柄接触，补肩肘转折与衣摆的角色差异。"
+    },
+    {
+      "id": "B2",
+      "score": 5,
+      "max": 5,
+      "title": "普通与精英辨识",
+      "evidence": [
+        "Artifacts/Round39/Captures/enemy-0-normal.png",
+        "Artifacts/Round39/Captures/enemy-0-elite.png",
+        "Artifacts/Round39/Captures/enemy-1-normal.png",
+        "Artifacts/Round39/Captures/enemy-1-elite.png",
+        "Artifacts/Round39/Captures/enemy-2-normal.png",
+        "Artifacts/Round39/Captures/enemy-2-elite.png",
+        "Artifacts/Round39/Captures/enemy-3-normal.png",
+        "Artifacts/Round39/Captures/enemy-3-elite.png",
+        "Artifacts/Round39/Sequences/late-density-combinations"
+      ],
+      "observation": "叶芽软体、尖角橙兽、蓝甲虫、紫菌帽法杖的主体和动作不同；金冠、角甲和增大体型让精英形成第二层辨识。在39的密战横越火山/林地过程中仍能分辨各族及精英。",
+      "revision": null
+    },
+    {
+      "id": "B3",
+      "score": 5,
+      "max": 5,
+      "title": "四Boss完整表现",
+      "evidence": [
+        "Artifacts/Round39/Captures/boss-closeup-0.png",
+        "Artifacts/Round39/Sequences/boss-attacks-0",
+        "Artifacts/Round39/Sequences/boss-death-0",
+        "Artifacts/Round39/Captures/boss-closeup-1.png",
+        "Artifacts/Round39/Sequences/boss-attacks-1",
+        "Artifacts/Round39/Sequences/boss-death-1",
+        "Artifacts/Round39/Captures/boss-closeup-2.png",
+        "Artifacts/Round39/Sequences/boss-attacks-2",
+        "Artifacts/Round39/Sequences/boss-death-2",
+        "Artifacts/Round39/Captures/boss-closeup-3.png",
+        "Artifacts/Round39/Sequences/boss-attacks-3",
+        "Artifacts/Round39/Sequences/boss-death-3"
+      ],
+      "observation": "四Boss原图分别呈现根木/树冠叶须、节体口牙、冰角白毛蓝爪、暗岩甲橙裂隙，体量明显大于普通敌；四条攻击和四条死亡记录均有阶段变化，未见缺件或材质破损。",
+      "revision": null
+    },
+    {
+      "id": "C1",
+      "score": 5,
+      "max": 5,
+      "title": "四群系地貌装饰语言",
+      "evidence": [
+        "Artifacts/Round39/Captures/geography-0-0.png",
+        "Artifacts/Round39/Captures/geography-0-1.png",
+        "Artifacts/Round39/Captures/geography-0-2.png",
+        "Artifacts/Round39/Captures/geography-wide-0-2.png",
+        "Artifacts/Round39/Captures/geography-1-0.png",
+        "Artifacts/Round39/Captures/geography-1-1.png",
+        "Artifacts/Round39/Captures/geography-1-2.png",
+        "Artifacts/Round39/Captures/geography-wide-1-2.png",
+        "Artifacts/Round39/Captures/geography-2-0.png",
+        "Artifacts/Round39/Captures/geography-2-1.png",
+        "Artifacts/Round39/Captures/geography-2-2.png",
+        "Artifacts/Round39/Captures/geography-wide-2-2.png",
+        "Artifacts/Round39/Captures/geography-3-0.png",
+        "Artifacts/Round39/Captures/geography-3-1.png",
+        "Artifacts/Round39/Captures/geography-3-2.png",
+        "Artifacts/Round39/Captures/geography-wide-3-2.png"
+      ],
+      "observation": "河桥与林簇苔岩、沙丘台地绿洲、冰湖冰壁雪松、熔岩岸桥与玄武岩形成不同地貌组织。火山广角中单处主坑和较低开口岩地有主从，没有把每处野地处理成同样的大圆环。",
+      "revision": null
+    },
+    {
+      "id": "C2",
+      "score": 4,
+      "max": 5,
+      "title": "场景层次与尺度",
+      "evidence": [
+        "Artifacts/Round39/Captures/waterside-architecture-0.png",
+        "Artifacts/Round39/Captures/sanctuary-0.png",
+        "Artifacts/Round39/Captures/waterside-architecture-1.png",
+        "Artifacts/Round39/Captures/sanctuary-1.png",
+        "Artifacts/Round39/Captures/waterside-architecture-2.png",
+        "Artifacts/Round39/Captures/sanctuary-2.png",
+        "Artifacts/Round39/Captures/waterside-architecture-3.png",
+        "Artifacts/Round39/Captures/sanctuary-3.png",
+        "Artifacts/Round39/Captures/geography-wide-3-2.png"
+      ],
+      "observation": "四种近水建筑/遗迹的完整地基与支路同框，火山基底在熔岩北岸干地；挑战点高构件在后侧，前沿低踏石有尺度层次。荒漠、火山的大平地与小石/柱组之间仍有较宽的平淡区。",
+      "revision": "用低起伏或少量疏密变化连接大平地和主景，强化岩柱与石簇之间的大小级差，保留战斗空间。"
+    },
+    {
+      "id": "C3",
+      "score": 4,
+      "max": 5,
+      "title": "生成衔接遮挡重复感",
+      "evidence": [
+        "Artifacts/Round39/Captures/mixed-boundary-2-3.png",
+        "Artifacts/Round39/Captures/mixed-lava-shore-close.png",
+        "Artifacts/Round39/Captures/world-floating-origin.png",
+        "Artifacts/Round39/Sequences/character-move-dodge",
+        "Artifacts/Round39/Sequences/late-density-combinations",
+        "Artifacts/Probe39/TerrainPixelAudit.json"
+      ],
+      "observation": "混合道路跨界连续，熔岩圆尾和岸线完整；五探针图未见底色裂口。移动和96帧密战中玩家可持续追踪，未见模型长期被消隐。远景三石、三柱、圆点地表纹样仍有可察觉的复用节奏。",
+      "revision": "打散小簇的间距、方向和形状组合，优先减少同一广角内等权重复，保持现有消隐/道路边界。"
+    },
+    {
+      "id": "C4",
+      "score": 5,
+      "max": 5,
+      "title": "混合过渡与探索目的地",
+      "evidence": [
+        "Artifacts/Round39/Captures/mixed-boundary-0-2.png",
+        "Artifacts/Round39/Captures/mixed-boundary-0-3.png",
+        "Artifacts/Round39/Captures/mixed-boundary-1-2.png",
+        "Artifacts/Round39/Captures/mixed-boundary-2-3.png",
+        "Artifacts/Round39/Captures/mixed-lava-shore.png",
+        "Artifacts/Round39/Captures/21-map.png",
+        "Artifacts/Round39/Captures/sanctuary-0.png",
+        "Artifacts/Round39/Captures/sanctuary-completed-0.png",
+        "Artifacts/Round39/Captures/sanctuary-1.png",
+        "Artifacts/Round39/Captures/sanctuary-completed-1.png",
+        "Artifacts/Round39/Captures/sanctuary-2.png",
+        "Artifacts/Round39/Captures/sanctuary-completed-2.png",
+        "Artifacts/Round39/Captures/sanctuary-3.png",
+        "Artifacts/Round39/Captures/sanctuary-completed-3.png"
+      ],
+      "observation": "39实际四组边界有渐变带、跨界植被和连续路线。地图事件/Boss符号可对应实景；四挑战点侧路绕阵心，右踏石接路，后左连续地貌围合。四完成原图均显示阵纹转暗、挑战文字清除且主体景观留存，目的地前后状态清楚。",
+      "revision": null
+    },
+    {
+      "id": "D1",
+      "score": 5,
+      "max": 5,
+      "title": "全页面视觉体系",
+      "evidence": [
+        "Artifacts/UI39/Captures/ui-menu-1280x720.png",
+        "Artifacts/UI39/Captures/ui-selection-unlocked-1280x720.png",
+        "Artifacts/UI39/Captures/ui-progress-1280x720.png",
+        "Artifacts/UI39/Captures/ui-settings-1280x720.png",
+        "Artifacts/UI39/Captures/ui-loading-1280x720.png",
+        "Artifacts/UI39/Captures/ui-results-1280x720.png",
+        "Artifacts/UI39/Captures/ui-victory-1280x720.png",
+        "Artifacts/Probe39/Captures/load-failure-terrain-forest.png"
+      ],
+      "observation": "菜单、选择、成长任务、设置、暂停、加载55%、两种结算及失败恢复均使用奶油卡片/深青文字/金色强调和统一图标语言。失败提示有稳定底板和明确返回菜单状态。",
+      "revision": null
+    },
+    {
+      "id": "D2",
+      "score": 5,
+      "max": 5,
+      "title": "HUD升级技能信息层级",
+      "evidence": [
+        "Artifacts/UI39/Captures/ui-hud-1280x720.png",
+        "Artifacts/UI39/Captures/ui-skills-1280x720.png",
+        "Artifacts/UI39/Captures/ui-upgrade-2560x1440.png",
+        "Artifacts/UI39/Captures/ui-map-1280x720.png",
+        "Artifacts/Round39/Sequences/feedback-upgrade-open"
+      ],
+      "observation": "生命、时间、Boss名称/阶段、资源、小地图和六能力有分区；升级四卡的标题、效果、等级和新机制提示分层；技能点数、价格、分类与滚动提示清楚。密战HUD没有被额外能力文字挤出。",
+      "revision": null
+    },
+    {
+      "id": "D3",
+      "score": 5,
+      "max": 5,
+      "title": "中文长文本排版",
+      "evidence": [
+        "Artifacts/UI39/Captures/ui-selection-locked-1280x720.png",
+        "Artifacts/UI39/Captures/ui-progress-1280x720.png",
+        "Artifacts/UI39/Captures/ui-skills-1280x720.png",
+        "Artifacts/UI39/Captures/ui-upgrade-2560x1440.png",
+        "Artifacts/Round39/Captures/21-map.png"
+      ],
+      "observation": "39原图重看锁定原因、任务条件/奖励、构筑说明、地图说明及长机制文字，未见方框、关键字裁切或越界。列表底端部分卡片受正常滚动遮罩约束，滚动条与页脚明确；字号/行距稳定。",
+      "revision": null
+    },
+    {
+      "id": "D4",
+      "score": 5,
+      "max": 5,
+      "title": "画幅状态图标适配",
+      "evidence": [
+        "Docs/ArtReviews/Round39/UI39-00.png",
+        "Docs/ArtReviews/Round39/UI39-11.png",
+        "Artifacts/UI39/Verification.json"
+      ],
+      "observation": "五画幅70张UI图已全部实看：1280×720、1920×1080、1920×1200、2560×1080、2560×1440。锁定/解锁/已选、灰态价格、返回及主按钮可辨，未见拉伸、主模态出界或必要操作被遮挡。",
+      "revision": null
+    },
+    {
+      "id": "E1",
+      "score": 5,
+      "max": 5,
+      "title": "技能联动与命中层次",
+      "evidence": [
+        "Artifacts/Round39/Sequences/effect-arc",
+        "Artifacts/Round39/Sequences/effect-embers",
+        "Artifacts/Round39/Sequences/effect-explosion",
+        "Artifacts/Round39/Sequences/effect-flame",
+        "Artifacts/Round39/Sequences/effect-frost",
+        "Artifacts/Round39/Sequences/effect-iceburst",
+        "Artifacts/Round39/Sequences/effect-leafburst",
+        "Artifacts/Round39/Sequences/effect-lightning",
+        "Artifacts/Round39/Sequences/effect-rune",
+        "Artifacts/Round39/Sequences/effect-sand",
+        "Artifacts/Round39/Sequences/effect-slash",
+        "Artifacts/Round39/Sequences/late-density-combinations"
+      ],
+      "observation": "火球橙瓣与余烬、金色细枪弹、电弧折线、青白飞剑斩弧、蓝色冰环/碎片、金色符阵有不同轨迹与扩散方式；密战中可见命中碎光和后续余波，随时间消退，未用大白闪覆盖所有命中。",
+      "revision": null
+    },
+    {
+      "id": "E2",
+      "score": 4,
+      "max": 5,
+      "title": "高密度玩家危险与拾取辨识",
+      "evidence": [
+        "Artifacts/Round39/Sequences/late-density-combinations",
+        "Artifacts/Round39/Sequences/late-density-combinations/0016.jpg",
+        "Artifacts/Round39/Sequences/late-density-combinations/0024.jpg",
+        "Artifacts/Round39/Sequences/late-density-combinations/0078.jpg",
+        "Artifacts/Round39/Captures/experience-aggregates.png",
+        "Artifacts/Round39/Captures/experience-aggregates-low.png"
+      ],
+      "observation": "全部96帧中紫帽/青足圈、金冠和危险红边持续可定位，蓝晶体和粉色敌弹区别成立；聚合没有造成铺满屏幕的光片。0016/0024附近剑尾、冰弧和敌群在脚下交叠，局部读取仍拥挤。",
+      "revision": "按中心屏幕覆盖密度收窄剑尾/冰弧亮带或调整纯视觉透明度，保留能力数量、发射和伤害。"
+    },
+    {
+      "id": "E3",
+      "score": 5,
+      "max": 5,
+      "title": "Boss精英预警与时序",
+      "evidence": [
+        "Artifacts/Round39/Sequences/boss-attacks-0",
+        "Artifacts/Round39/Sequences/boss-attacks-1",
+        "Artifacts/Round39/Sequences/boss-attacks-2",
+        "Artifacts/Round39/Sequences/boss-attacks-3",
+        "Artifacts/Round39/Sequences/late-density-combinations",
+        "Artifacts/Round39/Verification.json"
+      ],
+      "observation": "四Boss的起手、红圈/条带、临界强调、生效和回收都有39记录；另逐张开各0018–0021/0026原帧。沙虫条带与朝向一致，古树三圈、雪原多圈/近身圈、熔岩五圈的实际特效仍在相应区域，精英短条边线与敌弹保持可辨，未见严重范围错位。",
+      "revision": null
+    },
+    {
+      "id": "E4",
+      "score": 4,
+      "max": 5,
+      "title": "状态无敌危险交互提示",
+      "evidence": [
+        "Artifacts/Round39/Sequences/character-move-dodge",
+        "Artifacts/Round39/Sequences/character-move-dodge/0038.jpg",
+        "Artifacts/Round39/Sequences/boss-attacks-2",
+        "Artifacts/Round39/Captures/sanctuary-close-3.png",
+        "Artifacts/Round39/Captures/sanctuary-completed-3.png",
+        "Artifacts/Round39/Verification.json"
+      ],
+      "observation": "闪避的淡亮/足圈、受击边缘渐变、冻结蓝染与恢复、红边界及交互文字均能对应状态，未见持续过曝。火山挑战提示深青字直接压在灰紫地表，局部对比偏弱；完成态金色三纹小圆是符阵武器，非残留E提示。",
+      "revision": "给世界交互提示加入简洁稳定底板或对比描边，特别提高火山地表下的文字与按键辨识。"
+    },
+    {
+      "id": "F1",
+      "score": 4,
+      "max": 5,
+      "title": "动作起手收招与死亡",
+      "evidence": [
+        "Artifacts/Round39/Sequences/character-move-dodge",
+        "Artifacts/Round39/Sequences/role-action-adventurer",
+        "Artifacts/Round39/Sequences/role-action-elementalist",
+        "Artifacts/Round39/Sequences/role-action-swordsman",
+        "Artifacts/Round39/Sequences/player-defeat",
+        "Artifacts/Round39/Sequences/boss-attacks-0",
+        "Artifacts/Round39/Sequences/boss-death-0",
+        "Artifacts/Round39/Sequences/boss-attacks-1",
+        "Artifacts/Round39/Sequences/boss-death-1",
+        "Artifacts/Round39/Sequences/boss-attacks-2",
+        "Artifacts/Round39/Sequences/boss-death-2",
+        "Artifacts/Round39/Sequences/boss-attacks-3",
+        "Artifacts/Round39/Sequences/boss-death-3"
+      ],
+      "observation": "三角色近景144帧可见开火/抬杖/剑诀和眨眼；正常镜头有转向、闪避，玩家倒地到结算及四Boss死亡有连续变化。肩腕回中和身体跟随仍偏短促、程序循环感可见。",
+      "revision": "为腕肩回中和躯干跟随补少量缓动与重量变化，不改变预警兑现/无敌判定时点。"
+    },
+    {
+      "id": "F2",
+      "score": 4,
+      "max": 5,
+      "title": "UI拾取奖励反馈与一致性",
+      "evidence": [
+        "Artifacts/Round39/Sequences/feedback-pause-open",
+        "Artifacts/Round39/Sequences/feedback-skills-open",
+        "Artifacts/Round39/Sequences/feedback-task-unlock",
+        "Artifacts/Round39/Sequences/feedback-upgrade-open",
+        "Artifacts/Round39/Sequences/feedback-upgrade-reward",
+        "Artifacts/Round39/Sequences/late-density-combinations",
+        "Artifacts/Round39/Captures/experience-aggregates.png"
+      ],
+      "observation": "淡入页面能收敛到完整不透明，任务/升级奖励Toast与世界金青色语言统一；密战和移动中晶体可吸入、经验等级推进，未见大片排序错误或明显材质跳失。各类奖励主要靠同类光点/Toast，反馈节奏差异还不够丰富。",
+      "revision": "分别细化任务、能力升级、拾取的短缓动与收束节奏，保持光效局部、避免新增大面积遮挡。"
+    }
+  ]
+}

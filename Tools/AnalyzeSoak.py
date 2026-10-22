@@ -48,6 +48,72 @@ result = dict(
         'unityReservedMB', 'managedMB', 'privateMB', 'enemies', 'poolObjects', 'chunks',
         'prefabHandles', 'cpuFrameMs', 'gpuFrameMs', 'drawCalls', 'triangles',
         'experienceOrbs', 'unclaimedExperience', 'projectiles')})
+elapsed = values('wallSeconds')
+intervals = [elapsed[0]] + [right - left for left, right in zip(elapsed, elapsed[1:])]
+full_windows = [row for row, duration in zip(rows, intervals) if 29.5 <= duration <= 30.5]
+result['window_observations'] = dict(
+    nominal_seconds=30, minimum_actual_seconds=min(intervals), maximum_actual_seconds=max(intervals),
+    full_windows=len(full_windows), other_window_seconds=[duration for duration in intervals if not 29.5 <= duration <= 30.5],
+    full_windows_below_60_fps=sum(float(row['fps']) < 60 for row in full_windows),
+    windows_with_p95_above_16_67_ms=sum(float(row['p95FrameMs']) > 16.67 for row in rows),
+    scope='Observed window throughput and tails, not a per-frame 60FPS or capped-pacing verdict.')
+
+def segment_stats(selected, keys):
+    return {key: dict(minimum=min(float(row[key]) for row in selected),
+                      maximum=max(float(row[key]) for row in selected),
+                      median=statistics.median(float(row[key]) for row in selected)) for key in keys}
+
+result['fifteen_minute_segments'] = []
+for segment in range(int(max(elapsed) - .001) // 900 + 1):
+    selected = [row for row in rows if segment * 900 < float(row['wallSeconds']) <= (segment + 1) * 900]
+    if selected:
+        result['fifteen_minute_segments'].append(dict(
+            start_seconds=segment * 900, end_seconds=(segment + 1) * 900, samples=len(selected),
+            metrics=segment_stats(selected, ('fps', 'p95FrameMs', 'unityAllocatedMB', 'unityReservedMB',
+                                            'managedMB', 'poolObjects', 'projectiles', 'chunks', 'prefabHandles'))))
+build_path = root / 'BuildSamples.jsonl'
+if build_path.exists():
+    builds = [json.loads(line) for line in build_path.read_text(encoding='utf-8-sig').splitlines() if line.strip()]
+    result['build_observations'] = dict(samples=len(builds),
+        first=builds[0], last=builds[-1],
+        all_six_abilities_every_sample=all(set(build['abilities']) == set(range(6)) for build in builds),
+        any_fixed_imported_build=any(build['fixedImportedBuild'] for build in builds),
+        quality_levels=sorted({build['quality'] for build in builds}),
+        frame_rate_limits=sorted({build['frameRateLimit'] for build in builds}),
+        upgrade_level_sum_first=sum(upgrade['level'] for upgrade in builds[0]['upgrades']),
+        upgrade_level_sum_last=sum(upgrade['level'] for upgrade in builds[-1]['upgrades']))
+external_path = root / 'ExternalMemory.csv'
+if external_path.exists():
+    with external_path.open(encoding='utf-8-sig', newline='') as stream:
+        external_rows = list(csv.DictReader(stream))
+    result['external_process_memory'] = dict(
+        source='Windows Get-Process; separate observations, not replacement Player telemetry',
+        samples=len(external_rows),
+        process_elapsed_seconds=[float(external_rows[0]['processElapsedSeconds']),
+                                 float(external_rows[-1]['processElapsedSeconds'])],
+        metrics={key: dict(minimum=min(float(row[key]) for row in external_rows),
+                           maximum=max(float(row[key]) for row in external_rows),
+                           first=float(external_rows[0][key]), last=float(external_rows[-1][key]))
+                 for key in ('privateMB', 'workingSetMB')})
+    warm_rows = [row for row in external_rows if float(row['processElapsedSeconds']) >= 120]
+    if warm_rows:
+        third = max(1, len(warm_rows) // 3)
+        result['external_process_memory']['after_120_second_startup'] = dict(
+            samples=len(warm_rows),
+            metrics={key: dict(
+                minimum=min(float(row[key]) for row in warm_rows),
+                maximum=max(float(row[key]) for row in warm_rows),
+                first_third_median=statistics.median(float(row[key]) for row in warm_rows[:third]),
+                last_third_median=statistics.median(float(row[key]) for row in warm_rows[-third:]))
+                for key in ('privateMB', 'workingSetMB')})
+    result['external_process_memory']['fifteen_minute_process_segments'] = []
+    for segment in range(int(float(external_rows[-1]['processElapsedSeconds'])) // 900 + 1):
+        selected = [row for row in external_rows
+                    if max(120, segment * 900) <= float(row['processElapsedSeconds']) < (segment + 1) * 900]
+        if selected:
+            result['external_process_memory']['fifteen_minute_process_segments'].append(dict(
+                start_process_seconds=max(120, segment * 900), end_process_seconds=(segment + 1) * 900,
+                samples=len(selected), metrics=segment_stats(selected, ('privateMB', 'workingSetMB'))))
 (root / 'Analysis.json').write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding='utf-8')
 print(json.dumps({key: result[key] for key in ('status', 'sampled_wall_seconds', 'samples',
     'actual_camera_renders', 'biomes', 'sampled_origin_positions')}, ensure_ascii=False))

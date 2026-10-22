@@ -21,10 +21,15 @@ namespace VampireLike.Editor
                 {
                     for(int i=0;i<10;i++) {float a=i*2.4f;Vector3 p=new Vector3(-9+Mathf.Sin(a)*3,.05f,7+Mathf.Cos(a)*2);Part(t,"LilyPad",PrimitiveType.Cylinder,p,new Vector3(.4f,.006f,.35f),Teal);Sphere(t,"WaterLily",p+Vector3.up*.06f,new Vector3(.15f,.08f,.15f),Cream);}
                 }
-                else for(int i=0;i<10;i++)
+                else
                 {
-                    Vector3 p=new Vector3(5+i*.8f,.02f,-8+Mathf.Sin(i)*2);
-                    Cube(t,"MagmaCrack",p,new Vector3(.09f,.02f,2.6f),Orange,new Vector3(0,25+i*12,0));
+                    // A cooled tongue meets the lava bank; the bridge and central road stay clear.
+                    for(int i=0;i<5;i++)
+                    {
+                        Vector3 p=new Vector3(-12+i*1.25f,.1f,4.2f+Mathf.Sin(i*.55f)*.35f);
+                        GroundRock(t,"LavaBankShelf",p,new Vector3(4.4f-i*.45f,.28f,2.8f),i%2==0?Hex("544E60"):Hex("685B6A"),i+112);
+                        Tube(t,"BankCoolingSeam",p+new Vector3(-.6f,.17f,.7f),p+new Vector3(.8f,.17f,.5f),.025f,Hex("BE8368"));
+                    }
                 }
             }
             if(biome==0&&variant>0)
@@ -52,7 +57,8 @@ namespace VampireLike.Editor
             }
             if(biome==1)
             {
-                for(int i=0;i<(variant==2?1:4);i++)
+                // The oasis leaves its northeast bank level for an actual road-connected ruin.
+                for(int i=0;i<(variant==0?2:variant==2?1:4);i++)
                 {
                     Vector3 p=new Vector3((i%2==0?-1:1)*(8+(float)random.NextDouble()*2),-.13f,(i<2?-1:1)*(8+(float)random.NextDouble()*2));
                     if(Vector3.Distance(p,new Vector3(-9,0,8))<6)continue;
@@ -97,38 +103,49 @@ namespace VampireLike.Editor
                     Rock(relief,"SnowCornice",Vector3.up*h,new Vector3(2.65f,.38f,3.9f),Hex("EDF4E9"),i+17);
                 }
             }
-            if(biome==3&&variant>0)for(int i=0;i<(variant==1?10:4);i++)
+            if(biome==3&&variant>0)VolcanicLandform(t,variant);
+        }
+        static void VolcanicLandform(Transform parent,int variant)
+        {
+            if(variant==1)
             {
-                float a=(float)random.NextDouble()*Mathf.PI*2;float radius=7+(float)random.NextDouble()*7;
-                Vector3 p=new Vector3(Mathf.Sin(a)*radius,.07f,Mathf.Cos(a)*radius);
-                var plate=Rock(t,"BasaltFlow",p,new Vector3(2.2f+(float)random.NextDouble()*2,.20f,1.5f+(float)random.NextDouble()),i%2==0?Hex("4C4859"):Hex("595363"),i+13);
-                plate.transform.localEulerAngles=new Vector3(0,a*Mathf.Rad2Deg,0);
-                if(i%3==0)Tube(t,"CoolingFissure",p+new Vector3(-.45f,.14f,-.2f),p+new Vector3(.65f,.14f,.25f),.025f,Hex("C98666"));
-            }
-            if(biome==3&&variant==2)
-            {
-                Vector3 center=new Vector3(8,0,8);
-                Part(t,"CooledCaldera",PrimitiveType.Cylinder,center+Vector3.up*.035f,new Vector3(8.4f,.035f,8.4f),Hex("454652"));
-                Part(t,"AshBasin",PrimitiveType.Cylinder,center+Vector3.up*.07f,new Vector3(5.3f,.025f,5.3f),Hex("85808B"));
-                for(int i=0;i<9;i++)
+                var flow=Root("ReliefCooledFlow",parent).transform;flow.localPosition=new Vector3(-9,0,8);
+                for(int i=0;i<5;i++)
                 {
-                    if(i==5||i==6)continue;float a=i*Mathf.PI*2/9;Vector3 p=center+new Vector3(Mathf.Sin(a)*3.7f,0,Mathf.Cos(a)*3.3f);
-                    var relief=Root("ReliefCaldera"+i,t).transform;relief.localPosition=p;
-                    float h=1.3f+Mathf.Pow((Mathf.Cos(a)+1)*.5f,2)*3.3f;
-                    var rock=Rock(relief,"CooledRim",Vector3.up*h*.5f,new Vector3(3.1f,h,2.8f),i%2==0?Hex("49495A"):Hex("706173"),i+3);rock.transform.localEulerAngles=new Vector3(0,a*Mathf.Rad2Deg,0);
-                    rock.AddComponent<MeshCollider>().sharedMesh=rock.GetComponent<MeshFilter>().sharedMesh;
-                    Tube(relief,"WarmRift",new Vector3(-.55f,h*.75f,.55f),new Vector3(.55f,h*.45f,.7f),.035f,Hex("D58B64"));
+                    float h=.48f+i*.16f;Vector3 p=new Vector3(-2+i*1.25f,h*.5f,1-i*.55f);
+                    var shelf=GroundRock(flow,"ErodedFlowShelf",p,new Vector3(5.6f-i*.5f,h,3.7f-i*.3f),i%2==0?Hex("625767"):Hex("7C6572"),i+141);
+                    shelf.AddComponent<MeshCollider>().sharedMesh=shelf.GetComponent<MeshFilter>().sharedMesh;
+                    GroundRock(flow,"FlowAsh",p+new Vector3(0,h*.45f,0),new Vector3(3.2f-i*.25f,.06f,2.1f),Hex("9A8590"),i+144);
                 }
+                return;
             }
-            if(biome==3&&variant==1)
+            var landform=Root("ReliefVolcanicBasin",parent).transform;
+            landform.localPosition=new Vector3(-8.7f,0,8);
+            // One broken basin grows out of its rear shelf and drains into a tapering flow apron.
+            GroundRock(landform,"CooledCaldera",Vector3.up*.04f,new Vector3(9.4f,.08f,8.5f),Hex("494653"),103);
+            GroundRock(landform,"AshBasin",new Vector3(.45f,.10f,-.3f),new Vector3(5.6f,.06f,4.8f),Hex("93818A"),104);
+            for(int i=0;i<8;i++)
             {
-                var terrace=Root("ReliefLavaShelf",t).transform;terrace.localPosition=new Vector3(-9,0,8);
-                for(int i=0;i<3;i++)
-                {
-                    var shelf=Rock(terrace,"BasaltTerrace",new Vector3(i*.5f,1.3f+i*1.0f,0),new Vector3(12-i*2.8f,2.6f,9-i*1.9f),i==2?Hex("927B85"):Hex("514C5E"),i+7);
-                    shelf.transform.localEulerAngles=new Vector3(0,12+i*8,0);shelf.AddComponent<MeshCollider>().sharedMesh=shelf.GetComponent<MeshFilter>().sharedMesh;
-                    Tube(terrace,"CoolingEdge",new Vector3(-3+i*.5f,2.2f+i*.9f,2.0f),new Vector3(2.4f,2.0f+i*.9f,2.2f),.035f,Hex("BE8368"));
-                }
+                float a=(-135+i*34)*Mathf.Deg2Rad;
+                Vector3 p=new Vector3(Mathf.Sin(a)*3.55f,0,Mathf.Cos(a)*3.25f);
+                float h=.7f+Mathf.Pow(Mathf.Clamp01((Mathf.Cos(a+.4f)+1)*.5f),2)*(variant==1?2.4f:3.5f);
+                var rock=Rock(landform,"ConnectedCalderaRim",p+Vector3.up*h*.5f,new Vector3(3.1f,h,2.9f),i%2==0?Hex("514B5E"):Hex("756171"),i+103);
+                rock.transform.localEulerAngles=new Vector3(0,a*Mathf.Rad2Deg,0);
+                rock.AddComponent<MeshCollider>().sharedMesh=rock.GetComponent<MeshFilter>().sharedMesh;
+                Tube(landform,"RimCoolingVein",p+new Vector3(-.45f,h*.7f,-.4f),p+new Vector3(.5f,h*.45f,-.55f),.028f,Hex("C18A70"));
+            }
+            for(int i=0;i<3;i++)
+            {
+                float h=1.5f+i*.65f;
+                var shelf=GroundRock(landform,"JoinedRearTerrace",new Vector3(-1.9f-i*.3f,h*.5f,2.8f+i*.25f),new Vector3(6.9f-i*1.2f,h,4.3f-i*.55f),i==2?Hex("8D7781"):Hex("5D5367"),i+116);
+                shelf.AddComponent<MeshCollider>().sharedMesh=shelf.GetComponent<MeshFilter>().sharedMesh;
+            }
+            for(int i=0;i<6;i++)
+            {
+                Vector3 p=new Vector3(1.7f+i*.55f,.10f,-1.7f-i*.48f);float size=3.6f-i*.43f;
+                var plate=GroundRock(landform,"TaperingBasaltFlow",p,new Vector3(size,.18f,size*.7f),i%2==0?Hex("5A4F60"):Hex("6E5A68"),i+121);
+                plate.transform.localEulerAngles=new Vector3(0,-38+i*7,0);
+                if(i<3)Tube(landform,"CoolingFlowVein",p+new Vector3(-.35f,.12f,.4f),p+new Vector3(.55f,.12f,-.35f),.025f,Hex("BA816A"));
             }
         }
         public static GameObject Landmark(int biome)

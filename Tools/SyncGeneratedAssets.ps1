@@ -3,10 +3,11 @@ $ErrorActionPreference='Stop'
 $workspaceRoot=Split-Path -Parent $PSScriptRoot
 $cloneRoot=Join-Path $workspaceRoot '.build\Project'
 $entries=@(Get-Content -LiteralPath (Join-Path $workspaceRoot $Diff) -Raw | ConvertFrom-Json)
-$allowed=@('Assets\Art\Materials\Generated\','Assets\Art\Models\Generated\','Assets\Art\UI\Generated\','Assets\Art\Prefabs\','Assets\Scenes\')
+$allowed=@('Assets\Art\Materials\Generated\','Assets\Art\Models\Generated\','Assets\Art\UI\Generated\','Assets\Art\Prefabs\','Assets\Scenes\','Assets\AddressableAssetsData\AssetGroups\')
+$allowedFiles=@('Assets\AddressableAssetsData\AddressableAssetSettings.asset','Assets\AddressableAssetsData\Windows.meta','Assets\AddressableAssetsData\link.xml','Assets\AddressableAssetsData\link.xml.meta','Assets\Config\Catalogs\GameCatalog.asset')
 $selected=@(foreach($entry in $entries){
     if($entry.path.StartsWith('Assets\AddressableAssetsData\Windows\')){continue}
-    $isAllowed=$false
+    $isAllowed=$entry.path -in $allowedFiles
     foreach($prefix in $allowed){if($entry.path.StartsWith($prefix,[StringComparison]::Ordinal)){$isAllowed=$true}}
     if(-not $isAllowed){throw "Not a generated asset: $($entry.path)"}
     $destination=[IO.Path]::GetFullPath((Join-Path $workspaceRoot $entry.path))
@@ -29,7 +30,12 @@ foreach($file in $selected){if($file.entry.status -ne 'new'){
 }}
 foreach($file in $selected){
     New-Item -ItemType Directory -Path (Split-Path -Parent $file.destination) -Force | Out-Null
-    Copy-Item -LiteralPath $file.source -Destination $file.destination -Force
+    # A running Editor can map an asset read-only: truncating it fails, but atomic replacement is safe.
+    $staged=$file.destination+'.generated-'+[Guid]::NewGuid().ToString('N')+'.tmp'
+    Copy-Item -LiteralPath $file.source -Destination $staged
+    if((Get-FileHash -LiteralPath $staged).Hash -ne $file.entry.cloneHash){throw "Staging verification failed: $($file.entry.path)"}
+    if(Test-Path -LiteralPath $file.destination){[IO.File]::Replace($staged,$file.destination,(Join-Path $backupRoot ($file.entry.path+'.replaced')))}
+    else{[IO.File]::Move($staged,$file.destination)}
     if((Get-FileHash -LiteralPath $file.destination).Hash -ne $file.entry.cloneHash){throw "Copy verification failed: $($file.entry.path)"}
 }
 Write-Output "Synced $($selected.Count) compared generated files; originals preserved in $backupRoot"

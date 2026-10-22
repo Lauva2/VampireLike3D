@@ -1,0 +1,497 @@
+{
+  "candidate": "Round39",
+  "passed": true,
+  "total": 92,
+  "max": 100,
+  "dimensions": {
+    "A": 14,
+    "B": 14,
+    "C": 18,
+    "D": 20,
+    "E": 18,
+    "F": 8
+  },
+  "items": [
+    {
+      "id": "A1",
+      "score": 5,
+      "max": 5,
+      "title": "Q版比例与俯视轮廓",
+      "evidence": [
+        "Artifacts/Round39/Captures/character-adventurer.png",
+        "Artifacts/Round39/Captures/character-elementalist.png",
+        "Artifacts/Round39/Captures/character-swordsman.png",
+        "Artifacts/Round39/Sequences/role-closeup-swordsman",
+        "Artifacts/Round39/Sequences/late-density-combinations"
+      ],
+      "observation": "39三角色的大头、短肢、宽发型/帽型和小躯干比例一致；正常俯视中的紫帽、深发和青色足圈提供可靠锚点，近景也未失去Q版体积。",
+      "revision": null
+    },
+    {
+      "id": "A2",
+      "score": 4,
+      "max": 5,
+      "title": "面部服饰装备设计",
+      "evidence": [
+        "Artifacts/Round39/Captures/character-adventurer.png",
+        "Artifacts/Round39/Captures/character-elementalist.png",
+        "Artifacts/Round39/Captures/character-swordsman.png",
+        "Artifacts/Round39/Sequences/role-closeup-adventurer"
+      ],
+      "observation": "护目镜/围巾与短夹克、紫帽金扣法袍、青衣背剑分别可辨；连续近景有睁闭眼。手掌和袖口的转接、腰带附件仍较概括，三张脸的细节语言接近。",
+      "revision": "调整握持手型及袖口厚度，给各角色增加少量不同的眉眼/配件细节。"
+    },
+    {
+      "id": "A3",
+      "score": 5,
+      "max": 5,
+      "title": "明快卡通材质色光",
+      "evidence": [
+        "Artifacts/Round39/Captures/10-biome-0.png",
+        "Artifacts/Round39/Captures/10-biome-1.png",
+        "Artifacts/Round39/Captures/10-biome-2.png",
+        "Artifacts/Round39/Captures/10-biome-3.png",
+        "Artifacts/Round39/Captures/experience-aggregates.png",
+        "Artifacts/Round39/Captures/experience-aggregates-low.png",
+        "Artifacts/Round39/Sequences/boss-attacks-2"
+      ],
+      "observation": "林地绿、荒漠金、雪地蓝白、火山紫灰橙各有清楚色域；人物与奶油UI协调。冻结染色和短闪能回到原色；晶体在Ultra/Very Low原图均有青蓝实体轮廓，无粉材或大片透明遮挡。",
+      "revision": null
+    },
+    {
+      "id": "B1",
+      "score": 4,
+      "max": 5,
+      "title": "三首发角色模型材质挂点",
+      "evidence": [
+        "Artifacts/Round39/Captures/character-adventurer.png",
+        "Artifacts/Round39/Sequences/role-action-adventurer",
+        "Artifacts/Round39/Sequences/role-closeup-adventurer",
+        "Artifacts/Round39/Captures/character-elementalist.png",
+        "Artifacts/Round39/Sequences/role-action-elementalist",
+        "Artifacts/Round39/Sequences/role-closeup-elementalist",
+        "Artifacts/Round39/Captures/character-swordsman.png",
+        "Artifacts/Round39/Sequences/role-action-swordsman",
+        "Artifacts/Round39/Sequences/role-closeup-swordsman"
+      ],
+      "observation": "三角色都有完整衣物、手脚和对应武器，抬臂、朝向变化及发射时挂点跟随，背剑/法杖/手枪未丢失。小手与柄的握持、共用躯干关节转折仍简单。",
+      "revision": "按枪、杖、剑分别校准掌腕角度和持柄接触，补肩肘转折与衣摆的角色差异。"
+    },
+    {
+      "id": "B2",
+      "score": 5,
+      "max": 5,
+      "title": "普通与精英辨识",
+      "evidence": [
+        "Artifacts/Round39/Captures/enemy-0-normal.png",
+        "Artifacts/Round39/Captures/enemy-0-elite.png",
+        "Artifacts/Round39/Captures/enemy-1-normal.png",
+        "Artifacts/Round39/Captures/enemy-1-elite.png",
+        "Artifacts/Round39/Captures/enemy-2-normal.png",
+        "Artifacts/Round39/Captures/enemy-2-elite.png",
+        "Artifacts/Round39/Captures/enemy-3-normal.png",
+        "Artifacts/Round39/Captures/enemy-3-elite.png",
+        "Artifacts/Round39/Sequences/late-density-combinations"
+      ],
+      "observation": "叶芽软体、尖角橙兽、蓝甲虫、紫菌帽法杖的主体和动作不同；金冠、角甲和增大体型让精英形成第二层辨识。在39的密战横越火山/林地过程中仍能分辨各族及精英。",
+      "revision": null
+    },
+    {
+      "id": "B3",
+      "score": 5,
+      "max": 5,
+      "title": "四Boss完整表现",
+      "evidence": [
+        "Artifacts/Round39/Captures/boss-closeup-0.png",
+        "Artifacts/Round39/Sequences/boss-attacks-0",
+        "Artifacts/Round39/Sequences/boss-death-0",
+        "Artifacts/Round39/Captures/boss-closeup-1.png",
+        "Artifacts/Round39/Sequences/boss-attacks-1",
+        "Artifacts/Round39/Sequences/boss-death-1",
+        "Artifacts/Round39/Captures/boss-closeup-2.png",
+        "Artifacts/Round39/Sequences/boss-attacks-2",
+        "Artifacts/Round39/Sequences/boss-death-2",
+        "Artifacts/Round39/Captures/boss-closeup-3.png",
+        "Artifacts/Round39/Sequences/boss-attacks-3",
+        "Artifacts/Round39/Sequences/boss-death-3"
+      ],
+      "observation": "四Boss原图分别呈现根木/树冠叶须、节体口牙、冰角白毛蓝爪、暗岩甲橙裂隙，体量明显大于普通敌；四条攻击和四条死亡记录均有阶段变化，未见缺件或材质破损。",
+      "revision": null
+    },
+    {
+      "id": "C1",
+      "score": 5,
+      "max": 5,
+      "title": "四群系地貌装饰语言",
+      "evidence": [
+        "Artifacts/Round39/Captures/geography-0-0.png",
+        "Artifacts/Round39/Captures/geography-0-1.png",
+        "Artifacts/Round39/Captures/geography-0-2.png",
+        "Artifacts/Round39/Captures/geography-wide-0-2.png",
+        "Artifacts/Round39/Captures/geography-1-0.png",
+        "Artifacts/Round39/Captures/geography-1-1.png",
+        "Artifacts/Round39/Captures/geography-1-2.png",
+        "Artifacts/Round39/Captures/geography-wide-1-2.png",
+        "Artifacts/Round39/Captures/geography-2-0.png",
+        "Artifacts/Round39/Captures/geography-2-1.png",
+        "Artifacts/Round39/Captures/geography-2-2.png",
+        "Artifacts/Round39/Captures/geography-wide-2-2.png",
+        "Artifacts/Round39/Captures/geography-3-0.png",
+        "Artifacts/Round39/Captures/geography-3-1.png",
+        "Artifacts/Round39/Captures/geography-3-2.png",
+        "Artifacts/Round39/Captures/geography-wide-3-2.png"
+      ],
+      "observation": "河桥与林簇苔岩、沙丘台地绿洲、冰湖冰壁雪松、熔岩岸桥与玄武岩形成不同地貌组织。火山广角中单处主坑和较低开口岩地有主从，没有把每处野地处理成同样的大圆环。",
+      "revision": null
+    },
+    {
+      "id": "C2",
+      "score": 4,
+      "max": 5,
+      "title": "场景层次与尺度",
+      "evidence": [
+        "Artifacts/Round39/Captures/waterside-architecture-0.png",
+        "Artifacts/Round39/Captures/sanctuary-0.png",
+        "Artifacts/Round39/Captures/waterside-architecture-1.png",
+        "Artifacts/Round39/Captures/sanctuary-1.png",
+        "Artifacts/Round39/Captures/waterside-architecture-2.png",
+        "Artifacts/Round39/Captures/sanctuary-2.png",
+        "Artifacts/Round39/Captures/waterside-architecture-3.png",
+        "Artifacts/Round39/Captures/sanctuary-3.png",
+        "Artifacts/Round39/Captures/geography-wide-3-2.png"
+      ],
+      "observation": "四种近水建筑/遗迹的完整地基与支路同框，火山基底在熔岩北岸干地；挑战点高构件在后侧，前沿低踏石有尺度层次。荒漠、火山的大平地与小石/柱组之间仍有较宽的平淡区。",
+      "revision": "用低起伏或少量疏密变化连接大平地和主景，强化岩柱与石簇之间的大小级差，保留战斗空间。"
+    },
+    {
+      "id": "C3",
+      "score": 4,
+      "max": 5,
+      "title": "生成衔接遮挡重复感",
+      "evidence": [
+        "Artifacts/Round39/Captures/mixed-boundary-2-3.png",
+        "Artifacts/Round39/Captures/mixed-lava-shore-close.png",
+        "Artifacts/Round39/Captures/world-floating-origin.png",
+        "Artifacts/Round39/Sequences/character-move-dodge",
+        "Artifacts/Round39/Sequences/late-density-combinations",
+        "Artifacts/Probe39/TerrainPixelAudit.json"
+      ],
+      "observation": "混合道路跨界连续，熔岩圆尾和岸线完整；五探针图未见底色裂口。移动和96帧密战中玩家可持续追踪，未见模型长期被消隐。远景三石、三柱、圆点地表纹样仍有可察觉的复用节奏。",
+      "revision": "打散小簇的间距、方向和形状组合，优先减少同一广角内等权重复，保持现有消隐/道路边界。"
+    },
+    {
+      "id": "C4",
+      "score": 5,
+      "max": 5,
+      "title": "混合过渡与探索目的地",
+      "evidence": [
+        "Artifacts/Round39/Captures/mixed-boundary-0-2.png",
+        "Artifacts/Round39/Captures/mixed-boundary-0-3.png",
+        "Artifacts/Round39/Captures/mixed-boundary-1-2.png",
+        "Artifacts/Round39/Captures/mixed-boundary-2-3.png",
+        "Artifacts/Round39/Captures/mixed-lava-shore.png",
+        "Artifacts/Round39/Captures/21-map.png",
+        "Artifacts/Round39/Captures/sanctuary-0.png",
+        "Artifacts/Round39/Captures/sanctuary-completed-0.png",
+        "Artifacts/Round39/Captures/sanctuary-1.png",
+        "Artifacts/Round39/Captures/sanctuary-completed-1.png",
+        "Artifacts/Round39/Captures/sanctuary-2.png",
+        "Artifacts/Round39/Captures/sanctuary-completed-2.png",
+        "Artifacts/Round39/Captures/sanctuary-3.png",
+        "Artifacts/Round39/Captures/sanctuary-completed-3.png"
+      ],
+      "observation": "39实际四组边界有渐变带、跨界植被和连续路线。地图事件/Boss符号可对应实景；四挑战点侧路绕阵心，右踏石接路，后左连续地貌围合。四完成原图均显示阵纹转暗、挑战文字清除且主体景观留存，目的地前后状态清楚。",
+      "revision": null
+    },
+    {
+      "id": "D1",
+      "score": 5,
+      "max": 5,
+      "title": "全页面视觉体系",
+      "evidence": [
+        "Artifacts/UI39/Captures/ui-menu-1280x720.png",
+        "Artifacts/UI39/Captures/ui-selection-unlocked-1280x720.png",
+        "Artifacts/UI39/Captures/ui-progress-1280x720.png",
+        "Artifacts/UI39/Captures/ui-settings-1280x720.png",
+        "Artifacts/UI39/Captures/ui-loading-1280x720.png",
+        "Artifacts/UI39/Captures/ui-results-1280x720.png",
+        "Artifacts/UI39/Captures/ui-victory-1280x720.png",
+        "Artifacts/Probe39/Captures/load-failure-terrain-forest.png"
+      ],
+      "observation": "菜单、选择、成长任务、设置、暂停、加载55%、两种结算及失败恢复均使用奶油卡片/深青文字/金色强调和统一图标语言。失败提示有稳定底板和明确返回菜单状态。",
+      "revision": null
+    },
+    {
+      "id": "D2",
+      "score": 5,
+      "max": 5,
+      "title": "HUD升级技能信息层级",
+      "evidence": [
+        "Artifacts/UI39/Captures/ui-hud-1280x720.png",
+        "Artifacts/UI39/Captures/ui-skills-1280x720.png",
+        "Artifacts/UI39/Captures/ui-upgrade-2560x1440.png",
+        "Artifacts/UI39/Captures/ui-map-1280x720.png",
+        "Artifacts/Round39/Sequences/feedback-upgrade-open"
+      ],
+      "observation": "生命、时间、Boss名称/阶段、资源、小地图和六能力有分区；升级四卡的标题、效果、等级和新机制提示分层；技能点数、价格、分类与滚动提示清楚。密战HUD没有被额外能力文字挤出。",
+      "revision": null
+    },
+    {
+      "id": "D3",
+      "score": 5,
+      "max": 5,
+      "title": "中文长文本排版",
+      "evidence": [
+        "Artifacts/UI39/Captures/ui-selection-locked-1280x720.png",
+        "Artifacts/UI39/Captures/ui-progress-1280x720.png",
+        "Artifacts/UI39/Captures/ui-skills-1280x720.png",
+        "Artifacts/UI39/Captures/ui-upgrade-2560x1440.png",
+        "Artifacts/Round39/Captures/21-map.png"
+      ],
+      "observation": "39原图重看锁定原因、任务条件/奖励、构筑说明、地图说明及长机制文字，未见方框、关键字裁切或越界。列表底端部分卡片受正常滚动遮罩约束，滚动条与页脚明确；字号/行距稳定。",
+      "revision": null
+    },
+    {
+      "id": "D4",
+      "score": 5,
+      "max": 5,
+      "title": "画幅状态图标适配",
+      "evidence": [
+        "Docs/ArtReviews/Round39/UI39-00.png",
+        "Docs/ArtReviews/Round39/UI39-11.png",
+        "Artifacts/UI39/Verification.json"
+      ],
+      "observation": "五画幅70张UI图已全部实看：1280×720、1920×1080、1920×1200、2560×1080、2560×1440。锁定/解锁/已选、灰态价格、返回及主按钮可辨，未见拉伸、主模态出界或必要操作被遮挡。",
+      "revision": null
+    },
+    {
+      "id": "E1",
+      "score": 5,
+      "max": 5,
+      "title": "技能联动与命中层次",
+      "evidence": [
+        "Artifacts/Round39/Sequences/effect-arc",
+        "Artifacts/Round39/Sequences/effect-embers",
+        "Artifacts/Round39/Sequences/effect-explosion",
+        "Artifacts/Round39/Sequences/effect-flame",
+        "Artifacts/Round39/Sequences/effect-frost",
+        "Artifacts/Round39/Sequences/effect-iceburst",
+        "Artifacts/Round39/Sequences/effect-leafburst",
+        "Artifacts/Round39/Sequences/effect-lightning",
+        "Artifacts/Round39/Sequences/effect-rune",
+        "Artifacts/Round39/Sequences/effect-sand",
+        "Artifacts/Round39/Sequences/effect-slash",
+        "Artifacts/Round39/Sequences/late-density-combinations"
+      ],
+      "observation": "火球橙瓣与余烬、金色细枪弹、电弧折线、青白飞剑斩弧、蓝色冰环/碎片、金色符阵有不同轨迹与扩散方式；密战中可见命中碎光和后续余波，随时间消退，未用大白闪覆盖所有命中。",
+      "revision": null
+    },
+    {
+      "id": "E2",
+      "score": 4,
+      "max": 5,
+      "title": "高密度玩家危险与拾取辨识",
+      "evidence": [
+        "Artifacts/Round39/Sequences/late-density-combinations",
+        "Artifacts/Round39/Sequences/late-density-combinations/0016.jpg",
+        "Artifacts/Round39/Sequences/late-density-combinations/0024.jpg",
+        "Artifacts/Round39/Sequences/late-density-combinations/0078.jpg",
+        "Artifacts/Round39/Captures/experience-aggregates.png",
+        "Artifacts/Round39/Captures/experience-aggregates-low.png"
+      ],
+      "observation": "全部96帧中紫帽/青足圈、金冠和危险红边持续可定位，蓝晶体和粉色敌弹区别成立；聚合没有造成铺满屏幕的光片。0016/0024附近剑尾、冰弧和敌群在脚下交叠，局部读取仍拥挤。",
+      "revision": "按中心屏幕覆盖密度收窄剑尾/冰弧亮带或调整纯视觉透明度，保留能力数量、发射和伤害。"
+    },
+    {
+      "id": "E3",
+      "score": 5,
+      "max": 5,
+      "title": "Boss精英预警与时序",
+      "evidence": [
+        "Artifacts/Round39/Sequences/boss-attacks-0",
+        "Artifacts/Round39/Sequences/boss-attacks-1",
+        "Artifacts/Round39/Sequences/boss-attacks-2",
+        "Artifacts/Round39/Sequences/boss-attacks-3",
+        "Artifacts/Round39/Sequences/late-density-combinations",
+        "Artifacts/Round39/Verification.json"
+      ],
+      "observation": "四Boss的起手、红圈/条带、临界强调、生效和回收都有39记录；另逐张开各0018–0021/0026原帧。沙虫条带与朝向一致，古树三圈、雪原多圈/近身圈、熔岩五圈的实际特效仍在相应区域，精英短条边线与敌弹保持可辨，未见严重范围错位。",
+      "revision": null
+    },
+    {
+      "id": "E4",
+      "score": 4,
+      "max": 5,
+      "title": "状态无敌危险交互提示",
+      "evidence": [
+        "Artifacts/Round39/Sequences/character-move-dodge",
+        "Artifacts/Round39/Sequences/character-move-dodge/0038.jpg",
+        "Artifacts/Round39/Sequences/boss-attacks-2",
+        "Artifacts/Round39/Captures/sanctuary-close-3.png",
+        "Artifacts/Round39/Captures/sanctuary-completed-3.png",
+        "Artifacts/Round39/Verification.json"
+      ],
+      "observation": "闪避的淡亮/足圈、受击边缘渐变、冻结蓝染与恢复、红边界及交互文字均能对应状态，未见持续过曝。火山挑战提示深青字直接压在灰紫地表，局部对比偏弱；完成态金色三纹小圆是符阵武器，非残留E提示。",
+      "revision": "给世界交互提示加入简洁稳定底板或对比描边，特别提高火山地表下的文字与按键辨识。"
+    },
+    {
+      "id": "F1",
+      "score": 4,
+      "max": 5,
+      "title": "动作起手收招与死亡",
+      "evidence": [
+        "Artifacts/Round39/Sequences/character-move-dodge",
+        "Artifacts/Round39/Sequences/role-action-adventurer",
+        "Artifacts/Round39/Sequences/role-action-elementalist",
+        "Artifacts/Round39/Sequences/role-action-swordsman",
+        "Artifacts/Round39/Sequences/player-defeat",
+        "Artifacts/Round39/Sequences/boss-attacks-0",
+        "Artifacts/Round39/Sequences/boss-death-0",
+        "Artifacts/Round39/Sequences/boss-attacks-1",
+        "Artifacts/Round39/Sequences/boss-death-1",
+        "Artifacts/Round39/Sequences/boss-attacks-2",
+        "Artifacts/Round39/Sequences/boss-death-2",
+        "Artifacts/Round39/Sequences/boss-attacks-3",
+        "Artifacts/Round39/Sequences/boss-death-3"
+      ],
+      "observation": "三角色近景144帧可见开火/抬杖/剑诀和眨眼；正常镜头有转向、闪避，玩家倒地到结算及四Boss死亡有连续变化。肩腕回中和身体跟随仍偏短促、程序循环感可见。",
+      "revision": "为腕肩回中和躯干跟随补少量缓动与重量变化，不改变预警兑现/无敌判定时点。"
+    },
+    {
+      "id": "F2",
+      "score": 4,
+      "max": 5,
+      "title": "UI拾取奖励反馈与一致性",
+      "evidence": [
+        "Artifacts/Round39/Sequences/feedback-pause-open",
+        "Artifacts/Round39/Sequences/feedback-skills-open",
+        "Artifacts/Round39/Sequences/feedback-task-unlock",
+        "Artifacts/Round39/Sequences/feedback-upgrade-open",
+        "Artifacts/Round39/Sequences/feedback-upgrade-reward",
+        "Artifacts/Round39/Sequences/late-density-combinations",
+        "Artifacts/Round39/Captures/experience-aggregates.png"
+      ],
+      "observation": "淡入页面能收敛到完整不透明，任务/升级奖励Toast与世界金青色语言统一；密战和移动中晶体可吸入、经验等级推进，未见大片排序错误或明显材质跳失。各类奖励主要靠同类光点/Toast，反馈节奏差异还不够丰富。",
+      "revision": "分别细化任务、能力升级、拾取的短缓动与收束节奏，保持光效局部、避免新增大面积遮挡。"
+    }
+  ],
+  "hardGates": [
+    {
+      "id": "total",
+      "passed": true,
+      "evidence": "92 >= 91，整数原100分量表"
+    },
+    {
+      "id": "dimensions",
+      "passed": true,
+      "evidence": "A14>=13、B14>=13、C18>=18、D20>=18、E18>=18、F8>=8"
+    },
+    {
+      "id": "items",
+      "passed": true,
+      "evidence": "20项逐项重新评分，最低4"
+    },
+    {
+      "id": "frozen_content",
+      "passed": true,
+      "evidence": "3角色、4普通/精英族、4Boss、4群系+Mixed、全部正式UI与要求画幅均有39实机覆盖"
+    },
+    {
+      "id": "finished_assets",
+      "passed": true,
+      "evidence": "190静态与33序列实际观看范围未见占位角色/敌/场景/默认UI、粉材、缺贴图或明显破网格"
+    },
+    {
+      "id": "chinese_layout",
+      "passed": true,
+      "evidence": "五画幅70页矩阵及中文原图无缺字、关键裁切、核心UI出界"
+    },
+    {
+      "id": "dense_readability",
+      "passed": true,
+      "evidence": "96帧密战全帧观看，头/足圈与敌方危险可定位，六能力持续；运行报告补充同版六能力/伤害断言，未以关伤害造图"
+    },
+    {
+      "id": "danger_and_invulnerability",
+      "passed": true,
+      "evidence": "四Boss起手/预警/生效/回收及精英危险有实录；闪避反馈与窗口内外伤害断言同版，未见持续遮挡或严重范围偏离"
+    },
+    {
+      "id": "continuous_feedback",
+      "passed": true,
+      "evidence": "33条12fps实际Player序列，571表内+18额外原帧；不是只用静态姿态"
+    },
+    {
+      "id": "same_candidate",
+      "passed": true,
+      "evidence": "所有评分图仅Round39/UI39/Probe39；BuildIdentity中23个文件集合及SHA256相同"
+    }
+  ],
+  "reviewer": "independent art review subagent /root/art_review38",
+  "reviewedDate": "2026-10-22 Asia/Shanghai",
+  "actualViewingScope": {
+    "sheets": 72,
+    "staticImages": 190,
+    "sequences": 33,
+    "observedDistinctSequenceFrames": 589,
+    "totalRecordedSequenceFrames": 1414,
+    "originalImagesOpened": 55,
+    "coverage": {
+      "characters": [
+        "adventurer",
+        "elementalist",
+        "swordsman"
+      ],
+      "enemyFamilies": "4普通+4精英造型/战斗",
+      "bosses": [
+        "古树守卫",
+        "巨型沙虫",
+        "霜原巨兽",
+        "熔岩巨像"
+      ],
+      "maps": [
+        "Forest",
+        "Desert",
+        "Snow",
+        "Volcano",
+        "Mixed"
+      ],
+      "mixedBoundaries": [
+        "0-2",
+        "0-3",
+        "1-2",
+        "2-3",
+        "lava-shore"
+      ],
+      "worldStates": "正常/广角三处地貌、挑战前/近景/完成后、近水建筑/广角、浮动原点、五探针",
+      "ui": "菜单、选择锁定/解锁、成长/任务、设置、暂停及设置、加载、HUD、技能、地图、升级、死亡/胜利结算、两类错误恢复",
+      "resolutions": [
+        "1280x720",
+        "1920x1080",
+        "1920x1200",
+        "2560x1080",
+        "2560x1440"
+      ],
+      "abilities": [
+        "自动手枪",
+        "火球",
+        "飞剑",
+        "灵体",
+        "爆破炮",
+        "符阵"
+      ],
+      "dynamic": "三角色动作/侧前近景、移动闪避、玩家死亡、四Boss攻击/死亡、11特效、96帧密战联动、5页面/奖励反馈",
+      "newPickupChecks": "经验聚合高低质量两原图与质量元数据，正常移动/密战中的拾取与遮挡复核"
+    }
+  },
+  "limitations": [
+    "离线查看现成development Windows Player Camera.Render原始完整画幅及同一Canvas；未控制桌面、未启动Player/构建、未独立交互试玩。辅助表是全部原图的缩略索引；另开原图55张，2560×1440图由查看器适配为2048×1152显示，不声称逐像素原比例检查。",
+    "33序列固定12fps、共1414帧，实际571表内帧加18张额外原帧，共589张不同动态帧；未逐帧看全部1414帧。144帧三角色近景、96帧密战及短UI反馈全帧覆盖，其余跨阶段抽样；不能用此判断60fps或正常速度流畅度。",
+    "序列有controlledPlayerHealing=true；角色动作/近景的敌人静止且不死，Boss动作录制中Boss不死。它们保证可观察动作，不能证明自然生存/平衡。密战所见六能力持续、击败数与等级推进，未以停止发射/删除能力/关闭伤害求干净画面。",
+    "预警与攻击范围判断是所见视觉阶段/区域的一致性及同版窗口断言，不是穷举所有随机种子、每个碰撞体或亚帧判定；经验精确保值/磁吸算法正确性属于技术报告，不因源码修改或95功能检查增加美术分。",
+    "只评价Round39冻结首发美术。FormalGameplay39近景、旧38画面/分数、Campaign或Soak运行进度均未用于补美术覆盖；不代表整项目、正式版完整功能、音频或连续7200秒性能通过。"
+  ],
+  "observedEvidence": "Docs/ArtReviews/Round39/ObservedEvidence.json",
+  "independentReview": "Docs/ArtReviews/Round39/IndependentReview.md",
+  "scope": "Round39完整冻结首发美术；不代表性能或整项目验收"
+}

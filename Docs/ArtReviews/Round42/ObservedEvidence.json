@@ -1,0 +1,2483 @@
+{
+  "schemaVersion": 1,
+  "candidate": "Round42",
+  "reviewer": "independent art-review subagent /root/art_review38",
+  "reviewedAt": "2026-10-22T04:35:32+08:00",
+  "completeArtReview": true,
+  "rubric": {
+    "source": "Docs/ArtReview.md sections 2–5",
+    "unchanged": true,
+    "totalMinimum": 91,
+    "dimensionMinimum": {
+      "A": 13,
+      "B": 13,
+      "C": 18,
+      "D": 18,
+      "E": 18,
+      "F": 8
+    },
+    "itemMinimum": 4,
+    "itemCount": 20
+  },
+  "documentsRead": [
+    "AGENTS.md",
+    "Docs/ArtReview.md",
+    "Docs/GameDesign.md",
+    "Docs/ContentScope.md",
+    "Docs/SessionHandoff.md"
+  ],
+  "source": {
+    "type": "Windows development Player original Camera.Render and actual runtime sequences",
+    "player": "E:\\UnityProject\\VampireLike3D\\Builds\\Review42\\WanXiangExpedition.exe",
+    "unity": "2022.3.62f2",
+    "gpu": "NVIDIA GeForce RTX 3060 Laptop GPU",
+    "cpu": "Intel Core i7-10870H",
+    "desktopControl": false,
+    "reviewerStartedPlayer": false,
+    "reviewerBuiltPlayer": false,
+    "verificationReports": {
+      "Round42": {
+        "passed": true,
+        "errors": [],
+        "checks": 95,
+        "finished": "2026-10-21T20:12:42.6030957Z"
+      },
+      "UI42": {
+        "passed": true,
+        "errors": [],
+        "checks": 72,
+        "finished": "2026-10-21T20:09:14.0103301Z"
+      },
+      "Probe42": {
+        "passed": true,
+        "errors": [],
+        "checks": 8,
+        "finished": "2026-10-21T20:08:45.9101325Z"
+      }
+    },
+    "buildIdentityFiles": [
+      {
+        "file": "WanXiangExpedition.exe",
+        "sha256": "8BD2E5BF2D11B690134CAF290253B0CD1B26B9056C304F1F9296BBC3F74470F9"
+      },
+      {
+        "file": "WanXiangExpedition_Data\\Managed\\Assembly-CSharp.dll",
+        "sha256": "5EFF8CDE2F34188A9ABE62A24EECF9774382A9DCFB434CEDEA8CB3EC375CD5F3"
+      },
+      {
+        "file": "WanXiangExpedition_Data\\StreamingAssets\\aa\\catalog.json",
+        "sha256": "C738005569E0EC902F91086D3C8ACB074A611BE5727619B11CC56F1CC14C21B1"
+      },
+      {
+        "file": "WanXiangExpedition_Data\\StreamingAssets\\aa\\settings.json",
+        "sha256": "FDBFF8EC72A2AB4B5A5FCA1D3944D65F6E61DA4C6615E91AB9504EC117E31996"
+      },
+      {
+        "file": "WanXiangExpedition_Data\\StreamingAssets\\aa\\AddressablesLink\\link.xml",
+        "sha256": "26BB435B60DBF03767004F4170ACEC81AEB080EB09929784D2A9A62E685336C6"
+      },
+      {
+        "file": "WanXiangExpedition_Data\\StreamingAssets\\aa\\StandaloneWindows64\\48dacb1c672fd497a20495bed914a56e_unitybuiltinshaders_4453524ec96e57d818292b0a402f2735.bundle",
+        "sha256": "024332B040D84DCAE8A1279EDB084C3DA202EFA48BB9683F584B0CE01911A02C"
+      },
+      {
+        "file": "WanXiangExpedition_Data\\StreamingAssets\\aa\\StandaloneWindows64\\audio_assets_all_fd8416276f2c3494ecb75b6078e5a84a.bundle",
+        "sha256": "95A111F0B8DEAF6AAE3A679C28305AEFE72D0F3E5BF61B18F7F580F3E3A9521B"
+      },
+      {
+        "file": "WanXiangExpedition_Data\\StreamingAssets\\aa\\StandaloneWindows64\\combat_assets_all_4326258914c1f00268876145335cc3a4.bundle",
+        "sha256": "759C6FFE13E9F6A6287F37885F1C9D17D9BA4486146E5AFFAA18B88E13B159CB"
+      },
+      {
+        "file": "WanXiangExpedition_Data\\StreamingAssets\\aa\\StandaloneWindows64\\core_assets_all_9fa5187159b1be68d871f6f395f84dd0.bundle",
+        "sha256": "99A26A5C408E38C3827014C0F5A6EFBB30094985EE3C84AD7C7849A713FD6F0F"
+      },
+      {
+        "file": "WanXiangExpedition_Data\\StreamingAssets\\aa\\StandaloneWindows64\\scenes_scenes_all_e879fa63be4b6a1f8f1cac043ed49fec.bundle",
+        "sha256": "0EFA9FF62A3EC5C4D79FDA50CCE497F5219EF38618970AC38ADD6A0F4550A6A8"
+      },
+      {
+        "file": "WanXiangExpedition_Data\\StreamingAssets\\aa\\StandaloneWindows64\\ui_assets_all_b9c43f56f97beddaf80cfbd04fbda9fe.bundle",
+        "sha256": "3636EA800EFB9680196AEC6EF091D26F046268D559278C060F036D422900800D"
+      },
+      {
+        "file": "WanXiangExpedition_Data\\StreamingAssets\\aa\\StandaloneWindows64\\world-desert_assets_all_2abfe5e4edf03457223782d56390f84d.bundle",
+        "sha256": "D93445D598DD532AFA1C86321D7938DCD580DC80B78E17135F13635DF1A5A662"
+      },
+      {
+        "file": "WanXiangExpedition_Data\\StreamingAssets\\aa\\StandaloneWindows64\\world-desert-ridge_assets_all_86ce983db33f1aade01fe391b79b44da.bundle",
+        "sha256": "3EB1FA919C3BDC64A0EF8F365BD021017C9C46E5163A6FB808BDB06FAB481FA1"
+      },
+      {
+        "file": "WanXiangExpedition_Data\\StreamingAssets\\aa\\StandaloneWindows64\\world-desert-wild_assets_all_049b8a3511ea6a247c8e15fa1112d734.bundle",
+        "sha256": "7EED9F5A18CDCC500B870F962478DD9BB942D2D1555FE91CAD57FF37A52032C1"
+      },
+      {
+        "file": "WanXiangExpedition_Data\\StreamingAssets\\aa\\StandaloneWindows64\\world-forest_assets_all_b8e711befc2d33b77833c9bcef35a938.bundle",
+        "sha256": "85BCA075179074E7C71A323B90CE85B83810C108A28584F4D8C6063E38FC06AD"
+      },
+      {
+        "file": "WanXiangExpedition_Data\\StreamingAssets\\aa\\StandaloneWindows64\\world-forest-ridge_assets_all_093544a3cd2dfbeb27e562d47c6b5d91.bundle",
+        "sha256": "636EDA7219D9318AF7627F4C5AE3F63DD0F1E8C7BE4E50A74EDF29681E977E41"
+      },
+      {
+        "file": "WanXiangExpedition_Data\\StreamingAssets\\aa\\StandaloneWindows64\\world-forest-wild_assets_all_d2e2f87e402fb4a5e14c6911aa736b93.bundle",
+        "sha256": "E0E397B6854C6668D863DB7941C9D873994E8155E4DC9A400A9AB65C26E8271E"
+      },
+      {
+        "file": "WanXiangExpedition_Data\\StreamingAssets\\aa\\StandaloneWindows64\\world-snow_assets_all_eac97e84f24b15327aba7e6014835a24.bundle",
+        "sha256": "D74FD35FCCD3DC28A7B49D05F33E332E76D7AF8109F054DD6C16C2A6563A6D0D"
+      },
+      {
+        "file": "WanXiangExpedition_Data\\StreamingAssets\\aa\\StandaloneWindows64\\world-snow-ridge_assets_all_e96c2edaafe7ca413355a68c7bff8371.bundle",
+        "sha256": "08C3DDCE25852D55C3A8B0011106120F2C0E46CDBD5AB11CE3FA22B571131CC2"
+      },
+      {
+        "file": "WanXiangExpedition_Data\\StreamingAssets\\aa\\StandaloneWindows64\\world-snow-wild_assets_all_eab498951277aef3894ed8dcd8a81d9f.bundle",
+        "sha256": "F4E63338808452B3498FD61E5A89C1BCBCDD4022C85E90E3D62960D997FDBC1A"
+      },
+      {
+        "file": "WanXiangExpedition_Data\\StreamingAssets\\aa\\StandaloneWindows64\\world-volcano_assets_all_965f73033b04703c9a70c77b0dc0064e.bundle",
+        "sha256": "4CCD6E5B9198E015385BA76A71EAC32466FDA30E6B3D1556CC679CCAE69E959C"
+      },
+      {
+        "file": "WanXiangExpedition_Data\\StreamingAssets\\aa\\StandaloneWindows64\\world-volcano-ridge_assets_all_85ef848e20f6e22b077f7540f2367c78.bundle",
+        "sha256": "FDCCA96CEA033AC4384A87A6099B32B49B5E7D34AA2522C85C9BDD21D44DFEE4"
+      },
+      {
+        "file": "WanXiangExpedition_Data\\StreamingAssets\\aa\\StandaloneWindows64\\world-volcano-wild_assets_all_87f307f0bd0b0aa775479b3505b12a4d.bundle",
+        "sha256": "DD8288DADF13F9A64B008CCCC42C267F8C0FCBD1BAA813BDAC3D742DCB27406A"
+      }
+    ],
+    "threeCaptureIdentitiesMatched": true,
+    "identityFileCount": 23,
+    "identityComparison": "Compared file names and SHA256 entries in three saved BuildIdentity.json files; all identical. Did not independently rehash all installed Player binaries during this review.",
+    "workspaceIdentity": {
+      "path": "Artifacts/Workspace42Identity.json",
+      "checkedFiles": 1068,
+      "passed": true
+    },
+    "releaseIdentity": {
+      "path": "Artifacts/Release42BuildMatch.json",
+      "sourceFiles": 1068,
+      "bundles": 18,
+      "exactSourceMatch": true,
+      "exactBundleMatch": true
+    },
+    "quality": {
+      "normalStatic": {
+        "quality": 5,
+        "name": "Ultra",
+        "MSAA": 4,
+        "usualSize": "1600x900"
+      },
+      "experienceLow": {
+        "quality": 0,
+        "name": "Very Low",
+        "antiAliasing": 1,
+        "size": "1600x900"
+      },
+      "uiSizes": [
+        "1280x720",
+        "1920x1080",
+        "1920x1200",
+        "2560x1080",
+        "2560x1440"
+      ],
+      "sequenceSize": "1280x720",
+      "metadataAuthority": "Per-capture .quality.json; saved profile quality=2 is not substituted for actual capture quality=5."
+    },
+    "mapSeedEvidence": [
+      {
+        "path": "Artifacts/Round42/Captures/21-map.png",
+        "seed": 484241349,
+        "worldCoordinate": "21 / 15"
+      },
+      {
+        "path": "Artifacts/UI42/Captures/ui-map-1280x720.png",
+        "seed": 226358579,
+        "worldCoordinate": "0 / 0"
+      }
+    ],
+    "supplementaryPreflightIdentityMatched": true
+  },
+  "actualViewing": {
+    "sheetCount": 72,
+    "staticImagesInSheets": 190,
+    "staticBySource": {
+      "Round42": 113,
+      "UI42": 70,
+      "Probe42": 7
+    },
+    "sequenceCount": 33,
+    "totalSequenceFramesAvailable": 1415,
+    "framesViewedInSheets": 570,
+    "originalFilesOpened": 80,
+    "originalStaticFilesOpened": 46,
+    "originalSequenceFramesOpened": 34,
+    "additionalUniqueFramesOutsideSheets": 19,
+    "totalUniqueSequenceFramesViewed": 589,
+    "additionalUniqueFrames": [
+      "Artifacts/Round42/Sequences/boss-attacks-0/0018.jpg",
+      "Artifacts/Round42/Sequences/boss-attacks-0/0019.jpg",
+      "Artifacts/Round42/Sequences/boss-attacks-0/0020.jpg",
+      "Artifacts/Round42/Sequences/boss-attacks-0/0021.jpg",
+      "Artifacts/Round42/Sequences/boss-attacks-1/0018.jpg",
+      "Artifacts/Round42/Sequences/boss-attacks-1/0019.jpg",
+      "Artifacts/Round42/Sequences/boss-attacks-1/0020.jpg",
+      "Artifacts/Round42/Sequences/boss-attacks-1/0021.jpg",
+      "Artifacts/Round42/Sequences/boss-attacks-2/0018.jpg",
+      "Artifacts/Round42/Sequences/boss-attacks-2/0019.jpg",
+      "Artifacts/Round42/Sequences/boss-attacks-2/0020.jpg",
+      "Artifacts/Round42/Sequences/boss-attacks-2/0021.jpg",
+      "Artifacts/Round42/Sequences/boss-attacks-3/0018.jpg",
+      "Artifacts/Round42/Sequences/boss-attacks-3/0019.jpg",
+      "Artifacts/Round42/Sequences/boss-attacks-3/0020.jpg",
+      "Artifacts/Round42/Sequences/boss-attacks-3/0021.jpg",
+      "Artifacts/Round42/Sequences/character-move-dodge/0001.jpg",
+      "Artifacts/Round42/Sequences/character-move-dodge/0002.jpg",
+      "Artifacts/Round42/Sequences/character-move-dodge/0003.jpg"
+    ],
+    "allSheetNamesViewed": [
+      "Round42-00.png",
+      "Round42-01.png",
+      "Round42-02.png",
+      "Round42-03.png",
+      "Round42-04.png",
+      "Round42-05.png",
+      "Round42-06.png",
+      "Round42-07.png",
+      "Round42-08.png",
+      "Round42-09.png",
+      "Round42-10.png",
+      "Round42-11.png",
+      "Round42-12.png",
+      "Round42-13.png",
+      "Round42-14.png",
+      "Round42-15.png",
+      "Round42-16.png",
+      "Round42-17.png",
+      "Round42-18.png",
+      "UI42-00.png",
+      "UI42-01.png",
+      "UI42-02.png",
+      "UI42-03.png",
+      "UI42-04.png",
+      "UI42-05.png",
+      "UI42-06.png",
+      "UI42-07.png",
+      "UI42-08.png",
+      "UI42-09.png",
+      "UI42-10.png",
+      "UI42-11.png",
+      "Probe42-00.png",
+      "Probe42-01.png",
+      "boss-attacks-0-00.png",
+      "boss-attacks-1-00.png",
+      "boss-attacks-2-00.png",
+      "boss-attacks-3-00.png",
+      "boss-death-0-00.png",
+      "boss-death-1-00.png",
+      "boss-death-2-00.png",
+      "boss-death-3-00.png",
+      "character-move-dodge-00.png",
+      "player-defeat-00.png",
+      "role-action-adventurer-00.png",
+      "role-action-elementalist-00.png",
+      "role-action-swordsman-00.png",
+      "role-closeup-adventurer-00.png",
+      "role-closeup-adventurer-01.png",
+      "role-closeup-elementalist-00.png",
+      "role-closeup-elementalist-01.png",
+      "role-closeup-swordsman-00.png",
+      "role-closeup-swordsman-01.png",
+      "effect-arc-00.png",
+      "effect-embers-00.png",
+      "effect-explosion-00.png",
+      "effect-flame-00.png",
+      "effect-frost-00.png",
+      "effect-iceburst-00.png",
+      "effect-leafburst-00.png",
+      "effect-lightning-00.png",
+      "effect-rune-00.png",
+      "effect-sand-00.png",
+      "effect-slash-00.png",
+      "feedback-pause-open-00.png",
+      "feedback-skills-open-00.png",
+      "feedback-task-unlock-00.png",
+      "feedback-upgrade-open-00.png",
+      "feedback-upgrade-reward-00.png",
+      "late-density-combinations-00.png",
+      "late-density-combinations-01.png",
+      "late-density-combinations-02.png",
+      "late-density-combinations-03.png"
+    ],
+    "originalFilesOpenedList": [
+      "Artifacts/UI42/Captures/ui-menu-1280x720.png",
+      "Artifacts/UI42/Captures/ui-selection-locked-1280x720.png",
+      "Artifacts/UI42/Captures/ui-selection-unlocked-1280x720.png",
+      "Artifacts/UI42/Captures/ui-progress-1280x720.png",
+      "Artifacts/UI42/Captures/ui-settings-1280x720.png",
+      "Artifacts/UI42/Captures/ui-loading-1280x720.png",
+      "Artifacts/UI42/Captures/ui-hud-1280x720.png",
+      "Artifacts/UI42/Captures/ui-skills-1280x720.png",
+      "Artifacts/UI42/Captures/ui-upgrade-1280x720.png",
+      "Artifacts/UI42/Captures/ui-map-1280x720.png",
+      "Artifacts/UI42/Captures/ui-pause-1280x720.png",
+      "Artifacts/UI42/Captures/ui-pause-settings-1280x720.png",
+      "Artifacts/UI42/Captures/ui-results-1280x720.png",
+      "Artifacts/UI42/Captures/ui-victory-1280x720.png",
+      "Artifacts/Probe42/Captures/load-failure-terrain-forest.png",
+      "Artifacts/Probe42/Captures/load-failure-weapon-gun.png",
+      "Artifacts/Probe42/Captures/probe--2-3.png",
+      "Artifacts/Probe42/Captures/probe-0-0.png",
+      "Artifacts/Probe42/Captures/probe-1-1.png",
+      "Artifacts/Probe42/Captures/probe-20-1.png",
+      "Artifacts/Probe42/Captures/probe-max-zoom-ultrawide.png",
+      "Artifacts/Round42/Captures/experience-aggregates.png",
+      "Artifacts/Round42/Captures/experience-aggregates-low.png",
+      "Artifacts/Round42/Captures/sanctuary-close-0.png",
+      "Artifacts/Round42/Captures/waterside-architecture-0.png",
+      "Artifacts/Round42/Captures/waterside-architecture-1.png",
+      "Artifacts/Round42/Captures/waterside-architecture-2.png",
+      "Artifacts/Round42/Captures/waterside-architecture-3.png",
+      "Artifacts/Round42/Captures/sanctuary-completed-0.png",
+      "Artifacts/Round42/Captures/sanctuary-completed-1.png",
+      "Artifacts/Round42/Captures/sanctuary-completed-2.png",
+      "Artifacts/Round42/Captures/sanctuary-completed-3.png",
+      "Artifacts/Round42/Captures/mixed-lava-shore-close.png",
+      "Artifacts/Round42/Captures/character-adventurer.png",
+      "Artifacts/Round42/Captures/character-elementalist.png",
+      "Artifacts/Round42/Captures/character-swordsman.png",
+      "Artifacts/Round42/Captures/boss-closeup-0.png",
+      "Artifacts/Round42/Captures/boss-closeup-1.png",
+      "Artifacts/Round42/Captures/boss-closeup-2.png",
+      "Artifacts/Round42/Captures/boss-closeup-3.png",
+      "Artifacts/Round42/Captures/21-map.png",
+      "Artifacts/Round42/Sequences/boss-attacks-0/0018.jpg",
+      "Artifacts/Round42/Sequences/boss-attacks-0/0019.jpg",
+      "Artifacts/Round42/Sequences/boss-attacks-0/0020.jpg",
+      "Artifacts/Round42/Sequences/boss-attacks-0/0021.jpg",
+      "Artifacts/Round42/Sequences/boss-attacks-1/0018.jpg",
+      "Artifacts/Round42/Sequences/boss-attacks-1/0019.jpg",
+      "Artifacts/Round42/Sequences/boss-attacks-1/0020.jpg",
+      "Artifacts/Round42/Sequences/boss-attacks-1/0021.jpg",
+      "Artifacts/Round42/Sequences/boss-attacks-2/0018.jpg",
+      "Artifacts/Round42/Sequences/boss-attacks-2/0019.jpg",
+      "Artifacts/Round42/Sequences/boss-attacks-2/0020.jpg",
+      "Artifacts/Round42/Sequences/boss-attacks-2/0021.jpg",
+      "Artifacts/Round42/Sequences/boss-attacks-3/0018.jpg",
+      "Artifacts/Round42/Sequences/boss-attacks-3/0019.jpg",
+      "Artifacts/Round42/Sequences/boss-attacks-3/0020.jpg",
+      "Artifacts/Round42/Sequences/boss-attacks-3/0021.jpg",
+      "Artifacts/Round42/Sequences/boss-attacks-0/0026.jpg",
+      "Artifacts/Round42/Sequences/boss-attacks-1/0026.jpg",
+      "Artifacts/Round42/Sequences/boss-attacks-2/0117.jpg",
+      "Artifacts/Round42/Sequences/boss-attacks-3/0065.jpg",
+      "Artifacts/Round42/Sequences/late-density-combinations/0024.jpg",
+      "Artifacts/Round42/Sequences/late-density-combinations/0054.jpg",
+      "Artifacts/Round42/Sequences/late-density-combinations/0086.jpg",
+      "Artifacts/Round42/Sequences/character-move-dodge/0000.jpg",
+      "Artifacts/Round42/Sequences/character-move-dodge/0001.jpg",
+      "Artifacts/Round42/Sequences/character-move-dodge/0002.jpg",
+      "Artifacts/Round42/Sequences/character-move-dodge/0003.jpg",
+      "Artifacts/Round42/Sequences/character-move-dodge/0026.jpg",
+      "Artifacts/Round42/Sequences/character-move-dodge/0032.jpg",
+      "Artifacts/Round42/Sequences/player-defeat/0008.jpg",
+      "Artifacts/Round42/Sequences/player-defeat/0011.jpg",
+      "Artifacts/Round42/Sequences/effect-explosion/0005.jpg",
+      "Artifacts/Round42/Sequences/effect-frost/0006.jpg",
+      "Artifacts/Round42/Sequences/effect-lightning/0013.jpg",
+      "Artifacts/Round42/Captures/sanctuary-close-3.png",
+      "Artifacts/Round42/Captures/enemy-0-elite.png",
+      "Artifacts/Round42/Captures/enemy-1-normal.png",
+      "Artifacts/Round42/Captures/enemy-3-elite.png",
+      "Artifacts/Soak42Preflight/FinalFrame.png"
+    ],
+    "totalUniqueStaticImagesViewed": 191,
+    "supplementaryStaticImagesOutsideMatrix": 1
+  },
+  "staticSourcesViewedInSheets": [
+    {
+      "sheet": "Round42-00.png",
+      "sources": [
+        "Artifacts/Round42/Captures/01-menu.png",
+        "Artifacts/Round42/Captures/02-selection.png",
+        "Artifacts/Round42/Captures/03-progression.png",
+        "Artifacts/Round42/Captures/04-settings.png",
+        "Artifacts/Round42/Captures/05-pause.png",
+        "Artifacts/Round42/Captures/10-biome-0.png"
+      ]
+    },
+    {
+      "sheet": "Round42-01.png",
+      "sources": [
+        "Artifacts/Round42/Captures/10-biome-1.png",
+        "Artifacts/Round42/Captures/10-biome-2.png",
+        "Artifacts/Round42/Captures/10-biome-3.png",
+        "Artifacts/Round42/Captures/10-biome-4.png",
+        "Artifacts/Round42/Captures/20-skills.png",
+        "Artifacts/Round42/Captures/21-map.png"
+      ]
+    },
+    {
+      "sheet": "Round42-02.png",
+      "sources": [
+        "Artifacts/Round42/Captures/22-upgrade.png",
+        "Artifacts/Round42/Captures/30-results-0.png",
+        "Artifacts/Round42/Captures/30-results-1.png",
+        "Artifacts/Round42/Captures/30-results-2.png",
+        "Artifacts/Round42/Captures/30-results-3.png",
+        "Artifacts/Round42/Captures/30-results-4.png"
+      ]
+    },
+    {
+      "sheet": "Round42-03.png",
+      "sources": [
+        "Artifacts/Round42/Captures/boss-0.png",
+        "Artifacts/Round42/Captures/boss-1.png",
+        "Artifacts/Round42/Captures/boss-2.png",
+        "Artifacts/Round42/Captures/boss-3.png",
+        "Artifacts/Round42/Captures/boss-closeup-0.png",
+        "Artifacts/Round42/Captures/boss-closeup-1.png"
+      ]
+    },
+    {
+      "sheet": "Round42-04.png",
+      "sources": [
+        "Artifacts/Round42/Captures/boss-closeup-2.png",
+        "Artifacts/Round42/Captures/boss-closeup-3.png",
+        "Artifacts/Round42/Captures/character-adventurer.png",
+        "Artifacts/Round42/Captures/character-elementalist.png",
+        "Artifacts/Round42/Captures/character-swordsman.png",
+        "Artifacts/Round42/Captures/death-results.png"
+      ]
+    },
+    {
+      "sheet": "Round42-05.png",
+      "sources": [
+        "Artifacts/Round42/Captures/enemy-0-elite.png",
+        "Artifacts/Round42/Captures/enemy-0-normal.png",
+        "Artifacts/Round42/Captures/enemy-1-elite.png",
+        "Artifacts/Round42/Captures/enemy-1-normal.png",
+        "Artifacts/Round42/Captures/enemy-2-elite.png",
+        "Artifacts/Round42/Captures/enemy-2-normal.png"
+      ]
+    },
+    {
+      "sheet": "Round42-06.png",
+      "sources": [
+        "Artifacts/Round42/Captures/enemy-3-elite.png",
+        "Artifacts/Round42/Captures/enemy-3-normal.png",
+        "Artifacts/Round42/Captures/experience-aggregates-low.png",
+        "Artifacts/Round42/Captures/experience-aggregates.png",
+        "Artifacts/Round42/Captures/geography-0-0.png",
+        "Artifacts/Round42/Captures/geography-0-1.png"
+      ]
+    },
+    {
+      "sheet": "Round42-07.png",
+      "sources": [
+        "Artifacts/Round42/Captures/geography-0-2.png",
+        "Artifacts/Round42/Captures/geography-1-0.png",
+        "Artifacts/Round42/Captures/geography-1-1.png",
+        "Artifacts/Round42/Captures/geography-1-2.png",
+        "Artifacts/Round42/Captures/geography-2-0.png",
+        "Artifacts/Round42/Captures/geography-2-1.png"
+      ]
+    },
+    {
+      "sheet": "Round42-08.png",
+      "sources": [
+        "Artifacts/Round42/Captures/geography-2-2.png",
+        "Artifacts/Round42/Captures/geography-3-0.png",
+        "Artifacts/Round42/Captures/geography-3-1.png",
+        "Artifacts/Round42/Captures/geography-3-2.png",
+        "Artifacts/Round42/Captures/geography-wide-0-0.png",
+        "Artifacts/Round42/Captures/geography-wide-0-1.png"
+      ]
+    },
+    {
+      "sheet": "Round42-09.png",
+      "sources": [
+        "Artifacts/Round42/Captures/geography-wide-0-2.png",
+        "Artifacts/Round42/Captures/geography-wide-1-0.png",
+        "Artifacts/Round42/Captures/geography-wide-1-1.png",
+        "Artifacts/Round42/Captures/geography-wide-1-2.png",
+        "Artifacts/Round42/Captures/geography-wide-2-0.png",
+        "Artifacts/Round42/Captures/geography-wide-2-1.png"
+      ]
+    },
+    {
+      "sheet": "Round42-10.png",
+      "sources": [
+        "Artifacts/Round42/Captures/geography-wide-2-2.png",
+        "Artifacts/Round42/Captures/geography-wide-3-0.png",
+        "Artifacts/Round42/Captures/geography-wide-3-1.png",
+        "Artifacts/Round42/Captures/geography-wide-3-2.png",
+        "Artifacts/Round42/Captures/late-density-0.png",
+        "Artifacts/Round42/Captures/late-density-1.png"
+      ]
+    },
+    {
+      "sheet": "Round42-11.png",
+      "sources": [
+        "Artifacts/Round42/Captures/late-density-2.png",
+        "Artifacts/Round42/Captures/late-density-3.png",
+        "Artifacts/Round42/Captures/late-density-4.png",
+        "Artifacts/Round42/Captures/mixed-boundary-0-1.png",
+        "Artifacts/Round42/Captures/mixed-boundary-0-3.png",
+        "Artifacts/Round42/Captures/mixed-boundary-1-2.png"
+      ]
+    },
+    {
+      "sheet": "Round42-12.png",
+      "sources": [
+        "Artifacts/Round42/Captures/mixed-boundary-2-3.png",
+        "Artifacts/Round42/Captures/mixed-lava-shore-close.png",
+        "Artifacts/Round42/Captures/mixed-lava-shore.png",
+        "Artifacts/Round42/Captures/resolution-hud-1280x720.png",
+        "Artifacts/Round42/Captures/resolution-hud-1920x1080.png",
+        "Artifacts/Round42/Captures/resolution-hud-1920x1200.png"
+      ]
+    },
+    {
+      "sheet": "Round42-13.png",
+      "sources": [
+        "Artifacts/Round42/Captures/resolution-hud-2560x1080.png",
+        "Artifacts/Round42/Captures/resolution-skills-1280x720.png",
+        "Artifacts/Round42/Captures/resolution-skills-1920x1080.png",
+        "Artifacts/Round42/Captures/resolution-skills-1920x1200.png",
+        "Artifacts/Round42/Captures/resolution-skills-2560x1080.png",
+        "Artifacts/Round42/Captures/sanctuary-0.png"
+      ]
+    },
+    {
+      "sheet": "Round42-14.png",
+      "sources": [
+        "Artifacts/Round42/Captures/sanctuary-1.png",
+        "Artifacts/Round42/Captures/sanctuary-2.png",
+        "Artifacts/Round42/Captures/sanctuary-3.png",
+        "Artifacts/Round42/Captures/sanctuary-close-0.png",
+        "Artifacts/Round42/Captures/sanctuary-close-1.png",
+        "Artifacts/Round42/Captures/sanctuary-close-2.png"
+      ]
+    },
+    {
+      "sheet": "Round42-15.png",
+      "sources": [
+        "Artifacts/Round42/Captures/sanctuary-close-3.png",
+        "Artifacts/Round42/Captures/sanctuary-completed-0.png",
+        "Artifacts/Round42/Captures/sanctuary-completed-1.png",
+        "Artifacts/Round42/Captures/sanctuary-completed-2.png",
+        "Artifacts/Round42/Captures/sanctuary-completed-3.png",
+        "Artifacts/Round42/Captures/terrain-detail-0.png"
+      ]
+    },
+    {
+      "sheet": "Round42-16.png",
+      "sources": [
+        "Artifacts/Round42/Captures/terrain-detail-1.png",
+        "Artifacts/Round42/Captures/terrain-detail-2.png",
+        "Artifacts/Round42/Captures/terrain-detail-3.png",
+        "Artifacts/Round42/Captures/terrain-detail-4.png",
+        "Artifacts/Round42/Captures/victory-0.png",
+        "Artifacts/Round42/Captures/victory-1.png"
+      ]
+    },
+    {
+      "sheet": "Round42-17.png",
+      "sources": [
+        "Artifacts/Round42/Captures/victory-2.png",
+        "Artifacts/Round42/Captures/victory-3.png",
+        "Artifacts/Round42/Captures/waterside-architecture-0.png",
+        "Artifacts/Round42/Captures/waterside-architecture-1.png",
+        "Artifacts/Round42/Captures/waterside-architecture-2.png",
+        "Artifacts/Round42/Captures/waterside-architecture-3.png"
+      ]
+    },
+    {
+      "sheet": "Round42-18.png",
+      "sources": [
+        "Artifacts/Round42/Captures/waterside-architecture-wide-0.png",
+        "Artifacts/Round42/Captures/waterside-architecture-wide-1.png",
+        "Artifacts/Round42/Captures/waterside-architecture-wide-2.png",
+        "Artifacts/Round42/Captures/waterside-architecture-wide-3.png",
+        "Artifacts/Round42/Captures/world-floating-origin.png"
+      ]
+    },
+    {
+      "sheet": "UI42-00.png",
+      "sources": [
+        "Artifacts/UI42/Captures/ui-hud-1280x720.png",
+        "Artifacts/UI42/Captures/ui-hud-1920x1080.png",
+        "Artifacts/UI42/Captures/ui-hud-1920x1200.png",
+        "Artifacts/UI42/Captures/ui-hud-2560x1080.png",
+        "Artifacts/UI42/Captures/ui-hud-2560x1440.png",
+        "Artifacts/UI42/Captures/ui-loading-1280x720.png"
+      ]
+    },
+    {
+      "sheet": "UI42-01.png",
+      "sources": [
+        "Artifacts/UI42/Captures/ui-loading-1920x1080.png",
+        "Artifacts/UI42/Captures/ui-loading-1920x1200.png",
+        "Artifacts/UI42/Captures/ui-loading-2560x1080.png",
+        "Artifacts/UI42/Captures/ui-loading-2560x1440.png",
+        "Artifacts/UI42/Captures/ui-map-1280x720.png",
+        "Artifacts/UI42/Captures/ui-map-1920x1080.png"
+      ]
+    },
+    {
+      "sheet": "UI42-02.png",
+      "sources": [
+        "Artifacts/UI42/Captures/ui-map-1920x1200.png",
+        "Artifacts/UI42/Captures/ui-map-2560x1080.png",
+        "Artifacts/UI42/Captures/ui-map-2560x1440.png",
+        "Artifacts/UI42/Captures/ui-menu-1280x720.png",
+        "Artifacts/UI42/Captures/ui-menu-1920x1080.png",
+        "Artifacts/UI42/Captures/ui-menu-1920x1200.png"
+      ]
+    },
+    {
+      "sheet": "UI42-03.png",
+      "sources": [
+        "Artifacts/UI42/Captures/ui-menu-2560x1080.png",
+        "Artifacts/UI42/Captures/ui-menu-2560x1440.png",
+        "Artifacts/UI42/Captures/ui-pause-1280x720.png",
+        "Artifacts/UI42/Captures/ui-pause-1920x1080.png",
+        "Artifacts/UI42/Captures/ui-pause-1920x1200.png",
+        "Artifacts/UI42/Captures/ui-pause-2560x1080.png"
+      ]
+    },
+    {
+      "sheet": "UI42-04.png",
+      "sources": [
+        "Artifacts/UI42/Captures/ui-pause-2560x1440.png",
+        "Artifacts/UI42/Captures/ui-pause-settings-1280x720.png",
+        "Artifacts/UI42/Captures/ui-pause-settings-1920x1080.png",
+        "Artifacts/UI42/Captures/ui-pause-settings-1920x1200.png",
+        "Artifacts/UI42/Captures/ui-pause-settings-2560x1080.png",
+        "Artifacts/UI42/Captures/ui-pause-settings-2560x1440.png"
+      ]
+    },
+    {
+      "sheet": "UI42-05.png",
+      "sources": [
+        "Artifacts/UI42/Captures/ui-progress-1280x720.png",
+        "Artifacts/UI42/Captures/ui-progress-1920x1080.png",
+        "Artifacts/UI42/Captures/ui-progress-1920x1200.png",
+        "Artifacts/UI42/Captures/ui-progress-2560x1080.png",
+        "Artifacts/UI42/Captures/ui-progress-2560x1440.png",
+        "Artifacts/UI42/Captures/ui-results-1280x720.png"
+      ]
+    },
+    {
+      "sheet": "UI42-06.png",
+      "sources": [
+        "Artifacts/UI42/Captures/ui-results-1920x1080.png",
+        "Artifacts/UI42/Captures/ui-results-1920x1200.png",
+        "Artifacts/UI42/Captures/ui-results-2560x1080.png",
+        "Artifacts/UI42/Captures/ui-results-2560x1440.png",
+        "Artifacts/UI42/Captures/ui-selection-locked-1280x720.png",
+        "Artifacts/UI42/Captures/ui-selection-locked-1920x1080.png"
+      ]
+    },
+    {
+      "sheet": "UI42-07.png",
+      "sources": [
+        "Artifacts/UI42/Captures/ui-selection-locked-1920x1200.png",
+        "Artifacts/UI42/Captures/ui-selection-locked-2560x1080.png",
+        "Artifacts/UI42/Captures/ui-selection-locked-2560x1440.png",
+        "Artifacts/UI42/Captures/ui-selection-unlocked-1280x720.png",
+        "Artifacts/UI42/Captures/ui-selection-unlocked-1920x1080.png",
+        "Artifacts/UI42/Captures/ui-selection-unlocked-1920x1200.png"
+      ]
+    },
+    {
+      "sheet": "UI42-08.png",
+      "sources": [
+        "Artifacts/UI42/Captures/ui-selection-unlocked-2560x1080.png",
+        "Artifacts/UI42/Captures/ui-selection-unlocked-2560x1440.png",
+        "Artifacts/UI42/Captures/ui-settings-1280x720.png",
+        "Artifacts/UI42/Captures/ui-settings-1920x1080.png",
+        "Artifacts/UI42/Captures/ui-settings-1920x1200.png",
+        "Artifacts/UI42/Captures/ui-settings-2560x1080.png"
+      ]
+    },
+    {
+      "sheet": "UI42-09.png",
+      "sources": [
+        "Artifacts/UI42/Captures/ui-settings-2560x1440.png",
+        "Artifacts/UI42/Captures/ui-skills-1280x720.png",
+        "Artifacts/UI42/Captures/ui-skills-1920x1080.png",
+        "Artifacts/UI42/Captures/ui-skills-1920x1200.png",
+        "Artifacts/UI42/Captures/ui-skills-2560x1080.png",
+        "Artifacts/UI42/Captures/ui-skills-2560x1440.png"
+      ]
+    },
+    {
+      "sheet": "UI42-10.png",
+      "sources": [
+        "Artifacts/UI42/Captures/ui-upgrade-1280x720.png",
+        "Artifacts/UI42/Captures/ui-upgrade-1920x1080.png",
+        "Artifacts/UI42/Captures/ui-upgrade-1920x1200.png",
+        "Artifacts/UI42/Captures/ui-upgrade-2560x1080.png",
+        "Artifacts/UI42/Captures/ui-upgrade-2560x1440.png",
+        "Artifacts/UI42/Captures/ui-victory-1280x720.png"
+      ]
+    },
+    {
+      "sheet": "UI42-11.png",
+      "sources": [
+        "Artifacts/UI42/Captures/ui-victory-1920x1080.png",
+        "Artifacts/UI42/Captures/ui-victory-1920x1200.png",
+        "Artifacts/UI42/Captures/ui-victory-2560x1080.png",
+        "Artifacts/UI42/Captures/ui-victory-2560x1440.png"
+      ]
+    },
+    {
+      "sheet": "Probe42-00.png",
+      "sources": [
+        "Artifacts/Probe42/Captures/load-failure-terrain-forest.png",
+        "Artifacts/Probe42/Captures/load-failure-weapon-gun.png",
+        "Artifacts/Probe42/Captures/probe--2-3.png",
+        "Artifacts/Probe42/Captures/probe-0-0.png",
+        "Artifacts/Probe42/Captures/probe-1-1.png",
+        "Artifacts/Probe42/Captures/probe-20-1.png"
+      ]
+    },
+    {
+      "sheet": "Probe42-01.png",
+      "sources": [
+        "Artifacts/Probe42/Captures/probe-max-zoom-ultrawide.png"
+      ]
+    }
+  ],
+  "sequenceSamplingViewed": [
+    {
+      "sequence": "boss-attacks-0",
+      "totalFrames": 144,
+      "reviewedFrames": [
+        "0000.jpg",
+        "0013.jpg",
+        "0026.jpg",
+        "0039.jpg",
+        "0052.jpg",
+        "0065.jpg",
+        "0078.jpg",
+        "0091.jpg",
+        "0104.jpg",
+        "0117.jpg",
+        "0130.jpg",
+        "0143.jpg"
+      ],
+      "metadata": {
+        "source": "development Player Camera.Render with live UI",
+        "fixedSimulationFps": 12,
+        "frames": 144,
+        "controlledPlayerHealing": true,
+        "enemyImmortalForRoleCapture": false,
+        "enemyStationaryForRoleCapture": false,
+        "bossImmortalForAnimationCapture": true
+      },
+      "additionalOriginalFrames": [
+        "0018.jpg",
+        "0019.jpg",
+        "0020.jpg",
+        "0021.jpg"
+      ]
+    },
+    {
+      "sequence": "boss-attacks-1",
+      "totalFrames": 144,
+      "reviewedFrames": [
+        "0000.jpg",
+        "0013.jpg",
+        "0026.jpg",
+        "0039.jpg",
+        "0052.jpg",
+        "0065.jpg",
+        "0078.jpg",
+        "0091.jpg",
+        "0104.jpg",
+        "0117.jpg",
+        "0130.jpg",
+        "0143.jpg"
+      ],
+      "metadata": {
+        "source": "development Player Camera.Render with live UI",
+        "fixedSimulationFps": 12,
+        "frames": 144,
+        "controlledPlayerHealing": true,
+        "enemyImmortalForRoleCapture": false,
+        "enemyStationaryForRoleCapture": false,
+        "bossImmortalForAnimationCapture": true
+      },
+      "additionalOriginalFrames": [
+        "0018.jpg",
+        "0019.jpg",
+        "0020.jpg",
+        "0021.jpg"
+      ]
+    },
+    {
+      "sequence": "boss-attacks-2",
+      "totalFrames": 144,
+      "reviewedFrames": [
+        "0000.jpg",
+        "0013.jpg",
+        "0026.jpg",
+        "0039.jpg",
+        "0052.jpg",
+        "0065.jpg",
+        "0078.jpg",
+        "0091.jpg",
+        "0104.jpg",
+        "0117.jpg",
+        "0130.jpg",
+        "0143.jpg"
+      ],
+      "metadata": {
+        "source": "development Player Camera.Render with live UI",
+        "fixedSimulationFps": 12,
+        "frames": 144,
+        "controlledPlayerHealing": true,
+        "enemyImmortalForRoleCapture": false,
+        "enemyStationaryForRoleCapture": false,
+        "bossImmortalForAnimationCapture": true
+      },
+      "additionalOriginalFrames": [
+        "0018.jpg",
+        "0019.jpg",
+        "0020.jpg",
+        "0021.jpg"
+      ]
+    },
+    {
+      "sequence": "boss-attacks-3",
+      "totalFrames": 144,
+      "reviewedFrames": [
+        "0000.jpg",
+        "0013.jpg",
+        "0026.jpg",
+        "0039.jpg",
+        "0052.jpg",
+        "0065.jpg",
+        "0078.jpg",
+        "0091.jpg",
+        "0104.jpg",
+        "0117.jpg",
+        "0130.jpg",
+        "0143.jpg"
+      ],
+      "metadata": {
+        "source": "development Player Camera.Render with live UI",
+        "fixedSimulationFps": 12,
+        "frames": 144,
+        "controlledPlayerHealing": true,
+        "enemyImmortalForRoleCapture": false,
+        "enemyStationaryForRoleCapture": false,
+        "bossImmortalForAnimationCapture": true
+      },
+      "additionalOriginalFrames": [
+        "0018.jpg",
+        "0019.jpg",
+        "0020.jpg",
+        "0021.jpg"
+      ]
+    },
+    {
+      "sequence": "boss-death-0",
+      "totalFrames": 24,
+      "reviewedFrames": [
+        "0000.jpg",
+        "0002.jpg",
+        "0004.jpg",
+        "0006.jpg",
+        "0008.jpg",
+        "0010.jpg",
+        "0013.jpg",
+        "0015.jpg",
+        "0017.jpg",
+        "0019.jpg",
+        "0021.jpg",
+        "0023.jpg"
+      ],
+      "metadata": {
+        "source": "development Player actual runtime animation",
+        "wallClockTimestamps": true,
+        "frames": 24,
+        "requestedIntervalSeconds": 0.03333,
+        "fixedSimulationFps": null
+      },
+      "additionalOriginalFrames": []
+    },
+    {
+      "sequence": "boss-death-1",
+      "totalFrames": 25,
+      "reviewedFrames": [
+        "0000.jpg",
+        "0002.jpg",
+        "0004.jpg",
+        "0007.jpg",
+        "0009.jpg",
+        "0011.jpg",
+        "0013.jpg",
+        "0015.jpg",
+        "0017.jpg",
+        "0020.jpg",
+        "0022.jpg",
+        "0024.jpg"
+      ],
+      "metadata": {
+        "source": "development Player actual runtime animation",
+        "wallClockTimestamps": true,
+        "frames": 25,
+        "requestedIntervalSeconds": 0.03333,
+        "fixedSimulationFps": null
+      },
+      "additionalOriginalFrames": []
+    },
+    {
+      "sequence": "boss-death-2",
+      "totalFrames": 24,
+      "reviewedFrames": [
+        "0000.jpg",
+        "0002.jpg",
+        "0004.jpg",
+        "0006.jpg",
+        "0008.jpg",
+        "0010.jpg",
+        "0013.jpg",
+        "0015.jpg",
+        "0017.jpg",
+        "0019.jpg",
+        "0021.jpg",
+        "0023.jpg"
+      ],
+      "metadata": {
+        "source": "development Player actual runtime animation",
+        "wallClockTimestamps": true,
+        "frames": 24,
+        "requestedIntervalSeconds": 0.03333,
+        "fixedSimulationFps": null
+      },
+      "additionalOriginalFrames": []
+    },
+    {
+      "sequence": "boss-death-3",
+      "totalFrames": 25,
+      "reviewedFrames": [
+        "0000.jpg",
+        "0002.jpg",
+        "0004.jpg",
+        "0007.jpg",
+        "0009.jpg",
+        "0011.jpg",
+        "0013.jpg",
+        "0015.jpg",
+        "0017.jpg",
+        "0020.jpg",
+        "0022.jpg",
+        "0024.jpg"
+      ],
+      "metadata": {
+        "source": "development Player actual runtime animation",
+        "wallClockTimestamps": true,
+        "frames": 25,
+        "requestedIntervalSeconds": 0.03333,
+        "fixedSimulationFps": null
+      },
+      "additionalOriginalFrames": []
+    },
+    {
+      "sequence": "character-move-dodge",
+      "totalFrames": 72,
+      "reviewedFrames": [
+        "0000.jpg",
+        "0006.jpg",
+        "0013.jpg",
+        "0019.jpg",
+        "0026.jpg",
+        "0032.jpg",
+        "0039.jpg",
+        "0045.jpg",
+        "0052.jpg",
+        "0058.jpg",
+        "0065.jpg",
+        "0071.jpg"
+      ],
+      "metadata": {
+        "source": "development Player Camera.Render with live UI",
+        "fixedSimulationFps": 12,
+        "frames": 72,
+        "controlledPlayerHealing": true,
+        "enemyImmortalForRoleCapture": false,
+        "enemyStationaryForRoleCapture": false,
+        "bossImmortalForAnimationCapture": false
+      },
+      "additionalOriginalFrames": [
+        "0001.jpg",
+        "0002.jpg",
+        "0003.jpg"
+      ]
+    },
+    {
+      "sequence": "effect-arc",
+      "totalFrames": 18,
+      "reviewedFrames": [
+        "0000.jpg",
+        "0002.jpg",
+        "0003.jpg",
+        "0005.jpg",
+        "0006.jpg",
+        "0008.jpg",
+        "0009.jpg",
+        "0011.jpg",
+        "0012.jpg",
+        "0014.jpg",
+        "0015.jpg",
+        "0017.jpg"
+      ],
+      "metadata": {
+        "source": "development Player actual runtime animation",
+        "wallClockTimestamps": true,
+        "frames": 18,
+        "requestedIntervalSeconds": 0.03333,
+        "fixedSimulationFps": null
+      },
+      "additionalOriginalFrames": []
+    },
+    {
+      "sequence": "effect-embers",
+      "totalFrames": 16,
+      "reviewedFrames": [
+        "0000.jpg",
+        "0001.jpg",
+        "0003.jpg",
+        "0004.jpg",
+        "0005.jpg",
+        "0007.jpg",
+        "0008.jpg",
+        "0010.jpg",
+        "0011.jpg",
+        "0012.jpg",
+        "0014.jpg",
+        "0015.jpg"
+      ],
+      "metadata": {
+        "source": "development Player actual runtime animation",
+        "wallClockTimestamps": true,
+        "frames": 16,
+        "requestedIntervalSeconds": 0.03333,
+        "fixedSimulationFps": null
+      },
+      "additionalOriginalFrames": []
+    },
+    {
+      "sequence": "effect-explosion",
+      "totalFrames": 15,
+      "reviewedFrames": [
+        "0000.jpg",
+        "0001.jpg",
+        "0003.jpg",
+        "0004.jpg",
+        "0005.jpg",
+        "0006.jpg",
+        "0008.jpg",
+        "0009.jpg",
+        "0010.jpg",
+        "0011.jpg",
+        "0013.jpg",
+        "0014.jpg"
+      ],
+      "metadata": {
+        "source": "development Player actual runtime animation",
+        "wallClockTimestamps": true,
+        "frames": 15,
+        "requestedIntervalSeconds": 0.03333,
+        "fixedSimulationFps": null
+      },
+      "additionalOriginalFrames": []
+    },
+    {
+      "sequence": "effect-flame",
+      "totalFrames": 18,
+      "reviewedFrames": [
+        "0000.jpg",
+        "0002.jpg",
+        "0003.jpg",
+        "0005.jpg",
+        "0006.jpg",
+        "0008.jpg",
+        "0009.jpg",
+        "0011.jpg",
+        "0012.jpg",
+        "0014.jpg",
+        "0015.jpg",
+        "0017.jpg"
+      ],
+      "metadata": {
+        "source": "development Player actual runtime animation",
+        "wallClockTimestamps": true,
+        "frames": 18,
+        "requestedIntervalSeconds": 0.03333,
+        "fixedSimulationFps": null
+      },
+      "additionalOriginalFrames": []
+    },
+    {
+      "sequence": "effect-frost",
+      "totalFrames": 17,
+      "reviewedFrames": [
+        "0000.jpg",
+        "0001.jpg",
+        "0003.jpg",
+        "0004.jpg",
+        "0006.jpg",
+        "0007.jpg",
+        "0009.jpg",
+        "0010.jpg",
+        "0012.jpg",
+        "0013.jpg",
+        "0015.jpg",
+        "0016.jpg"
+      ],
+      "metadata": {
+        "source": "development Player actual runtime animation",
+        "wallClockTimestamps": true,
+        "frames": 17,
+        "requestedIntervalSeconds": 0.03333,
+        "fixedSimulationFps": null
+      },
+      "additionalOriginalFrames": []
+    },
+    {
+      "sequence": "effect-iceburst",
+      "totalFrames": 16,
+      "reviewedFrames": [
+        "0000.jpg",
+        "0001.jpg",
+        "0003.jpg",
+        "0004.jpg",
+        "0005.jpg",
+        "0007.jpg",
+        "0008.jpg",
+        "0010.jpg",
+        "0011.jpg",
+        "0012.jpg",
+        "0014.jpg",
+        "0015.jpg"
+      ],
+      "metadata": {
+        "source": "development Player actual runtime animation",
+        "wallClockTimestamps": true,
+        "frames": 16,
+        "requestedIntervalSeconds": 0.03333,
+        "fixedSimulationFps": null
+      },
+      "additionalOriginalFrames": []
+    },
+    {
+      "sequence": "effect-leafburst",
+      "totalFrames": 17,
+      "reviewedFrames": [
+        "0000.jpg",
+        "0001.jpg",
+        "0003.jpg",
+        "0004.jpg",
+        "0006.jpg",
+        "0007.jpg",
+        "0009.jpg",
+        "0010.jpg",
+        "0012.jpg",
+        "0013.jpg",
+        "0015.jpg",
+        "0016.jpg"
+      ],
+      "metadata": {
+        "source": "development Player actual runtime animation",
+        "wallClockTimestamps": true,
+        "frames": 17,
+        "requestedIntervalSeconds": 0.03333,
+        "fixedSimulationFps": null
+      },
+      "additionalOriginalFrames": []
+    },
+    {
+      "sequence": "effect-lightning",
+      "totalFrames": 19,
+      "reviewedFrames": [
+        "0000.jpg",
+        "0002.jpg",
+        "0003.jpg",
+        "0005.jpg",
+        "0007.jpg",
+        "0008.jpg",
+        "0010.jpg",
+        "0011.jpg",
+        "0013.jpg",
+        "0015.jpg",
+        "0016.jpg",
+        "0018.jpg"
+      ],
+      "metadata": {
+        "source": "development Player actual runtime animation",
+        "wallClockTimestamps": true,
+        "frames": 19,
+        "requestedIntervalSeconds": 0.03333,
+        "fixedSimulationFps": null
+      },
+      "additionalOriginalFrames": []
+    },
+    {
+      "sequence": "effect-rune",
+      "totalFrames": 18,
+      "reviewedFrames": [
+        "0000.jpg",
+        "0002.jpg",
+        "0003.jpg",
+        "0005.jpg",
+        "0006.jpg",
+        "0008.jpg",
+        "0009.jpg",
+        "0011.jpg",
+        "0012.jpg",
+        "0014.jpg",
+        "0015.jpg",
+        "0017.jpg"
+      ],
+      "metadata": {
+        "source": "development Player actual runtime animation",
+        "wallClockTimestamps": true,
+        "frames": 18,
+        "requestedIntervalSeconds": 0.03333,
+        "fixedSimulationFps": null
+      },
+      "additionalOriginalFrames": []
+    },
+    {
+      "sequence": "effect-sand",
+      "totalFrames": 18,
+      "reviewedFrames": [
+        "0000.jpg",
+        "0002.jpg",
+        "0003.jpg",
+        "0005.jpg",
+        "0006.jpg",
+        "0008.jpg",
+        "0009.jpg",
+        "0011.jpg",
+        "0012.jpg",
+        "0014.jpg",
+        "0015.jpg",
+        "0017.jpg"
+      ],
+      "metadata": {
+        "source": "development Player actual runtime animation",
+        "wallClockTimestamps": true,
+        "frames": 18,
+        "requestedIntervalSeconds": 0.03333,
+        "fixedSimulationFps": null
+      },
+      "additionalOriginalFrames": []
+    },
+    {
+      "sequence": "effect-slash",
+      "totalFrames": 20,
+      "reviewedFrames": [
+        "0000.jpg",
+        "0002.jpg",
+        "0003.jpg",
+        "0005.jpg",
+        "0007.jpg",
+        "0009.jpg",
+        "0010.jpg",
+        "0012.jpg",
+        "0014.jpg",
+        "0016.jpg",
+        "0017.jpg",
+        "0019.jpg"
+      ],
+      "metadata": {
+        "source": "development Player actual runtime animation",
+        "wallClockTimestamps": true,
+        "frames": 20,
+        "requestedIntervalSeconds": 0.03333,
+        "fixedSimulationFps": null
+      },
+      "additionalOriginalFrames": []
+    },
+    {
+      "sequence": "feedback-pause-open",
+      "totalFrames": 9,
+      "reviewedFrames": [
+        "0000.jpg",
+        "0001.jpg",
+        "0002.jpg",
+        "0003.jpg",
+        "0004.jpg",
+        "0005.jpg",
+        "0006.jpg",
+        "0007.jpg",
+        "0008.jpg"
+      ],
+      "metadata": {
+        "source": "development Player actual runtime animation",
+        "wallClockTimestamps": true,
+        "frames": 9,
+        "requestedIntervalSeconds": 0.03333,
+        "fixedSimulationFps": null
+      },
+      "additionalOriginalFrames": []
+    },
+    {
+      "sequence": "feedback-skills-open",
+      "totalFrames": 7,
+      "reviewedFrames": [
+        "0000.jpg",
+        "0001.jpg",
+        "0002.jpg",
+        "0003.jpg",
+        "0004.jpg",
+        "0005.jpg",
+        "0006.jpg"
+      ],
+      "metadata": {
+        "source": "development Player actual runtime animation",
+        "wallClockTimestamps": true,
+        "frames": 7,
+        "requestedIntervalSeconds": 0.03333,
+        "fixedSimulationFps": null
+      },
+      "additionalOriginalFrames": []
+    },
+    {
+      "sequence": "feedback-task-unlock",
+      "totalFrames": 10,
+      "reviewedFrames": [
+        "0000.jpg",
+        "0001.jpg",
+        "0002.jpg",
+        "0003.jpg",
+        "0004.jpg",
+        "0005.jpg",
+        "0006.jpg",
+        "0007.jpg",
+        "0008.jpg",
+        "0009.jpg"
+      ],
+      "metadata": {
+        "source": "development Player actual runtime animation",
+        "wallClockTimestamps": true,
+        "frames": 10,
+        "requestedIntervalSeconds": 0.03333,
+        "fixedSimulationFps": null
+      },
+      "additionalOriginalFrames": []
+    },
+    {
+      "sequence": "feedback-upgrade-open",
+      "totalFrames": 8,
+      "reviewedFrames": [
+        "0000.jpg",
+        "0001.jpg",
+        "0002.jpg",
+        "0003.jpg",
+        "0004.jpg",
+        "0005.jpg",
+        "0006.jpg",
+        "0007.jpg"
+      ],
+      "metadata": {
+        "source": "development Player actual runtime animation",
+        "wallClockTimestamps": true,
+        "frames": 8,
+        "requestedIntervalSeconds": 0.03333,
+        "fixedSimulationFps": null
+      },
+      "additionalOriginalFrames": []
+    },
+    {
+      "sequence": "feedback-upgrade-reward",
+      "totalFrames": 8,
+      "reviewedFrames": [
+        "0000.jpg",
+        "0001.jpg",
+        "0002.jpg",
+        "0003.jpg",
+        "0004.jpg",
+        "0005.jpg",
+        "0006.jpg",
+        "0007.jpg"
+      ],
+      "metadata": {
+        "source": "development Player actual runtime animation",
+        "wallClockTimestamps": true,
+        "frames": 8,
+        "requestedIntervalSeconds": 0.03333,
+        "fixedSimulationFps": null
+      },
+      "additionalOriginalFrames": []
+    },
+    {
+      "sequence": "late-density-combinations",
+      "totalFrames": 96,
+      "reviewedFrames": [
+        "0000.jpg",
+        "0001.jpg",
+        "0002.jpg",
+        "0003.jpg",
+        "0004.jpg",
+        "0005.jpg",
+        "0006.jpg",
+        "0007.jpg",
+        "0008.jpg",
+        "0009.jpg",
+        "0010.jpg",
+        "0011.jpg",
+        "0012.jpg",
+        "0013.jpg",
+        "0014.jpg",
+        "0015.jpg",
+        "0016.jpg",
+        "0017.jpg",
+        "0018.jpg",
+        "0019.jpg",
+        "0020.jpg",
+        "0021.jpg",
+        "0022.jpg",
+        "0023.jpg",
+        "0024.jpg",
+        "0025.jpg",
+        "0026.jpg",
+        "0027.jpg",
+        "0028.jpg",
+        "0029.jpg",
+        "0030.jpg",
+        "0031.jpg",
+        "0032.jpg",
+        "0033.jpg",
+        "0034.jpg",
+        "0035.jpg",
+        "0036.jpg",
+        "0037.jpg",
+        "0038.jpg",
+        "0039.jpg",
+        "0040.jpg",
+        "0041.jpg",
+        "0042.jpg",
+        "0043.jpg",
+        "0044.jpg",
+        "0045.jpg",
+        "0046.jpg",
+        "0047.jpg",
+        "0048.jpg",
+        "0049.jpg",
+        "0050.jpg",
+        "0051.jpg",
+        "0052.jpg",
+        "0053.jpg",
+        "0054.jpg",
+        "0055.jpg",
+        "0056.jpg",
+        "0057.jpg",
+        "0058.jpg",
+        "0059.jpg",
+        "0060.jpg",
+        "0061.jpg",
+        "0062.jpg",
+        "0063.jpg",
+        "0064.jpg",
+        "0065.jpg",
+        "0066.jpg",
+        "0067.jpg",
+        "0068.jpg",
+        "0069.jpg",
+        "0070.jpg",
+        "0071.jpg",
+        "0072.jpg",
+        "0073.jpg",
+        "0074.jpg",
+        "0075.jpg",
+        "0076.jpg",
+        "0077.jpg",
+        "0078.jpg",
+        "0079.jpg",
+        "0080.jpg",
+        "0081.jpg",
+        "0082.jpg",
+        "0083.jpg",
+        "0084.jpg",
+        "0085.jpg",
+        "0086.jpg",
+        "0087.jpg",
+        "0088.jpg",
+        "0089.jpg",
+        "0090.jpg",
+        "0091.jpg",
+        "0092.jpg",
+        "0093.jpg",
+        "0094.jpg",
+        "0095.jpg"
+      ],
+      "metadata": {
+        "source": "development Player Camera.Render with live UI",
+        "fixedSimulationFps": 12,
+        "frames": 96,
+        "controlledPlayerHealing": true,
+        "enemyImmortalForRoleCapture": false,
+        "enemyStationaryForRoleCapture": false,
+        "bossImmortalForAnimationCapture": false
+      },
+      "additionalOriginalFrames": []
+    },
+    {
+      "sequence": "player-defeat",
+      "totalFrames": 15,
+      "reviewedFrames": [
+        "0000.jpg",
+        "0001.jpg",
+        "0003.jpg",
+        "0004.jpg",
+        "0005.jpg",
+        "0006.jpg",
+        "0008.jpg",
+        "0009.jpg",
+        "0010.jpg",
+        "0011.jpg",
+        "0013.jpg",
+        "0014.jpg"
+      ],
+      "metadata": {
+        "source": "development Player actual runtime animation",
+        "wallClockTimestamps": true,
+        "frames": 15,
+        "requestedIntervalSeconds": 0.03333,
+        "fixedSimulationFps": null
+      },
+      "additionalOriginalFrames": []
+    },
+    {
+      "sequence": "role-action-adventurer",
+      "totalFrames": 60,
+      "reviewedFrames": [
+        "0000.jpg",
+        "0005.jpg",
+        "0011.jpg",
+        "0016.jpg",
+        "0021.jpg",
+        "0027.jpg",
+        "0032.jpg",
+        "0038.jpg",
+        "0043.jpg",
+        "0048.jpg",
+        "0054.jpg",
+        "0059.jpg"
+      ],
+      "metadata": {
+        "source": "development Player Camera.Render with live UI",
+        "fixedSimulationFps": 12,
+        "frames": 60,
+        "controlledPlayerHealing": true,
+        "enemyImmortalForRoleCapture": true,
+        "enemyStationaryForRoleCapture": true,
+        "bossImmortalForAnimationCapture": false
+      },
+      "additionalOriginalFrames": []
+    },
+    {
+      "sequence": "role-action-elementalist",
+      "totalFrames": 60,
+      "reviewedFrames": [
+        "0000.jpg",
+        "0005.jpg",
+        "0011.jpg",
+        "0016.jpg",
+        "0021.jpg",
+        "0027.jpg",
+        "0032.jpg",
+        "0038.jpg",
+        "0043.jpg",
+        "0048.jpg",
+        "0054.jpg",
+        "0059.jpg"
+      ],
+      "metadata": {
+        "source": "development Player Camera.Render with live UI",
+        "fixedSimulationFps": 12,
+        "frames": 60,
+        "controlledPlayerHealing": true,
+        "enemyImmortalForRoleCapture": true,
+        "enemyStationaryForRoleCapture": true,
+        "bossImmortalForAnimationCapture": false
+      },
+      "additionalOriginalFrames": []
+    },
+    {
+      "sequence": "role-action-swordsman",
+      "totalFrames": 60,
+      "reviewedFrames": [
+        "0000.jpg",
+        "0005.jpg",
+        "0011.jpg",
+        "0016.jpg",
+        "0021.jpg",
+        "0027.jpg",
+        "0032.jpg",
+        "0038.jpg",
+        "0043.jpg",
+        "0048.jpg",
+        "0054.jpg",
+        "0059.jpg"
+      ],
+      "metadata": {
+        "source": "development Player Camera.Render with live UI",
+        "fixedSimulationFps": 12,
+        "frames": 60,
+        "controlledPlayerHealing": true,
+        "enemyImmortalForRoleCapture": true,
+        "enemyStationaryForRoleCapture": true,
+        "bossImmortalForAnimationCapture": false
+      },
+      "additionalOriginalFrames": []
+    },
+    {
+      "sequence": "role-closeup-adventurer",
+      "totalFrames": 48,
+      "reviewedFrames": [
+        "0000.jpg",
+        "0001.jpg",
+        "0002.jpg",
+        "0003.jpg",
+        "0004.jpg",
+        "0005.jpg",
+        "0006.jpg",
+        "0007.jpg",
+        "0008.jpg",
+        "0009.jpg",
+        "0010.jpg",
+        "0011.jpg",
+        "0012.jpg",
+        "0013.jpg",
+        "0014.jpg",
+        "0015.jpg",
+        "0016.jpg",
+        "0017.jpg",
+        "0018.jpg",
+        "0019.jpg",
+        "0020.jpg",
+        "0021.jpg",
+        "0022.jpg",
+        "0023.jpg",
+        "0024.jpg",
+        "0025.jpg",
+        "0026.jpg",
+        "0027.jpg",
+        "0028.jpg",
+        "0029.jpg",
+        "0030.jpg",
+        "0031.jpg",
+        "0032.jpg",
+        "0033.jpg",
+        "0034.jpg",
+        "0035.jpg",
+        "0036.jpg",
+        "0037.jpg",
+        "0038.jpg",
+        "0039.jpg",
+        "0040.jpg",
+        "0041.jpg",
+        "0042.jpg",
+        "0043.jpg",
+        "0044.jpg",
+        "0045.jpg",
+        "0046.jpg",
+        "0047.jpg"
+      ],
+      "metadata": {
+        "source": "development Player Camera.Render with live UI",
+        "fixedSimulationFps": 12,
+        "frames": 48,
+        "controlledPlayerHealing": true,
+        "enemyImmortalForRoleCapture": true,
+        "enemyStationaryForRoleCapture": true,
+        "bossImmortalForAnimationCapture": false
+      },
+      "additionalOriginalFrames": []
+    },
+    {
+      "sequence": "role-closeup-elementalist",
+      "totalFrames": 48,
+      "reviewedFrames": [
+        "0000.jpg",
+        "0001.jpg",
+        "0002.jpg",
+        "0003.jpg",
+        "0004.jpg",
+        "0005.jpg",
+        "0006.jpg",
+        "0007.jpg",
+        "0008.jpg",
+        "0009.jpg",
+        "0010.jpg",
+        "0011.jpg",
+        "0012.jpg",
+        "0013.jpg",
+        "0014.jpg",
+        "0015.jpg",
+        "0016.jpg",
+        "0017.jpg",
+        "0018.jpg",
+        "0019.jpg",
+        "0020.jpg",
+        "0021.jpg",
+        "0022.jpg",
+        "0023.jpg",
+        "0024.jpg",
+        "0025.jpg",
+        "0026.jpg",
+        "0027.jpg",
+        "0028.jpg",
+        "0029.jpg",
+        "0030.jpg",
+        "0031.jpg",
+        "0032.jpg",
+        "0033.jpg",
+        "0034.jpg",
+        "0035.jpg",
+        "0036.jpg",
+        "0037.jpg",
+        "0038.jpg",
+        "0039.jpg",
+        "0040.jpg",
+        "0041.jpg",
+        "0042.jpg",
+        "0043.jpg",
+        "0044.jpg",
+        "0045.jpg",
+        "0046.jpg",
+        "0047.jpg"
+      ],
+      "metadata": {
+        "source": "development Player Camera.Render with live UI",
+        "fixedSimulationFps": 12,
+        "frames": 48,
+        "controlledPlayerHealing": true,
+        "enemyImmortalForRoleCapture": true,
+        "enemyStationaryForRoleCapture": true,
+        "bossImmortalForAnimationCapture": false
+      },
+      "additionalOriginalFrames": []
+    },
+    {
+      "sequence": "role-closeup-swordsman",
+      "totalFrames": 48,
+      "reviewedFrames": [
+        "0000.jpg",
+        "0001.jpg",
+        "0002.jpg",
+        "0003.jpg",
+        "0004.jpg",
+        "0005.jpg",
+        "0006.jpg",
+        "0007.jpg",
+        "0008.jpg",
+        "0009.jpg",
+        "0010.jpg",
+        "0011.jpg",
+        "0012.jpg",
+        "0013.jpg",
+        "0014.jpg",
+        "0015.jpg",
+        "0016.jpg",
+        "0017.jpg",
+        "0018.jpg",
+        "0019.jpg",
+        "0020.jpg",
+        "0021.jpg",
+        "0022.jpg",
+        "0023.jpg",
+        "0024.jpg",
+        "0025.jpg",
+        "0026.jpg",
+        "0027.jpg",
+        "0028.jpg",
+        "0029.jpg",
+        "0030.jpg",
+        "0031.jpg",
+        "0032.jpg",
+        "0033.jpg",
+        "0034.jpg",
+        "0035.jpg",
+        "0036.jpg",
+        "0037.jpg",
+        "0038.jpg",
+        "0039.jpg",
+        "0040.jpg",
+        "0041.jpg",
+        "0042.jpg",
+        "0043.jpg",
+        "0044.jpg",
+        "0045.jpg",
+        "0046.jpg",
+        "0047.jpg"
+      ],
+      "metadata": {
+        "source": "development Player Camera.Render with live UI",
+        "fixedSimulationFps": 12,
+        "frames": 48,
+        "controlledPlayerHealing": true,
+        "enemyImmortalForRoleCapture": true,
+        "enemyStationaryForRoleCapture": true,
+        "bossImmortalForAnimationCapture": false
+      },
+      "additionalOriginalFrames": []
+    }
+  ],
+  "freshObservations": {
+    "roles": "三角色原图、正常行动及144近景动态帧均重看，装备可分但结构模板共用。",
+    "world": "四群系各3处近/广地貌、四近水建筑干地支路、mixed0-1/0-3/1-2/2-3、熔岩圆端岸完整。",
+    "challengeState": "四完成态阵纹转暗、E提示清除、后左地貌/侧路/踏石留存；林地左前随机树簇稍拥。",
+    "ui": "五画幅页面完整；720p烈焰扩散描述末尾句号独行，D3=4。",
+    "combat": "密战玩家头部/脚圈可定位，金冠/飞剑/冰圈拥挤使E2=4；火山世界提示低对比使E4=4。",
+    "crystal": "高/低质量经验青色小体无粉材质或大片透明排序缺失，和粉敌弹可分。",
+    "dynamic": "三角色、四Boss攻击/死亡、移动闪避/受击、玩家死亡/结算、11效果及五反馈均重看；重心和反馈较简使F1/F2各4。"
+  },
+  "total": 91,
+  "dimensions": {
+    "A": 14,
+    "B": 14,
+    "C": 18,
+    "D": 19,
+    "E": 18,
+    "F": 8
+  },
+  "items": [
+    {
+      "id": "A1",
+      "score": 5,
+      "max": 5,
+      "title": "大头短肢与俯视轮廓清晰",
+      "evidence": [
+        "Artifacts/Round42/Captures/character-adventurer.png",
+        "Artifacts/Round42/Captures/character-elementalist.png",
+        "Artifacts/Round42/Captures/character-swordsman.png",
+        "Docs/ArtReviews/Round42/role-action-swordsman-00.png"
+      ],
+      "observation": "三角色大头、短身短肢与饱满发型成立；正常镜头仍可由帽子、发色、青色脚圈定位。近景与俯视之间比例一致。",
+      "revision": "无本项必修。"
+    },
+    {
+      "id": "A2",
+      "score": 4,
+      "max": 5,
+      "title": "面部、服饰、装备有设计与辨识度",
+      "evidence": [
+        "Artifacts/Round42/Captures/character-adventurer.png",
+        "Artifacts/Round42/Captures/character-elementalist.png",
+        "Artifacts/Round42/Captures/character-swordsman.png"
+      ],
+      "observation": "护目镜/橙围巾/手枪、紫帽/长袍/法杖、深发/长衣/背剑分别清楚；脸部、手套与靴的形状共用较多，近景手腕和装备连接仍偏硬，细节未达满分。",
+      "revision": "保留Q版比例，进一步区分脸部与袖口/手套结构，细化握持关系。"
+    },
+    {
+      "id": "A3",
+      "score": 5,
+      "max": 5,
+      "title": "明快卡通造型、材质、色彩和光照协调",
+      "evidence": [
+        "Docs/ArtReviews/Round42/Round42-01.png",
+        "Docs/ArtReviews/Round42/Round42-07.png",
+        "Docs/ArtReviews/Round42/Round42-08.png",
+        "Artifacts/Round42/Captures/experience-aggregates.png",
+        "Artifacts/Round42/Captures/boss-closeup-3.png"
+      ],
+      "observation": "林绿、沙金、雪青、火山灰紫/橙有稳定色组，人物暖肤与青紫衣装统一；实体轮廓、柔和阴影和低细节材质协调，冰冻蓝染色未丢失轮廓。",
+      "revision": "无本项必修。"
+    },
+    {
+      "id": "B1",
+      "score": 4,
+      "max": 5,
+      "title": "全部首发角色模型、材质和挂点完成",
+      "evidence": [
+        "Artifacts/Round42/Captures/character-adventurer.png",
+        "Artifacts/Round42/Captures/character-elementalist.png",
+        "Artifacts/Round42/Captures/character-swordsman.png",
+        "Docs/ArtReviews/Round42/role-closeup-adventurer-00.png",
+        "Docs/ArtReviews/Round42/role-closeup-elementalist-00.png",
+        "Docs/ArtReviews/Round42/role-closeup-swordsman-00.png"
+      ],
+      "observation": "三角色近景、各48帧近景动作与正常行动均已重看；装备跟随、发射起点和转向成立，未见缺件。身体/手脚模板和装备摆动仍比较简单。",
+      "revision": "改善各职业的腕部、持械与转向重心差异，在保持挂点稳定下增加小幅自然跟随。"
+    },
+    {
+      "id": "B2",
+      "score": 5,
+      "max": 5,
+      "title": "普通怪与精英可凭轮廓、动作和标识区分",
+      "evidence": [
+        "Docs/ArtReviews/Round42/Round42-05.png",
+        "Docs/ArtReviews/Round42/Round42-06.png",
+        "Artifacts/Round42/Captures/enemy-0-elite.png",
+        "Artifacts/Round42/Captures/enemy-1-normal.png",
+        "Artifacts/Round42/Captures/enemy-3-elite.png",
+        "Docs/ArtReviews/Round42/late-density-combinations-01.png"
+      ],
+      "observation": "四家族为绿芽圆体、橙色双角跑兽、蓝甲虫、紫蘑菇持杖；八普通/精英图均有覆盖。精英体量、金冠与角/环加强标识在密战仍可见，移动和直线/远程警示补足类别辨认。",
+      "revision": "无本项必修。"
+    },
+    {
+      "id": "B3",
+      "score": 5,
+      "max": 5,
+      "title": "四Boss独立造型、体量层级及完整表现",
+      "evidence": [
+        "Artifacts/Round42/Captures/boss-closeup-0.png",
+        "Artifacts/Round42/Captures/boss-closeup-1.png",
+        "Artifacts/Round42/Captures/boss-closeup-2.png",
+        "Artifacts/Round42/Captures/boss-closeup-3.png",
+        "Docs/ArtReviews/Round42/boss-attacks-0-00.png",
+        "Docs/ArtReviews/Round42/boss-attacks-1-00.png",
+        "Docs/ArtReviews/Round42/boss-attacks-2-00.png",
+        "Docs/ArtReviews/Round42/boss-attacks-3-00.png"
+      ],
+      "observation": "树冠根指/叶须、分节沙虫/獠牙、白毛冰角/爪、岩甲熔纹巨像各自完整，正常镜头与普通怪尺度分层明确；四攻击与死亡序列均有对应画面。",
+      "revision": "无本项必修。"
+    },
+    {
+      "id": "C1",
+      "score": 5,
+      "max": 5,
+      "title": "四单群系独立地貌与装饰语言",
+      "evidence": [
+        "Docs/ArtReviews/Round42/Round42-06.png",
+        "Docs/ArtReviews/Round42/Round42-07.png",
+        "Docs/ArtReviews/Round42/Round42-08.png",
+        "Docs/ArtReviews/Round42/Round42-09.png",
+        "Docs/ArtReviews/Round42/Round42-10.png"
+      ],
+      "observation": "实际重看四群系各3处近/广地貌：林河木桥、沙丘绿洲石柱、冰湖雪丘冰脊、熔岩流/岩桥/玄武岩与开口主坑均清楚；不依赖HUD文字即可区分。",
+      "revision": "无本项必修。"
+    },
+    {
+      "id": "C2",
+      "score": 4,
+      "max": 5,
+      "title": "地面、植被、岩石、建筑层次与尺度完整",
+      "evidence": [
+        "Docs/ArtReviews/Round42/Round42-07.png",
+        "Docs/ArtReviews/Round42/Round42-09.png",
+        "Docs/ArtReviews/Round42/Round42-10.png",
+        "Artifacts/Round42/Captures/waterside-architecture-0.png",
+        "Artifacts/Round42/Captures/waterside-architecture-1.png",
+        "Artifacts/Round42/Captures/waterside-architecture-2.png",
+        "Artifacts/Round42/Captures/waterside-architecture-3.png"
+      ],
+      "observation": "四处实际近水建筑均在完整干地圆基上并接支路；大地貌、中树石与小花草分层存在。广角下仍有大片均匀地表斑点、同构双三石堆/柱组与较简的建筑墙面。",
+      "revision": "减少等质散点，增加局部地表疏密和建筑墙面主题细节，保持战斗空地。"
+    },
+    {
+      "id": "C3",
+      "score": 4,
+      "max": 5,
+      "title": "随机接缝、遮挡、重复感及碰撞视觉一致",
+      "evidence": [
+        "Docs/ArtReviews/Round42/Round42-11.png",
+        "Docs/ArtReviews/Round42/Round42-12.png",
+        "Artifacts/Round42/Captures/sanctuary-close-0.png",
+        "Artifacts/Round42/Captures/mixed-lava-shore-close.png",
+        "Docs/ArtReviews/Round42/character-move-dodge-00.png",
+        "Docs/ArtReviews/Round42/Probe42-00.png",
+        "Docs/ArtReviews/Round42/Probe42-01.png"
+      ],
+      "observation": "混合边带、道路和熔岩圆端连续，五Probe原图未见底色裂口；树冠遮挡时玩家脚圈/头部可辨。林地挑战左前树簇较拥，重复树石簇与部分地貌轮廓仍可感知拼接组合，属于局部问题。",
+      "revision": "调整挑战前缘随机树簇净空，增加石树组旋转/尺度变化；继续按不同种子核查道路与遮挡。"
+    },
+    {
+      "id": "C4",
+      "score": 5,
+      "max": 5,
+      "title": "混合过渡、地标、路径与交互物清楚",
+      "evidence": [
+        "Docs/ArtReviews/Round42/Round42-11.png",
+        "Docs/ArtReviews/Round42/Round42-12.png",
+        "Docs/ArtReviews/Round42/Round42-15.png",
+        "Docs/ArtReviews/Round42/Round42-16.png",
+        "Artifacts/Round42/Captures/sanctuary-completed-0.png",
+        "Artifacts/Round42/Captures/sanctuary-completed-1.png",
+        "Artifacts/Round42/Captures/sanctuary-completed-2.png",
+        "Artifacts/Round42/Captures/sanctuary-completed-3.png",
+        "Artifacts/Round42/Captures/21-map.png"
+      ],
+      "observation": "混合0-1、0-3、1-2、2-3四边界均有渐变与连续路径，熔岩端岸完整。四挑战的后左地形弧、侧路及踏石可读；完成后阵纹变暗、提示清除且地貌保留。宝箱/营地/祭坛与地图图例形成探索线索。",
+      "revision": "无本项必修。"
+    },
+    {
+      "id": "D1",
+      "score": 5,
+      "max": 5,
+      "title": "完整页面视觉体系",
+      "evidence": [
+        "Docs/ArtReviews/Round42/UI42-00.png",
+        "Docs/ArtReviews/Round42/UI42-01.png",
+        "Docs/ArtReviews/Round42/UI42-02.png",
+        "Docs/ArtReviews/Round42/UI42-06.png",
+        "Docs/ArtReviews/Round42/UI42-08.png",
+        "Docs/ArtReviews/Round42/UI42-11.png",
+        "Docs/ArtReviews/Round42/Probe42-00.png"
+      ],
+      "observation": "菜单、锁定/解锁选择、成长/任务、设置、加载、暂停/子设置、胜利及结算使用奶油面板/青绿主操作/金橙图标；错误恢复提示清楚，层级与页面风格一致。",
+      "revision": "无本项必修。"
+    },
+    {
+      "id": "D2",
+      "score": 5,
+      "max": 5,
+      "title": "HUD、升级和技能树层级密度",
+      "evidence": [
+        "Artifacts/UI42/Captures/ui-hud-1280x720.png",
+        "Artifacts/UI42/Captures/ui-skills-1280x720.png",
+        "Artifacts/UI42/Captures/ui-upgrade-1280x720.png",
+        "Docs/ArtReviews/Round42/UI42-09.png",
+        "Docs/ArtReviews/Round42/UI42-10.png"
+      ],
+      "observation": "六能力HUD图标分组、生命/计时/资源与地图锚点清楚；升级标题/效果/当前等级/新机制与价格层级可分，定向树有分类、滚动条和继续浏览提示；列表裁切局限在滚动遮罩内。",
+      "revision": "无本项必修。"
+    },
+    {
+      "id": "D3",
+      "score": 4,
+      "max": 5,
+      "title": "中文字形、长文本、字号行距及对齐",
+      "evidence": [
+        "Artifacts/UI42/Captures/ui-upgrade-1280x720.png",
+        "Artifacts/UI42/Captures/ui-progress-1280x720.png",
+        "Artifacts/UI42/Captures/ui-selection-locked-1280x720.png",
+        "Artifacts/Round42/Captures/21-map.png",
+        "Docs/ArtReviews/Round42/UI42-10.png"
+      ],
+      "observation": "已见中文字形完整，无缺字方框或关键裁切。720p升级第四卡“烈焰扩散”的描述末尾句号独占下一行；虽未溢出且语义完整，长文本排版存在可见局部瑕疵，本项4分。",
+      "revision": "为中文标点启用避头尾规则或略调文字区宽度/字号，回归720p四卡长描述与各画幅。"
+    },
+    {
+      "id": "D4",
+      "score": 5,
+      "max": 5,
+      "title": "要求画幅适配及状态、价格、锁因和图标",
+      "evidence": [
+        "Docs/ArtReviews/Round42/UI42-00.png",
+        "Docs/ArtReviews/Round42/UI42-03.png",
+        "Docs/ArtReviews/Round42/UI42-05.png",
+        "Docs/ArtReviews/Round42/UI42-07.png",
+        "Docs/ArtReviews/Round42/UI42-09.png",
+        "Docs/ArtReviews/Round42/UI42-10.png",
+        "Docs/ArtReviews/Round42/UI42-11.png"
+      ],
+      "observation": "70张UI矩阵覆盖1280×720、1920×1080、1920×1200、2560×1080、2560×1440；主面板、按钮和图标保持比例且在画幅内。选择高亮、锁图标/原因、资源和价格、禁用/可用按钮均有可读状态。",
+      "revision": "无本项必修。"
+    },
+    {
+      "id": "E1",
+      "score": 5,
+      "max": 5,
+      "title": "能力、联动及命中层次",
+      "evidence": [
+        "Docs/ArtReviews/Round42/effect-arc-00.png",
+        "Docs/ArtReviews/Round42/effect-flame-00.png",
+        "Docs/ArtReviews/Round42/effect-explosion-00.png",
+        "Docs/ArtReviews/Round42/effect-frost-00.png",
+        "Docs/ArtReviews/Round42/effect-iceburst-00.png",
+        "Docs/ArtReviews/Round42/effect-lightning-00.png",
+        "Docs/ArtReviews/Round42/effect-rune-00.png",
+        "Docs/ArtReviews/Round42/effect-slash-00.png",
+        "Docs/ArtReviews/Round42/late-density-combinations-02.png"
+      ],
+      "observation": "枪弹为细金线/亮点，火球为橙火形，飞剑有浅蓝刀形及方向尾迹；灵体、爆破扩圈、蓝冰环/碎片、白电连线、金符阵与火剑叠加有形色差异，命中扩散与回收不形成持续满屏白片。11类效果序列均重看。",
+      "revision": "无本项必修。"
+    },
+    {
+      "id": "E2",
+      "score": 4,
+      "max": 5,
+      "title": "高密度玩家、标记、弹丸和拾取可辨",
+      "evidence": [
+        "Docs/ArtReviews/Round42/late-density-combinations-00.png",
+        "Docs/ArtReviews/Round42/late-density-combinations-01.png",
+        "Docs/ArtReviews/Round42/late-density-combinations-02.png",
+        "Docs/ArtReviews/Round42/late-density-combinations-03.png",
+        "Artifacts/Round42/Sequences/late-density-combinations/0024.jpg",
+        "Artifacts/Round42/Sequences/late-density-combinations/0054.jpg",
+        "Artifacts/Round42/Sequences/late-density-combinations/0086.jpg",
+        "Artifacts/Round42/Captures/experience-aggregates.png",
+        "Artifacts/Round42/Captures/experience-aggregates-low.png",
+        "Artifacts/Soak42Preflight/FinalFrame.png"
+      ],
+      "observation": "96帧密战全抽样重看且补3原帧；玩家紫帽/头部、青脚圈与金色目标标记仍可定位，红直线危险及粉色敌弹与青经验分离。密群中金冠、飞剑和蓝冰环仍相互挤占，局部识别负担存在；高/低画质经验材质无失效。",
+      "revision": "降低非危险装饰光环的面积/明度，给目标标记更稳定的层级，保持所有已获能力与伤害。"
+    },
+    {
+      "id": "E3",
+      "score": 5,
+      "max": 5,
+      "title": "四Boss/精英预警形状、时序和范围",
+      "evidence": [
+        "Docs/ArtReviews/Round42/boss-attacks-0-00.png",
+        "Docs/ArtReviews/Round42/boss-attacks-1-00.png",
+        "Docs/ArtReviews/Round42/boss-attacks-2-00.png",
+        "Docs/ArtReviews/Round42/boss-attacks-3-00.png",
+        "Artifacts/Round42/Sequences/boss-attacks-0/0021.jpg",
+        "Artifacts/Round42/Sequences/boss-attacks-1/0026.jpg",
+        "Artifacts/Round42/Sequences/boss-attacks-2/0018.jpg",
+        "Artifacts/Round42/Sequences/boss-attacks-3/0019.jpg",
+        "Docs/ArtReviews/Round42/late-density-combinations-01.png"
+      ],
+      "observation": "四Boss各12秒采集表覆盖起手至多轮释放，并各补18–21连续邻帧。树根三圈、沙虫定向长条/冲刺、冰兽放射多圈及中心重圈、熔岩多个延时圈由淡到强再出现对应根/冰/火/冲刺，未见落点严重超出预警。精英红色直线预警同敌方语言，己方金/蓝圈可分。只评已见视觉时序，不据回血帧声称量化了全部伤害判定。",
+      "revision": "无本项必修；保留各攻击原帧用于以后回归。"
+    },
+    {
+      "id": "E4",
+      "score": 4,
+      "max": 5,
+      "title": "闪避、受击、状态、边界和提示",
+      "evidence": [
+        "Docs/ArtReviews/Round42/character-move-dodge-00.png",
+        "Artifacts/Round42/Sequences/character-move-dodge/0001.jpg",
+        "Artifacts/Round42/Sequences/boss-attacks-2/0117.jpg",
+        "Artifacts/Round42/Sequences/boss-attacks-3/0065.jpg",
+        "Artifacts/Round42/Captures/sanctuary-close-3.png",
+        "Artifacts/Round42/Captures/sanctuary-completed-3.png"
+      ],
+      "observation": "闪避位移伴短暂亮身，受击闪光和边缘红晕可见，冰冻蓝染色仍保留眼/肢体，交互完成有清除。火山深色地面的直接交互文字对比偏低，多重Boss圈时状态光仍稍拥挤，但未持续隐藏玩家或危险边界。",
+      "revision": "为世界交互文字加轻底板/浅描边，区分受击与闪避瞬时明度，避免扩大过曝区域。"
+    },
+    {
+      "id": "F1",
+      "score": 4,
+      "max": 5,
+      "title": "移动、闪避、攻击、受击、死亡与Boss衔接",
+      "evidence": [
+        "Docs/ArtReviews/Round42/role-closeup-adventurer-00.png",
+        "Docs/ArtReviews/Round42/role-closeup-elementalist-01.png",
+        "Docs/ArtReviews/Round42/role-closeup-swordsman-01.png",
+        "Docs/ArtReviews/Round42/character-move-dodge-00.png",
+        "Docs/ArtReviews/Round42/boss-death-0-00.png",
+        "Docs/ArtReviews/Round42/boss-death-1-00.png",
+        "Docs/ArtReviews/Round42/boss-death-2-00.png",
+        "Docs/ArtReviews/Round42/boss-death-3-00.png",
+        "Docs/ArtReviews/Round42/player-defeat-00.png"
+      ],
+      "observation": "转向、短步、持械发射、闪避位移和Boss弯身/冲刺/恢复均有连续变化，死亡压缩/倾倒/收束到结算成立。肢体摆动与躯干多为简单刚体式起伏，脚部与重心变化偏简，未达自然饱满的满分动作。",
+      "revision": "增加小幅膝肘/腰部重心与各Boss差异化收招；用正常速度录像继续查接地。"
+    },
+    {
+      "id": "F2",
+      "score": 4,
+      "max": 5,
+      "title": "页面动效、拾取升级解锁与整体一致性",
+      "evidence": [
+        "Docs/ArtReviews/Round42/feedback-pause-open-00.png",
+        "Docs/ArtReviews/Round42/feedback-skills-open-00.png",
+        "Docs/ArtReviews/Round42/feedback-task-unlock-00.png",
+        "Docs/ArtReviews/Round42/feedback-upgrade-open-00.png",
+        "Docs/ArtReviews/Round42/feedback-upgrade-reward-00.png",
+        "Artifacts/Round42/Sequences/player-defeat/0011.jpg",
+        "Artifacts/Round42/Captures/experience-aggregates-low.png"
+      ],
+      "observation": "五反馈序列共42帧均重看：面板从透明到稳定实体、奖励/任务Toast与升级粒子有衔接，死亡结算清除战斗UI。未见粉材质或持续破损/悬浮；拾取与解锁反馈主要依赖相近的小粒子和Toast，动作节奏与树冠消隐边缘仍比较简。",
+      "revision": "细化拾取/任务/解锁的不同节奏与小图形，平滑遮挡淡出边缘，回归结算后的遮挡恢复。"
+    }
+  ],
+  "hardGates": [
+    {
+      "id": "total",
+      "requirement": "总分至少91/100",
+      "passed": true,
+      "evidence": "20项独立实看合计91/100。",
+      "rubricCode": "H01"
+    },
+    {
+      "id": "dimensions",
+      "requirement": "A/B≥13、C/D/E≥18、F≥8",
+      "passed": true,
+      "evidence": "A14/B14/C18/D19/E18/F8，均达到原门槛。",
+      "rubricCode": "H02"
+    },
+    {
+      "id": "items",
+      "requirement": "20个子项均≥4",
+      "passed": true,
+      "evidence": "20项各4或5分，未改分母。",
+      "rubricCode": "H03"
+    },
+    {
+      "id": "frozen_content",
+      "requirement": "全部冻结首发类别同版实机覆盖且无未评分类别",
+      "passed": true,
+      "evidence": "190静态含3角色、八普通/精英、4Boss、四单群系/mixed、全部页面种类；33动态序列均已重看，类别均进入原20项。",
+      "rubricCode": "H04"
+    },
+    {
+      "id": "finished_assets",
+      "requirement": "无占位、粉材质、丢贴图或明显破损模型",
+      "passed": true,
+      "evidence": "72表及80原始文件中未见此类缺陷；经验高低质量原图正常。",
+      "rubricCode": "H05"
+    },
+    {
+      "id": "chinese_layout",
+      "requirement": "中文无缺字方框、关键裁切、不可读按钮、遮罩错误或核心UI出界",
+      "passed": true,
+      "evidence": "五画幅70UI矩阵及14张720p原图无门槛级错误；D3句号独行为局部瑕疵，无文字丢失或关键裁切。",
+      "rubricCode": "H06"
+    },
+    {
+      "id": "dense_readability",
+      "requirement": "密战持续定位玩家与危险，不靠停射、删能力或关闭实际伤害造图",
+      "passed": true,
+      "evidence": "五地图密战静态、mixed96帧、四Boss抽样显示六能力持续、击杀/弹丸/红预警。元数据有受控回血，非关闭伤害；95功能项中的窗口外伤害检查仅辅助此条件，不产生美术分。",
+      "rubricCode": "H07"
+    },
+    {
+      "id": "danger_and_invulnerability",
+      "requirement": "Boss危险有预警、闪避窗口有表现，无持续不可见/范围掩盖/严重错位",
+      "passed": true,
+      "evidence": "四Boss各18–21连续邻帧与完整时间跨度抽样、闪避0–3原帧及状态/密战未见阻断。淡→强预警对应根/冲刺/冰圈/火喷；12fps和回血条件下不声称逐击精密审计。",
+      "rubricCode": "H08"
+    },
+    {
+      "id": "continuous_feedback",
+      "requirement": "动画与反馈有实际运行连续证据",
+      "passed": true,
+      "evidence": "33序列1415可用原帧，本轮实看589不同帧。角色近景144、密战96及五反馈42帧全部查看，其余序列抽样。",
+      "rubricCode": "H09"
+    },
+    {
+      "id": "same_candidate",
+      "requirement": "最终证据同一可追溯候选，不跨版拼图",
+      "passed": true,
+      "evidence": "Round42/UI42/Probe42同指Builds/Review42；三BuildIdentity的23项文件名/SHA256清单逐一相同；源/正式身份审计只作归属佐证。",
+      "rubricCode": "H10"
+    }
+  ],
+  "missingRequiredArtEvidence": [],
+  "limitations": [
+    "本轮仅评价冻结Round42视觉完成度。没有继承38/39观察或分数，不代表完整项目、功能、平衡、音频人工试听或性能通过。",
+    "未控制桌面，未启动Player/构建。使用现成development Windows Player的完整Camera.Render原图和实际运行连续序列；没有亲自交互试玩。",
+    "全部72辅助表内190静态及570不同动态帧已实际看过；另打开46静态原图和34序列原帧，其中19帧不在表内，共589/1415不同动态帧，未声称逐帧看完全部1415帧。",
+    "角色、移动/Boss与密战固定12fps采集；效果、死亡和UI反馈按墙钟请求0.03333秒间隔，实际时间以各timestamps.csv为准；不等同60fps录像或性能测量。",
+    "固定12fps序列有受控玩家回血；六角色动作序列敌人固定/不死；四Boss攻击序列Boss不死。画面仍有攻击、状态、击杀与危险；夹具不证明自然难度、存活率、平衡或每一次伤害边界。",
+    "冻结类别均覆盖；未遍历无限地图全部随机种子、42强化/20任务所有滚动行和所有组合状态。Full地图种子484241349、UI地图226358579属于同候选不同采集，未拼为同一局。",
+    "辅助表为缩略索引，已补46静态原图及34原帧；view_image可能缩放超过显示上限的原图，未裁掉UI/画幅，不声称每张2560像素图均1:1人工逐像素检查。",
+    "源码、功能报告、像素审计和哈希不产生美术分，仅辅助同版归属、采集完整性及必要门槛。FormalGameplay42/Campaign42未作为本轮美术得分画面。",
+    "原完整复评截止时最终7200秒压力与FinalFrame尚未见；现于postSoakFinalFrameReview追加同版最终末帧的静态观察，仍不代替性能结论。",
+    "另补Soak42Preflight/FinalFrame一张固定177级构筑静态原图（同版23身份清单匹配），它在190张矩阵外，合计191不同静态图、80原始文件；只作E2/中文HUD补充，不证明持续动态或长测。"
+  ],
+  "followUp": "同候选Soak42最终末帧静态视觉补充已完成；未增加连续动态、性能或整项目验收结论。",
+  "supplementaryVisualEvidence": [
+    {
+      "path": "Artifacts/Soak42Preflight/FinalFrame.png",
+      "identity": "Soak42Preflight BuildIdentity has the same 23 file-name/SHA256 entries as Round42",
+      "size": "1920x1080 4xMSAA",
+      "quality": 5,
+      "level": 177,
+      "abilities": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "seed": 1782316367,
+      "fixedImportedBuild": true,
+      "controlledHealing": true,
+      "wallSeconds": 180.2,
+      "observation": "中心棕发角色与青脚圈、六能力图标和中文HUD可辨，无关键出界；周缘大面积黄橙效果与精英金冠拥挤，部分红直线预警可见但周边识读负担较大，维持E2=4。没有观察到本帧中心玩家被遮没或粉材质。",
+      "effectOnScores": "No score changes; supplementary static stress sample only.",
+      "limitations": "固定导入深构筑、新种子、持续治疗的一张末帧；不能证明持续时序、自然成长、难度、7200秒、60FPS或性能通过。主Soak42仍须最终原帧另行复查。"
+    },
+    {
+      "kind": "completed_soak_final_frame",
+      "candidate": "Round42",
+      "reviewedAtUtc": "2026-10-21T22:37:47Z",
+      "reviewer": "independent art-review subagent /root/art_review38",
+      "report": "Docs/ArtReviews/Round42/SoakFinalFrameReview.md",
+      "path": "Artifacts/Soak42/FinalFrame.png",
+      "sha256": "E6A62C86D3820C0ED19D3BEF6EDD2048878D9AF0415109A57025B06602DF45F5",
+      "size": "1920x1080",
+      "identity": {
+        "buildIdentityEntries": 23,
+        "buildIdentityMatchesRound42": true,
+        "sourceIdentityEntries": 1068,
+        "sourceIdentityMatchesRound42": true,
+        "method": "Compared saved file-name/path and SHA256 maps with Round42; did not infer visual quality from identity."
+      },
+      "captureContext": {
+        "summaryWallSeconds": 7200.2,
+        "samples": 240,
+        "errorCount": 0,
+        "errorsFileBytes": 0,
+        "originalPid": 38564,
+        "exitCode": 0,
+        "renderEveryFrame": true,
+        "renderResolution": "1920x1080 4x MSAA",
+        "quality": 5,
+        "frameRateLimit": -1,
+        "fixedImportedBuild": false,
+        "controlledHealingAndUnlockedBuild": true,
+        "extraEnemySpawns": true,
+        "seed": 1106767528,
+        "lastLevel": 394,
+        "lastGameSeconds": 8999.962890625,
+        "lastWallSeconds": 7200.013671875,
+        "pickupRadius": 12.399999618530273,
+        "abilities": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "upgradeIds": 41,
+        "totalUpgradeLevels": 434,
+        "firstSampleLevel": 6,
+        "firstSampleUpgradeLevels": 46,
+        "currentBuildMatchesLastSample": true,
+        "all240SamplesNoImported": true,
+        "all240SamplesUncapped": true,
+        "all240SamplesSixAbilities": true
+      },
+      "observations": {
+        "player": "原始整幅中心棕发头部、躯干和青脚圈可辨，左前密集飞剑/灵体未在此帧把玩家完全遮掉。",
+        "hud": "394级、300/300、149:59、资源672777/762569、击败634051及六能力名称/图标均可读；暂停/构筑/地图按钮在画幅内，没有缺字方框或关键裁切。",
+        "danger": "周缘大面积黄橙弧/爆破形状与金冠很拥挤；中心上方细红直线预警仅局部可见且对比偏弱。本帧无四Boss完整预警—释放周期，不能据此断言所有有效危险范围持续无遮挡，亦不能从单帧确认持续掩盖或严重时序错位。保留E2/E4局部扣分，不以此图追加连续危险通过证明。",
+        "assets": "可见地面、冰脊/雪树、湖面、各色普通/精英、青色拾取物和六能力实体有材质；未见粉材质、大片缺面、相机底色裂洞或HUD失效。",
+        "scope": "固定导入=false只说明未使用177级预检导入构筑；该运行仍解锁构筑、受控治疗并额外刷怪，不是自然玩法/生存难度验证。HUD149:59为游戏内时间，不等于实际墙钟时长。"
+      },
+      "gateAssessment": {
+        "staticPlayerLocation": "本帧可辨",
+        "staticHudAndChinese": "本帧通过",
+        "visibleAssetCompleteness": "本帧未见缺失",
+        "dangerVisibility": "局部红边线可辨，周缘拥挤限制明确；单帧不足以重新验收持续危险/闪避",
+        "newDirectBlockingDefectObserved": false,
+        "continuousOrTimingRevalidated": false,
+        "originalRound42ArtTotal": 91,
+        "originalRound42AllTenHardGatesRetained": true,
+        "scoresChanged": false
+      },
+      "limitations": [
+        "只实际查看该一张新增原始整幅末帧，没有把240条BuildSamples当作240张视觉帧。",
+        "未新增连续动态观看；累计不同动态帧仍589/1415。此图不能证明持续定位、全程危险预警/命中/闪避时序、无闪烁或所有随机位置。",
+        "Summary/ProcessExit/Errors只记录采集来源及完成上下文；本视觉报告不评价帧率、帧时间、内存、性能验收或整项目通过。",
+        "大面积暖色效果与细红预警对比弱的局部问题保留；没有用性能长测完成、版本身份或原91分抵消新门槛。"
+      ]
+    }
+  ],
+  "postSoakFinalFrameReview": {
+    "kind": "completed_soak_final_frame",
+    "candidate": "Round42",
+    "reviewedAtUtc": "2026-10-21T22:37:47Z",
+    "reviewer": "independent art-review subagent /root/art_review38",
+    "report": "Docs/ArtReviews/Round42/SoakFinalFrameReview.md",
+    "path": "Artifacts/Soak42/FinalFrame.png",
+    "sha256": "E6A62C86D3820C0ED19D3BEF6EDD2048878D9AF0415109A57025B06602DF45F5",
+    "size": "1920x1080",
+    "identity": {
+      "buildIdentityEntries": 23,
+      "buildIdentityMatchesRound42": true,
+      "sourceIdentityEntries": 1068,
+      "sourceIdentityMatchesRound42": true,
+      "method": "Compared saved file-name/path and SHA256 maps with Round42; did not infer visual quality from identity."
+    },
+    "captureContext": {
+      "summaryWallSeconds": 7200.2,
+      "samples": 240,
+      "errorCount": 0,
+      "errorsFileBytes": 0,
+      "originalPid": 38564,
+      "exitCode": 0,
+      "renderEveryFrame": true,
+      "renderResolution": "1920x1080 4x MSAA",
+      "quality": 5,
+      "frameRateLimit": -1,
+      "fixedImportedBuild": false,
+      "controlledHealingAndUnlockedBuild": true,
+      "extraEnemySpawns": true,
+      "seed": 1106767528,
+      "lastLevel": 394,
+      "lastGameSeconds": 8999.962890625,
+      "lastWallSeconds": 7200.013671875,
+      "pickupRadius": 12.399999618530273,
+      "abilities": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "upgradeIds": 41,
+      "totalUpgradeLevels": 434,
+      "firstSampleLevel": 6,
+      "firstSampleUpgradeLevels": 46,
+      "currentBuildMatchesLastSample": true,
+      "all240SamplesNoImported": true,
+      "all240SamplesUncapped": true,
+      "all240SamplesSixAbilities": true
+    },
+    "observations": {
+      "player": "原始整幅中心棕发头部、躯干和青脚圈可辨，左前密集飞剑/灵体未在此帧把玩家完全遮掉。",
+      "hud": "394级、300/300、149:59、资源672777/762569、击败634051及六能力名称/图标均可读；暂停/构筑/地图按钮在画幅内，没有缺字方框或关键裁切。",
+      "danger": "周缘大面积黄橙弧/爆破形状与金冠很拥挤；中心上方细红直线预警仅局部可见且对比偏弱。本帧无四Boss完整预警—释放周期，不能据此断言所有有效危险范围持续无遮挡，亦不能从单帧确认持续掩盖或严重时序错位。保留E2/E4局部扣分，不以此图追加连续危险通过证明。",
+      "assets": "可见地面、冰脊/雪树、湖面、各色普通/精英、青色拾取物和六能力实体有材质；未见粉材质、大片缺面、相机底色裂洞或HUD失效。",
+      "scope": "固定导入=false只说明未使用177级预检导入构筑；该运行仍解锁构筑、受控治疗并额外刷怪，不是自然玩法/生存难度验证。HUD149:59为游戏内时间，不等于实际墙钟时长。"
+    },
+    "gateAssessment": {
+      "staticPlayerLocation": "本帧可辨",
+      "staticHudAndChinese": "本帧通过",
+      "visibleAssetCompleteness": "本帧未见缺失",
+      "dangerVisibility": "局部红边线可辨，周缘拥挤限制明确；单帧不足以重新验收持续危险/闪避",
+      "newDirectBlockingDefectObserved": false,
+      "continuousOrTimingRevalidated": false,
+      "originalRound42ArtTotal": 91,
+      "originalRound42AllTenHardGatesRetained": true,
+      "scoresChanged": false
+    },
+    "limitations": [
+      "只实际查看该一张新增原始整幅末帧，没有把240条BuildSamples当作240张视觉帧。",
+      "未新增连续动态观看；累计不同动态帧仍589/1415。此图不能证明持续定位、全程危险预警/命中/闪避时序、无闪烁或所有随机位置。",
+      "Summary/ProcessExit/Errors只记录采集来源及完成上下文；本视觉报告不评价帧率、帧时间、内存、性能验收或整项目通过。",
+      "大面积暖色效果与细红预警对比弱的局部问题保留；没有用性能长测完成、版本身份或原91分抵消新门槛。"
+    ]
+  },
+  "latestViewingTotals": {
+    "originalReviewAndPreflightRawFiles": 80,
+    "newCompletedSoakOriginalFiles": 1,
+    "originalFilesOpenedIncludingAllSupplements": 81,
+    "originalStaticPngOpenedIncludingAllSupplements": 47,
+    "originalDynamicJpgOpened": 34,
+    "staticImagesViewedIncludingSheetsAndAllSupplements": 192,
+    "uniqueDynamicFramesViewed": 589,
+    "totalAvailableOriginalDynamicFramesInFullReview": 1415,
+    "note": "Original actualViewing remains the dated full-review plus preflight scope; this field includes the later completed-soak frame."
+  },
+  "lateSoakFrameReview": {
+    "passed": true,
+    "sourceFile": "Artifacts/Soak42/FinalFrame.png",
+    "sha256": "E6A62C86D3820C0ED19D3BEF6EDD2048878D9AF0415109A57025B06602DF45F5",
+    "reviewReport": "Docs/ArtReviews/Round42/SoakFinalFrameReview.md",
+    "scope": "仅同版Round42最终1920×1080单帧：中心玩家定位、中文HUD适配与可见资源完整性未见新增直接美术阻断。周缘效果拥挤与细红预警对比弱继续保留扣分；不重新证明持续危险/闪避/命中时序、连续动画、性能或整项目通过。",
+    "candidate": "Round42",
+    "reviewedAtUtc": "2026-10-21T22:37:47Z",
+    "continuousDangerRevalidated": false,
+    "performanceVerdictIncluded": false,
+    "originalArtTotal": 91,
+    "scoresChanged": false,
+    "identityBuildEntriesMatched": 23,
+    "identitySourceEntriesMatched": 1068
+  }
+}

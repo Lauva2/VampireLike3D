@@ -27,11 +27,20 @@ namespace VampireLike
         readonly List<EnemyActor> spreadHits = new List<EnemyActor>(24);
         GameObject markVisual;
         readonly Dictionary<Vector2Int,ExperienceOrb> experienceCells=new Dictionary<Vector2Int,ExperienceOrb>();
-        public static Vector2Int ExperienceCell(Vector3 p)=>new Vector2Int(Mathf.FloorToInt(p.x/1.5f),Mathf.FloorToInt(p.z/1.5f));
+        public const float ExperienceCellSize=1.5f, ExperienceMergeRadius=2;
+        public static Vector2Int ExperienceCell(Vector3 p)=>new Vector2Int(Mathf.FloorToInt(p.x/ExperienceCellSize),Mathf.FloorToInt(p.z/ExperienceCellSize));
         public ExperienceOrb DropExperience(Vector3 point,int amount)
         {
             var key=ExperienceCell(point);
-            if(experienceCells.TryGetValue(key,out var existing)&&existing!=null&&existing.CanMerge(point)){existing.Add(amount);return existing;}
+            ExperienceOrb nearest=null;float nearestDistance=ExperienceMergeRadius*ExperienceMergeRadius;
+            int reach=Mathf.CeilToInt(ExperienceMergeRadius/ExperienceCellSize);
+            for(int x=-reach;x<=reach;x++)for(int z=-reach;z<=reach;z++)
+            {
+                if(!experienceCells.TryGetValue(key+new Vector2Int(x,z),out var existing)||existing==null||!existing.CanMerge(point))continue;
+                float distance=(existing.transform.position-point).sqrMagnitude;
+                if(distance<nearestDistance){nearestDistance=distance;nearest=existing;}
+            }
+            if(nearest!=null){nearest.Add(amount);return nearest;}
             var go=game.Pool.Rent("pickup/experience",point,Quaternion.identity);if(go==null)return null;
             var orb=go.GetComponent<ExperienceOrb>();orb.Initialize(game,amount);experienceCells[key]=orb;return orb;
         }

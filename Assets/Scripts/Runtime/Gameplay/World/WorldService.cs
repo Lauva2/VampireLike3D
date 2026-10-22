@@ -26,7 +26,7 @@ namespace VampireLike
         }
         sealed class Chunk
         {
-            public GameObject root,ground;
+            public GameObject root,ground,architecture;
             public Region region;
             public PathNetwork path;
             public bool constructing;
@@ -160,13 +160,13 @@ namespace VampireLike
             for(int edge=0;edge<4;edge++){var next=key+edgeDirections[edge];adjacentBiomes[edge]=BiomeAt(next);if(PathNetwork.Connected(game.Run.seed,key,next))roadMask|=1<<edge;}
             ground.GetComponent<TerrainAppearance>()?.Configure(river&&(roadMask&4)!=0,PathNetwork.BridgeOffset(key));
             Physics.SyncTransforms();
-            path.Configure(game.Run.seed,key,roadMask,biome,adjacentBiomes,river,RiverAt(key+Vector2Int.left)&&BiomeAt(key+Vector2Int.left)==biome,RiverAt(key+Vector2Int.right)&&BiomeAt(key+Vector2Int.right)==biome,landmarkType>=0||key==Vector2Int.zero);
+            path.Configure(game.Run.seed,key,roadMask,biome,adjacentBiomes,river,RiverAt(key+Vector2Int.left)&&BiomeAt(key+Vector2Int.left)==biome,RiverAt(key+Vector2Int.right)&&BiomeAt(key+Vector2Int.right)==biome,landmarkType>=0||key==Vector2Int.zero,landmarkType==3);
             bool architectureHere=key==Vector2Int.zero||SeedHash(game.Run.seed,key.x,key.y)%7==0;
             Vector3 architectureOffset=Vector3.zero;bool architecturePlaced=false;
             if(architectureHere)for(int attempt=0;attempt<24;attempt++)
             {
                 var candidate=new Vector3((random.Next(2)==0?-1:1)*(8+(float)random.NextDouble()*4),0,(random.Next(2)==0?-1:1)*(8+(float)random.NextDouble()*4));
-                if(path.NearPath(candidate,4)||path.ContainsWater(candidate,4)||!LevelFoundation(chunk.root.transform.position+candidate))continue;
+                if(path.NearPath(candidate,4)||path.ContainsWater(candidate,4)||ground.GetComponent<TerrainAppearance>().ContainsWater(chunk.root.transform.position+candidate,4)||!LevelFoundation(chunk.root.transform.position+candidate))continue;
                 architectureOffset=candidate;architecturePlaced=true;break;
             }
             architectureHere&=architecturePlaced;
@@ -176,7 +176,7 @@ namespace VampireLike
                 Vector3 approach=path.NearestPoint(architectureOffset)-architectureOffset;approach.y=0;
                 Quaternion facing=approach.sqrMagnitude>.01f?Quaternion.LookRotation(approach):Quaternion.identity;
                 var buildingObject=region.pool.Rent(architecture,GroundPosition(chunk.root.transform.position+architectureOffset),facing);
-                if(buildingObject!=null){buildingObject.transform.SetParent(chunk.root.transform,true);chunk.instances.Add(buildingObject);path.ConnectArchitecture(architectureOffset+facing*Vector3.forward*2.6f,biome);}
+                if(buildingObject!=null){chunk.architecture=buildingObject;buildingObject.transform.SetParent(chunk.root.transform,true);chunk.instances.Add(buildingObject);path.ConnectArchitecture(architectureOffset+facing*Vector3.forward*2.6f,biome);}
             }
             int decorationCount=biome==BiomeId.Forest?(terrainVariant==2?60:terrainVariant==1?24:30):20;
             Vector2 cluster=new Vector2((float)random.NextDouble()*16-8,(float)random.NextDouble()*16-8);
@@ -188,6 +188,7 @@ namespace VampireLike
                 if (path.NearPath(offset,2.7f)) continue;
                 if(architectureHere&&(offset-architectureOffset).sqrMagnitude<25)continue;
                 if(path.ContainsWater(offset,1.5f))continue;
+                if(ground.GetComponent<TerrainAppearance>().ContainsWater(chunk.root.transform.position+offset,1.5f))continue;
                 var decoration = region.pool.Rent(config.decorationId, GroundPosition(chunk.root.transform.position + offset), Quaternion.Euler(0, random.Next(360), 0));
                 if (decoration == null) continue;
                 decoration.transform.SetParent(chunk.root.transform, true);
@@ -205,7 +206,7 @@ namespace VampireLike
                 if(site.visual!=null)site.visual.GetComponent<BossSiteAppearance>()?.Configure(biome);
                 if (site.visual != null) site.visual.transform.SetParent(chunk.root.transform, true);
                 sites.Add(site); chunk.site = site;
-                if (site.complete && site.visual != null) site.visual.transform.localScale = Vector3.one * .65f;
+                UpdateSiteAppearance(site);
             }
             chunk.constructing=false;
         }
@@ -237,6 +238,14 @@ namespace VampireLike
             for(int edge=0;edge<4;edge++){var next=key+directions[edge];if(PathNetwork.Connected(game.Run.seed,key,next))mask|=1<<edge;}return mask;
         }
         public bool HasWatercourse(Vector2Int key)=>RiverAt(key);
+        public bool TryDiagnosticArchitecture(Vector2Int key,out Vector3 position,out bool foundationClear)
+        {
+            position=Vector3.zero;foundationClear=false;
+            if(!game.DiagnosticMode||!chunks.TryGetValue(key,out var chunk)||chunk.constructing||chunk.architecture==null)return false;
+            position=chunk.architecture.transform.position;
+            foundationClear=!chunk.path.ContainsWater(position-chunk.root.transform.position,4)&&!chunk.ground.GetComponent<TerrainAppearance>().ContainsWater(position,4)&&LevelFoundation(position);
+            return true;
+        }
         static bool LevelFoundation(Vector3 center)
         {
             float min=float.MaxValue,max=float.MinValue;
@@ -377,9 +386,15 @@ namespace VampireLike
             {
                 if (site.id != id || site.complete) continue;
                 site.complete = true; journal.Complete(site.chunk, id);
-                if (site.visual != null) site.visual.transform.localScale = Vector3.one * .65f;
+                UpdateSiteAppearance(site);
                 game.Save.Profile.events++; game.Save.MarkDirty(); game.Save.Flush(); return;
             }
+        }
+        static void UpdateSiteAppearance(WorldSite site)
+        {
+            if(site.visual==null)return;
+            if(site.type==3)site.visual.GetComponent<BossSiteAppearance>()?.SetCompleted(site.complete);
+            else if(site.complete)site.visual.transform.localScale=Vector3.one*.65f;
         }
         void ShiftOrigin()
         {

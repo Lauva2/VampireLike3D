@@ -9,6 +9,7 @@ namespace VampireLike.Editor
     {
         public static readonly Color Teal = Hex("268E8B"), Cream = Hex("FFF0CF"), Orange = Hex("F39D42"), Ink = Hex("293C45"), Brown = Hex("784B32"), Skin = Hex("FFC796"), Gold = Hex("E3B859");
         static Material master;
+        static Mesh smallSphere,largeSphere,roundedCapsule;
         static readonly Dictionary<Color, Material> colors = new Dictionary<Color, Material>();
         public static Color Hex(string value) { ColorUtility.TryParseHtmlString("#" + value, out var c); return c; }
         public static void Begin()
@@ -30,7 +31,37 @@ namespace VampireLike.Editor
         {
             var go = GameObject.CreatePrimitive(type); go.name = name; go.transform.SetParent(parent, false);
             go.transform.localPosition = position; go.transform.localScale = scale; go.transform.localEulerAngles = rotation;
-            Object.DestroyImmediate(go.GetComponent<Collider>()); go.GetComponent<Renderer>().sharedMaterial = Mat(color); return go;
+            Object.DestroyImmediate(go.GetComponent<Collider>());
+            if(type==PrimitiveType.Sphere)
+            {
+                bool large=Mathf.Max(scale.x,Mathf.Max(scale.y,scale.z))>.65f;
+                if(large){if(largeSphere==null)largeSphere=RoundedMesh(20,12,false);go.GetComponent<MeshFilter>().sharedMesh=largeSphere;}
+                else{if(smallSphere==null)smallSphere=RoundedMesh(12,8,false);go.GetComponent<MeshFilter>().sharedMesh=smallSphere;}
+            }
+            else if(type==PrimitiveType.Capsule){if(roundedCapsule==null)roundedCapsule=RoundedMesh(12,8,true);go.GetComponent<MeshFilter>().sharedMesh=roundedCapsule;}
+            go.GetComponent<Renderer>().sharedMaterial = Mat(color); return go;
+        }
+        // Smooth analytic normals preserve the silhouette while small details avoid the built-in mesh's excess rings.
+        static Mesh RoundedMesh(int sides,int latitude,bool capsule)
+        {
+            var v=new List<Vector3>();var n=new List<Vector3>();var indices=new List<int>();
+            int rings=latitude+(capsule?1:0);
+            for(int row=0;row<=rings;row++)
+            {
+                int arcRow=capsule&&row>latitude/2?row-1:row;
+                float a=-Mathf.PI*.5f+Mathf.PI*arcRow/latitude;
+                float y=Mathf.Sin(a)*.5f+(capsule?(row<=latitude/2?-.5f:.5f):0);
+                for(int side=0;side<=sides;side++)
+                {
+                    float angle=side*Mathf.PI*2/sides;var normal=new Vector3(Mathf.Sin(angle)*Mathf.Cos(a),Mathf.Sin(a),Mathf.Cos(angle)*Mathf.Cos(a));
+                    v.Add(new Vector3(normal.x*.5f,y,normal.z*.5f));n.Add(normal);
+                    if(row==rings||side==sides)continue;
+                    int p=row*(sides+1)+side;
+                    if(row>0){indices.Add(p);indices.Add(p+1);indices.Add(p+sides+1);}
+                    if(row<rings-1){indices.Add(p+1);indices.Add(p+sides+2);indices.Add(p+sides+1);}
+                }
+            }
+            var mesh=new Mesh{name=capsule?"Smooth compact capsule":"Smooth compact sphere"};mesh.SetVertices(v);mesh.SetNormals(n);mesh.SetTriangles(indices,0);mesh.RecalculateBounds();return mesh;
         }
         static GameObject Sphere(Transform t, string n, Vector3 p, Vector3 s, Color c) => Part(t, n, PrimitiveType.Sphere, p, s, c);
         static GameObject Cube(Transform t, string n, Vector3 p, Vector3 s, Color c, Vector3 r = default) => Part(t, n, PrimitiveType.Cube, p, s, c, r);

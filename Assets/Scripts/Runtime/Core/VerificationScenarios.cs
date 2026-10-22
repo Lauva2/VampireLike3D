@@ -117,7 +117,7 @@ namespace VampireLike
             // Representative geography is captured from an actual neighboring chunk, not a showcase scene.
             Vector3 terrainCenter=game.World.LocalPosition(game.World.CurrentChunk);
             Place(terrainCenter+new Vector3(-3,0,5));yield return AutoBattle(1);yield return Capture("terrain-detail-"+biome);
-            if(biome<4)yield return TerrainVariants(biome);
+            if(biome<4){yield return TerrainVariants(biome);yield return WatersideArchitecture(biome);}
             if(biome<4)
             {
                 yield return SanctuaryEvidence(biome);

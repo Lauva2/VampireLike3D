@@ -1,13 +1,28 @@
 param(
     [ValidateSet('Generate','Check','Development','GenerateDevelopment','Release')]
-    [string]$Mode = 'Development'
+    [string]$Mode = 'Development',
+    [string]$UnityPath = $env:UNITY_EDITOR_PATH
 )
 $ErrorActionPreference = 'Stop'
 $workspaceRoot = Split-Path -Parent $PSScriptRoot
 $validationRoot = Join-Path $workspaceRoot '.build\Project'
 $artifactsRoot = Join-Path $workspaceRoot 'Artifacts'
-$unityPath = 'C:\Program Files\Unity 2022.3.62f2\Editor\Unity.exe'
-if (-not (Test-Path -LiteralPath $unityPath)) { throw "Unity 2022.3.62f2 not found: $unityPath" }
+if (-not $UnityPath) {
+    $candidates = @(
+        (Join-Path $workspaceRoot '.build\UnityEditor\Editor\Unity.exe'),
+        'C:\Program Files\Unity 2022.3.62f2\Editor\Unity.exe',
+        'C:\Program Files\Unity\Hub\Editor\2022.3.62f2\Editor\Unity.exe'
+    )
+    $UnityPath = $candidates | Where-Object { Test-Path -LiteralPath $_ } | Select-Object -First 1
+}
+if (-not $UnityPath -or -not (Test-Path -LiteralPath $UnityPath)) {
+    throw 'Unity 2022.3.62f2 not found. Pass -UnityPath <Editor\Unity.exe> or set UNITY_EDITOR_PATH.'
+}
+$UnityPath = (Resolve-Path -LiteralPath $UnityPath).Path
+$editorVersion = (Get-Item -LiteralPath $UnityPath).VersionInfo.ProductVersion
+if ($editorVersion -notmatch '^2022\.3\.62f2(?:\b|_)') {
+    throw "Expected Unity 2022.3.62f2, found '$editorVersion': $UnityPath"
+}
 New-Item -ItemType Directory -Path $validationRoot,$artifactsRoot -Force | Out-Null
 $generationBaseline=@{}
 $baselineRelative=''
@@ -35,7 +50,7 @@ $method = switch ($Mode) {
 }
 $logPath = Join-Path $artifactsRoot ($Mode + '.log')
 $arguments = @('-batchmode','-nographics','-quit','-projectPath',('"' + $validationRoot + '"'),'-executeMethod',$method,'-logFile',('"' + $logPath + '"'))
-$buildProcess = Start-Process -FilePath $unityPath -ArgumentList $arguments -WindowStyle Hidden -Wait -PassThru
+$buildProcess = Start-Process -FilePath $UnityPath -ArgumentList $arguments -WindowStyle Hidden -Wait -PassThru
 if ($buildProcess.ExitCode -ne 0) { throw "Unity failed with exit code $($buildProcess.ExitCode). See $logPath" }
 if ($Mode -in @('Generate','GenerateDevelopment')) {
     $diffRelative='Artifacts\GeneratedSync-'+(Get-Date -Format 'yyyyMMdd-HHmmss')+'.json'

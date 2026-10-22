@@ -24,4 +24,8 @@ for path in sorted(folder.glob('*.png')):
     inactive = [c['key'] for c in world['chunks'] if not c['active'] or c['vertices'] < 24]
     results.append(dict(image=path.name, background_pixels=count,
                         longest_background_run=largest_run, inactive_chunks=inactive))
+if not results:
+    raise SystemExit('No paired PNG/.world.json captures found; pass the Captures directory')
 print(json.dumps(results, indent=2))
+if any(row['background_pixels'] or row['inactive_chunks'] for row in results):
+    raise SystemExit('Terrain evidence contains camera background or invalid chunks')

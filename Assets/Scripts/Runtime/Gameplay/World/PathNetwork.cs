@@ -45,14 +45,14 @@ namespace VampireLike
             float offset=(WorldService.SeedHash(seed^0x27d1,first.x*2+(direction.x==0?1:0),first.y)%1001/1000f-.5f)*8;
             return new Vector3(direction.x*16+(direction.x==0?offset:0),0,direction.y*16+(direction.y==0?offset:0));
         }
-        public void Configure(int seed,Vector2Int key,int mask,BiomeId biome,BiomeId[] adjacent,bool river,bool waterWest,bool waterEast,bool landmark)
+        public void Configure(int seed,Vector2Int key,int mask,BiomeId biome,BiomeId[] adjacent,bool river,bool waterWest,bool waterEast,bool landmark,bool sanctuary=false)
         {
             vertices.Clear();colors.Clear();triangles.Clear();centers.Clear();
             hasWater=river;
             waterWorldX=key.x*32;bridgeOffset=BridgeOffset(key);
             if(river)Water(biome,waterWest,waterEast);
             var random=new System.Random(WorldService.SeedHash(seed^0x17fa,key.x,key.y));
-            Vector3 node=landmark?Vector3.zero:new Vector3((float)random.NextDouble()*10-5,0,(float)random.NextDouble()*10-5);
+            Vector3 node=sanctuary?new Vector3(4.8f,0,-4.8f):landmark?Vector3.zero:new Vector3((float)random.NextDouble()*10-5,0,(float)random.NextDouble()*10-5);
             Color road=RoadColor(biome);Disc(node,1.45f,.068f,road,true);
             var directions=new[]{Vector3.right,Vector3.left,Vector3.forward,Vector3.back};
             for(int edge=0;edge<4;edge++)
@@ -61,10 +61,29 @@ namespace VampireLike
                 var direction=new Vector2Int(Mathf.RoundToInt(directions[edge].x),Mathf.RoundToInt(directions[edge].z));
                 Vector3 end=EdgeAnchor(seed,key,direction);
                 Color ending=Color.Lerp(road,RoadColor(adjacent[edge]),.5f);
+                if(sanctuary&&edge==1)
+                {
+                    Vector3 approach=new Vector3(-5,0,-4.8f);
+                    Curve(node,node+Vector3.left*3,approach+Vector3.right*3,approach,road,road);
+                    Curve(approach,approach+Vector3.left*4,end-Vector3.left*5,end,road,ending);continue;
+                }
+                if(sanctuary&&edge==2)
+                {
+                    Vector3 shoulder=new Vector3(6,0,3.6f);
+                    Curve(node,node+Vector3.forward*4,shoulder-Vector3.forward*3,shoulder,road,road);
+                    if(river)
+                    {
+                        Vector3 bridge=new Vector3(0,0,6+bridgeOffset);
+                        Curve(shoulder,shoulder+Vector3.forward*2,bridge-Vector3.forward*1.5f,bridge,road,road);
+                        Curve(bridge,bridge+Vector3.forward*3,end-Vector3.forward*5,end,road,ending);
+                    }
+                    else Curve(shoulder,shoulder+Vector3.forward*4,end-Vector3.forward*5,end,road,ending);
+                    continue;
+                }
                 if(river&&edge==2)
                 {
                     Curve(node,node+Vector3.forward*3,new Vector3(0,0,4+bridgeOffset),new Vector3(0,0,6+bridgeOffset),road,road);
-                    Curve(new Vector3(0,0,6+bridgeOffset),new Vector3(0,0,9+bridgeOffset),new Vector3(0,0,13),end,road,ending);
+                    Curve(new Vector3(0,0,6+bridgeOffset),new Vector3(0,0,9+bridgeOffset),end-Vector3.forward*5,end,road,ending);
                 }
                 else
                 {
@@ -172,6 +191,6 @@ namespace VampireLike
             const int count=7;
             for(int i=0;i<=count;i++){float a=i*Mathf.PI*2/count;Vertex(center+new Vector3(Mathf.Cos(a)*radius,0,Mathf.Sin(a)*radius*.8f),Color.Lerp(color,Color.white,.08f));if(i>0){triangles.Add(start);triangles.Add(start+i);triangles.Add(start+i+1);}}
         }
-        void OnDestroy(){if(mesh!=null)Destroy(mesh);}
+        void OnDestroy(){if(mesh!=null){if(Application.isPlaying)Destroy(mesh);else DestroyImmediate(mesh);}}
     }
 }

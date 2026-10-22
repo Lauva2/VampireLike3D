@@ -10,6 +10,18 @@ namespace VampireLike.Editor
             const string path="Assets/Art/Materials/Generated/CartoonEffect.mat";var material=AssetDatabase.LoadAssetAtPath<Material>(path);
             if(material==null){material=new Material(Shader.Find("VampireLike/CartoonEffect"));AssetDatabase.CreateAsset(material,path);}material.enableInstancing=true;EditorUtility.SetDirty(material);return material;
         }
+        static Material PickupMaterial()
+        {
+            const string path="Assets/Art/Materials/Generated/CartoonPickup.mat";
+            var material=AssetDatabase.LoadAssetAtPath<Material>(path);
+            if(material==null){material=new Material(EffectMaterial());AssetDatabase.CreateAsset(material,path);}
+            material.SetOverrideTag("RenderType","TransparentCutout");
+            material.renderQueue=(int)UnityEngine.Rendering.RenderQueue.AlphaTest;
+            material.SetFloat("_SrcBlend",(float)UnityEngine.Rendering.BlendMode.One);
+            material.SetFloat("_DstBlend",(float)UnityEngine.Rendering.BlendMode.Zero);
+            material.SetFloat("_ZWrite",1);material.SetFloat("_AlphaCoverage",1);
+            material.enableInstancing=true;EditorUtility.SetDirty(material);return material;
+        }
         static Material IndicatorMaterial(bool player)
         {
             string path="Assets/Art/Materials/Generated/"+(player?"PlayerBeacon":"DangerIndicator")+".mat";

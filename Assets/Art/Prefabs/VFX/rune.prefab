@@ -76,7 +76,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8451907167807920163}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2613056008820082906
+--- !u!1 &1755485910901840705
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -84,7 +84,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1277367748297244725}
+  - component: {fileID: 8327907483270644671}
   m_Layer: 0
   m_Name: SealCorner
   m_TagString: Untagged
@@ -92,44 +92,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1277367748297244725
+--- !u!4 &8327907483270644671
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2613056008820082906}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0.92387956, z: 0, w: -0.3826834}
-  m_LocalPosition: {x: -0.35, y: 0.02, z: 0.000000004173708}
-  m_LocalScale: {x: 0.25, y: 0.015, z: 0.035}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 8451907167807920163}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &4048130554819443269
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8315833703044344071}
-  m_Layer: 0
-  m_Name: SealCorner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8315833703044344071
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4048130554819443269}
+  m_GameObject: {fileID: 1755485910901840705}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0.38268346, z: 0, w: 0.9238795}
   m_LocalPosition: {x: 0.35, y: 0.02, z: -0.000000015298985}
@@ -138,7 +107,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8451907167807920163}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &5700594925458945941
+--- !u!1 &4125012253755864882
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -146,7 +115,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8773291219331794447}
+  - component: {fileID: 1348983472191636919}
   m_Layer: 0
   m_Name: SealCorner
   m_TagString: Untagged
@@ -154,13 +123,44 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8773291219331794447
+--- !u!4 &1348983472191636919
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5700594925458945941}
+  m_GameObject: {fileID: 4125012253755864882}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: -0.92387956, z: 0, w: -0.3826834}
+  m_LocalPosition: {x: -0.35, y: 0.02, z: 0.000000004173708}
+  m_LocalScale: {x: 0.25, y: 0.015, z: 0.035}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8451907167807920163}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7197324937927363595
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 329093194478809170}
+  m_Layer: 0
+  m_Name: SealCorner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &329093194478809170
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7197324937927363595}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0.92387956, z: 0, w: 0.38268346}
   m_LocalPosition: {x: -0.00000003059797, y: 0.02, z: -0.35}
@@ -233,9 +233,9 @@ Transform:
   m_Children:
   - {fileID: 6627220506733289797}
   - {fileID: 113092004237376266}
-  - {fileID: 8315833703044344071}
-  - {fileID: 8773291219331794447}
-  - {fileID: 1277367748297244725}
+  - {fileID: 8327907483270644671}
+  - {fileID: 329093194478809170}
+  - {fileID: 1348983472191636919}
   m_Father: {fileID: 159801425607200876}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3119414431287748048

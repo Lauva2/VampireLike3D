@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &348740042865902875
+--- !u!1 &101761989198376246
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,69 +8,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1335942655163406269}
-  m_Layer: 0
-  m_Name: BoltCore
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1335942655163406269
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 348740042865902875}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0.51958627, y: 0, z: -0.4796146, w: 0.7071068}
-  m_LocalPosition: {x: -0.05769189, y: 0.052, z: 0.9375}
-  m_LocalScale: {x: 0.032, y: 0.08505648, z: 0.032}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1881225615524408561}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &389821605982641671
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7877398897248730844}
-  m_Layer: 0
-  m_Name: BoltCore
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7877398897248730844
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 389821605982641671}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0.6617064, y: 0, z: 0.24928838, w: 0.7071068}
-  m_LocalPosition: {x: -0.046208505, y: 0.052, z: 0.5625}
-  m_LocalScale: {x: 0.032, y: 0.0667882, z: 0.032}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1881225615524408561}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &896625573628018602
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4650073248598323201}
+  - component: {fileID: 1080448014084992720}
   m_Layer: 0
   m_Name: BoltBorder
   m_TagString: Untagged
@@ -78,17 +16,48 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4650073248598323201
+--- !u!4 &1080448014084992720
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 896625573628018602}
+  m_GameObject: {fileID: 101761989198376246}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.6617064, y: 0, z: 0.24928838, w: 0.7071068}
-  m_LocalPosition: {x: -0.046208505, y: 0.04, z: 0.5625}
-  m_LocalScale: {x: 0.07, y: 0.0667882, z: 0.07}
+  m_LocalRotation: {x: 0.35256946, y: 0, z: 0.6129395, w: 0.7071068}
+  m_LocalPosition: {x: -0.0208456, y: 0.04, z: 0.1875}
+  m_LocalScale: {x: 0.07, y: 0.12534885, z: 0.07}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1881225615524408561}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &587036741685374682
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8065640946082021064}
+  m_Layer: 0
+  m_Name: BoltCore
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8065640946082021064
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 587036741685374682}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.4983241, y: 0, z: 0.5016703, w: 0.70710677}
+  m_LocalPosition: {x: 0.040257156, y: 0.052, z: 0.4375}
+  m_LocalScale: {x: 0.032, y: 0.0886856, z: 0.032}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1881225615524408561}
@@ -124,7 +93,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1881225615524408561}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1066670612277714444
+--- !u!1 &1072485903020777723
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -132,7 +101,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2589805787833619463}
+  - component: {fileID: 5298613484471769262}
   m_Layer: 0
   m_Name: BoltCore
   m_TagString: Untagged
@@ -140,13 +109,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2589805787833619463
+--- !u!4 &5298613484471769262
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1066670612277714444}
+  m_GameObject: {fileID: 1072485903020777723}
   serializedVersion: 2
   m_LocalRotation: {x: 0.38119972, y: 0, z: -0.5955559, w: 0.7071068}
   m_LocalPosition: {x: 0.027890503, y: 0.052, z: 0.6875}
@@ -155,7 +124,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1881225615524408561}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1236907496640709373
+--- !u!1 &1122554457040755045
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -163,7 +132,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 937523211262860224}
+  - component: {fileID: 5645115120889370247}
   m_Layer: 0
   m_Name: BoltBorder
   m_TagString: Untagged
@@ -171,17 +140,17 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &937523211262860224
+--- !u!4 &5645115120889370247
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1236907496640709373}
+  m_GameObject: {fileID: 1122554457040755045}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.4983241, y: 0, z: 0.5016703, w: 0.70710677}
-  m_LocalPosition: {x: 0.040257156, y: 0.04, z: 0.4375}
-  m_LocalScale: {x: 0.07, y: 0.0886856, z: 0.07}
+  m_LocalRotation: {x: 0.32565537, y: 0, z: 0.62765324, w: 0.70710677}
+  m_LocalPosition: {x: 0.0050758533, y: 0.04, z: 0.8125}
+  m_LocalScale: {x: 0.07, y: 0.1357084, z: 0.07}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1881225615524408561}
@@ -231,7 +200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32dcaf486ee99304ab8424c4042d630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1666738484720938039
+--- !u!1 &2618100943544346366
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -239,7 +208,38 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3420478277526049005}
+  - component: {fileID: 7741468890838676959}
+  m_Layer: 0
+  m_Name: BoltCore
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7741468890838676959
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2618100943544346366}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.51958627, y: 0, z: -0.4796146, w: 0.7071068}
+  m_LocalPosition: {x: -0.05769189, y: 0.052, z: 0.9375}
+  m_LocalScale: {x: 0.032, y: 0.08505648, z: 0.032}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1881225615524408561}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3212947377317518961
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1980577771351062450}
   m_Layer: 0
   m_Name: BoltBorder
   m_TagString: Untagged
@@ -247,17 +247,172 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3420478277526049005
+--- !u!4 &1980577771351062450
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1666738484720938039}
+  m_GameObject: {fileID: 3212947377317518961}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.33464074, y: 0, z: -0.62290895, w: 0.7071068}
+  m_LocalPosition: {x: -0.013162281, y: 0.04, z: 0.3125}
+  m_LocalScale: {x: 0.07, y: 0.13206454, z: 0.07}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1881225615524408561}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3243176790627643279
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8427414104133424279}
+  m_Layer: 0
+  m_Name: BoltBorder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8427414104133424279
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3243176790627643279}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.38119972, y: 0, z: -0.5955559, w: 0.7071068}
+  m_LocalPosition: {x: 0.027890503, y: 0.04, z: 0.6875}
+  m_LocalScale: {x: 0.07, y: 0.11593443, z: 0.07}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1881225615524408561}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3315780267200443126
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7568018356547918935}
+  m_Layer: 0
+  m_Name: BoltCore
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7568018356547918935
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3315780267200443126}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.6617064, y: 0, z: 0.24928838, w: 0.7071068}
+  m_LocalPosition: {x: -0.046208505, y: 0.052, z: 0.5625}
+  m_LocalScale: {x: 0.032, y: 0.0667882, z: 0.032}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1881225615524408561}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3996780257182220817
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5129404029117251413}
+  m_Layer: 0
+  m_Name: BoltBorder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5129404029117251413
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3996780257182220817}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.51958627, y: 0, z: -0.4796146, w: 0.7071068}
+  m_LocalPosition: {x: -0.05769189, y: 0.04, z: 0.9375}
+  m_LocalScale: {x: 0.07, y: 0.08505648, z: 0.07}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1881225615524408561}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4007595051695790288
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1621423168390444990}
+  m_Layer: 0
+  m_Name: BoltCore
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1621423168390444990
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4007595051695790288}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.32565537, y: 0, z: 0.62765324, w: 0.70710677}
+  m_LocalPosition: {x: 0.0050758533, y: 0.052, z: 0.8125}
+  m_LocalScale: {x: 0.032, y: 0.1357084, z: 0.032}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1881225615524408561}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4635548698933310490
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4060024268947442234}
+  m_Layer: 0
+  m_Name: BoltCore
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4060024268947442234
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4635548698933310490}
   serializedVersion: 2
   m_LocalRotation: {x: 0.35256946, y: 0, z: 0.6129395, w: 0.7071068}
-  m_LocalPosition: {x: -0.0208456, y: 0.04, z: 0.1875}
-  m_LocalScale: {x: 0.07, y: 0.12534885, z: 0.07}
+  m_LocalPosition: {x: -0.0208456, y: 0.052, z: 0.1875}
+  m_LocalScale: {x: 0.032, y: 0.12534885, z: 0.032}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1881225615524408561}
@@ -293,7 +448,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1881225615524408561}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &5899319691560481827
+--- !u!1 &5618504984196196472
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -301,7 +456,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5506633176386133503}
+  - component: {fileID: 2987447333363586799}
   m_Layer: 0
   m_Name: BoltBorder
   m_TagString: Untagged
@@ -309,22 +464,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5506633176386133503
+--- !u!4 &2987447333363586799
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5899319691560481827}
+  m_GameObject: {fileID: 5618504984196196472}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.33464074, y: 0, z: -0.62290895, w: 0.7071068}
-  m_LocalPosition: {x: -0.013162281, y: 0.04, z: 0.3125}
-  m_LocalScale: {x: 0.07, y: 0.13206454, z: 0.07}
+  m_LocalRotation: {x: 0.4983241, y: 0, z: 0.5016703, w: 0.70710677}
+  m_LocalPosition: {x: 0.040257156, y: 0.04, z: 0.4375}
+  m_LocalScale: {x: 0.07, y: 0.0886856, z: 0.07}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1881225615524408561}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &5971762064823117711
+--- !u!1 &5838689619302592770
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -332,7 +487,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3523297879803345567}
+  - component: {fileID: 3490675600180482062}
   m_Layer: 0
   m_Name: BoltBorder
   m_TagString: Untagged
@@ -340,22 +495,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3523297879803345567
+--- !u!4 &3490675600180482062
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5971762064823117711}
+  m_GameObject: {fileID: 5838689619302592770}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.38119972, y: 0, z: -0.5955559, w: 0.7071068}
-  m_LocalPosition: {x: 0.027890503, y: 0.04, z: 0.6875}
-  m_LocalScale: {x: 0.07, y: 0.11593443, z: 0.07}
+  m_LocalRotation: {x: 0.6617064, y: 0, z: 0.24928838, w: 0.7071068}
+  m_LocalPosition: {x: -0.046208505, y: 0.04, z: 0.5625}
+  m_LocalScale: {x: 0.07, y: 0.0667882, z: 0.07}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1881225615524408561}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &6777863381526458824
+--- !u!1 &6201908055493143841
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -363,69 +518,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3113006100779098650}
-  m_Layer: 0
-  m_Name: BoltBorder
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3113006100779098650
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6777863381526458824}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0.51958627, y: 0, z: -0.4796146, w: 0.7071068}
-  m_LocalPosition: {x: -0.05769189, y: 0.04, z: 0.9375}
-  m_LocalScale: {x: 0.07, y: 0.08505648, z: 0.07}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1881225615524408561}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &7432954083797750669
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3561628560236751496}
-  m_Layer: 0
-  m_Name: BoltBorder
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3561628560236751496
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7432954083797750669}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0.32565537, y: 0, z: 0.62765324, w: 0.70710677}
-  m_LocalPosition: {x: 0.0050758533, y: 0.04, z: 0.8125}
-  m_LocalScale: {x: 0.07, y: 0.1357084, z: 0.07}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1881225615524408561}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &7589128746324339563
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6300421893094034540}
+  - component: {fileID: 697772557090659665}
   m_Layer: 0
   m_Name: BoltCore
   m_TagString: Untagged
@@ -433,17 +526,17 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6300421893094034540
+--- !u!4 &697772557090659665
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7589128746324339563}
+  m_GameObject: {fileID: 6201908055493143841}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.35256946, y: 0, z: 0.6129395, w: 0.7071068}
-  m_LocalPosition: {x: -0.0208456, y: 0.052, z: 0.1875}
-  m_LocalScale: {x: 0.032, y: 0.12534885, z: 0.032}
+  m_LocalRotation: {x: 0.33464074, y: 0, z: -0.62290895, w: 0.7071068}
+  m_LocalPosition: {x: -0.013162281, y: 0.052, z: 0.3125}
+  m_LocalScale: {x: 0.032, y: 0.13206454, z: 0.032}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1881225615524408561}
@@ -481,20 +574,20 @@ Transform:
   m_Children:
   - {fileID: 42341748987708765}
   - {fileID: 6055163745319027}
-  - {fileID: 3420478277526049005}
-  - {fileID: 6300421893094034540}
-  - {fileID: 5506633176386133503}
-  - {fileID: 7497960886184815848}
-  - {fileID: 937523211262860224}
-  - {fileID: 4103499249736076694}
-  - {fileID: 4650073248598323201}
-  - {fileID: 7877398897248730844}
-  - {fileID: 3523297879803345567}
-  - {fileID: 2589805787833619463}
-  - {fileID: 3561628560236751496}
-  - {fileID: 6645610306454293048}
-  - {fileID: 3113006100779098650}
-  - {fileID: 1335942655163406269}
+  - {fileID: 1080448014084992720}
+  - {fileID: 4060024268947442234}
+  - {fileID: 1980577771351062450}
+  - {fileID: 697772557090659665}
+  - {fileID: 2987447333363586799}
+  - {fileID: 8065640946082021064}
+  - {fileID: 3490675600180482062}
+  - {fileID: 7568018356547918935}
+  - {fileID: 8427414104133424279}
+  - {fileID: 5298613484471769262}
+  - {fileID: 5645115120889370247}
+  - {fileID: 1621423168390444990}
+  - {fileID: 5129404029117251413}
+  - {fileID: 7741468890838676959}
   m_Father: {fileID: 7541787399476859473}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3446219187683916531
@@ -547,96 +640,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1 &8636709171693059855
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7497960886184815848}
-  m_Layer: 0
-  m_Name: BoltCore
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7497960886184815848
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8636709171693059855}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0.33464074, y: 0, z: -0.62290895, w: 0.7071068}
-  m_LocalPosition: {x: -0.013162281, y: 0.052, z: 0.3125}
-  m_LocalScale: {x: 0.032, y: 0.13206454, z: 0.032}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1881225615524408561}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &8822341595180854058
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4103499249736076694}
-  m_Layer: 0
-  m_Name: BoltCore
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4103499249736076694
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8822341595180854058}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0.4983241, y: 0, z: 0.5016703, w: 0.70710677}
-  m_LocalPosition: {x: 0.040257156, y: 0.052, z: 0.4375}
-  m_LocalScale: {x: 0.032, y: 0.0886856, z: 0.032}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1881225615524408561}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &8968843315702927042
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6645610306454293048}
-  m_Layer: 0
-  m_Name: BoltCore
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6645610306454293048
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8968843315702927042}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0.32565537, y: 0, z: 0.62765324, w: 0.70710677}
-  m_LocalPosition: {x: 0.0050758533, y: 0.052, z: 0.8125}
-  m_LocalScale: {x: 0.032, y: 0.1357084, z: 0.032}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1881225615524408561}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

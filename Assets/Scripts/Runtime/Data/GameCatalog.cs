@@ -62,6 +62,12 @@ namespace VampireLike
         public TaskDefinition[] tasks;
         public BiomeDefinition[] biomes;
 
+        [NonSerialized] UpgradeDefinition[] indexedUpgrades;
+        [NonSerialized] Dictionary<string, UpgradeDefinition> upgradeIndex;
+        void OnEnable() { InvalidateUpgradeIndex(); }
+        void OnValidate() { InvalidateUpgradeIndex(); }
+        void InvalidateUpgradeIndex() { indexedUpgrades = null; upgradeIndex = null; }
+
         public AssetReferenceGameObject Prefab(string id)
         {
             foreach (var p in prefabs) if (p.id == id) return p.reference;
@@ -70,7 +76,20 @@ namespace VampireLike
         public AbilityDefinition Ability(AbilityKind kind) => Array.Find(abilities, a => a.kind == kind);
         public CharacterDefinition Character(string id) => Array.Find(characters, a => a.id == id) ?? characters[0];
         public BiomeDefinition Biome(BiomeId id) => biomes[(int)(id == BiomeId.Mixed ? BiomeId.Forest : id)];
-        public UpgradeDefinition Upgrade(string id) => Array.Find(upgrades, a => a.id == id);
+        public UpgradeDefinition Upgrade(string id)
+        {
+            if (string.IsNullOrEmpty(id)) return null;
+            if (upgradeIndex == null || indexedUpgrades != upgrades)
+            {
+                upgradeIndex = new Dictionary<string, UpgradeDefinition>(StringComparer.Ordinal);
+                if (upgrades != null)
+                    foreach (var definition in upgrades)
+                        if (definition != null && !string.IsNullOrEmpty(definition.id) && !upgradeIndex.ContainsKey(definition.id))
+                            upgradeIndex.Add(definition.id, definition);
+                indexedUpgrades = upgrades;
+            }
+            return upgradeIndex.TryGetValue(id, out var value) ? value : null;
+        }
     }
 
     [Serializable] public sealed class PlayerProfile

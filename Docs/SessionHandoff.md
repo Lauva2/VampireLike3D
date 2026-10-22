@@ -1,6 +1,79 @@
 # 跨电脑接续记录
 
-记录时间：2026-10-21 09:34（Asia/Shanghai）。这是开发中检查点，**不是成品验收通过**。
+记录时间：2026-10-22 06:49（Asia/Shanghai）。**1.0.0成品已完成本地交付：冻结42全部同版验收、原量表独立美术及三份最终归档均实际完成。** 最终清单见Artifacts/Delivery42.json、Builds/Delivery42.json及ZIP侧车审计。包内文档是明确标时的归档前快照；本次追加记录实际归档结果，不改运行时代码/资源或归档字节。
+
+## 本机最新实际状态（优先于下方旧电脑历史）
+
+- **06:49最终交付已完成：** 游戏Builds/Packages/WanXiangExpedition-1.0.0.zip，70729135字节，221清单文件及全部条目集合/CRC/SHA通过；从ZIP全新解压副本做两次正式菜单冷启动/重启通过，221文件未变化。源码Builds/SourceArchives/WanXiangExpedition-Source-1.0.0.zip，1846文件逐项SHA通过；原始证据Builds/EvidenceArchives/WanXiangExpedition-Evidence-1.0.0.zip，2497文件逐项SHA通过，含实际7200.2秒记录、独立末帧报告、包启动证据和37/38/39失败及40预检限制。三个ZIP整体SHA再次核对，Delivery42.status=COMPLETE_VERIFIED_LOCAL_DELIVERY。原用户Unity编辑器18016保留，无测试Player。打包首轮Git路径提交号缺失已保留为非交付尝试，最终包记录正确a47f5ef提交号及dirty=true。以下更早时点的“运行中/未通过/未打包”仅为历史。
+
+- **06:44全部验收到齐：** 独立代理完成394级末帧静态复核，无新增直接美术阻断，原91分/20项/10门槛保留，周缘效果/红预警对比扣分不取消。ObservedEvidence追加lateSoakFrameReview.passed=true，原图哈希一致，报告SoakFinalFrameReview.md。Soak42/Acceptance.json据实际7200.2秒/原进程退出0/240窗口/712734渲染、完整性能内存判断及独立记录写passed=true；Workload状态改为完成并保留初始受控范围。当前无测试Player，用户编辑器18016保留。下一步仅最终归档与实际审计。
+
+- **06:40长测42实际完成：** Summary=7200.2秒/240完整30秒窗口/712734实际渲染/0错误；Errors.txt实存0字节；原启动器57508实际退出0并写原PID38564退出0，内存观察器52180也已结束（其结束不是Player退出证明）。四群系/79原点，强化46→434、6→394级、六能力/quality5始终保留、非固定导入。窗口最低72.24/中位97.92FPS，末15分钟最低78.39/中位93.74；21窗口p95超16.67ms、最坏p95 20.27ms/单帧78.53ms，全部保留，不宣称逐帧60。Windows私有峰1172.34/最后1165.43MB；逐帧池峰3799，句柄最高68/区块36。专项判断见Soak42Review.md。Final42WorkspaceIdentity/BuildMatch/ReleaseAudit及34项Final42EvidenceIdentity通过，运行时未改。FinalFrame原图哈希E6A62C86D3820C0ED19D3BEF6EDD2048878D9AF0415109A57025B06602DF45F5；独立art_review38正在补末段视觉。尚无综合Acceptance/最终ZIP，不能先标成品通过。仅剩用户编辑器18016，无测试Player。
+
+- **06:21长测42达105分钟：** 原PID38564连续6300秒/210完整30秒窗口/628580实际渲染，四群系/70采样原点。六能力每个构筑样本均保留、quality5不变、无固定导入，强化总等级46→326。窗口最低72.24FPS，18窗口p95超过16.67ms，最长单帧78.53ms，全部保留；不能称每帧60或无卡顿。最近15分钟窗口中位79.79FPS、池中位3347.5、弹丸中位349；Windows私有内存同段1120.82–1150.11MB，完整末15分钟尚待。句柄56–68/区块28–36。原启动器57508、内存监测52180继续，用户编辑器18016保留。仍无7200秒完成/Acceptance/最终包；Tools分析新增15分钟分段和能力/画质核对，游戏冻结内容不变。
+
+- **06:07长测42约91分钟检查点：** 原PID38564连续5460秒/182样本/561104实际渲染、四群系/60原点；220级、260强化等级、六能力持续成长、非固定导入、quality5/未限速。FPS中位102.105、最低75.87；p95最大18.18ms，最长单帧78.53ms，全部慢窗原样保留。句柄60–68/区块28–36。仍无7200秒Summary/Acceptance/FinalFrame或最终包；原启动器57508/监测52180运行，用户编辑器18016保留。须看完整后段及退出0再判断，不以前段高帧率抵消后段预算问题。
+
+- **05:51长测42约75分钟检查点：** 原PID38564连续4500秒/150样本/479880实际渲染，四群系/49原点；当前163级、203强化等级、六能力持续成长、非固定导入、quality5/未限速。FPS中位105.065、最低83.14，p95最大17.36ms；所有慢窗保留。句柄60–68/区块28–36；Windows私有内存最新约1133MB，完整后段尚待。Analysis仍running，没有7200秒Summary/Acceptance、FinalFrame或最终包；原启动器57508、监测52180继续，用户编辑器18016保留。帧数不能代替7200秒真实时长，不继承旧版时长或评分。
+
+- **05:36长测42一小时检查点：** 原PID38564连续3600秒/120样本/396377实际渲染，四群系/39原点。当前129级、169强化等级、六能力持续成长，quality5/未限速、非固定导入。FPS中位108.275、最低83.14，p95最大17.36ms；所有慢窗保留，不声称每帧16.67ms。池最高2582、句柄60–68/区块28–36；Windows启动120秒后私有内存实测1010.84–1127.54MB，仍需完整后段。Analysis仍running，没有7200秒Summary/Acceptance/FinalFrame或最终包。原启动器57508与监测52180仍运行，用户编辑器18016保留；独立42美术91/原门槛通过和全部同版功能自然正式结果均已完成，不能代长测。
+
+- **05:21长测42约45分钟检查点：** 原PID38564连续2730秒/91样本/309848实际渲染，四群系/29原点。当前103级、非固定导入、六能力持续成长。FPS窗口最低87.78、中位111.46；p95最大17.03ms，超过16.67ms的重窗口原样保留，不宣称每帧60或无卡顿。Windows私有内存近期约1100–1112MB；池约2300随成长变化，完整后段未形成结论。Analysis仍running、没有7200秒Summary/Acceptance/FinalFrame或最终包；其它测试Player和构建未运行，保留用户编辑器18016。
+
+- **05:06长测42半小时检查点：** 原PID38564连续1800秒/60样本/212887实际渲染，四群系/19个采样原点。当前77级、六能力持续成长、非导入、quality5/未限速。FPS窗口中位116.465、最低97.89，p95最大14.58ms；句柄60–68/区块30–35，Windows私有内存最新约1109MB，尚须完整末段趋势。Analysis仍running，没有7200秒Summary/Acceptance、最终帧或最终包。原启动器57508、内存观察器52180继续等待；用户编辑器18016保留。
+
+- **04:50长测42运行检查点：** 原PID38564连续运行，870秒/29样本/109449实际渲染，四群系及10个原点位置。Analysis状态running，没有7200秒Summary/Acceptance。当前等级44、六能力、quality5、frameRateLimit=-1、fixedImportedBuild=false；FPS窗口最小108.13、中位124.74，p95最大12.38ms。句柄60–68/区块30–35，Windows私有内存最新约1072MB。独立42美术91已通过，功能/自然/正式均同版完成；最终长测/末帧复查/交付包尚未完成。原启动器57508与内存观察器52180仍在，保留用户编辑器18016。
+
+- **04:46独立美术42已完成通过：** 独立art_review38重新实看72辅助表、80原始文件（46PNG/34JPG），含矩阵外固定深构筑单帧；191不同静态、589/1415动态帧，33序列抽样限制明确。正式91分（A14/B14/C18/D19/E18/F8）、20项min4、原10门槛全通过；720p句号独行按D3=4扣分。专属Result42、ObservedEvidence、IndependentReview齐备，语义门槛ID与既有Final接口一致；共享ArtReview已追加§23并保留原量表/历史，共享Result与42字节一致，SHA256 1E5C9D773D06549F7C55CA6CF1EED328A5713AF5AE5480578EDDE70E3774F36D。只记42视觉通过，当前Soak42仍运行、约10分钟，无7200秒通过；最终原帧须再请该代理追加复查。
+
+- **04:36长测42刚启动，未完成：** Campaign42已1486.7秒/7局/2次死亡/20任务/四Boss+Mixed/0错误完成通过；ProgressionCrossCheck逐项核对实际最终档和地图日志。确认其它测试Player/构建退出后，Soak42于UTC20:35:19.2819364启动原PID38564，计划连续7200秒；非Background启动器会记录原进程退出码（工具会话57508），独立Memory监测会话52180。每帧1920×1080/4xMSAA、frameRateLimit=-1未限速吞吐、正常持续成长、无导入固定构筑、诊断治疗/压力生成范围明确。Windows第一点从进程0.1秒开始，后续约45秒。首30秒153.34FPS/p95 9.72ms，只有短窗口，不能算长测或性能通过。独立美术42仍在收尾，没有最终包；用户编辑器PID18016保留。
+
+- **04:25同版42功能已完成，自然/美术未结束：** Full42=95、UI42=72、Probe42=8，均finished/passed且0错误；五地形原图底色0/inactive空。FormalGameplay42完成191.8秒林地首胜结算与5.9秒读档荒漠，非开发/非诊断、0错误；只是隔离副本外置程序输入，不是人工试玩。ReleaseSmoke42两次菜单冷启动/重启通过。自然PID30556当前四Boss首胜并进入Mixed、19任务，尚无Summary；独立art_review38已重看72辅助表/190静态/570动态抽样及41原图，仍在补原帧，尚无完整评分。没有7200秒通过或最终包。
+- **42固定深构筑预检已完成：** 180.2秒/16586真实渲染、退出0/0错误；六窗口87.04–96.15FPS，p95最高15.27ms；拾取9.6、六能力及全部41强化等级与导入一致；frameRateLimit=-1。PreflightAssessment明确仅新种子固定短预检，不是最终成长长测或严格旧世界A/B。
+
+- **04:06已冻结42：** 开发/正式构建均成功退出，Workspace42核对1068文件，Release42BuildMatch源文件与18AA一致，正式审计通过，113编辑器检查与14PCM审计通过。Source41To42只有SoakRunner变化、0meta。Soak42Preflight PID45884为独占测试Player，固定177级完整构筑、实际拾取9.6、frameRateLimit=-1；首30秒96.15FPS/p95 14.56ms，尚未完成，不提前通过。
+
+- **04:04制作42：** 41开发/正式113编辑器检查、1068源文件与18AA身份及正式审计均通过；Soak41Preflight180.2秒、退出0、0错误，实际PickupRadius9.6与导入相同、六能力/41强化ID等级一致。固定预检不是最终长测。42仅增加诊断Soak限速参数（默认60，显式-1未限速吞吐），以直接确认60FPS余量；正常游戏设置不变，未将旧59.x归因为限速或改判旧长测。42开发构建已成功退出，正式构建运行中；仍须等待退出后冻结并重新验证，当前没有测试Player。
+
+- **03:54正在构建41，40预检存在已确认夹具缺陷。** Review40/Release40构建成功退出，113编辑器检查（10000次预热查表0字节分配）、1068源文件/18AA一致与正式审计通过。但固定预检导入强化后漏调Player.RefreshStats/Abilities.Refresh，实际拾取半径3.3而原输入9.6；Soak40Preflight虽180.2秒/退出0/0错误，仅算夹具执行完成，Limitations明确不能作末段属性等价或性能通过。40 Full/Campaign/Formal仍运行时已核对PID/路径/启动时间后取消，Cancelled保留；已经完成的40报告仍只属于40。41只修复诊断导入后刷新属性，并断言实际PickupRadius与输入一致，不改正常玩法。主树源码不再修改，41开发构建正运行；下一步等实际exit0/最终SourceIdentity再冻结，不能提前复制运行中的构建。用户编辑器PID18016一直保留，当前无测试Player。
+
+- **03:46正在制作40，39不作性能通过。** Soak39于UTC19:40:24核对PID42992/路径/启动时间后停止，最后4110秒/137样本/245241实际渲染。后段持续约59FPS，多次低59、最低58.42；Interrupted明确INCOMPLETE_PERFORMANCE_NOT_ACCEPTED，没有7200秒Summary/Acceptance。39原进程观察ExitCode不可取得，ProcessExit保留null；停止原因与时间以Interrupted为准，不伪造正常退出。39功能/自然/美术92分仍只属于39。40修订GameCatalog成长ID惰性索引，移除高频嵌套线性查表及捕获委托分配；新增目录一致性/替换/10000次预热零分配检查。Soak新增可导入旧深构筑强化的短预检（不重放旧世界种子、固定成长/经验门槛、Summary标记fixedImportedBuild），不能替代最终正常持续成长7200秒；所有40收益尚待构建与Player证据。
+
+- **03:32长测39一小时检查点：** 原PID42992仍连续运行，3630秒/121样本/216844次实际渲染、四群系/37个采样原点位置。FPS中位59.78、最低58.42，窗口p95最大19.42ms；短降不排除、不提前判性能通过。147级/六能力/187强化等级，句柄60–68、区块26–36、池最高2726，Windows启动120秒后私有内存约1003–1137MB；池/内存还须看完整后段收敛。没有7200秒Summary/Acceptance、没有最终包。当前仅此验证Player与保留的用户编辑器PID18016，没有其它构建。
+
+- **03:03长测39半小时检查点：** 原PID42992持续运行，1860秒/62样本/111292实际渲染、四群系、19个采样原点位置。FPS中位59.84、最低59.59，窗口p95最大16.83ms；78级/六能力，区块30–36、句柄60–68、池799–1723仍在构筑预热。Windows启动120秒后私有内存1003–1091MB。Analysis.status=running，没有7200秒Summary或Acceptance，不提前算性能通过。其它测试Player和构建未运行，用户编辑器PID18016保留；尚未打最终包。
+
+- **02:32功能/自然/美术39完成，长测刚启动。** Round39的95项、UI39的72项、Probe39的8项及五原图像素审计均完成通过；FormalGameplay39两阶段正式外置输入/观察流程完成，非开发/非诊断、0错误。Campaign39完成1162.4秒、5局、0死亡、20任务、四Boss首胜及Mixed、0错误。独立39美术正式92分（A14/B14/C18/D20/E18/F8）、20项均≥4、原10门槛全通过；专属观察72表/190静态/589不同动态帧（不是全1414原帧）见Round39报告。确认其它Player/构建退出后，Soak39于UTC18:31:21启动PID42992，计划连续7200秒，目前运行中没有通过。Windows外部内存从进程0.1秒采样，约45秒一采；保留用户编辑器PID18016，不控制桌面。尚无最终ZIP/源码/原图证据归档。
+
+- **02:12冻结39并继续本机验证。** Review39/Release39均构建成功退出；Workspace39Identity核对1068文件，Release39BuildMatch核对1068源文件和18AA包一致，Release39Audit确认正式包剔除三个诊断驱动，EditorChecks39为110项。Round39完整95项已finished/passed、0错误，含邻格经验保值、1200密集掉落聚合、原点重建、磁吸持续四项新增检查。Probe39的8项完成通过；UI39、FormalGameplay39和新档Campaign39仍运行中。ReleaseSmoke39两次正式菜单/读档冷启动通过，范围不是完整玩法。39独立美术与连续7200秒尚未完成。主树冻结后没有继续修改运行时资源；71既有文件变化、2新增、0既有meta变化见Source38To39。下方38/37均为历史，禁止沿用评分或长测时长。
+
+- **02:00正在制作39：38长测未通过。** Soak38于UTC17:52:11核对PID47652身份后停止，4230秒/141样本/249432实际渲染，后段反复54–58FPS；`Interrupted.json`与`Analysis.json`明确未完成/性能未通过，没有7200秒Summary。38美术正式92分、功能/自然/正式外置玩法通过仍属于38，不能沿用至39。39源码修订经验球跨邻格2m保值合并、已吸引后持续磁吸，并为晶体独立深度写入/覆盖材质以减少透明排序；增加邻格保值、密集聚合、原点重建、磁吸持续及高/低画质原图验证。尚未构建或验证通过，不提前记录39成绩。
+
+- **01:42一小时检查点：** Soak38原PID47652仍在运行，已采3660秒/122样本/216409次实际渲染，状态running。当前窗口FPS中位59.28、最低53.03，窗口p95中位16.80ms/最大29.72ms；短时低帧原样保留，未给性能结论。句柄60–68，Unity分配202–280MB，Windows启动120秒后私有内存约1021–1114MB；池对象还在预热/负载波动，需完整后段趋势。没有7200秒Summary、Acceptance或最终包。系统只读补采不能回溯解释旧降帧，不以猜测排除低帧样本。
+
+- **01:13长测检查点：** Soak38仍为原PID47652连续运行，已采约1890秒；AnalyzeSoak状态为running，没有Summary/Acceptance通过记录。四群系已采，句柄约60–68，活动区块约30–36；多数样本59.x FPS，但已有57.87/58.50等短降及p95约20.56ms的重场景，必须保留并按完整后段趋势判断，不能提前记性能通过。Windows私有内存约1.1GB，与Unity分配内存是不同指标。最终游戏/源码/原图证据归档尚未执行。
+
+- **00:46独立美术已完成：** `ArtReviewResult38.json` 正式92/100，A14/B14/C18/D20/E18/F8，20项均≥4，全部原门槛通过。独立`art_review38`实际看72辅助表、56原图、588不同动态帧；抽样/受控录制限制见专属`ArtReviews/Round38/IndependentReview.md`。不是性能/功能总验收。Soak38仍在独占Player连续运行，尚未完成；禁止把此前数分钟样本写成两小时通过。
+
+- **00:41自然回归完成、长测新启动：** Campaign38为1418.1秒、5局、0死亡、全部20任务、四Boss首胜/混合地图，0错误。确认其它Player退出后，Soak38于UTC16:41:27启动，PID47652，独占测试Player、保留用户编辑器；计划7200秒但目前未完成。ExternalMemory从进程第0.1秒开始，之后约45秒一采。不要沿用37/预检的时间或结论。独立38美术仍待专属记录。
+
+- **00:37正式配置玩法证据补齐：** `Artifacts/FormalGameplay38/Summary.json` 两阶段完成通过，均非开发/非诊断模式、0错误。第一阶段374.7秒、2局含1次死亡、自然林地Boss首胜/结算；同便携档重启5.9秒进入荒漠。外置输入/观察程序集只在隔离`Builds/FormalGameplay38`副本，两个启动登记JSON有记录，其余原文件逐一哈希一致；不是未经插桩人工试玩，原始Release38未改。Campaign38仍独立运行；Soak38尚未开始。
+
+- **10月22日00:18更新：当前冻结候选已改为Review38/Release38。** 唯一源码内容变化为CartoonVertex.shader实例化修订（Source37To38.json）。开发/正式构建成功退出，Workspace38Identity核对1066文件一致，Release38BuildMatch核对源码/18AA一致，Release38Audit通过。Round38完整91项、UI38的72项、Probe38的8项全部完成通过、0错误；地形五原图像素审计通过，ReleaseSmoke38两次正式便携菜单启动/重启通过。Campaign38已于00:17启动，PID22524，尚未完成；7200秒未执行。Soak38Preflight完成180.2秒、10745实际渲染、0错误、后段59.8–59.9FPS，仅短预检。美术独立art_review38正在看38，72辅助表/188静态图/33序列572采样帧齐备，只写专属Round38记录与ArtReviewResult38.json；不能沿用37/34评分。以下37证据保留为前候选历史。
+
+- 前候选 `Builds/Review37`，对应正式配置 `Builds/Release37`。109项编辑器检查通过；`Artifacts/Workspace37Identity.json` 核对1066文件与当时主树一致；`Release37BuildMatch.json` 核对正式/开发1066源文件与18个AA包完全一致。`Release37Audit.json` 确认离线本地依赖和三个测试驱动剔除。
+- `Artifacts/Round37/Verification.json` 91项、UI37 72项、Probe37 8项均 finished、passed=true、errors=[]。Probe37/TerrainPixelAudit.json 的5张专项原图未检出相机底色或无效区块。`ReleaseSmoke37/Summary.json` 两次全新便携目录正式启动/重启通过，范围仅菜单、本地AA和存档路径，不是正式包完整玩法试玩。
+- 独立美术最新完整评分是 **Round34 91分、C16，未通过**；ArtReview §20、ArtReviews/Round34/ObservedEvidence.json 有实际观看记录。37完整原图和辅助表已齐（188静态图、33序列561采样帧）；独立代理正在重新实看，未形成37通过结论。不能沿用34分数。
+- Round35 完整报告保留为失败：荒漠绿洲建筑采样不存在合法角落。现已保留绿洲东北平地并在37实测通过；入口踏石接固定右侧道路，阵心无交叉路网，完成后阵纹关闭且提示清除、场景保持原尺寸，四群系卸载回访通过。
+- 自然回归 `Artifacts/Campaign37/Summary.json` 已完成通过：1275.9秒、5局、0死亡、20任务、四Boss首胜及混合地图进入，0错误。它使用全新独立档、程序输入和有效购买，不强制属性/回血/生成/时钟/解锁；Player已退出。
+- **Soak37性能未通过，主动中止，不算两小时。** 本机10月21日23:35启动，23:59:48停止（UTC15:59:48，见Interrupted.json）；最后1470秒/49样本/86006次真实渲染，反复54–58FPS及20–24ms p95。PID32900已核对路径和启动时间后停止，保留原始数据。正在为下一候选补齐CartoonVertex的实例化属性与描边实例数据传递，尚未构建验证。旧预检和本次未完成时长均不能拼接为两小时通过。
+- 本机 i7-10870H + RTX3060 Laptop。测试使用 `-MultithreadedGraphics` 显式开启后台多线程图形并归档参数；正式项目m_MTRendering=1。性能结论须注明实际机器，不能冒充旧i5-14400F/RTX5060测试。
+- 编辑器 `.build/UnityEditor/Editor/Unity.exe`，2022.3.62f2；隔离项目 `.build/Project`。当前用户许可访问在沙箱内曾卡IPC，构建使用当前用户后台提升沙箱权限，不请求管理员，不操作桌面；保留所有非自有编辑器进程。Python/Pillow可用：`C:/Users/Lauva/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe`。
+- 生成同步已逐项比较备份，支持对映射文件原子替换。主树仍有本轮未提交修改；不要reset/整目录覆盖。旧电脑原始Artifacts未迁入。
+
+下一步：成品交付已完成；可从最终游戏ZIP解压运行WanXiangExpedition.exe。后续需求或缺陷按既定补丁流程处理，运行时代码/资源变更须新候选与对应回归，不冒用42证据。不重启已完成的长测，不自动控制桌面。
+
+新电脑接续补记（2026-10-21）：迁入时只有源码与 Docs 历史辅助表，没有 Builds/Artifacts/Library。以下旧电脑结果保留为历史交接，不是本机当前证据。已恢复 `.build/UnityEditor` 的 Unity 2022.3.62f2，107项编辑器检查通过；Review34 的 Round34 79项、UI34 72项、Probe34 8项均完成通过，原始证据位于本机 Artifacts。1030源码/资源文件身份匹配。美术独立复评、同版自然推进和两小时长测仍未完成，实时状态见 ImplementationStatus 的“新电脑接续”。Build.ps1 可传 `-UnityPath` 或设置 `UNITY_EDITOR_PATH`，也查找工程内与 Hub 同版安装；PackageCandidate.ps1 使用 PATH 中的 Git。
 
 ## 接续时先读
 
@@ -33,8 +106,8 @@
 - 最新完整正式评分已写入ArtReview.md第19节：Round31总分91/100（A14、B14、C16、D20、E19、F8），全部子项≥4，但C仍低于18，故未通过最终美术验收。
 - Round31完整观察包括70张辅助表、176张静态图、33条序列的574帧样本及6张原图。密战交网和全屏红罩已关闭；Round33尚未独立实看，不能沿用Round31分数当作新版通过。
 - Round32/33已修建筑避水、平整地基、岸边装饰避让、道路连接圆角及建筑门面朝向道路。
-- **以下仅已讨论，尚未实施**：将火山台地/火山口/熔岩岸组成连贯主景；四主题挑战点做顺地貌的不对称场地边缘与侧入口；挑战完成后只改变阵纹状态，避免大块场地跟随旧逻辑缩小。
-- 具体检查：PathNetwork.Configure的跨河向北道路仍使用固定末段控制点(0,0,13)，在共享端点发生横向偏移时可能形成接缝小三角；应统一末段切线并用实机复核。
+- 新电脑 Review34 已实施火山台地/火山口/渐减岩流和挑战点后景、侧入口；挑战完成只关闭阵纹，场景不再缩小。功能检查已通过，视觉是否充分须由独立代理复评，不能仅按实施情况关闭美术问题。
+- PathNetwork.Configure 已统一跨河向北道路末段切线，并新增实际生成网格边缘检查；107项编辑器检查通过。原始地图渲染仍须独立审阅。
 - Boss地标生成在Assets/Scripts/Editor/ArtFactoryLandmarks.cs；当前仍是六个较等距构件。地形生成在ArtFactoryTerrain.cs。世界落位在Runtime/Gameplay/World/WorldService.cs。
 - 场景C与战斗E需各≥18，总分≥91，A/B≥13，D≥18，F≥8，每子项≥4，同一候选版完整覆盖。继续让独立子代理实际看图评分，不能自己改分或放宽量表。
 
@@ -50,7 +123,7 @@
 1. 用Unity Hub安装同版本和Windows Build Support，加入项目根目录；首次重建Library需要等待。
 2. 从 https://github.com/Lauva2/VampireLike3D 克隆main分支，或迁移Assets（含全部.meta）、Packages、ProjectSettings、Docs、Tools、AGENTS.md、README.md及隐藏.git。当前源码与接续文档已提交；拉取后用git status检查是否还有其他本地修改。
 3. 新源码迁移包不含Library/Temp/Logs/.build/Player和Artifacts原始证据。需要保留旧验收证据时，另外迁移Artifacts/Round33、UI33、Probe33、Campaign31、Soak09及对应BuildIdentity/SourceIdentity；美术原帧在Captures/Sequences中。
-4. Tools/Build.ps1使用固定Unity安装路径，若新电脑不同请调整。Python审计工具需Python与Pillow；PackageCandidate.ps1里的Git路径当前为原机器Codex运行时路径，换机需改为可用Git或接受源码提交信息不可用。
+4. Tools/Build.ps1支持工程内 `.build/UnityEditor`、Hub同版本、`-UnityPath` 和 `UNITY_EDITOR_PATH`；本机已恢复指定版本。Python审计工具需Python与Pillow；PackageCandidate.ps1使用PATH中的Git。
 5. 构建示例：`powershell -ExecutionPolicy Bypass -File Tools/Build.ps1 -Mode Development`。更新生成内容用GenerateDevelopment；生成文件同步必须先比较、备份，禁止整目录强制覆盖主工作树。
 6. 验证示例：`powershell -ExecutionPolicy Bypass -File Tools/RunVerification.ps1 -Stage Full -Evidence Artifacts/NewMachineFull -Background`；其他Stage为UI/Terrain/Campaign/Soak，长测SoakSeconds=7200。每次使用全新证据目录。
 7. 最终完成美术、同版回归/自然推进/长测后，再构建正式版、核对源码/AA内容、冷启动、打包与归档。PackageCandidate.ps1的Final开关会检查门槛，不能以候选ZIP代替成品。

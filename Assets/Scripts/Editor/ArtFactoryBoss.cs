@@ -16,6 +16,12 @@ namespace VampireLike.Editor
             var go=Root(name,parent);go.transform.localPosition=position;go.transform.localEulerAngles=new Vector3(seed*7,seed*19,seed*3);go.AddComponent<MeshFilter>().sharedMesh=mesh;go.AddComponent<MeshRenderer>().sharedMaterial=Mat(color);
             return go;
         }
+        static GameObject GroundRock(Transform parent,string name,Vector3 position,Vector3 size,Color color,int seed)
+        {
+            var rock=Rock(parent,name,position,size,color,seed);
+            rock.transform.localEulerAngles=new Vector3(0,seed*19,0);
+            return rock;
+        }
         static void SandWorm(Transform t,EnemyActor actor,Transform root)
         {
             actor.bodySegments=new Transform[7];
