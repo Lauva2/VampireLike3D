@@ -4,6 +4,7 @@ using UnityEngine.UI;
 namespace VampireLike
 {
     // Resolution independent pictograms, authored inside the AA UI prefab.
+    [RequireComponent(typeof(CanvasRenderer))]
     public sealed class AbilityIcon : MaskableGraphic
     {
         [SerializeField] string symbol = "星";

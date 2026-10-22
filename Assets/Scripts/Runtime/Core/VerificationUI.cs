@@ -12,6 +12,7 @@ namespace VampireLike
         static readonly Vector2Int[] uiSizes={new Vector2Int(1280,720),new Vector2Int(1920,1080),new Vector2Int(1920,1200),new Vector2Int(2560,1080),new Vector2Int(2560,1440)};
         bool auditLayout;
         [System.Serializable] sealed class LayoutAudit {public int width,height,textCount;public List<string> clipped=new List<string>();}
+        [System.Serializable] sealed class SelectionCycleAudit {public int cycle;public string openedModal,closedModal;public bool characterRefreshed,menuVisible,renderersValid;}
         void AuditLayout(string path,int width,int height)
         {
             var result=new LayoutAudit{width=width,height=height};
@@ -26,6 +27,7 @@ namespace VampireLike
         }
         IEnumerator UIMatrix()
         {
+            yield return SelectionRendererRegression();
             auditLayout=true;
             foreach(var size in uiSizes)
             {
@@ -62,6 +64,55 @@ namespace VampireLike
             game.UI.CloseModal();game.FinishRun(true);
             foreach(var size in uiSizes){Screen.SetResolution(size.x,size.y,false);yield return Wait(.25f);yield return Capture("ui-results-"+size.x+"x"+size.y,size.x,size.y);}
             game.ReturnToMenu();yield return Wait(2);Check(game.CanBeginRun,"UI matrix returns to menu without a stuck modal pause");
+        }
+        static bool GraphicsHaveRenderers(Transform root,bool checkCachedReference)
+        {
+            var graphics=root.GetComponentsInChildren<Graphic>(true);
+            if(graphics.Length==0)return false;
+            foreach(var graphic in graphics)
+            {
+                var renderer=graphic.GetComponent<CanvasRenderer>();
+                if(renderer==null||(checkCachedReference&&graphic.canvasRenderer!=renderer))return false;
+            }
+            return true;
+        }
+        static Button FindUIProbeButton(Transform root,string name)
+        {
+            foreach(var button in root.GetComponentsInChildren<Button>(true))if(button.name==name)return button;
+            return null;
+        }
+        IEnumerator SelectionRendererRegression()
+        {
+            game.UI.ShowMenu();
+            Check(GraphicsHaveRenderers(game.UI.View.transform,false),"Inactive UI templates and maps already contain CanvasRenderer without lazy Graphic repair");
+            var play=FindUIProbeButton(game.UI.View.menu.transform,"PlayButton");
+            var close=FindUIProbeButton(game.UI.View.selection.transform,"SelectionClose");
+            Check(play!=null&&close!=null,"Selection regression uses the bound PlayButton and SelectionClose buttons");
+            if(play==null||close==null)yield break;
+            bool transitions=true,renderers=true;int refreshed=0;
+            for(int cycle=0;cycle<8;cycle++)
+            {
+                var observation=new SelectionCycleAudit{cycle=cycle+1};
+                play.onClick.Invoke();transitions&=game.UI.ActiveModal=="selection";
+                observation.openedModal=game.UI.ActiveModal;
+                // Selecting the current unlocked character rebuilds both lists and
+                // disables old masked graphics before their deferred destruction.
+                foreach(var widget in game.UI.View.characterList.GetComponentsInChildren<UIWidget>())
+                    if(widget.button.interactable){widget.button.onClick.Invoke();refreshed++;observation.characterRefreshed=true;break;}
+                foreach(var scroll in game.UI.View.selection.GetComponentsInChildren<ScrollRect>())scroll.verticalNormalizedPosition=cycle%2;
+                Canvas.ForceUpdateCanvases();
+                foreach(var mask in game.UI.View.selection.GetComponentsInChildren<RectMask2D>())mask.PerformClipping();
+                observation.renderersValid=GraphicsHaveRenderers(game.UI.View.transform,true);
+                yield return null;
+                close.onClick.Invoke();Canvas.ForceUpdateCanvases();
+                observation.closedModal=game.UI.ActiveModal;observation.menuVisible=game.UI.View.menu.activeSelf;
+                transitions&=observation.closedModal=="menu"&&observation.menuVisible;
+                yield return null;
+                observation.renderersValid&=GraphicsHaveRenderers(game.UI.View.transform,true);renderers&=observation.renderersValid;
+                File.AppendAllText(Path.Combine(output,"SelectionRendererCycles.jsonl"),JsonUtility.ToJson(observation)+"\n");
+            }
+            Check(transitions&&refreshed==8,"Eight real Play/select/close cycles rebuild locked lists and return to menu");
+            Check(renderers,"Clipping, disabling and destroying selection graphics retain valid CanvasRenderer references");
         }
         IEnumerator EffectGallery()
         {

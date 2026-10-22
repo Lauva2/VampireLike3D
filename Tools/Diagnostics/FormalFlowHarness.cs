@@ -40,6 +40,8 @@ namespace ExternalValidation
             game=GameManager.Instance;
             if(Debug.isDebugBuild||game.DiagnosticMode){errors.Add("Expected non-development Player with diagnostic mode disabled");Finish(false);yield break;}
             game.Inputs.HardwareEnabled=false;
+            yield return VerifySelectionRenderers();
+            if(errors.Count>0){Finish(false);yield break;}
             if(restart&&!game.Save.Profile.bossWins[0]){errors.Add("Restart lost the first boss unlock");Finish(false);yield break;}
             while(Time.realtimeSinceStartup-begin<1800&&errors.Count==0)
             {
@@ -70,6 +72,29 @@ namespace ExternalValidation
                 yield return null;
             }
             Finish(false);
+        }
+        IEnumerator VerifySelectionRenderers()
+        {
+            Button play=null,close=null;
+            foreach(var button in game.UI.View.menu.GetComponentsInChildren<Button>(true))if(button.name=="PlayButton")play=button;
+            foreach(var button in game.UI.View.selection.GetComponentsInChildren<Button>(true))if(button.name=="SelectionClose")close=button;
+            if(play==null||close==null){errors.Add("Production selection buttons missing");yield break;}
+            for(int cycle=0;cycle<8&&errors.Count==0;cycle++)
+            {
+                play.onClick.Invoke();
+                if(game.UI.ActiveModal!="selection"){errors.Add("Play did not open production selection");yield break;}
+                foreach(var widget in game.UI.View.characterList.GetComponentsInChildren<UIWidget>())if(widget.button.interactable){widget.button.onClick.Invoke();break;}
+                foreach(var scroll in game.UI.View.selection.GetComponentsInChildren<ScrollRect>())scroll.verticalNormalizedPosition=cycle%2;
+                Canvas.ForceUpdateCanvases();
+                foreach(var mask in game.UI.View.selection.GetComponentsInChildren<RectMask2D>())mask.PerformClipping();
+                foreach(var graphic in game.UI.View.GetComponentsInChildren<Graphic>(true))
+                    if(graphic.GetComponent<CanvasRenderer>()==null||graphic.canvasRenderer!=graphic.GetComponent<CanvasRenderer>())errors.Add("Invalid production CanvasRenderer: "+graphic.name);
+                yield return null;
+                if(cycle==0)Capture("selection-renderers");
+                close.onClick.Invoke();Canvas.ForceUpdateCanvases();yield return null;
+                if(game.UI.ActiveModal!="menu"||!game.UI.View.menu.activeSelf)errors.Add("Selection close did not restore production menu");
+                File.AppendAllText(Path.Combine(output,"SelectionRendererCycles.jsonl"),"{\"cycle\":"+(cycle+1)+",\"errorCount\":"+errors.Count+",\"closedModal\":\""+game.UI.ActiveModal+"\"}\n");
+            }
         }
         float Score(UpgradeDefinition u)
         {

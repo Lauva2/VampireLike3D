@@ -14,6 +14,17 @@ namespace VampireLike.Editor
             var result = new Results();
             Action<bool,string> check = (ok,name) => { if(!ok)throw new InvalidOperationException("CHECK FAILED: "+name);result.checks.Add(name); };
             ProjectBuilder.Validate();
+            foreach(var graphicType in new[]{typeof(AbilityIcon),typeof(MapGraphic)})
+            {
+                var inactiveGraphic=new GameObject("InactiveGraphicDependencyProbe",typeof(RectTransform));
+                inactiveGraphic.SetActive(false);
+                try
+                {
+                    inactiveGraphic.AddComponent(graphicType);
+                    check(inactiveGraphic.GetComponent<CanvasRenderer>()!=null,"Inactive "+graphicType.Name+" creates its required CanvasRenderer before activation");
+                }
+                finally{UnityEngine.Object.DestroyImmediate(inactiveGraphic);}
+            }
             var catalog=AssetDatabase.LoadAssetAtPath<GameCatalog>("Assets/Config/Catalogs/GameCatalog.asset");
             bool lookupMatches=true;
             foreach(var definition in catalog.upgrades)if(!ReferenceEquals(catalog.Upgrade(definition.id),definition))lookupMatches=false;

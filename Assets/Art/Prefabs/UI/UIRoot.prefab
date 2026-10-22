@@ -608,6 +608,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7096314871650025484}
+  - component: {fileID: 9000000000000000001}
   - component: {fileID: 8041967108333437178}
   m_Layer: 0
   m_Name: Pictogram
@@ -2187,6 +2188,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4588759783635512078}
+  - component: {fileID: 9000000000000000002}
   - component: {fileID: 2356223170549900563}
   m_Layer: 0
   m_Name: Symbol
@@ -4545,6 +4547,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 879843651085493512}
+  - component: {fileID: 9000000000000000003}
   - component: {fileID: 15735805752498929}
   m_Layer: 0
   m_Name: Locked
@@ -6848,6 +6851,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2069065585451548583}
+  - component: {fileID: 9000000000000000004}
   - component: {fileID: 7809262813553332486}
   m_Layer: 0
   m_Name: WorldMap
@@ -15036,6 +15040,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1142212999153286756}
+  - component: {fileID: 9000000000000000005}
   - component: {fileID: 638268678846151720}
   m_Layer: 0
   m_Name: Symbol
@@ -19786,6 +19791,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5554499298202532103}
+  - component: {fileID: 9000000000000000006}
   - component: {fileID: 1214766604168250760}
   m_Layer: 0
   m_Name: MiniMap
@@ -20152,6 +20158,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7251980750565518482}
+  - component: {fileID: 9000000000000000007}
   - component: {fileID: 4200921366127978418}
   m_Layer: 0
   m_Name: Locked
@@ -20361,3 +20368,59 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "\u8FD4\u56DE"
+--- !u!222 &9000000000000000001
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 296188422812787876}
+  m_CullTransparentMesh: 1
+--- !u!222 &9000000000000000002
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 953176255759126568}
+  m_CullTransparentMesh: 1
+--- !u!222 &9000000000000000003
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1810494710691875765}
+  m_CullTransparentMesh: 1
+--- !u!222 &9000000000000000004
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3019688068641953642}
+  m_CullTransparentMesh: 1
+--- !u!222 &9000000000000000005
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6441049754170884947}
+  m_CullTransparentMesh: 1
+--- !u!222 &9000000000000000006
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8860145632479254976}
+  m_CullTransparentMesh: 1
+--- !u!222 &9000000000000000007
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9053795100143999050}
+  m_CullTransparentMesh: 1

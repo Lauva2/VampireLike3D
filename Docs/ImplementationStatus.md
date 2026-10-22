@@ -1,5 +1,17 @@
 # 实施与验证记录
 
+## 当前修复44 / 1.0.1：CanvasRenderer依赖修复已验证
+
+用户报告的启程后Symbol/Locked裁剪异常已修复。原UIRoot中2个Symbol、2个Locked、Pictogram及两个地图共7处缺CanvasRenderer；已补齐序列化原生组件，保留全部原对象ID/GUID。AbilityIcon、MapGraphic声明RequireComponent；构建Validate用GetComponent检查含隐藏模板的所有Graphic，避免懒创建掩盖缺失。生成工具保留配置版本，当前版本1.0.1。
+
+实际验证：115编辑器检查、76项五画幅UI检查通过；开发UI及非开发/非诊断正式配置两阶段各8次真实启程/选择重建/滚动裁剪/关闭，共24次成功循环。正式配置自然林地首胜/结算202.2秒，同档重启荒漠6.1秒，均0错误；三个Player退出后的异常扫描为空，开发UI原进程退出0，正式启动器检查各进程退出0并成功结束。1068源文件/18AA一致，原正式构建未注入测试代码，外置输入/观察程序集只在隔离副本中。测试Player已退出，用户编辑器未操作。
+
+证据：Artifacts/UICanvasRenderer43Before.json（原缺失）、UICanvasRenderer44After.json（原生序列化/ID保持）、EditorChecks44.json、UI44/Verification.json与SelectionRendererCycles.jsonl、FormalGameplay44/Summary.json及两阶段循环/原图、UICanvasRenderer44Assessment.json。正式配置验证构建为Builds/Release44，版本1.0.1。
+
+本次是UI依赖缺陷的针对性修复验收，不将42的91分或7200秒记录移作44通过。未替换三个旧1.0.0 ZIP，也未声明44重新完成独立美术或两小时长测。首轮43因新测试误将菜单标识menu断言为空而失败，已修正诊断断言并保留失败证据，不改游戏菜单流程、不把失败改判通过。UGUI存在懒创建CanvasRenderer逻辑，这说明旧Player验证可能掩盖缺失；没有声称在用户编辑器中逐帧复现了其内部失效时序。
+
+## 以下为原1.0.0交付及更早历史
+
 更新：2026-10-22 06:49。**1.0.0已完成本地成品交付，冻结42全部同版验收、独立原门槛和最终游戏/源码/原始证据归档均完成。** 最终实际产物、SHA256及范围见Artifacts/Delivery42.json和ZIP侧车审计。包内文档为归档前快照，本机本节追加归档后事实；不修改已有归档或运行时版本。以下旧候选与运行中检查点保留历史，不覆盖本节。
 
 ## 最终归档与解压运行验证

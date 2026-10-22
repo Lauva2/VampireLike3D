@@ -27,7 +27,8 @@ namespace VampireLike.Editor
         {
             Directory.CreateDirectory(Path.Combine(Workspace,"Artifacts"));
             prefabs.Clear(); AssetDatabase.Refresh(); ArtFactory.Begin();
-            PlayerSettings.companyName="VampireLike";PlayerSettings.productName="万象远征";PlayerSettings.bundleVersion="1.0.0";
+            PlayerSettings.companyName="VampireLike";PlayerSettings.productName="万象远征";
+            if(string.IsNullOrEmpty(PlayerSettings.bundleVersion))PlayerSettings.bundleVersion="1.0.1";
             PlayerSettings.defaultScreenWidth=1600;PlayerSettings.defaultScreenHeight=900;PlayerSettings.fullScreenMode=FullScreenMode.Windowed;
             PlayerSettings.runInBackground=true; PlayerSettings.colorSpace=ColorSpace.Linear;
             PlayerSettings.enableFrameTimingStats=true;
@@ -127,6 +128,10 @@ namespace VampireLike.Editor
                 if(!path.StartsWith("Assets/Art/Prefabs/"))throw new InvalidOperationException("Invalid prefab directory "+path);
                 var prefab=AssetDatabase.LoadAssetAtPath<GameObject>(path);if(prefab==null)throw new InvalidOperationException("Missing prefab "+path);
                 foreach(var t in prefab.GetComponentsInChildren<Transform>(true))if(GameObjectUtility.GetMonoBehavioursWithMissingScriptCount(t.gameObject)>0)throw new InvalidOperationException("Missing script "+path);
+                // Inspect the serialized dependency, not Graphic.canvasRenderer:
+                // that accessor lazily adds a renderer and can hide broken templates.
+                foreach(var graphic in prefab.GetComponentsInChildren<UnityEngine.UI.Graphic>(true))
+                    if(graphic.GetComponent<CanvasRenderer>()==null)throw new InvalidOperationException("Missing serialized CanvasRenderer: "+path+" / "+graphic.name);
             }
             ids.Clear();foreach(var u in catalog.upgrades)if(!ids.Add(u.id))throw new InvalidOperationException("Duplicate upgrade "+u.id);
             Debug.Log("CONTENT_VALIDATION_PASSED "+catalog.prefabs.Length+" prefabs; "+catalog.upgrades.Length+" upgrades");

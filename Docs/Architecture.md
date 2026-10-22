@@ -28,6 +28,8 @@
 - 初版使用本地 AA 内容构建，支持离线运行；远程目录和热更新不是本次成品的默认要求。
 - 性能参考目标为基准 PC 上 1080p、60 FPS；具体硬件、压力规模和预算在 M0 记录，尚非已验证性能。
 
+自定义UGUI Graphic必须显式声明CanvasRenderer依赖，并在作者预制体中实际序列化该组件（包括未激活模板）。构建Validate通过GetComponent检查，不能用会懒创建组件的Graphic.canvasRenderer属性掩盖缺失。AbilityIcon、MapGraphic遵循此约束；UI回归覆盖列表重建、RectMask2D裁剪、禁用与延迟销毁。
+
 ## 3. 目录约定
 
 ```text

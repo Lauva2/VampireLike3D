@@ -3,6 +3,7 @@ using UnityEngine.UI;
 
 namespace VampireLike
 {
+    [RequireComponent(typeof(CanvasRenderer))]
     public sealed class MapGraphic : MaskableGraphic
     {
         public int radius = 4;
