@@ -1,0 +1,266 @@
+{
+  "Round54": {
+    "sequences": [
+      {
+        "sequence": "Artifacts/Round54/Sequences/boss-attacks-0",
+        "count": 144
+      },
+      {
+        "sequence": "Artifacts/Round54/Sequences/boss-attacks-1",
+        "count": 144
+      },
+      {
+        "sequence": "Artifacts/Round54/Sequences/boss-attacks-2",
+        "count": 144
+      },
+      {
+        "sequence": "Artifacts/Round54/Sequences/boss-attacks-3",
+        "count": 144
+      },
+      {
+        "sequence": "Artifacts/Round54/Sequences/boss-attacks-5",
+        "count": 144
+      },
+      {
+        "sequence": "Artifacts/Round54/Sequences/boss-attacks-6",
+        "count": 144
+      },
+      {
+        "sequence": "Artifacts/Round54/Sequences/boss-death-0",
+        "count": 20
+      },
+      {
+        "sequence": "Artifacts/Round54/Sequences/boss-death-1",
+        "count": 22
+      },
+      {
+        "sequence": "Artifacts/Round54/Sequences/boss-death-2",
+        "count": 22
+      },
+      {
+        "sequence": "Artifacts/Round54/Sequences/boss-death-3",
+        "count": 22
+      },
+      {
+        "sequence": "Artifacts/Round54/Sequences/boss-death-5",
+        "count": 23
+      },
+      {
+        "sequence": "Artifacts/Round54/Sequences/boss-death-6",
+        "count": 23
+      },
+      {
+        "sequence": "Artifacts/Round54/Sequences/character-move-dodge",
+        "count": 72
+      },
+      {
+        "sequence": "Artifacts/Round54/Sequences/effect-arc",
+        "count": 14
+      },
+      {
+        "sequence": "Artifacts/Round54/Sequences/effect-crystalburst",
+        "count": 13
+      },
+      {
+        "sequence": "Artifacts/Round54/Sequences/effect-embers",
+        "count": 12
+      },
+      {
+        "sequence": "Artifacts/Round54/Sequences/effect-explosion",
+        "count": 17
+      },
+      {
+        "sequence": "Artifacts/Round54/Sequences/effect-flame",
+        "count": 17
+      },
+      {
+        "sequence": "Artifacts/Round54/Sequences/effect-frost",
+        "count": 17
+      },
+      {
+        "sequence": "Artifacts/Round54/Sequences/effect-iceburst",
+        "count": 12
+      },
+      {
+        "sequence": "Artifacts/Round54/Sequences/effect-leafburst",
+        "count": 15
+      },
+      {
+        "sequence": "Artifacts/Round54/Sequences/effect-lightning",
+        "count": 17
+      },
+      {
+        "sequence": "Artifacts/Round54/Sequences/effect-rune",
+        "count": 15
+      },
+      {
+        "sequence": "Artifacts/Round54/Sequences/effect-sand",
+        "count": 15
+      },
+      {
+        "sequence": "Artifacts/Round54/Sequences/effect-slash",
+        "count": 16
+      },
+      {
+        "sequence": "Artifacts/Round54/Sequences/effect-spore",
+        "count": 14
+      },
+      {
+        "sequence": "Artifacts/Round54/Sequences/enemy-attacks-5-elite",
+        "count": 96
+      },
+      {
+        "sequence": "Artifacts/Round54/Sequences/enemy-attacks-5-normal",
+        "count": 96
+      },
+      {
+        "sequence": "Artifacts/Round54/Sequences/enemy-attacks-6-elite",
+        "count": 96
+      },
+      {
+        "sequence": "Artifacts/Round54/Sequences/enemy-attacks-6-normal",
+        "count": 96
+      },
+      {
+        "sequence": "Artifacts/Round54/Sequences/enemy-attacks-7-elite",
+        "count": 96
+      },
+      {
+        "sequence": "Artifacts/Round54/Sequences/enemy-attacks-7-normal",
+        "count": 96
+      },
+      {
+        "sequence": "Artifacts/Round54/Sequences/enemy-attacks-8-elite",
+        "count": 96
+      },
+      {
+        "sequence": "Artifacts/Round54/Sequences/enemy-attacks-8-normal",
+        "count": 96
+      },
+      {
+        "sequence": "Artifacts/Round54/Sequences/feedback-pause-open",
+        "count": 7
+      },
+      {
+        "sequence": "Artifacts/Round54/Sequences/feedback-skills-open",
+        "count": 5
+      },
+      {
+        "sequence": "Artifacts/Round54/Sequences/feedback-task-unlock",
+        "count": 8
+      },
+      {
+        "sequence": "Artifacts/Round54/Sequences/feedback-upgrade-open",
+        "count": 7
+      },
+      {
+        "sequence": "Artifacts/Round54/Sequences/feedback-upgrade-reward",
+        "count": 7
+      },
+      {
+        "sequence": "Artifacts/Round54/Sequences/late-density-combinations",
+        "count": 96
+      },
+      {
+        "sequence": "Artifacts/Round54/Sequences/player-defeat",
+        "count": 14
+      },
+      {
+        "sequence": "Artifacts/Round54/Sequences/popup-blessing",
+        "count": 6
+      },
+      {
+        "sequence": "Artifacts/Round54/Sequences/role-action-adventurer",
+        "count": 60
+      },
+      {
+        "sequence": "Artifacts/Round54/Sequences/role-action-elementalist",
+        "count": 60
+      },
+      {
+        "sequence": "Artifacts/Round54/Sequences/role-action-swordsman",
+        "count": 60
+      },
+      {
+        "sequence": "Artifacts/Round54/Sequences/role-closeup-adventurer",
+        "count": 48
+      },
+      {
+        "sequence": "Artifacts/Round54/Sequences/role-closeup-elementalist",
+        "count": 48
+      },
+      {
+        "sequence": "Artifacts/Round54/Sequences/role-closeup-swordsman",
+        "count": 48
+      }
+    ],
+    "sequenceCount": 48,
+    "frameCount": 2504
+  },
+  "UI54": {
+    "sequences": [
+      {
+        "sequence": "Artifacts/UI54/Sequences/popup-blessing",
+        "count": 7
+      },
+      {
+        "sequence": "Artifacts/UI54/Sequences/popup-loading",
+        "count": 9
+      },
+      {
+        "sequence": "Artifacts/UI54/Sequences/popup-map",
+        "count": 8
+      },
+      {
+        "sequence": "Artifacts/UI54/Sequences/popup-menu",
+        "count": 8
+      },
+      {
+        "sequence": "Artifacts/UI54/Sequences/popup-pause",
+        "count": 9
+      },
+      {
+        "sequence": "Artifacts/UI54/Sequences/popup-pause-settings",
+        "count": 9
+      },
+      {
+        "sequence": "Artifacts/UI54/Sequences/popup-progress",
+        "count": 8
+      },
+      {
+        "sequence": "Artifacts/UI54/Sequences/popup-results",
+        "count": 9
+      },
+      {
+        "sequence": "Artifacts/UI54/Sequences/popup-selection",
+        "count": 7
+      },
+      {
+        "sequence": "Artifacts/UI54/Sequences/popup-settings",
+        "count": 9
+      },
+      {
+        "sequence": "Artifacts/UI54/Sequences/popup-settings-return-pause",
+        "count": 9
+      },
+      {
+        "sequence": "Artifacts/UI54/Sequences/popup-skills",
+        "count": 7
+      },
+      {
+        "sequence": "Artifacts/UI54/Sequences/popup-toast",
+        "count": 8
+      },
+      {
+        "sequence": "Artifacts/UI54/Sequences/popup-upgrade",
+        "count": 9
+      },
+      {
+        "sequence": "Artifacts/UI54/Sequences/popup-victory",
+        "count": 9
+      }
+    ],
+    "sequenceCount": 15,
+    "frameCount": 125
+  }
+}

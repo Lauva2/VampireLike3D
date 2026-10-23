@@ -1,0 +1,41 @@
+{
+  "candidate": "Round54",
+  "reviewer": "popup54_combat",
+  "scope": "Independent combat and feedback domain only",
+  "scores": {
+    "E1": 5,
+    "E2": 4,
+    "E3": 5,
+    "E4": 4,
+    "F1": 4,
+    "F2": 4
+  },
+  "dimensionTotals": {
+    "E": 18,
+    "F": 8
+  },
+  "domainTotal": 26,
+  "domainMaximum": 30,
+  "complete100PointTotal": null,
+  "minimumItem": 4,
+  "domainThresholdsMet": true,
+  "hardBlockersObserved": [],
+  "relatedHardGates": {
+    "H07_denseCombatPlayerAndDanger": "passed_in_observed_samples",
+    "H08_bossWarningsAndDodge": "passed_in_observed_visual_scope",
+    "H09_continuousAnimationFeedback": "passed_with_recorded_sampling_limits",
+    "H10_sameCandidate": "Round54 and UI54 BuildIdentity read; full source/release bridge delegated to lead identity audit"
+  },
+  "fullArtPassDeclared": false,
+  "performanceVerified": false,
+  "evidence": "ObservedEvidence.json",
+  "limitations": [
+    "仅评E1-E4/F1-F2，不形成100分完整总分；没有迁用52/53成绩或图。",
+    "以现成Windows开发Player Camera.Render/runtime原帧及逐序列联系表观察；未控制桌面、另开Player、构建或修改原图。",
+    "未按正常实时速度试玩，固定12fps动作只作记录采样；死亡/反馈/UI按真实墙钟记录，requestedInterval不等于实际帧率。",
+    "角色近景/动作目标可能固定且不死；Boss攻击采集Boss不死；持续治疗不证明自然生存难度。",
+    "预警匹配限所见视觉范围与时序，不穷尽所有种子、全部组合、亚帧命中、完整脱战倒计时。",
+    "不据此声明性能、60FPS、7200秒长测、音频试听或整项目通过。",
+    "武器三近景为运行时展示视角，仅补充形状；战斗评分依靠正常动作与密战。"
+  ]
+}

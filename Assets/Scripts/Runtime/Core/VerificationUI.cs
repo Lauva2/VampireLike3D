@@ -28,19 +28,20 @@ namespace VampireLike
         IEnumerator UIMatrix()
         {
             yield return SelectionRendererRegression();
+            yield return PopupMenuRegression();
             auditLayout=true;
             foreach(var size in uiSizes)
             {
                 Screen.SetResolution(size.x,size.y,false);yield return Wait(.25f);
-                game.UI.ShowMenu();yield return Wait(.2f);yield return Capture("ui-menu-"+size.x+"x"+size.y,size.x,size.y);
-                game.UI.ShowSelection();yield return Wait(.2f);yield return Capture("ui-selection-locked-"+size.x+"x"+size.y,size.x,size.y);game.UI.CloseModal();
-                game.UI.ShowSelection();yield return Wait(.2f);
-                game.UI.View.biomeList.GetComponentInParent<ScrollRect>().verticalNormalizedPosition=0;yield return Wait(.2f);
+                game.UI.ShowMenu();yield return Wait(.32f);yield return Capture("ui-menu-"+size.x+"x"+size.y,size.x,size.y);
+                game.UI.ShowSelection();yield return Wait(.32f);yield return Capture("ui-selection-locked-"+size.x+"x"+size.y,size.x,size.y);game.UI.CloseModal();
+                game.UI.ShowSelection();yield return Wait(.32f);
+                game.UI.View.biomeList.GetComponentInParent<ScrollRect>().verticalNormalizedPosition=0;yield return Wait(.32f);
                 yield return Capture("ui-selection-expansion-locked-"+size.x+"x"+size.y,size.x,size.y);game.UI.CloseModal();
-                game.UI.ShowProgress();yield return Wait(.2f);yield return Capture("ui-progress-"+size.x+"x"+size.y,size.x,size.y);
+                game.UI.ShowProgress();yield return Wait(.32f);yield return Capture("ui-progress-"+size.x+"x"+size.y,size.x,size.y);
                 yield return ExpansionTaskPages(size);game.UI.CloseModal();
-                game.UI.ShowSettings();yield return Wait(.2f);yield return Capture("ui-settings-"+size.x+"x"+size.y,size.x,size.y);game.UI.CloseModal();
-                game.UI.ShowLoading("正在展开新的世界…");game.UI.LoadingProgress(.55f);yield return Wait(.2f);yield return Capture("ui-loading-"+size.x+"x"+size.y,size.x,size.y);game.UI.ShowMenu();
+                game.UI.ShowSettings();yield return Wait(.32f);yield return Capture("ui-settings-"+size.x+"x"+size.y,size.x,size.y);game.UI.CloseModal();
+                game.UI.ShowLoading("正在展开新的世界…");game.UI.LoadingProgress(.55f);yield return Wait(.32f);yield return Capture("ui-loading-"+size.x+"x"+size.y,size.x,size.y);game.UI.ShowMenu();
             }
             foreach(var task in game.Catalog.tasks)game.Save.Profile.completedTasks.Add(task.id);
             for(int i=0;i<4;i++)game.Save.Profile.bossWins[i]=true;
@@ -49,13 +50,14 @@ namespace VampireLike
             foreach(var size in uiSizes)
             {
                 Screen.SetResolution(size.x,size.y,false);yield return Wait(.25f);
-                game.UI.View.biomeList.GetComponentInParent<ScrollRect>().verticalNormalizedPosition=0;yield return Wait(.2f);
+                game.UI.View.biomeList.GetComponentInParent<ScrollRect>().verticalNormalizedPosition=0;yield return Wait(.32f);
                 yield return Capture("ui-selection-expansion-unlocked-"+size.x+"x"+size.y,size.x,size.y);
             }
             game.BeginRun("adventurer",BiomeId.Forest);float deadline=Time.realtimeSinceStartup+90;
             while(!game.Ready&&Time.realtimeSinceStartup<deadline)yield return null;
             Check(game.Ready,"UI matrix enters real gameplay");if(!game.Ready)yield break;
             yield return VerifyExploration();
+            yield return PopupGameplayRegression();
             foreach(var u in game.Catalog.upgrades)if(u.effect==UpgradeEffect.NewAbility&&game.Progression.Eligible(u))game.Progression.GrantForDiagnostic(u.id);
             Check(game.Run.abilities.Count==9,"HUD and skill tree retain all nine acquired weapons");
             game.Run.skillPoints=15;
@@ -63,17 +65,17 @@ namespace VampireLike
             {
                 Screen.SetResolution(size.x,size.y,false);yield return Wait(.25f);ClearEnemies();game.Player.Heal(1000);
                 game.UI.ShowHUD();yield return Capture("ui-hud-"+size.x+"x"+size.y,size.x,size.y);
-                game.UI.View.abilityList.GetComponentInParent<ScrollRect>().horizontalNormalizedPosition=1;yield return Wait(.2f);
+                game.UI.View.abilityList.GetComponentInParent<ScrollRect>().horizontalNormalizedPosition=1;yield return Wait(.32f);
                 yield return Capture("ui-hud-expansion-"+size.x+"x"+size.y,size.x,size.y);
-                game.UI.ToggleSkills();yield return Wait(.2f);yield return Capture("ui-skills-"+size.x+"x"+size.y,size.x,size.y);game.UI.CloseModal();
+                game.UI.ToggleSkills();yield return Wait(.32f);yield return Capture("ui-skills-"+size.x+"x"+size.y,size.x,size.y);game.UI.CloseModal();
                 yield return ExpansionSkillPages(size,false);
                 foreach(var task in game.Catalog.tasks)if(task.id=="boomerang"||task.id=="froststaff"||task.id.Contains("."))game.Save.Profile.completedTasks.Remove(task.id);
                 yield return ExpansionSkillPages(size,true);
                 foreach(var task in game.Catalog.tasks)if(!game.Save.Profile.completedTasks.Contains(task.id))game.Save.Profile.completedTasks.Add(task.id);
-                game.UI.ToggleMap();yield return Wait(.2f);yield return Capture("ui-map-"+size.x+"x"+size.y,size.x,size.y);game.UI.CloseModal();
-                game.UI.TogglePause();yield return Wait(.2f);yield return Capture("ui-pause-"+size.x+"x"+size.y,size.x,size.y);
-                game.UI.ShowSettings();yield return Wait(.2f);yield return Capture("ui-pause-settings-"+size.x+"x"+size.y,size.x,size.y);game.UI.CloseModal();game.UI.CloseModal();
-                game.Progression.Experience(game.Run.nextExperience);game.UI.ShowUpgrade(game.Progression.Choices());yield return Wait(.2f);yield return Capture("ui-upgrade-"+size.x+"x"+size.y,size.x,size.y);
+                game.UI.ToggleMap();yield return Wait(.32f);yield return Capture("ui-map-"+size.x+"x"+size.y,size.x,size.y);game.UI.CloseModal();
+                game.UI.TogglePause();yield return Wait(.32f);yield return Capture("ui-pause-"+size.x+"x"+size.y,size.x,size.y);
+                game.UI.ShowSettings();yield return Wait(.32f);yield return Capture("ui-pause-settings-"+size.x+"x"+size.y,size.x,size.y);game.UI.CloseModal();game.UI.CloseModal();
+                game.Progression.Experience(game.Run.nextExperience);game.UI.ShowUpgrade(game.Progression.Choices());yield return Wait(.32f);yield return Capture("ui-upgrade-"+size.x+"x"+size.y,size.x,size.y);
                 var options=game.Progression.Choices();if(options.Count>0)game.Progression.Apply(options[0].id,false);
             }
             game.Combat.ActivateBoss("ui-matrix-victory",game.Player.transform.position+Vector3.forward*8,BiomeId.Forest,game.Catalog.biomes[0].bossId);

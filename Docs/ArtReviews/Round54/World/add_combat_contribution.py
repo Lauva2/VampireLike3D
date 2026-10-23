@@ -1,0 +1,4 @@
+import json
+from pathlib import Path
+out=Path('Docs/ArtReviews/Round54');p=out/'World54FreshObserved.json';d=json.loads(p.read_text(encoding='utf-8'));d['status']='A/B/C fresh visual review complete; B2/B3 action completeness supported by independent Combat54 reviewer';d['independentDynamicContribution']={'reviewer':'/root/popup54_combat','message':'Fresh54 six Boss attacks sampled and all deaths viewed;0/1/2/3/5/6 show windup/danger/recovery and death shrink/disappear. Eight ordinary/elite5–8 sequences each12sample frames. No missing-action hard blocker.','personalDynamicFramesRemain':0};p.write_text(json.dumps(d,ensure_ascii=False,indent=2),encoding='utf-8')
+p=out/'World54Fresh.md';s=p.read_text(encoding='utf-8');s=s.replace('B2/B3动作部分由同候选Combat54独立连续观察汇入最终报告；本分域不据静图单独宣布完整美术通过。','B2/B3动作部分由同候选Combat54独立连续观察补证：六Boss起手→危险展开→恢复及全部死亡缩倒/消散、八新普通/精英动作均已见，无动作缺失阻断。本人动态观看仍为0；本分域不据静图单独宣布完整美术通过。');p.write_text(s,encoding='utf-8')

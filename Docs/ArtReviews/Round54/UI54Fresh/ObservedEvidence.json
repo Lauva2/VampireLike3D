@@ -1,0 +1,3134 @@
+{
+  "candidate": "Round54 / UI54",
+  "reviewer": "/root/popup54_ui",
+  "scope": "D1-D4 and F2 page component only",
+  "independentFreshObservation": true,
+  "priorRoundScoresOrImagesReused": false,
+  "source": "Existing background development Windows Player Camera.Render PNG/JPG only",
+  "counts": {
+    "contactSheetsActuallyViewed": 50,
+    "staticMatrixGroups": 35,
+    "staticMatrixFiles": 175,
+    "extraProbeStaticFiles": 2,
+    "uniqueStaticFilesObserved": 177,
+    "popupSequences": 15,
+    "uniqueDynamicFramesObserved": 125,
+    "rawMotionSequences": 14,
+    "rawMotionFrameRows": 117,
+    "originalFilesActuallyOpened": 42,
+    "originalStaticFilesActuallyOpened": 20,
+    "originalDynamicFilesActuallyOpened": 22
+  },
+  "contactSheetsActuallyViewed": [
+    {
+      "sheet": "Docs/ArtReviews/Round54/UI54Fresh/Sheets/ui-blessing.jpg",
+      "files": [
+        {
+          "path": "Artifacts/UI54/Captures/ui-blessing-1280x720.png",
+          "sha256": "c07ebd83a8340acbe0ee6cec8a8e28b24ef439c99fdeec822e310a4ff526c650",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-blessing-1920x1080.png",
+          "sha256": "0e638d5dabc228d769aad584b7fd654441b71defbb228357da1f49dc2bc0e14f",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-blessing-1920x1200.png",
+          "sha256": "aa80a19f1fc7279c33be3e69c2a657be0435f950714375f5496d2e13a95327c6",
+          "width": 1920,
+          "height": 1200
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-blessing-2560x1080.png",
+          "sha256": "a7d6d04816da60bd2d37770f16a980b7d56b292a5fc2558a1a430c1ec52b130c",
+          "width": 2560,
+          "height": 1080
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-blessing-2560x1440.png",
+          "sha256": "63447852d5e611d35d1ac498986db09796e9fccc022286f705787236dd5a1cfe",
+          "width": 2560,
+          "height": 1440
+        }
+      ]
+    },
+    {
+      "sheet": "Docs/ArtReviews/Round54/UI54Fresh/Sheets/ui-blessing-owned.jpg",
+      "files": [
+        {
+          "path": "Artifacts/UI54/Captures/ui-blessing-owned-1280x720.png",
+          "sha256": "ed934f1f904345d979e62c1b0ed4b1802d3150efcc5c1e4b8f7473e842ac26cf",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-blessing-owned-1920x1080.png",
+          "sha256": "3a7f85617d1019c8917f5225f2be252838a9a1fb5479b139438bfb6337694d1d",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-blessing-owned-1920x1200.png",
+          "sha256": "a0e35f8c66d5416f6e1d30be415be848e4df8f138eab26da09cd13208fc367a4",
+          "width": 1920,
+          "height": 1200
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-blessing-owned-2560x1080.png",
+          "sha256": "3b00d7cbf98c6fa8df44e5aa3928c4711ac1c793e62b13a829297247930970eb",
+          "width": 2560,
+          "height": 1080
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-blessing-owned-2560x1440.png",
+          "sha256": "fdbbb0dbcd6a3f6108ae79646e3eff59b7b86aa915aa621df607e74105ef6c30",
+          "width": 2560,
+          "height": 1440
+        }
+      ]
+    },
+    {
+      "sheet": "Docs/ArtReviews/Round54/UI54Fresh/Sheets/ui-blessing-variety-0.jpg",
+      "files": [
+        {
+          "path": "Artifacts/UI54/Captures/ui-blessing-variety-0-1280x720.png",
+          "sha256": "3a86ff5b199b5eeae189b0a6a733f4fbc8b08136ca31b6b842ee0283b73e209d",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-blessing-variety-0-1920x1080.png",
+          "sha256": "ce5db88258346a634471572b818a4c74476c4b03f307ec4acf1c82cc8c45e075",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-blessing-variety-0-1920x1200.png",
+          "sha256": "4d0f819d2e5bcc2f55b8d1c6841e3ee172b2711eed0abbf30999a71222cd33be",
+          "width": 1920,
+          "height": 1200
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-blessing-variety-0-2560x1080.png",
+          "sha256": "06da6ac610b73dd12bf459f4fd207170da78ef3c6963ae0ea6b99aa757ef353b",
+          "width": 2560,
+          "height": 1080
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-blessing-variety-0-2560x1440.png",
+          "sha256": "310fb26420288e2f9fb421b5a06b57c69e737094112962b71c975a9cb26e7804",
+          "width": 2560,
+          "height": 1440
+        }
+      ]
+    },
+    {
+      "sheet": "Docs/ArtReviews/Round54/UI54Fresh/Sheets/ui-blessing-variety-1.jpg",
+      "files": [
+        {
+          "path": "Artifacts/UI54/Captures/ui-blessing-variety-1-1280x720.png",
+          "sha256": "c748d8802d3bc64a0cd3cdd653aab5fe34823032b38e837316747da77fc53e0a",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-blessing-variety-1-1920x1080.png",
+          "sha256": "918b26174fc55567b614c4714e0b24cf64af0db38b4d8f37626c15df39a87f64",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-blessing-variety-1-1920x1200.png",
+          "sha256": "e18f1d9f9518c183cddfa61e6005827c7d4c3629f674b114725793b311ee29a1",
+          "width": 1920,
+          "height": 1200
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-blessing-variety-1-2560x1080.png",
+          "sha256": "9602a84c11d6ee95a0f0346ce0079c932ece8d689417234f49ea24cccf51a908",
+          "width": 2560,
+          "height": 1080
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-blessing-variety-1-2560x1440.png",
+          "sha256": "5ed9f7a29916ad536c6bcdb386e85e2e96fb13ffffda76370a623ee9c13d0b22",
+          "width": 2560,
+          "height": 1440
+        }
+      ]
+    },
+    {
+      "sheet": "Docs/ArtReviews/Round54/UI54Fresh/Sheets/ui-blessing-variety-3.jpg",
+      "files": [
+        {
+          "path": "Artifacts/UI54/Captures/ui-blessing-variety-3-1280x720.png",
+          "sha256": "9c4a7898c626bf2ad0868bfb8ba34ddd391cb6eb61f572e83423542359695880",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-blessing-variety-3-1920x1080.png",
+          "sha256": "ad7e871e183dcd5c960df6586c71876d90325be75550bf12af3cbbe299b1d2ee",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-blessing-variety-3-1920x1200.png",
+          "sha256": "aa90a711a92f3ae02f93b13dd8982aa708c60436b332f9d242d9c9791f982223",
+          "width": 1920,
+          "height": 1200
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-blessing-variety-3-2560x1080.png",
+          "sha256": "f841edbc5e92efd797b4bc06cd6ed464b9f4fed237fd4661207bd233c8d2f132",
+          "width": 2560,
+          "height": 1080
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-blessing-variety-3-2560x1440.png",
+          "sha256": "b9a0473a2ad6ca0075615ba87c369b0760b1f13f95d8bc07bd1cce5c6845fdca",
+          "width": 2560,
+          "height": 1440
+        }
+      ]
+    },
+    {
+      "sheet": "Docs/ArtReviews/Round54/UI54Fresh/Sheets/ui-hud.jpg",
+      "files": [
+        {
+          "path": "Artifacts/UI54/Captures/ui-hud-1280x720.png",
+          "sha256": "11538876a5cd59646d92168437aaf9fd4f36ee43d067d1edeb65748d7ae3d391",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-hud-1920x1080.png",
+          "sha256": "92755628a22d1567b9ef46bf266cf279eb222a8b18e97d3a9147b1cec55ad24c",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-hud-1920x1200.png",
+          "sha256": "9af1ca9ad36349ec4b5685372480acc996397d221f6d6300b15bce7259f6ac0c",
+          "width": 1920,
+          "height": 1200
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-hud-2560x1080.png",
+          "sha256": "5f9af6ada750806a01926b27c587e2d888535911b61760ba5a1591feafa10fd4",
+          "width": 2560,
+          "height": 1080
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-hud-2560x1440.png",
+          "sha256": "7044a2c7082ca4c98d594a4ffb469cd5a6ed4ba69ee2f1d5908a77a27f0f02fd",
+          "width": 2560,
+          "height": 1440
+        }
+      ]
+    },
+    {
+      "sheet": "Docs/ArtReviews/Round54/UI54Fresh/Sheets/ui-hud-expansion.jpg",
+      "files": [
+        {
+          "path": "Artifacts/UI54/Captures/ui-hud-expansion-1280x720.png",
+          "sha256": "f25cd4393adcecb1b8138ab7c4c8f6da48674e5a1c82274da79e52f72ad84f7b",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-hud-expansion-1920x1080.png",
+          "sha256": "b8bfcbc08e0f2f2b55cd5707dbc5fd1bc4b7d0a493aa5376643bf7131e2fb445",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-hud-expansion-1920x1200.png",
+          "sha256": "0e98d50198fcfcb7d9426fe192aa4e37bf125c36446b7d7e0d435e58aaf3753a",
+          "width": 1920,
+          "height": 1200
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-hud-expansion-2560x1080.png",
+          "sha256": "24230ea81ebaae33128594081545f32b0f7b1d602f38466cab0884285732fcda",
+          "width": 2560,
+          "height": 1080
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-hud-expansion-2560x1440.png",
+          "sha256": "89b95c878f7d2a0d1d267b7af75ec85e3b771673fbc9218481524a400626c989",
+          "width": 2560,
+          "height": 1440
+        }
+      ]
+    },
+    {
+      "sheet": "Docs/ArtReviews/Round54/UI54Fresh/Sheets/ui-loading.jpg",
+      "files": [
+        {
+          "path": "Artifacts/UI54/Captures/ui-loading-1280x720.png",
+          "sha256": "ac5eee9bef32d8c4aaecf4a087d8dbef74095bea2ace7dded1c43cc70f4e787e",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-loading-1920x1080.png",
+          "sha256": "c079bccedb08b67a2b4eb2c9ec1c7a5fbac9cadd24ddc6bb3dd649c433462b36",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-loading-1920x1200.png",
+          "sha256": "f9aa3caec7910d4293a637de55b02a7ac1cbf0e102f76464cc94c3c9e6c50428",
+          "width": 1920,
+          "height": 1200
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-loading-2560x1080.png",
+          "sha256": "d681f2227cfcb364897ac06e43cddc5fa6098223a763f92c0af98a37aec586f6",
+          "width": 2560,
+          "height": 1080
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-loading-2560x1440.png",
+          "sha256": "b54ef940bce010c6afbe6054fbd8dfa7a1810c6c7871d454a79782d0b63e738f",
+          "width": 2560,
+          "height": 1440
+        }
+      ]
+    },
+    {
+      "sheet": "Docs/ArtReviews/Round54/UI54Fresh/Sheets/ui-map.jpg",
+      "files": [
+        {
+          "path": "Artifacts/UI54/Captures/ui-map-1280x720.png",
+          "sha256": "0e36edf49731699d5b6031cc100654e1950810aaf3eba9e462693efab67a4a2a",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-map-1920x1080.png",
+          "sha256": "218a5da0624fef0270a31149495ac88d1a02722a0986288eabeab3105b25cb02",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-map-1920x1200.png",
+          "sha256": "2d742d6ed9da1fa10692a80c033ff79b60112b52aecb561999a25e0f4804fe8f",
+          "width": 1920,
+          "height": 1200
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-map-2560x1080.png",
+          "sha256": "62449ea54cccdec60ea2ea74b674c6a5da57a34fff2e1dbe38044b7ff43f6799",
+          "width": 2560,
+          "height": 1080
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-map-2560x1440.png",
+          "sha256": "ecfce42f16ec5eeb2db86a9f0821b7704991d695226b1be1da187da4253c9e03",
+          "width": 2560,
+          "height": 1440
+        }
+      ]
+    },
+    {
+      "sheet": "Docs/ArtReviews/Round54/UI54Fresh/Sheets/ui-menu.jpg",
+      "files": [
+        {
+          "path": "Artifacts/UI54/Captures/ui-menu-1280x720.png",
+          "sha256": "38cac0aea04b8fec4eff34e43d67b881ba7a754edeb45617ae5290553fc5aff2",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-menu-1920x1080.png",
+          "sha256": "810c7fe31f51c8c9e5543c0c348222916be2607b7cb309b3b7a276a2c9e77e65",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-menu-1920x1200.png",
+          "sha256": "bf830175ad8a3706f4e62f04cf1bd7e476a8faa371f44af8885a975c5f7894e6",
+          "width": 1920,
+          "height": 1200
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-menu-2560x1080.png",
+          "sha256": "e385781757f74428ced2cfb018b9867ffade0b989b8743d4b8198b8a2cbe8de2",
+          "width": 2560,
+          "height": 1080
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-menu-2560x1440.png",
+          "sha256": "972b8bbaae3c4cd4692b0445f748cdcc2ec22c0c86c85527dc669d046eb51058",
+          "width": 2560,
+          "height": 1440
+        }
+      ]
+    },
+    {
+      "sheet": "Docs/ArtReviews/Round54/UI54Fresh/Sheets/ui-pause.jpg",
+      "files": [
+        {
+          "path": "Artifacts/UI54/Captures/ui-pause-1280x720.png",
+          "sha256": "11fb99f7c05c7e7836240077ce66626911e8bf974f2f154c2cae7f5b1d4a90a1",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-pause-1920x1080.png",
+          "sha256": "4d03cec9318788bb405783dce0963b8820c41020386bf2dd6a5b242a6ef43a20",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-pause-1920x1200.png",
+          "sha256": "33b5ff330bc6c18ac151a34ac385ff631c469dc65d7f835284af8f40245234f9",
+          "width": 1920,
+          "height": 1200
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-pause-2560x1080.png",
+          "sha256": "885d94c808f3a6a741c71b12ce2291ebae6867584adcd501fa296af0dff67d0e",
+          "width": 2560,
+          "height": 1080
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-pause-2560x1440.png",
+          "sha256": "4ed358636455645c0fb2f128fa3cc54ad7bfe3094fc3d8fa46aa0c2feeea32cb",
+          "width": 2560,
+          "height": 1440
+        }
+      ]
+    },
+    {
+      "sheet": "Docs/ArtReviews/Round54/UI54Fresh/Sheets/ui-pause-settings.jpg",
+      "files": [
+        {
+          "path": "Artifacts/UI54/Captures/ui-pause-settings-1280x720.png",
+          "sha256": "1fc2e9c3389f27ceb61a9c6ece853e115eb0009edd6c5c5562cd28ad41cbd891",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-pause-settings-1920x1080.png",
+          "sha256": "c8e5eaf9bd655b564325abbc31d9801ac8c1a9f591924cab009ff94f9712da03",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-pause-settings-1920x1200.png",
+          "sha256": "26d25168e8dff9dd73fec09cd725b0ff37bffa624cb02e215b6add30d1b93896",
+          "width": 1920,
+          "height": 1200
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-pause-settings-2560x1080.png",
+          "sha256": "99a0eec3a8977bdea0cf6719cb29d59195b975c0868058918ef7ef17f39b71fd",
+          "width": 2560,
+          "height": 1080
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-pause-settings-2560x1440.png",
+          "sha256": "b2b1ce87688494bc493b963cbc4a47f40f9b0bee18b6259310391454302eb3d1",
+          "width": 2560,
+          "height": 1440
+        }
+      ]
+    },
+    {
+      "sheet": "Docs/ArtReviews/Round54/UI54Fresh/Sheets/ui-progress.jpg",
+      "files": [
+        {
+          "path": "Artifacts/UI54/Captures/ui-progress-1280x720.png",
+          "sha256": "7d4d1f975fb5bac17600548994641838e5fcdf2d54ded9a3399c9abaac495c14",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-progress-1920x1080.png",
+          "sha256": "854e9c36d19d94321c7197dfd94d8ba88fa6a9ecf99b19c60a5a36a83673ed0c",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-progress-1920x1200.png",
+          "sha256": "d62ed650a6ceb637dc62d9a3ec074d96674f7b51cde9fabd8ae9a5ee4267f922",
+          "width": 1920,
+          "height": 1200
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-progress-2560x1080.png",
+          "sha256": "6130239b9ee483d7c512f621b86f08240d3e1d87bf9028efa6adf8d921fe2b70",
+          "width": 2560,
+          "height": 1080
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-progress-2560x1440.png",
+          "sha256": "c564df1834b158a0de9311fa30d42bdc8af3f3f6aaae27710150883ae06b6298",
+          "width": 2560,
+          "height": 1440
+        }
+      ]
+    },
+    {
+      "sheet": "Docs/ArtReviews/Round54/UI54Fresh/Sheets/ui-results.jpg",
+      "files": [
+        {
+          "path": "Artifacts/UI54/Captures/ui-results-1280x720.png",
+          "sha256": "dcd9d8a9b87ea60726bff256e03b57102a3702b9106fd23a6187a17a114b3b0a",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-results-1920x1080.png",
+          "sha256": "bd64d743974c0ea8346fc01f251cada2e01d32f3676f4ca5d8bb9cb7a4a8b3ba",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-results-1920x1200.png",
+          "sha256": "55d0d368b5558c89ca2595d96a031f9254a0914f7e74759e7fc3438cc2ea2a39",
+          "width": 1920,
+          "height": 1200
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-results-2560x1080.png",
+          "sha256": "6907189edfa9c91a4bccffb2973b3dc981693872f18b9870038cf17834e0c786",
+          "width": 2560,
+          "height": 1080
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-results-2560x1440.png",
+          "sha256": "0043e1cd52cfe59820ffde7d2dfca9921ba675a41d9041cd73af289f868a1257",
+          "width": 2560,
+          "height": 1440
+        }
+      ]
+    },
+    {
+      "sheet": "Docs/ArtReviews/Round54/UI54Fresh/Sheets/ui-selection-expansion-locked.jpg",
+      "files": [
+        {
+          "path": "Artifacts/UI54/Captures/ui-selection-expansion-locked-1280x720.png",
+          "sha256": "b862415749c9d260945054a47489122a467b4701cbf01af7e98273e0b46af18e",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-selection-expansion-locked-1920x1080.png",
+          "sha256": "39ce54bbde12bfa2e70de2a1f8567d8fc305673bcea7a9af052a6f5b0155b04e",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-selection-expansion-locked-1920x1200.png",
+          "sha256": "9ed8abfe040b7f8fbbb92ff237e5a279d9f11547cbe543e7d7fb0ea44a3df266",
+          "width": 1920,
+          "height": 1200
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-selection-expansion-locked-2560x1080.png",
+          "sha256": "cb1a9b995664533a6fe9ce0f155dfae4a6647a7b16b6e1df7db2ce4bd9d5c818",
+          "width": 2560,
+          "height": 1080
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-selection-expansion-locked-2560x1440.png",
+          "sha256": "0ad6cd27e95d865ec3cc53915882726939681252a9980f6eddd490dda88a51a1",
+          "width": 2560,
+          "height": 1440
+        }
+      ]
+    },
+    {
+      "sheet": "Docs/ArtReviews/Round54/UI54Fresh/Sheets/ui-selection-expansion-unlocked.jpg",
+      "files": [
+        {
+          "path": "Artifacts/UI54/Captures/ui-selection-expansion-unlocked-1280x720.png",
+          "sha256": "d9d60e4e64314607784dfedcbf5b178ed72888b93d832c27a324856d3913d052",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-selection-expansion-unlocked-1920x1080.png",
+          "sha256": "978aef452caac1f5bfeb34a8603d753e383ee8b6ec7839b85c52049d5c48601b",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-selection-expansion-unlocked-1920x1200.png",
+          "sha256": "2e52feb9cc208063e983d949c0280acd339fd31bfe788307c9fbd73cac50f42c",
+          "width": 1920,
+          "height": 1200
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-selection-expansion-unlocked-2560x1080.png",
+          "sha256": "ad14ae4bfa74947dedb78a4b786520ea264dc5f51bb910dcf1cb18a0f9ec0fa6",
+          "width": 2560,
+          "height": 1080
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-selection-expansion-unlocked-2560x1440.png",
+          "sha256": "7ca6643b1822e619ae5cf5d33d5f6bb8fbc73432575bde5313320abe8ffd57fa",
+          "width": 2560,
+          "height": 1440
+        }
+      ]
+    },
+    {
+      "sheet": "Docs/ArtReviews/Round54/UI54Fresh/Sheets/ui-selection-locked.jpg",
+      "files": [
+        {
+          "path": "Artifacts/UI54/Captures/ui-selection-locked-1280x720.png",
+          "sha256": "1186c808373dca1221e9bd372eca98cd41e6fd2c48d7924fd021a9af927d96aa",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-selection-locked-1920x1080.png",
+          "sha256": "851d90dd7329ea2e16bfe5921c7e4705a17489616315ad83c99329b338e44d8f",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-selection-locked-1920x1200.png",
+          "sha256": "36f0b8ca77ed27ef095e0927c53306fdaf0832836cb6a5448603e94554818a17",
+          "width": 1920,
+          "height": 1200
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-selection-locked-2560x1080.png",
+          "sha256": "b3c215947628c787f93c0b7560b9501ed1d8434b19baa88c330a08fef5d9342d",
+          "width": 2560,
+          "height": 1080
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-selection-locked-2560x1440.png",
+          "sha256": "47441598d6607299424abf8de12257ab83c3a562bd0fe7e6d6a1446c81985c92",
+          "width": 2560,
+          "height": 1440
+        }
+      ]
+    },
+    {
+      "sheet": "Docs/ArtReviews/Round54/UI54Fresh/Sheets/ui-selection-unlocked.jpg",
+      "files": [
+        {
+          "path": "Artifacts/UI54/Captures/ui-selection-unlocked-1280x720.png",
+          "sha256": "01d2ba4373b3517221ceb1d105ad13e1ccdebf237ee1bc004138e2af3e6171c3",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-selection-unlocked-1920x1080.png",
+          "sha256": "65f6f5ebe35de7b3888f63dc3d9a2ef59e90d5fbd03c8d77e5dafe26661bd8ab",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-selection-unlocked-1920x1200.png",
+          "sha256": "474ad57e2148e3ce234cec52713c45cf286c24ece5b0249c30411fca326bdc13",
+          "width": 1920,
+          "height": 1200
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-selection-unlocked-2560x1080.png",
+          "sha256": "d449bc151694cf9a4e66649f757604a99cfd1b9f473c7c4a801c5a82f767c2b5",
+          "width": 2560,
+          "height": 1080
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-selection-unlocked-2560x1440.png",
+          "sha256": "a411ee0732e401092714d1a229d66344affea536c3453df5c5335c8c6ee02005",
+          "width": 2560,
+          "height": 1440
+        }
+      ]
+    },
+    {
+      "sheet": "Docs/ArtReviews/Round54/UI54Fresh/Sheets/ui-settings.jpg",
+      "files": [
+        {
+          "path": "Artifacts/UI54/Captures/ui-settings-1280x720.png",
+          "sha256": "3b369c625b65da08b8c77489ad9be0a3782754db6060b37fdd1c26618a66c694",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-settings-1920x1080.png",
+          "sha256": "3478eac984fce3b51ef2b2283e2ec92f5eca714cab58de07d327fd39d73419d1",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-settings-1920x1200.png",
+          "sha256": "fc7dd09375ff0742fa612d06221df56ad5035b8c10cc131e38eaed8d97d9532b",
+          "width": 1920,
+          "height": 1200
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-settings-2560x1080.png",
+          "sha256": "87e92d9577a4cde117ac810c12089237032d29e56608e349ddc9fb229203d1bb",
+          "width": 2560,
+          "height": 1080
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-settings-2560x1440.png",
+          "sha256": "b224b1dcf1e5f06374d2c07606f81d7427c68ef73eaf97a924ee7cd7d5717935",
+          "width": 2560,
+          "height": 1440
+        }
+      ]
+    },
+    {
+      "sheet": "Docs/ArtReviews/Round54/UI54Fresh/Sheets/ui-skills.jpg",
+      "files": [
+        {
+          "path": "Artifacts/UI54/Captures/ui-skills-1280x720.png",
+          "sha256": "94353020cd91143ce215ec9b4a92b0a9e2e692e3db04db67bcc7442531486b54",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-skills-1920x1080.png",
+          "sha256": "ce89bbe1fb595db33c8e7b5f2e6f1a781612ad0b10106e7820318d9bafc683f9",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-skills-1920x1200.png",
+          "sha256": "de358d0bdd7b0f73a6462519828f71029c1bec7d23ec40448944fc396f15d25c",
+          "width": 1920,
+          "height": 1200
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-skills-2560x1080.png",
+          "sha256": "bd877a546e295155709beb892782cd82f1d2fca73496045e8d9a8334f9f28387",
+          "width": 2560,
+          "height": 1080
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-skills-2560x1440.png",
+          "sha256": "68d92830d18949596bfd324f33c0c93aeaa13c7edcb6494ba4c36e75909a40f0",
+          "width": 2560,
+          "height": 1440
+        }
+      ]
+    },
+    {
+      "sheet": "Docs/ArtReviews/Round54/UI54Fresh/Sheets/ui-skills-expansion-元素-locked.jpg",
+      "files": [
+        {
+          "path": "Artifacts/UI54/Captures/ui-skills-expansion-元素-locked-1280x720.png",
+          "sha256": "883224de95742d256e2c9c5124f535c7c1365fa8556ea32095aed41313de6c6b",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-skills-expansion-元素-locked-1920x1080.png",
+          "sha256": "f9c6caf434351bc785f17d4a626adaf2773a3d077616d28f47556363fd5af5b6",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-skills-expansion-元素-locked-1920x1200.png",
+          "sha256": "fdd8d4cf76195cbab72727d9a552be2fd68d7fa472e9653cc25ff18e73e4df2f",
+          "width": 1920,
+          "height": 1200
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-skills-expansion-元素-locked-2560x1080.png",
+          "sha256": "b5bb0379b2c27f1e4a8927f5d10d18d0e3ab069c11f65947859f11d08164e906",
+          "width": 2560,
+          "height": 1080
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-skills-expansion-元素-locked-2560x1440.png",
+          "sha256": "d942cd1368ea20b8898ca1a2c864e18ad15149f499475c467f4c769046e6ab01",
+          "width": 2560,
+          "height": 1440
+        }
+      ]
+    },
+    {
+      "sheet": "Docs/ArtReviews/Round54/UI54Fresh/Sheets/ui-skills-expansion-元素-unlocked.jpg",
+      "files": [
+        {
+          "path": "Artifacts/UI54/Captures/ui-skills-expansion-元素-unlocked-1280x720.png",
+          "sha256": "38b3d3991d7c1c5e4af829d7cdd70009eee836cbe60ca33f6b048be22fde1589",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-skills-expansion-元素-unlocked-1920x1080.png",
+          "sha256": "affe3bf2edb092b8603f39fbc4802c1c82563292e5de98d0f654c379123600d2",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-skills-expansion-元素-unlocked-1920x1200.png",
+          "sha256": "6ee7a55bda6fef160f56f866173f01d7dbbf728525d8770c9ec52a45a7b27e14",
+          "width": 1920,
+          "height": 1200
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-skills-expansion-元素-unlocked-2560x1080.png",
+          "sha256": "ecb35b2859ebd5aa0d7eada6913196bf88907d70b1c2699d0ef8353d472fa4a7",
+          "width": 2560,
+          "height": 1080
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-skills-expansion-元素-unlocked-2560x1440.png",
+          "sha256": "12a7f557f168be01ac6f35c12b0a5470a4549096cb4723bc6f6faebcd8fda2ec",
+          "width": 2560,
+          "height": 1440
+        }
+      ]
+    },
+    {
+      "sheet": "Docs/ArtReviews/Round54/UI54Fresh/Sheets/ui-skills-expansion-剑修-locked.jpg",
+      "files": [
+        {
+          "path": "Artifacts/UI54/Captures/ui-skills-expansion-剑修-locked-1280x720.png",
+          "sha256": "60157855cdd62dddbaaf6acf8a0008dbfe6168cc794634c213fcb9256404bae0",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-skills-expansion-剑修-locked-1920x1080.png",
+          "sha256": "c93fb70635e4c83b53ddfb32574bfa2b4c6308d75661e07081eac53c12e007e9",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-skills-expansion-剑修-locked-1920x1200.png",
+          "sha256": "a861647b92141d678849d30f619117fe2161a54c38556830e5680574db7721eb",
+          "width": 1920,
+          "height": 1200
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-skills-expansion-剑修-locked-2560x1080.png",
+          "sha256": "823440914f3017933a3883163fa38563c7d764c3f3495c839df3c4b780773139",
+          "width": 2560,
+          "height": 1080
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-skills-expansion-剑修-locked-2560x1440.png",
+          "sha256": "3eb1af1787e091961a7edbab4c4598dbd9471d6195e117abc2697488d3843476",
+          "width": 2560,
+          "height": 1440
+        }
+      ]
+    },
+    {
+      "sheet": "Docs/ArtReviews/Round54/UI54Fresh/Sheets/ui-skills-expansion-剑修-unlocked.jpg",
+      "files": [
+        {
+          "path": "Artifacts/UI54/Captures/ui-skills-expansion-剑修-unlocked-1280x720.png",
+          "sha256": "31bbef3fb192d3aa9c5205369de179aea08648843eb1440180d85db7223bdf79",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-skills-expansion-剑修-unlocked-1920x1080.png",
+          "sha256": "662c2d63cd05ab3f8293267553bd0fefda0c62ef650e791f2810cee2d0eda662",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-skills-expansion-剑修-unlocked-1920x1200.png",
+          "sha256": "7a8611001d2a580abfcc25b5f5a992e261f310ac1f9e7801745e842624a2167c",
+          "width": 1920,
+          "height": 1200
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-skills-expansion-剑修-unlocked-2560x1080.png",
+          "sha256": "e6c640a7dddd8877b4a4404365f80a15c9b1ca802345ec3d3cc7c8a4baa6115b",
+          "width": 2560,
+          "height": 1080
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-skills-expansion-剑修-unlocked-2560x1440.png",
+          "sha256": "c3f4eba488f9d1a265a9325a3e93fa32d1959246a022a83a68bb4cbf65dd47e6",
+          "width": 2560,
+          "height": 1440
+        }
+      ]
+    },
+    {
+      "sheet": "Docs/ArtReviews/Round54/UI54Fresh/Sheets/ui-skills-expansion-弹道-locked.jpg",
+      "files": [
+        {
+          "path": "Artifacts/UI54/Captures/ui-skills-expansion-弹道-locked-1280x720.png",
+          "sha256": "38e9ed9ed2c82e012b3479b6daf3e84ac29e72355f5448c04459ab243976b158",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-skills-expansion-弹道-locked-1920x1080.png",
+          "sha256": "0b6e295edffe5a92d66e2106ce3a65774fb1b8d5526ff254011cd77055058b80",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-skills-expansion-弹道-locked-1920x1200.png",
+          "sha256": "6b3b48f7e61574e1e09f427b5ebeb04de978c9ff4fbde78dc64e96584f47dd50",
+          "width": 1920,
+          "height": 1200
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-skills-expansion-弹道-locked-2560x1080.png",
+          "sha256": "026218b01e01b679714f13641c1893ca7856aa2e41004ee771394a42f09a40c2",
+          "width": 2560,
+          "height": 1080
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-skills-expansion-弹道-locked-2560x1440.png",
+          "sha256": "4ce279c0b18bcfdd735ec570c97fa9bca01d78e735707e61d3caa79b61238211",
+          "width": 2560,
+          "height": 1440
+        }
+      ]
+    },
+    {
+      "sheet": "Docs/ArtReviews/Round54/UI54Fresh/Sheets/ui-skills-expansion-弹道-unlocked.jpg",
+      "files": [
+        {
+          "path": "Artifacts/UI54/Captures/ui-skills-expansion-弹道-unlocked-1280x720.png",
+          "sha256": "9f0603b640fb16320eb8ad968dcf552c305427a38ff3d13fe8b222c17088b6e2",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-skills-expansion-弹道-unlocked-1920x1080.png",
+          "sha256": "b787b81f783d2d23abfd17d3ef5cc86d6165dcdbb28f1da0fa67f74cc92fd9f7",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-skills-expansion-弹道-unlocked-1920x1200.png",
+          "sha256": "7e9071a11bbe048113ae49d099ca481b391f1cbd62e93a2cdc4c0cb38084e433",
+          "width": 1920,
+          "height": 1200
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-skills-expansion-弹道-unlocked-2560x1080.png",
+          "sha256": "8c23af882bba386fe8030638d53bc6df4ca3368af4985f13f9b20e53750e7feb",
+          "width": 2560,
+          "height": 1080
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-skills-expansion-弹道-unlocked-2560x1440.png",
+          "sha256": "54faa7fcb6425ca2ad865bcea201637c8b43cc8e532006930b496c0bf8296885",
+          "width": 2560,
+          "height": 1440
+        }
+      ]
+    },
+    {
+      "sheet": "Docs/ArtReviews/Round54/UI54Fresh/Sheets/ui-skills-expansion-联动-locked.jpg",
+      "files": [
+        {
+          "path": "Artifacts/UI54/Captures/ui-skills-expansion-联动-locked-1280x720.png",
+          "sha256": "aee4c0bf2523806bd7bd39311d8394c4148c955f3aef40c52d3e95744d207df6",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-skills-expansion-联动-locked-1920x1080.png",
+          "sha256": "51c2ee56363d741e3cb3ea363968dd468fecf06bd6283b84e27143ac996d9702",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-skills-expansion-联动-locked-1920x1200.png",
+          "sha256": "988ad4e27e407c121c41fde174e4d06c5d512e1f23118bfa7d1f2f83adeccf35",
+          "width": 1920,
+          "height": 1200
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-skills-expansion-联动-locked-2560x1080.png",
+          "sha256": "673d0bbe65f40468adfcc3f9fb00a3db435e8c2d84b6bcd95c1c46718131dc7a",
+          "width": 2560,
+          "height": 1080
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-skills-expansion-联动-locked-2560x1440.png",
+          "sha256": "eba71077dbfa734560710477d05f01335643a9bcf951ccd7a0016730be6d6def",
+          "width": 2560,
+          "height": 1440
+        }
+      ]
+    },
+    {
+      "sheet": "Docs/ArtReviews/Round54/UI54Fresh/Sheets/ui-skills-expansion-联动-unlocked.jpg",
+      "files": [
+        {
+          "path": "Artifacts/UI54/Captures/ui-skills-expansion-联动-unlocked-1280x720.png",
+          "sha256": "564b0f53bf62d431391fad430a0feca4a987e3c55b9db700bffd06d64f2deb63",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-skills-expansion-联动-unlocked-1920x1080.png",
+          "sha256": "b2c8568bb0788063e5cc1e5929cafdb4f1013a0f8eacd4bab24afffd0606d746",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-skills-expansion-联动-unlocked-1920x1200.png",
+          "sha256": "f4fb4d71aff053d92afc16e5bdcaa3b047ac75e21a9d1ee42b0d9437050edd64",
+          "width": 1920,
+          "height": 1200
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-skills-expansion-联动-unlocked-2560x1080.png",
+          "sha256": "401c06d97c5165f569f8cb0ca3e105c5daa6fabc7a7eceb7da1f304b58559df8",
+          "width": 2560,
+          "height": 1080
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-skills-expansion-联动-unlocked-2560x1440.png",
+          "sha256": "adeee6a69cafb4294aab52af8d9d01e1cc846b87037d3abd1362a90b17662f8d",
+          "width": 2560,
+          "height": 1440
+        }
+      ]
+    },
+    {
+      "sheet": "Docs/ArtReviews/Round54/UI54Fresh/Sheets/ui-task-expansion-boomerang.jpg",
+      "files": [
+        {
+          "path": "Artifacts/UI54/Captures/ui-task-expansion-boomerang-1280x720.png",
+          "sha256": "7429ee9d3ef47bf621d7d4cb0c4a27a4b3aaba2812fba8939999e49469e2915b",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-task-expansion-boomerang-1920x1080.png",
+          "sha256": "c89a7c4914c61051a4ae65e19e207c6f6c70e5797d86dd96281f6127f8ce8e86",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-task-expansion-boomerang-1920x1200.png",
+          "sha256": "d62c1ab53554c255f2015b615750a37ba73723c042330cc2451b5f7d97115152",
+          "width": 1920,
+          "height": 1200
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-task-expansion-boomerang-2560x1080.png",
+          "sha256": "390f3077e590dbfe90c40f945a83c379fcc506955c7ded4c0faa7638b3063d12",
+          "width": 2560,
+          "height": 1080
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-task-expansion-boomerang-2560x1440.png",
+          "sha256": "b24c831810dafaa7af9343ae53c40a15fcb1b70717bbb60ee88256c8717c847c",
+          "width": 2560,
+          "height": 1440
+        }
+      ]
+    },
+    {
+      "sheet": "Docs/ArtReviews/Round54/UI54Fresh/Sheets/ui-task-expansion-boomerang.lightning.jpg",
+      "files": [
+        {
+          "path": "Artifacts/UI54/Captures/ui-task-expansion-boomerang.lightning-1280x720.png",
+          "sha256": "7873186b9b9c75b29b213b1581314dee0d4c26599a339665323c6b3372ab1772",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-task-expansion-boomerang.lightning-1920x1080.png",
+          "sha256": "4d22c024cc67659ff86b87fb18271225491bbcec9e6e11d4e919a6d1b9ccc4c0",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-task-expansion-boomerang.lightning-1920x1200.png",
+          "sha256": "ee0347ebe1cec411e3944901242ab24a4693134ed78f260f77398f06168a5652",
+          "width": 1920,
+          "height": 1200
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-task-expansion-boomerang.lightning-2560x1080.png",
+          "sha256": "ee2a4cf2e290f3d385b6ca510122c3c754ec54bf8ca99dfeb41082388de6838f",
+          "width": 2560,
+          "height": 1080
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-task-expansion-boomerang.lightning-2560x1440.png",
+          "sha256": "e3a0bc3966dc99d93891e56c3c0b9902c4019b90a25bbfd6fdc17fd384a3bc5c",
+          "width": 2560,
+          "height": 1440
+        }
+      ]
+    },
+    {
+      "sheet": "Docs/ArtReviews/Round54/UI54Fresh/Sheets/ui-task-expansion-crossbow.frost.jpg",
+      "files": [
+        {
+          "path": "Artifacts/UI54/Captures/ui-task-expansion-crossbow.frost-1280x720.png",
+          "sha256": "7f5032a8871b4059e159f1f145e9b2f567582dab9078efbd137a1b2e7729f931",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-task-expansion-crossbow.frost-1920x1080.png",
+          "sha256": "22ade7afa75d8c418e983582fbeb0e8242a6a0de8bb1401266e389e6ef57019f",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-task-expansion-crossbow.frost-1920x1200.png",
+          "sha256": "a6208aef48153f972a72c357724d849eacca7fb9c29b0ae6de73bb7dd5445fc8",
+          "width": 1920,
+          "height": 1200
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-task-expansion-crossbow.frost-2560x1080.png",
+          "sha256": "3f620b2f20d2523831cfc70bcfff5508858e38a31c3d423c22f441028fa19607",
+          "width": 2560,
+          "height": 1080
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-task-expansion-crossbow.frost-2560x1440.png",
+          "sha256": "b400f280859f81962e4d54bd89f01219532e80e428b17c4da18a34155093ff05",
+          "width": 2560,
+          "height": 1440
+        }
+      ]
+    },
+    {
+      "sheet": "Docs/ArtReviews/Round54/UI54Fresh/Sheets/ui-task-expansion-froststaff.jpg",
+      "files": [
+        {
+          "path": "Artifacts/UI54/Captures/ui-task-expansion-froststaff-1280x720.png",
+          "sha256": "e431e919aaa9eb5d81f05e950c4a9d20049f0e21a4cc981585377e1d0807e9c5",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-task-expansion-froststaff-1920x1080.png",
+          "sha256": "89995c42a01db53168a27ec9e80520c440a0ea58f75302caa488920243900811",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-task-expansion-froststaff-1920x1200.png",
+          "sha256": "0705d9725afbeee8374b8cd5c7d85e69a57ddbee135d30e01d1f456a6ed1ebd9",
+          "width": 1920,
+          "height": 1200
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-task-expansion-froststaff-2560x1080.png",
+          "sha256": "8396d4b452a75c4771bfb5e541f97e1c0076a15e549093c1aab24c5b23b48d0e",
+          "width": 2560,
+          "height": 1080
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-task-expansion-froststaff-2560x1440.png",
+          "sha256": "683c2ad74d1fda82a4aaf281ef6051818a2fa25e75f351f9278a1df5c28d5544",
+          "width": 2560,
+          "height": 1440
+        }
+      ]
+    },
+    {
+      "sheet": "Docs/ArtReviews/Round54/UI54Fresh/Sheets/ui-task-expansion-froststaff.shatter.jpg",
+      "files": [
+        {
+          "path": "Artifacts/UI54/Captures/ui-task-expansion-froststaff.shatter-1280x720.png",
+          "sha256": "cc0921c8af7873882043844bd43a0fe9337741c9d48d061fcfe39b27b3a418a9",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-task-expansion-froststaff.shatter-1920x1080.png",
+          "sha256": "5ae2c9c7209761ef9458dfdd269e68f39f3cb62fbcb5e008a835148b7dda262c",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-task-expansion-froststaff.shatter-1920x1200.png",
+          "sha256": "b29f803ea01faa6091e23d34d6d237beb909e8339ed0391755b8567524ac8800",
+          "width": 1920,
+          "height": 1200
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-task-expansion-froststaff.shatter-2560x1080.png",
+          "sha256": "8237c6cacf98087bb50434ddb105ac3d5d0115878c57ad7e0cf5e7dc0a2bdf90",
+          "width": 2560,
+          "height": 1080
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-task-expansion-froststaff.shatter-2560x1440.png",
+          "sha256": "e98ae2dfc474305cbb0a475aaca7ed73f350dbfcad76019946b2f870ed993e5d",
+          "width": 2560,
+          "height": 1440
+        }
+      ]
+    },
+    {
+      "sheet": "Docs/ArtReviews/Round54/UI54Fresh/Sheets/ui-upgrade.jpg",
+      "files": [
+        {
+          "path": "Artifacts/UI54/Captures/ui-upgrade-1280x720.png",
+          "sha256": "330aec1e9712d17fa32c82fd309f8e8c41096c687cd0b89fff7f25955ffe0c13",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-upgrade-1920x1080.png",
+          "sha256": "a56292eb6d63410be46c61822c6993c7ab0e82432326f4fd4c7c0db071becf3c",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-upgrade-1920x1200.png",
+          "sha256": "3fbd2cfa991350be71564e29c36880c348b7245a3c702e39d3e89d1242c97c13",
+          "width": 1920,
+          "height": 1200
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-upgrade-2560x1080.png",
+          "sha256": "11b4cc205b9f3eedc2a389104d7942b9a4fb0a7e50c16453e5c3263648be2060",
+          "width": 2560,
+          "height": 1080
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-upgrade-2560x1440.png",
+          "sha256": "acb394adea5e48fb0178fd101781cdd826c71b32814b9ee5ada78ec46a753e67",
+          "width": 2560,
+          "height": 1440
+        }
+      ]
+    },
+    {
+      "sheet": "Docs/ArtReviews/Round54/UI54Fresh/Sheets/ui-victory.jpg",
+      "files": [
+        {
+          "path": "Artifacts/UI54/Captures/ui-victory-1280x720.png",
+          "sha256": "5bb0b8c662af308ee86fce70ec51f56836b8973e08575d3477e3c109f6188375",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-victory-1920x1080.png",
+          "sha256": "d06402d71c4e4cf9a960a1cb9bf2cb61f3f02bf5bc80febf30602c95525bac91",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-victory-1920x1200.png",
+          "sha256": "ede3e302c894a1fd0bec8504841e88b6fbcd25dc2b82386811cbc22d7524d870",
+          "width": 1920,
+          "height": 1200
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-victory-2560x1080.png",
+          "sha256": "3728b40e8f74559eddff967ed34f8e07434d33f2b09a2fddf073e4c7557d07b0",
+          "width": 2560,
+          "height": 1080
+        },
+        {
+          "path": "Artifacts/UI54/Captures/ui-victory-2560x1440.png",
+          "sha256": "77baab5b5a9a83b85f9a79aea7e6cf21535a2b3ed1b7ed537e79bb3a3ef7f9ad",
+          "width": 2560,
+          "height": 1440
+        }
+      ]
+    },
+    {
+      "sheet": "Docs/ArtReviews/Round54/UI54Fresh/Sheets/popup-blessing.jpg",
+      "files": [
+        {
+          "path": "Artifacts/UI54/Sequences/popup-blessing/0000.jpg",
+          "sha256": "0f46b85c0eff1ed5b36ba35b5d08dc1e24a147dee6491162040176da98f7f1bc",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-blessing/0001.jpg",
+          "sha256": "b5c61472982850996145111a221e2bf613a6c5cdccf88caec3e5c12365a8b852",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-blessing/0002.jpg",
+          "sha256": "9fbc42098242cb04d0907a842ce98d60f05a156504ef21759f28ba767c018814",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-blessing/0003.jpg",
+          "sha256": "cec591758ea1fb6ec8ea1876e4134a3820476eb5e1ca4194fda9b29f412d2973",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-blessing/0004.jpg",
+          "sha256": "86aee805ad3111187574dfdc0be21e34beb3beda398ed3bb77f3bf16599ae627",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-blessing/0005.jpg",
+          "sha256": "3722ed951f26e36d529f111957e2b0e3c2daecd031bdc16ed666833310a75a6d",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-blessing/0006.jpg",
+          "sha256": "9d602365c5a1e34f348fd467ef8b1a545d67996559204fa4712640ec2247cd24",
+          "width": 1280,
+          "height": 720
+        }
+      ]
+    },
+    {
+      "sheet": "Docs/ArtReviews/Round54/UI54Fresh/Sheets/popup-loading.jpg",
+      "files": [
+        {
+          "path": "Artifacts/UI54/Sequences/popup-loading/0000.jpg",
+          "sha256": "79a38f984bf775c876427ac683e2faccaacd4a24c1d50347937414958b2acd95",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-loading/0001.jpg",
+          "sha256": "6d65000f8f6aac93944be7f288b51791c6424398c588f5935d06ccf3edcdbbd4",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-loading/0002.jpg",
+          "sha256": "adc975fccda7e2aa930cf81d1f610bac5359b493e9393342dc6e91a452640ba8",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-loading/0003.jpg",
+          "sha256": "3fa0ccf6b0109bca36b9f7a83a0cd5b5717d616b549e79ed4b42aa18b6546430",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-loading/0004.jpg",
+          "sha256": "4d1db0393c303e86e95abdb7eb692bd458848bf941d97680daa7c0063d777b36",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-loading/0005.jpg",
+          "sha256": "4d1db0393c303e86e95abdb7eb692bd458848bf941d97680daa7c0063d777b36",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-loading/0006.jpg",
+          "sha256": "4d1db0393c303e86e95abdb7eb692bd458848bf941d97680daa7c0063d777b36",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-loading/0007.jpg",
+          "sha256": "4d1db0393c303e86e95abdb7eb692bd458848bf941d97680daa7c0063d777b36",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-loading/0008.jpg",
+          "sha256": "4d1db0393c303e86e95abdb7eb692bd458848bf941d97680daa7c0063d777b36",
+          "width": 1280,
+          "height": 720
+        }
+      ]
+    },
+    {
+      "sheet": "Docs/ArtReviews/Round54/UI54Fresh/Sheets/popup-map.jpg",
+      "files": [
+        {
+          "path": "Artifacts/UI54/Sequences/popup-map/0000.jpg",
+          "sha256": "335a45f4703d417ee3a0860a07018be51d282792922441f2e3aa98b8c6352b69",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-map/0001.jpg",
+          "sha256": "6f64a5e681bc2ad6786a86e8510f5b937b93136d365aed03a10aad0dfdfd1a65",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-map/0002.jpg",
+          "sha256": "7ec6ccae78df02b89d03066aad2f7a19869c6e87c186751d8c566b2c85354cf0",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-map/0003.jpg",
+          "sha256": "7d84415f494d19bf8ad067921b51c6805c2125a29448ab188b932d8010cc666b",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-map/0004.jpg",
+          "sha256": "cf598ee7b3759c9817af31a6796bc8084ea0bb8e7336d113bd4a8b30deeff788",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-map/0005.jpg",
+          "sha256": "4ee407a0e5d37723556adcda3f8bfe28563758e6d0710f66baec6d40fb6b6cf9",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-map/0006.jpg",
+          "sha256": "5d956eaa34c2823a81299739d056f9894823d222c6844e12fcbb89103a912688",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-map/0007.jpg",
+          "sha256": "d40e74e2bc92b169794dd96cb87dd1ee70fabe75c02a5036996c426f85621ce4",
+          "width": 1280,
+          "height": 720
+        }
+      ]
+    },
+    {
+      "sheet": "Docs/ArtReviews/Round54/UI54Fresh/Sheets/popup-menu.jpg",
+      "files": [
+        {
+          "path": "Artifacts/UI54/Sequences/popup-menu/0000.jpg",
+          "sha256": "5cc3e00832d9749dc0a513d5c53136de58fb932cf494a694b9976e081b67a17a",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-menu/0001.jpg",
+          "sha256": "6127a5aeca7920e024f5d187f8752ff4589ba421b5c3add6de7e45282648b9fa",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-menu/0002.jpg",
+          "sha256": "9140852460eb50f245248ef221c2ef248c7ed404869724ff97c8c89d0dddf185",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-menu/0003.jpg",
+          "sha256": "c5827a4f271267a6d1a38447a26be4d78161c9859c74be8ceab4c9d559a878be",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-menu/0004.jpg",
+          "sha256": "198612a730258ce30650e9ba91a9a78ed585d0e38f727ee0cdd52d4a2695254a",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-menu/0005.jpg",
+          "sha256": "85e9fa79b29bad4f67c6a5f5f1cdf86e0113827d192271c0b0bcb5c3db5dda13",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-menu/0006.jpg",
+          "sha256": "c5777915100c10c682fb034729ae1ce8b35f1b66c3c09cddcc1f36ab83030e63",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-menu/0007.jpg",
+          "sha256": "aa49d2695b6cb2965c78f383859b613fc04918aa1ba46a3aba2ca1ce80e372bc",
+          "width": 1280,
+          "height": 720
+        }
+      ]
+    },
+    {
+      "sheet": "Docs/ArtReviews/Round54/UI54Fresh/Sheets/popup-pause.jpg",
+      "files": [
+        {
+          "path": "Artifacts/UI54/Sequences/popup-pause/0000.jpg",
+          "sha256": "b79b27922b45ce29e004c14ec1330cf14493d2cddddbc254ff526c63aa0312ab",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-pause/0001.jpg",
+          "sha256": "611929254b5d9941493d4ea7874c877d94c8222f0c2e1c91688df4892d098c31",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-pause/0002.jpg",
+          "sha256": "275c22c23ff52663e95bf859f05b90acb26aa81268ef3acb3fea31535409cd80",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-pause/0003.jpg",
+          "sha256": "c16c36e75d78aa4379df4c1cabcaf82a84014932998dd562bd1357faaa2c1e16",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-pause/0004.jpg",
+          "sha256": "ae6ae14e264ab9e87034e22d620775f1f99e3fffbcb5f3f92ed4651a023105ff",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-pause/0005.jpg",
+          "sha256": "5ca6c98b94d02ce9e2ed3c96fd093f533bae3b104e8effe23df60911b57a95e8",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-pause/0006.jpg",
+          "sha256": "1a0f4f6cac4239a5315769c646e75349691b332b8852bfffd27f672b12c65945",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-pause/0007.jpg",
+          "sha256": "ab72fcb0c2f8debf91d9bc739af521dff07b574f8d7db7d9d70a4266c5431688",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-pause/0008.jpg",
+          "sha256": "c0abfeaa0f3862171b4866c2a7a66e7ec9985c17601b493e31e1e1e442f2edb7",
+          "width": 1280,
+          "height": 720
+        }
+      ]
+    },
+    {
+      "sheet": "Docs/ArtReviews/Round54/UI54Fresh/Sheets/popup-pause-settings.jpg",
+      "files": [
+        {
+          "path": "Artifacts/UI54/Sequences/popup-pause-settings/0000.jpg",
+          "sha256": "a9f317fcaf82831e2b1543c966be731eb12c61c72ef45c8ee6286db547e75402",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-pause-settings/0001.jpg",
+          "sha256": "15d7f2192507f69e5df879aca0fcf859e84efb4371cf9dc5b9a1385df5893839",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-pause-settings/0002.jpg",
+          "sha256": "fbe417606f191e33dfbf55c4d91df487804f9b245fb56a93f774cda29a05f535",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-pause-settings/0003.jpg",
+          "sha256": "7598d9f95f30efb8416ceb17fd9158c6250d81cc7e3b7c274f9e946df86a1cf5",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-pause-settings/0004.jpg",
+          "sha256": "66a9de311ec6515833d8658ff607007bccda3bd7f880598496609b9cb731fbce",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-pause-settings/0005.jpg",
+          "sha256": "d45716d63dc788e933f100a7892553cf4e28f320d9250898ee25e198f846a23b",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-pause-settings/0006.jpg",
+          "sha256": "d45716d63dc788e933f100a7892553cf4e28f320d9250898ee25e198f846a23b",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-pause-settings/0007.jpg",
+          "sha256": "5d1120c03b440663945ca0295bb6f19c58b77e02d3fa8c55b7e0727c6acd5334",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-pause-settings/0008.jpg",
+          "sha256": "6c9a5756ba652110db9d6889a1d60502e0c7d9e34066cf1ab749cf77a8576fc3",
+          "width": 1280,
+          "height": 720
+        }
+      ]
+    },
+    {
+      "sheet": "Docs/ArtReviews/Round54/UI54Fresh/Sheets/popup-progress.jpg",
+      "files": [
+        {
+          "path": "Artifacts/UI54/Sequences/popup-progress/0000.jpg",
+          "sha256": "67b3c3e9bb14340e8d79d9db5c3f3fcf9a9f6813f3c36add7d436c063d74c860",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-progress/0001.jpg",
+          "sha256": "ae251aaf966afe7233a480d2a320fdbd7d79e283c0c19135801af6971fd6712b",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-progress/0002.jpg",
+          "sha256": "939bed46dc52339470150d020bafdc45945acd1aafe939251a4954feb4bc333c",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-progress/0003.jpg",
+          "sha256": "4f8c0ff6cbbea4d0b3803d377fa7e68beac2cc946258a2833fd93e70ac445db6",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-progress/0004.jpg",
+          "sha256": "ff39760d4237251170109b5cd692a685f84866a4048a90288e69b03297e76079",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-progress/0005.jpg",
+          "sha256": "bc2daeabe8fb087028af58ca43a22cc8fab90b6bddb86620e57ac9d7c412e568",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-progress/0006.jpg",
+          "sha256": "411079b1000773d508d988e106f42e2556715e6ab8b3cf66324cd082b3884d63",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-progress/0007.jpg",
+          "sha256": "411079b1000773d508d988e106f42e2556715e6ab8b3cf66324cd082b3884d63",
+          "width": 1280,
+          "height": 720
+        }
+      ]
+    },
+    {
+      "sheet": "Docs/ArtReviews/Round54/UI54Fresh/Sheets/popup-results.jpg",
+      "files": [
+        {
+          "path": "Artifacts/UI54/Sequences/popup-results/0000.jpg",
+          "sha256": "0d08006376854fe53a413c042c55ec64ab30672eb23aa0cf427b7ddeef8fa7be",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-results/0001.jpg",
+          "sha256": "bb52c82c00601b54621fa47aa7ea15e6ec9f85b1b9cd88d3d4644a3d4b73711e",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-results/0002.jpg",
+          "sha256": "2e2b11fab9ccde60fd49e2fb57a6f51be9d716fbbada0366fc3d99d2659161be",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-results/0003.jpg",
+          "sha256": "5c34fd6cc35d6253420b82e8c9f6cb6a83b5610cd4681b68c49fbee053cb1190",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-results/0004.jpg",
+          "sha256": "05ba6b0295264e80afe3b7662bb658dafb7578cdb0c5914c6f24bd63de1dd4b4",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-results/0005.jpg",
+          "sha256": "1a69dec339803cdd8818c067e264ac3ebef1d75a413fd1fffbfe3ab67a3a3508",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-results/0006.jpg",
+          "sha256": "5ffcefddbab95c425797eaf932c07db16c60a12bd0321da15291d10892e25397",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-results/0007.jpg",
+          "sha256": "38c8f39607ee606c44d107e9bcf6c6495c3f70db7db23a41cf8f7579dc38d93b",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-results/0008.jpg",
+          "sha256": "5ffcefddbab95c425797eaf932c07db16c60a12bd0321da15291d10892e25397",
+          "width": 1280,
+          "height": 720
+        }
+      ]
+    },
+    {
+      "sheet": "Docs/ArtReviews/Round54/UI54Fresh/Sheets/popup-selection.jpg",
+      "files": [
+        {
+          "path": "Artifacts/UI54/Sequences/popup-selection/0000.jpg",
+          "sha256": "3df629db50a4820f669051a6d4dca719e644c5349d9a5d05f0d59853550b64d4",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-selection/0001.jpg",
+          "sha256": "9104526f2e050a708b7988f9623dd5fc726b46a524cdc01502e3731fda5a3592",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-selection/0002.jpg",
+          "sha256": "fcd1cb41a10b70f0b268cb9ed49065dde2e936574fd787ffb62a8c0cb00715d8",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-selection/0003.jpg",
+          "sha256": "400f782415e805888ea3e95869584de394e6ae074918ab6854a7edfd5df1a423",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-selection/0004.jpg",
+          "sha256": "38e75b726f304036ced5f1e865a5bec33bac68fe445516ab18d9966b6eafb83a",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-selection/0005.jpg",
+          "sha256": "557b07763921125b98ea411242ea3a8ac7c69299b3ae0b6abd19e44318957249",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-selection/0006.jpg",
+          "sha256": "38e75b726f304036ced5f1e865a5bec33bac68fe445516ab18d9966b6eafb83a",
+          "width": 1280,
+          "height": 720
+        }
+      ]
+    },
+    {
+      "sheet": "Docs/ArtReviews/Round54/UI54Fresh/Sheets/popup-settings.jpg",
+      "files": [
+        {
+          "path": "Artifacts/UI54/Sequences/popup-settings/0000.jpg",
+          "sha256": "82548549c979479b942e826b9ed2bf891e4211a693332374067524d8ddb2ec41",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-settings/0001.jpg",
+          "sha256": "f1c95cc9f8b03a25f55bcec2432b9cc8de170285ef66d6e931016b6f2aae397f",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-settings/0002.jpg",
+          "sha256": "58528a56ae9e79f9ea0aa3e3ffc1df8af32d48f23b91896e06219206404f78ad",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-settings/0003.jpg",
+          "sha256": "328c2b13ca7cdec4f5672db74c53c0dc4b7f3f35046df113c1cb3d94e86255ff",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-settings/0004.jpg",
+          "sha256": "8ddfb5979b09904f4563108bcbf33dd94c8e303dc568e910fe140c7d470902fc",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-settings/0005.jpg",
+          "sha256": "930fe08cc0971148b149c34c8c3bee47a02042c3bac5de07d92482bba60b19f9",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-settings/0006.jpg",
+          "sha256": "6aa7c7c569edeaea970ff0004b60b4686a5986a17d37abae0565e852dfb19219",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-settings/0007.jpg",
+          "sha256": "930fe08cc0971148b149c34c8c3bee47a02042c3bac5de07d92482bba60b19f9",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-settings/0008.jpg",
+          "sha256": "6aa7c7c569edeaea970ff0004b60b4686a5986a17d37abae0565e852dfb19219",
+          "width": 1280,
+          "height": 720
+        }
+      ]
+    },
+    {
+      "sheet": "Docs/ArtReviews/Round54/UI54Fresh/Sheets/popup-settings-return-pause.jpg",
+      "files": [
+        {
+          "path": "Artifacts/UI54/Sequences/popup-settings-return-pause/0000.jpg",
+          "sha256": "ca88b33256ee9bf85ea255825175ea21ca270f5b0388b79c130ac7f5a5a8aa7a",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-settings-return-pause/0001.jpg",
+          "sha256": "1386d9c2d8898bfe469bde3fc33739dcace99f71146afa9979cff45569a30781",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-settings-return-pause/0002.jpg",
+          "sha256": "f4b76afdc7aa628e15a3f6b81ae62eba47ec9e7f0f25b93e431e2a1c85893af0",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-settings-return-pause/0003.jpg",
+          "sha256": "a70d7e7e425759f516675bd97175a2465690fb5353a138e85382d976da49c3c5",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-settings-return-pause/0004.jpg",
+          "sha256": "25a93c0ac03d8d27c704592da466f61e7144b8c421ad14afc881ae5276bd7345",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-settings-return-pause/0005.jpg",
+          "sha256": "4cf917f3aa10ca7c7cd5fb22b58c473c92f82251ef469e5ff0b26dff26768061",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-settings-return-pause/0006.jpg",
+          "sha256": "2ef93f7277d27f5d7d48de30b29dbb06c7801820e2aa7ab15749a24ca267d8ef",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-settings-return-pause/0007.jpg",
+          "sha256": "f9c79dd0e452c685a7de5f4f3fa4b98b1396b94b2899b3f54c2bddc270656ef5",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-settings-return-pause/0008.jpg",
+          "sha256": "4ebcacd3d25700a208d1c981b0a26dbdec9083e099602d6891b4462817765c3e",
+          "width": 1280,
+          "height": 720
+        }
+      ]
+    },
+    {
+      "sheet": "Docs/ArtReviews/Round54/UI54Fresh/Sheets/popup-skills.jpg",
+      "files": [
+        {
+          "path": "Artifacts/UI54/Sequences/popup-skills/0000.jpg",
+          "sha256": "9fab3fb868cba7f37dc5b62ddb3ad7ce30a96dacf51de62499d632f180ce98a4",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-skills/0001.jpg",
+          "sha256": "354089d9f35b2e08c7766355674fae2e7842ca08b636b452986133a4bc8a0969",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-skills/0002.jpg",
+          "sha256": "e28ba1e29eb21c508585f9df0a8a4d5090c3b6cf1286e62997ebf534da6bede7",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-skills/0003.jpg",
+          "sha256": "5c91da5074887d520b682380b0f0156e809f57f64b47e8a328131ee0724cfacb",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-skills/0004.jpg",
+          "sha256": "0a1c5a92e3cd2ffeac44d31c7cb8a0daccd9c0edf04635ba62980a98ae8e73ad",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-skills/0005.jpg",
+          "sha256": "6b10ec0fe12e22a28f21afd07bbc515ec56a2c061a66d39bd45684b20d372607",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-skills/0006.jpg",
+          "sha256": "42b47be961b4ddf039250fedeb722aedc5e5327102372f7143c2667e14ebc406",
+          "width": 1280,
+          "height": 720
+        }
+      ]
+    },
+    {
+      "sheet": "Docs/ArtReviews/Round54/UI54Fresh/Sheets/popup-toast.jpg",
+      "files": [
+        {
+          "path": "Artifacts/UI54/Sequences/popup-toast/0000.jpg",
+          "sha256": "b81f8fa5ab7441495772d19fc8f5577055e2cb6a03f9b2742a853e830b4787e1",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-toast/0001.jpg",
+          "sha256": "f90e61b033c4deae8ed8c6d6fb9da7c4c0f0e29407ba202e88b903bbea045a39",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-toast/0002.jpg",
+          "sha256": "d691b843e97d42cac61972f25a1ed207d303975c0a11b471252e5552d969b39c",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-toast/0003.jpg",
+          "sha256": "f65bcfb6272302f25a2c7f1a0f7679799dcbfe785a23d8c8365f8fbb1f2d7fb1",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-toast/0004.jpg",
+          "sha256": "8b82b63f3ab273093e1d17e4a25fb40f139cf0e95db69b9fb2101cc1190d210a",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-toast/0005.jpg",
+          "sha256": "4c68e145e6ef619be26bcb6f9863494d8c670a2cd5d507bb6f757ba6bb1aac19",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-toast/0006.jpg",
+          "sha256": "02abae07009df93af58be01a193d901fbeefcd5ef725787115756f6d93bdd2e8",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-toast/0007.jpg",
+          "sha256": "8ad3465d33f141505e035df0261eb96adeb5971e8290307d630ffe7a5eec1671",
+          "width": 1280,
+          "height": 720
+        }
+      ]
+    },
+    {
+      "sheet": "Docs/ArtReviews/Round54/UI54Fresh/Sheets/popup-upgrade.jpg",
+      "files": [
+        {
+          "path": "Artifacts/UI54/Sequences/popup-upgrade/0000.jpg",
+          "sha256": "fb34905334b3e1f5763aa4873f9ca0cbec7f6eb7051f0f626a4993a225b80cae",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-upgrade/0001.jpg",
+          "sha256": "e1f344d8b0e7cff580e5cd02519693902762819fbc4e85291e4c79dfda4f4072",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-upgrade/0002.jpg",
+          "sha256": "7f01ba24c7381cac852c83c64f478007f4ffe62358a9e133078c1d38b57af642",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-upgrade/0003.jpg",
+          "sha256": "71d119cb3b81b2c912f98322cdb201546015fcf8cb75edb6ef6baf088198fb5f",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-upgrade/0004.jpg",
+          "sha256": "8cbca8aa1ce70018a9e5fe55df056b9790a2212dc4a255d356abe8ea40b98c07",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-upgrade/0005.jpg",
+          "sha256": "8d93bdff018d4b66909d026f5097813cf3a0824843731a744ff3c5b49e59199d",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-upgrade/0006.jpg",
+          "sha256": "8d93bdff018d4b66909d026f5097813cf3a0824843731a744ff3c5b49e59199d",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-upgrade/0007.jpg",
+          "sha256": "8d93bdff018d4b66909d026f5097813cf3a0824843731a744ff3c5b49e59199d",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-upgrade/0008.jpg",
+          "sha256": "8d93bdff018d4b66909d026f5097813cf3a0824843731a744ff3c5b49e59199d",
+          "width": 1280,
+          "height": 720
+        }
+      ]
+    },
+    {
+      "sheet": "Docs/ArtReviews/Round54/UI54Fresh/Sheets/popup-victory.jpg",
+      "files": [
+        {
+          "path": "Artifacts/UI54/Sequences/popup-victory/0000.jpg",
+          "sha256": "7876430dc25b1fe7772b7c7ecc0184c481c99830da72e76466a7486d7103e52b",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-victory/0001.jpg",
+          "sha256": "7992938dc7f4161e14591b33bfbba499553c6edde6eb40426193b26612eff082",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-victory/0002.jpg",
+          "sha256": "a0a70ed7a2b959bf3ebba3225a8f8095a08c92e3fe4fd9b816b4a4cd2b010a90",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-victory/0003.jpg",
+          "sha256": "56f08552622f9fce1d2f6dff4aa15c594fbe52fc845aa5b167b134a1d1271f08",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-victory/0004.jpg",
+          "sha256": "f9215cbeff61c5c991ed3e37dc198172dd8532ab6787540feb474d09f9cc8a0d",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-victory/0005.jpg",
+          "sha256": "2a3765cb562b87d557b4bd809bd4cf9c4348b1fbe62771a281e8a1f35d96ffe4",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-victory/0006.jpg",
+          "sha256": "2a3765cb562b87d557b4bd809bd4cf9c4348b1fbe62771a281e8a1f35d96ffe4",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-victory/0007.jpg",
+          "sha256": "2a3765cb562b87d557b4bd809bd4cf9c4348b1fbe62771a281e8a1f35d96ffe4",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "Artifacts/UI54/Sequences/popup-victory/0008.jpg",
+          "sha256": "e1745474c1d2aeecce455fb7195ec11270c43c5e5d071a5b8f82b411b7ff5942",
+          "width": 1280,
+          "height": 720
+        }
+      ]
+    }
+  ],
+  "sequences": [
+    {
+      "sequence": "popup-blessing",
+      "observedFrameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "observedVia": "full-frame contact sheet; frame 0001 also opened original",
+      "framesAvailable": 7,
+      "metadata": {
+        "source": "actual background Player Camera.Render",
+        "frames": 7,
+        "requestedIntervalSeconds": 0.03333,
+        "fixedSimulationFps": null,
+        "wallClockTimestamps": true
+      }
+    },
+    {
+      "sequence": "popup-loading",
+      "observedFrameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "observedVia": "full-frame contact sheet; frame 0001 also opened original",
+      "framesAvailable": 9,
+      "metadata": {
+        "source": "actual background Player Camera.Render",
+        "frames": 9,
+        "requestedIntervalSeconds": 0.03333,
+        "fixedSimulationFps": null,
+        "wallClockTimestamps": true
+      }
+    },
+    {
+      "sequence": "popup-map",
+      "observedFrameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "observedVia": "full-frame contact sheet; frame 0001 also opened original",
+      "framesAvailable": 8,
+      "metadata": {
+        "source": "actual background Player Camera.Render",
+        "frames": 8,
+        "requestedIntervalSeconds": 0.03333,
+        "fixedSimulationFps": null,
+        "wallClockTimestamps": true
+      }
+    },
+    {
+      "sequence": "popup-menu",
+      "observedFrameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "observedVia": "full-frame contact sheet; frame 0001 also opened original",
+      "framesAvailable": 8,
+      "metadata": {
+        "source": "actual background Player Camera.Render",
+        "frames": 8,
+        "requestedIntervalSeconds": 0.03333,
+        "fixedSimulationFps": null,
+        "wallClockTimestamps": true
+      }
+    },
+    {
+      "sequence": "popup-pause",
+      "observedFrameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "observedVia": "full-frame contact sheet; frame 0001 also opened original",
+      "framesAvailable": 9,
+      "metadata": {
+        "source": "actual background Player Camera.Render",
+        "frames": 9,
+        "requestedIntervalSeconds": 0.03333,
+        "fixedSimulationFps": null,
+        "wallClockTimestamps": true
+      }
+    },
+    {
+      "sequence": "popup-pause-settings",
+      "observedFrameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "observedVia": "full-frame contact sheet; frame 0001 also opened original",
+      "framesAvailable": 9,
+      "metadata": {
+        "source": "actual background Player Camera.Render",
+        "frames": 9,
+        "requestedIntervalSeconds": 0.03333,
+        "fixedSimulationFps": null,
+        "wallClockTimestamps": true
+      }
+    },
+    {
+      "sequence": "popup-progress",
+      "observedFrameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "observedVia": "full-frame contact sheet; frame 0001 also opened original",
+      "framesAvailable": 8,
+      "metadata": {
+        "source": "actual background Player Camera.Render",
+        "frames": 8,
+        "requestedIntervalSeconds": 0.03333,
+        "fixedSimulationFps": null,
+        "wallClockTimestamps": true
+      }
+    },
+    {
+      "sequence": "popup-results",
+      "observedFrameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "observedVia": "full-frame contact sheet; frame 0001 also opened original",
+      "framesAvailable": 9,
+      "metadata": {
+        "source": "actual background Player Camera.Render",
+        "frames": 9,
+        "requestedIntervalSeconds": 0.03333,
+        "fixedSimulationFps": null,
+        "wallClockTimestamps": true
+      }
+    },
+    {
+      "sequence": "popup-selection",
+      "observedFrameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "observedVia": "full-frame contact sheet; frame 0001 also opened original",
+      "framesAvailable": 7,
+      "metadata": {
+        "source": "actual background Player Camera.Render",
+        "frames": 7,
+        "requestedIntervalSeconds": 0.03333,
+        "fixedSimulationFps": null,
+        "wallClockTimestamps": true
+      }
+    },
+    {
+      "sequence": "popup-settings",
+      "observedFrameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "observedVia": "full-frame contact sheet; frame 0001 also opened original",
+      "framesAvailable": 9,
+      "metadata": {
+        "source": "actual background Player Camera.Render",
+        "frames": 9,
+        "requestedIntervalSeconds": 0.03333,
+        "fixedSimulationFps": null,
+        "wallClockTimestamps": true
+      }
+    },
+    {
+      "sequence": "popup-settings-return-pause",
+      "observedFrameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "observedVia": "full-frame contact sheet; frame 0001 also opened original",
+      "framesAvailable": 9,
+      "metadata": {
+        "source": "actual background Player Camera.Render",
+        "frames": 9,
+        "requestedIntervalSeconds": 0.03333,
+        "fixedSimulationFps": null,
+        "wallClockTimestamps": true
+      }
+    },
+    {
+      "sequence": "popup-skills",
+      "observedFrameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "observedVia": "full-frame contact sheet; frame 0001 also opened original",
+      "framesAvailable": 7,
+      "metadata": {
+        "source": "actual background Player Camera.Render",
+        "frames": 7,
+        "requestedIntervalSeconds": 0.03333,
+        "fixedSimulationFps": null,
+        "wallClockTimestamps": true
+      }
+    },
+    {
+      "sequence": "popup-toast",
+      "observedFrameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "observedVia": "full-frame contact sheet; frame 0001 also opened original",
+      "framesAvailable": 8,
+      "metadata": {
+        "source": "development Player actual runtime animation",
+        "wallClockTimestamps": true,
+        "frames": 8,
+        "requestedIntervalSeconds": 0.03333,
+        "fixedSimulationFps": null
+      }
+    },
+    {
+      "sequence": "popup-upgrade",
+      "observedFrameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "observedVia": "full-frame contact sheet; frame 0001 also opened original",
+      "framesAvailable": 9,
+      "metadata": {
+        "source": "actual background Player Camera.Render",
+        "frames": 9,
+        "requestedIntervalSeconds": 0.03333,
+        "fixedSimulationFps": null,
+        "wallClockTimestamps": true
+      }
+    },
+    {
+      "sequence": "popup-victory",
+      "observedFrameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "observedVia": "full-frame contact sheet; frame 0001 also opened original",
+      "framesAvailable": 9,
+      "metadata": {
+        "source": "actual background Player Camera.Render",
+        "frames": 9,
+        "requestedIntervalSeconds": 0.03333,
+        "fixedSimulationFps": null,
+        "wallClockTimestamps": true
+      }
+    }
+  ],
+  "originalFilesActuallyOpened": [
+    {
+      "path": "Artifacts/UI54/Captures/ui-upgrade-1280x720.png",
+      "sha256": "330aec1e9712d17fa32c82fd309f8e8c41096c687cd0b89fff7f25955ffe0c13",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "Artifacts/UI54/Captures/ui-menu-1920x1080.png",
+      "sha256": "810c7fe31f51c8c9e5543c0c348222916be2607b7cb309b3b7a276a2c9e77e65",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "path": "Artifacts/UI54/Captures/ui-upgrade-2560x1440.png",
+      "sha256": "acb394adea5e48fb0178fd101781cdd826c71b32814b9ee5ada78ec46a753e67",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Artifacts/UI54/Captures/ui-selection-locked-1280x720.png",
+      "sha256": "1186c808373dca1221e9bd372eca98cd41e6fd2c48d7924fd021a9af927d96aa",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "Artifacts/UI54/Captures/ui-progress-1280x720.png",
+      "sha256": "7d4d1f975fb5bac17600548994641838e5fcdf2d54ded9a3399c9abaac495c14",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "Artifacts/UI54/Captures/ui-skills-expansion-联动-locked-1280x720.png",
+      "sha256": "aee4c0bf2523806bd7bd39311d8394c4148c955f3aef40c52d3e95744d207df6",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "Artifacts/UI54/Captures/ui-hud-1280x720.png",
+      "sha256": "11538876a5cd59646d92168437aaf9fd4f36ee43d067d1edeb65748d7ae3d391",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "Artifacts/UI54/Captures/ui-blessing-variety-0-1280x720.png",
+      "sha256": "3a86ff5b199b5eeae189b0a6a733f4fbc8b08136ca31b6b842ee0283b73e209d",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "Artifacts/UI54/Captures/ui-blessing-variety-1-1280x720.png",
+      "sha256": "c748d8802d3bc64a0cd3cdd653aab5fe34823032b38e837316747da77fc53e0a",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "Artifacts/UI54/Captures/ui-blessing-variety-3-1280x720.png",
+      "sha256": "9c4a7898c626bf2ad0868bfb8ba34ddd391cb6eb61f572e83423542359695880",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "Artifacts/UI54/Captures/ui-blessing-owned-1280x720.png",
+      "sha256": "ed934f1f904345d979e62c1b0ed4b1802d3150efcc5c1e4b8f7473e842ac26cf",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "Artifacts/UI54/Captures/ui-map-1280x720.png",
+      "sha256": "0e36edf49731699d5b6031cc100654e1950810aaf3eba9e462693efab67a4a2a",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "Artifacts/UI54/Captures/ui-settings-1280x720.png",
+      "sha256": "3b369c625b65da08b8c77489ad9be0a3782754db6060b37fdd1c26618a66c694",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "Artifacts/UI54/Captures/ui-victory-1280x720.png",
+      "sha256": "5bb0b8c662af308ee86fce70ec51f56836b8973e08575d3477e3c109f6188375",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "Artifacts/UI54/Captures/ui-results-1280x720.png",
+      "sha256": "dcd9d8a9b87ea60726bff256e03b57102a3702b9106fd23a6187a17a114b3b0a",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "Artifacts/UI54/Captures/ui-loading-1280x720.png",
+      "sha256": "ac5eee9bef32d8c4aaecf4a087d8dbef74095bea2ace7dded1c43cc70f4e787e",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "Artifacts/UI54/Captures/ui-selection-expansion-unlocked-2560x1080.png",
+      "sha256": "ad14ae4bfa74947dedb78a4b786520ea264dc5f51bb910dcf1cb18a0f9ec0fa6",
+      "width": 2560,
+      "height": 1080
+    },
+    {
+      "path": "Artifacts/UI54/Captures/ui-skills-expansion-元素-locked-1920x1200.png",
+      "sha256": "fdd8d4cf76195cbab72727d9a552be2fd68d7fa472e9653cc25ff18e73e4df2f",
+      "width": 1920,
+      "height": 1200
+    },
+    {
+      "path": "Artifacts/Probe54/Captures/load-failure-weapon-gun.png",
+      "sha256": "479c2e3a5a31dfa22a422020fce4c502f6436d15eef4601a256d3205a4316eba",
+      "width": 1600,
+      "height": 900
+    },
+    {
+      "path": "Artifacts/Probe54/Captures/load-failure-terrain-forest.png",
+      "sha256": "6d7e4c01ef1fc2c4b26c6c0d203325ecfe825867c4954b354184df14750e72cc",
+      "width": 1600,
+      "height": 900
+    },
+    {
+      "path": "Artifacts/UI54/Sequences/popup-blessing/0001.jpg",
+      "sha256": "b5c61472982850996145111a221e2bf613a6c5cdccf88caec3e5c12365a8b852",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "Artifacts/UI54/Sequences/popup-loading/0001.jpg",
+      "sha256": "6d65000f8f6aac93944be7f288b51791c6424398c588f5935d06ccf3edcdbbd4",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "Artifacts/UI54/Sequences/popup-map/0001.jpg",
+      "sha256": "6f64a5e681bc2ad6786a86e8510f5b937b93136d365aed03a10aad0dfdfd1a65",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "Artifacts/UI54/Sequences/popup-menu/0001.jpg",
+      "sha256": "6127a5aeca7920e024f5d187f8752ff4589ba421b5c3add6de7e45282648b9fa",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "Artifacts/UI54/Sequences/popup-pause/0001.jpg",
+      "sha256": "611929254b5d9941493d4ea7874c877d94c8222f0c2e1c91688df4892d098c31",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "Artifacts/UI54/Sequences/popup-pause-settings/0001.jpg",
+      "sha256": "15d7f2192507f69e5df879aca0fcf859e84efb4371cf9dc5b9a1385df5893839",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "Artifacts/UI54/Sequences/popup-progress/0001.jpg",
+      "sha256": "ae251aaf966afe7233a480d2a320fdbd7d79e283c0c19135801af6971fd6712b",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "Artifacts/UI54/Sequences/popup-results/0001.jpg",
+      "sha256": "bb52c82c00601b54621fa47aa7ea15e6ec9f85b1b9cd88d3d4644a3d4b73711e",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "Artifacts/UI54/Sequences/popup-selection/0001.jpg",
+      "sha256": "9104526f2e050a708b7988f9623dd5fc726b46a524cdc01502e3731fda5a3592",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "Artifacts/UI54/Sequences/popup-settings/0001.jpg",
+      "sha256": "f1c95cc9f8b03a25f55bcec2432b9cc8de170285ef66d6e931016b6f2aae397f",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "Artifacts/UI54/Sequences/popup-settings-return-pause/0001.jpg",
+      "sha256": "1386d9c2d8898bfe469bde3fc33739dcace99f71146afa9979cff45569a30781",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "Artifacts/UI54/Sequences/popup-skills/0001.jpg",
+      "sha256": "354089d9f35b2e08c7766355674fae2e7842ca08b636b452986133a4bc8a0969",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "Artifacts/UI54/Sequences/popup-toast/0001.jpg",
+      "sha256": "f90e61b033c4deae8ed8c6d6fb9da7c4c0f0e29407ba202e88b903bbea045a39",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "Artifacts/UI54/Sequences/popup-upgrade/0001.jpg",
+      "sha256": "e1f344d8b0e7cff580e5cd02519693902762819fbc4e85291e4c79dfda4f4072",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "Artifacts/UI54/Sequences/popup-victory/0001.jpg",
+      "sha256": "7992938dc7f4161e14591b33bfbba499553c6edde6eb40426193b26612eff082",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "Artifacts/UI54/Sequences/popup-blessing/0003.jpg",
+      "sha256": "cec591758ea1fb6ec8ea1876e4134a3820476eb5e1ca4194fda9b29f412d2973",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "Artifacts/UI54/Sequences/popup-upgrade/0003.jpg",
+      "sha256": "71d119cb3b81b2c912f98322cdb201546015fcf8cb75edb6ef6baf088198fb5f",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "Artifacts/UI54/Sequences/popup-settings/0008.jpg",
+      "sha256": "6aa7c7c569edeaea970ff0004b60b4686a5986a17d37abae0565e852dfb19219",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "Artifacts/UI54/Sequences/popup-selection/0006.jpg",
+      "sha256": "38e75b726f304036ced5f1e865a5bec33bac68fe445516ab18d9966b6eafb83a",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "Artifacts/UI54/Sequences/popup-upgrade/0008.jpg",
+      "sha256": "8d93bdff018d4b66909d026f5097813cf3a0824843731a744ff3c5b49e59199d",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "Artifacts/UI54/Sequences/popup-blessing/0006.jpg",
+      "sha256": "9d602365c5a1e34f348fd467ef8b1a545d67996559204fa4712640ec2247cd24",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "Artifacts/UI54/Sequences/popup-toast/0007.jpg",
+      "sha256": "8ad3465d33f141505e035df0261eb96adeb5971e8290307d630ffe7a5eec1671",
+      "width": 1280,
+      "height": 720
+    }
+  ],
+  "rawMotionRecordsReviewed": [
+    {
+      "path": "Artifacts/UI54/Sequences/popup-blessing/motion.jsonl",
+      "sha256": "d21d036ef7f4b5f8774360d94bd823e3a6e5b750314362943273e749aba6ebe4",
+      "frames": 7,
+      "first": {
+        "popup": "blessing",
+        "frame": 0,
+        "wallSeconds": 3.814697265625e-06,
+        "alpha": 0.0,
+        "scale": 0.9649999737739563,
+        "y": -18.0,
+        "timeScale": 0.0,
+        "interactable": false,
+        "blocksRaycasts": true
+      },
+      "last": {
+        "popup": "blessing",
+        "frame": 6,
+        "wallSeconds": 0.5249061584472656,
+        "alpha": 1.0,
+        "scale": 1.0,
+        "y": 0.0,
+        "timeScale": 0.0,
+        "interactable": true,
+        "blocksRaycasts": true
+      },
+      "alphaMonotonic": true,
+      "sampleIntervalMinSeconds": 0.07096099853515625,
+      "sampleIntervalMaxSeconds": 0.13444900512695312
+    },
+    {
+      "path": "Artifacts/UI54/Sequences/popup-loading/motion.jsonl",
+      "sha256": "3754d81b2d104ec0f29ebf89ea65edd8213fab795df29863b4bd1ba1637379e4",
+      "frames": 9,
+      "first": {
+        "popup": "loading",
+        "frame": 0,
+        "wallSeconds": 1.430511474609375e-06,
+        "alpha": 0.0,
+        "scale": 0.9649999737739563,
+        "y": 88.14999389648438,
+        "timeScale": 1.0,
+        "interactable": false,
+        "blocksRaycasts": true
+      },
+      "last": {
+        "popup": "loading",
+        "frame": 8,
+        "wallSeconds": 0.521306037902832,
+        "alpha": 1.0,
+        "scale": 1.0,
+        "y": 110.0,
+        "timeScale": 1.0,
+        "interactable": true,
+        "blocksRaycasts": true
+      },
+      "alphaMonotonic": true,
+      "sampleIntervalMinSeconds": 0.06122255325317383,
+      "sampleIntervalMaxSeconds": 0.07103729248046875
+    },
+    {
+      "path": "Artifacts/UI54/Sequences/popup-map/motion.jsonl",
+      "sha256": "f144871704cec5401082f8bf2c11c586770c79927d0466a9516ad41cd29aaa50",
+      "frames": 8,
+      "first": {
+        "popup": "map",
+        "frame": 0,
+        "wallSeconds": 0.0,
+        "alpha": 0.0,
+        "scale": 0.9649999737739563,
+        "y": -18.0,
+        "timeScale": 0.0,
+        "interactable": false,
+        "blocksRaycasts": true
+      },
+      "last": {
+        "popup": "map",
+        "frame": 7,
+        "wallSeconds": 0.5069427490234375,
+        "alpha": 1.0,
+        "scale": 1.0,
+        "y": 0.0,
+        "timeScale": 0.0,
+        "interactable": true,
+        "blocksRaycasts": true
+      },
+      "alphaMonotonic": true,
+      "sampleIntervalMinSeconds": 0.06362152099609375,
+      "sampleIntervalMaxSeconds": 0.1055450439453125
+    },
+    {
+      "path": "Artifacts/UI54/Sequences/popup-menu/motion.jsonl",
+      "sha256": "9939ac251a29d00344e7d4646f35a4563bc17f9537f2ea7cece39e4f9d9efd0d",
+      "frames": 8,
+      "first": {
+        "popup": "menu",
+        "frame": 0,
+        "wallSeconds": 1.621246337890625e-05,
+        "alpha": 0.0,
+        "scale": 0.9649999737739563,
+        "y": -18.0,
+        "timeScale": 1.0,
+        "interactable": false,
+        "blocksRaycasts": true
+      },
+      "last": {
+        "popup": "menu",
+        "frame": 7,
+        "wallSeconds": 0.5461325645446777,
+        "alpha": 1.0,
+        "scale": 1.0,
+        "y": 0.0,
+        "timeScale": 1.0,
+        "interactable": true,
+        "blocksRaycasts": true
+      },
+      "alphaMonotonic": true,
+      "sampleIntervalMinSeconds": 0.06810903549194336,
+      "sampleIntervalMaxSeconds": 0.12088942527770996
+    },
+    {
+      "path": "Artifacts/UI54/Sequences/popup-pause/motion.jsonl",
+      "sha256": "bd781ced9ec6e4818423306e3587c395a6a01b6541867698bd58679ba1274660",
+      "frames": 9,
+      "first": {
+        "popup": "pause",
+        "frame": 0,
+        "wallSeconds": 7.62939453125e-06,
+        "alpha": 0.0,
+        "scale": 0.9649999737739563,
+        "y": -18.0,
+        "timeScale": 0.0,
+        "interactable": false,
+        "blocksRaycasts": true
+      },
+      "last": {
+        "popup": "pause",
+        "frame": 8,
+        "wallSeconds": 0.50494384765625,
+        "alpha": 1.0,
+        "scale": 1.0,
+        "y": 0.0,
+        "timeScale": 0.0,
+        "interactable": true,
+        "blocksRaycasts": true
+      },
+      "alphaMonotonic": true,
+      "sampleIntervalMinSeconds": 0.06114959716796875,
+      "sampleIntervalMaxSeconds": 0.06587982177734375
+    },
+    {
+      "path": "Artifacts/UI54/Sequences/popup-pause-settings/motion.jsonl",
+      "sha256": "150ab2d5aa7331a99c84a49cc8719f303e22d4567ca271b95fac6eccadf01883",
+      "frames": 9,
+      "first": {
+        "popup": "pause-settings",
+        "frame": 0,
+        "wallSeconds": 0.0,
+        "alpha": 0.0,
+        "scale": 0.9649999737739563,
+        "y": -18.0,
+        "timeScale": 0.0,
+        "interactable": false,
+        "blocksRaycasts": true
+      },
+      "last": {
+        "popup": "pause-settings",
+        "frame": 8,
+        "wallSeconds": 0.5089569091796875,
+        "alpha": 1.0,
+        "scale": 1.0,
+        "y": 0.0,
+        "timeScale": 0.0,
+        "interactable": true,
+        "blocksRaycasts": true
+      },
+      "alphaMonotonic": true,
+      "sampleIntervalMinSeconds": 0.0611724853515625,
+      "sampleIntervalMaxSeconds": 0.06839752197265625
+    },
+    {
+      "path": "Artifacts/UI54/Sequences/popup-progress/motion.jsonl",
+      "sha256": "1ac40f4288083cfb31123eafdf581ae07c1ccf633b3b89bfde8856f202a66d11",
+      "frames": 8,
+      "first": {
+        "popup": "progress",
+        "frame": 0,
+        "wallSeconds": 1.9073486328125e-06,
+        "alpha": 0.0,
+        "scale": 0.9649999737739563,
+        "y": -18.0,
+        "timeScale": 1.0,
+        "interactable": false,
+        "blocksRaycasts": true
+      },
+      "last": {
+        "popup": "progress",
+        "frame": 7,
+        "wallSeconds": 0.5381662845611572,
+        "alpha": 1.0,
+        "scale": 1.0,
+        "y": 0.0,
+        "timeScale": 1.0,
+        "interactable": true,
+        "blocksRaycasts": true
+      },
+      "alphaMonotonic": true,
+      "sampleIntervalMinSeconds": 0.06657171249389648,
+      "sampleIntervalMaxSeconds": 0.09625720977783203
+    },
+    {
+      "path": "Artifacts/UI54/Sequences/popup-results/motion.jsonl",
+      "sha256": "1f71cab16e4a2c1b6bbc4ce7447cdc9b8bfe2680cfa478152074739bee6b89c3",
+      "frames": 9,
+      "first": {
+        "popup": "results",
+        "frame": 0,
+        "wallSeconds": 0.0,
+        "alpha": 0.0,
+        "scale": 0.9649999737739563,
+        "y": -18.0,
+        "timeScale": 0.0,
+        "interactable": false,
+        "blocksRaycasts": true
+      },
+      "last": {
+        "popup": "results",
+        "frame": 8,
+        "wallSeconds": 0.516571044921875,
+        "alpha": 1.0,
+        "scale": 1.0,
+        "y": 0.0,
+        "timeScale": 0.0,
+        "interactable": true,
+        "blocksRaycasts": true
+      },
+      "alphaMonotonic": true,
+      "sampleIntervalMinSeconds": 0.061553955078125,
+      "sampleIntervalMaxSeconds": 0.07110595703125
+    },
+    {
+      "path": "Artifacts/UI54/Sequences/popup-selection/motion.jsonl",
+      "sha256": "81f4f9d9f8e700f1608134c5f98e2bc02dc7afd1467508222014fb3c0c6ed90d",
+      "frames": 7,
+      "first": {
+        "popup": "selection",
+        "frame": 0,
+        "wallSeconds": 1.9073486328125e-06,
+        "alpha": 0.0,
+        "scale": 0.9649999737739563,
+        "y": -18.0,
+        "timeScale": 1.0,
+        "interactable": false,
+        "blocksRaycasts": true
+      },
+      "last": {
+        "popup": "selection",
+        "frame": 6,
+        "wallSeconds": 0.48866844177246094,
+        "alpha": 1.0,
+        "scale": 1.0,
+        "y": 0.0,
+        "timeScale": 1.0,
+        "interactable": true,
+        "blocksRaycasts": true
+      },
+      "alphaMonotonic": true,
+      "sampleIntervalMinSeconds": 0.07113313674926758,
+      "sampleIntervalMaxSeconds": 0.11298942565917969
+    },
+    {
+      "path": "Artifacts/UI54/Sequences/popup-settings/motion.jsonl",
+      "sha256": "ef6e5ef4fb20b491d6bab61872d56335dca8bdaf09d022b9473467551ca736b7",
+      "frames": 9,
+      "first": {
+        "popup": "settings",
+        "frame": 0,
+        "wallSeconds": 1.9073486328125e-06,
+        "alpha": 0.0,
+        "scale": 0.9649999737739563,
+        "y": -18.0,
+        "timeScale": 1.0,
+        "interactable": false,
+        "blocksRaycasts": true
+      },
+      "last": {
+        "popup": "settings",
+        "frame": 8,
+        "wallSeconds": 0.5336275100708008,
+        "alpha": 1.0,
+        "scale": 1.0,
+        "y": 0.0,
+        "timeScale": 1.0,
+        "interactable": true,
+        "blocksRaycasts": true
+      },
+      "alphaMonotonic": true,
+      "sampleIntervalMinSeconds": 0.06009626388549805,
+      "sampleIntervalMaxSeconds": 0.07653045654296875
+    },
+    {
+      "path": "Artifacts/UI54/Sequences/popup-settings-return-pause/motion.jsonl",
+      "sha256": "0bc7c2654e0c4b04fb68878a16e7921b13a916d0ef8fdaae365367cbbaaed2e5",
+      "frames": 9,
+      "first": {
+        "popup": "settings-return-pause",
+        "frame": 0,
+        "wallSeconds": 0.0,
+        "alpha": 0.0,
+        "scale": 0.9649999737739563,
+        "y": -18.0,
+        "timeScale": 0.0,
+        "interactable": false,
+        "blocksRaycasts": true
+      },
+      "last": {
+        "popup": "settings-return-pause",
+        "frame": 8,
+        "wallSeconds": 0.507080078125,
+        "alpha": 1.0,
+        "scale": 1.0,
+        "y": 0.0,
+        "timeScale": 0.0,
+        "interactable": true,
+        "blocksRaycasts": true
+      },
+      "alphaMonotonic": true,
+      "sampleIntervalMinSeconds": 0.06142425537109375,
+      "sampleIntervalMaxSeconds": 0.06475067138671875
+    },
+    {
+      "path": "Artifacts/UI54/Sequences/popup-skills/motion.jsonl",
+      "sha256": "6475fee00f55463aaf1a61e309248b42040026516304a0ad4116f8b42f5a41c8",
+      "frames": 7,
+      "first": {
+        "popup": "skills",
+        "frame": 0,
+        "wallSeconds": 0.0,
+        "alpha": 0.0,
+        "scale": 0.9649999737739563,
+        "y": -18.0,
+        "timeScale": 0.0,
+        "interactable": false,
+        "blocksRaycasts": true
+      },
+      "last": {
+        "popup": "skills",
+        "frame": 6,
+        "wallSeconds": 0.5067291259765625,
+        "alpha": 1.0,
+        "scale": 1.0,
+        "y": 0.0,
+        "timeScale": 0.0,
+        "interactable": true,
+        "blocksRaycasts": true
+      },
+      "alphaMonotonic": true,
+      "sampleIntervalMinSeconds": 0.074554443359375,
+      "sampleIntervalMaxSeconds": 0.11948394775390625
+    },
+    {
+      "path": "Artifacts/UI54/Sequences/popup-upgrade/motion.jsonl",
+      "sha256": "a56c6d7d9cdede6c8036c2d93b98565c091765c31c0ca166084857b04e294b47",
+      "frames": 9,
+      "first": {
+        "popup": "upgrade",
+        "frame": 0,
+        "wallSeconds": 0.0,
+        "alpha": 0.0,
+        "scale": 0.9649999737739563,
+        "y": -18.0,
+        "timeScale": 0.0,
+        "interactable": false,
+        "blocksRaycasts": true
+      },
+      "last": {
+        "popup": "upgrade",
+        "frame": 8,
+        "wallSeconds": 0.5460662841796875,
+        "alpha": 1.0,
+        "scale": 1.0,
+        "y": 0.0,
+        "timeScale": 0.0,
+        "interactable": true,
+        "blocksRaycasts": true
+      },
+      "alphaMonotonic": true,
+      "sampleIntervalMinSeconds": 0.0641937255859375,
+      "sampleIntervalMaxSeconds": 0.07975006103515625
+    },
+    {
+      "path": "Artifacts/UI54/Sequences/popup-victory/motion.jsonl",
+      "sha256": "e7ab5b70d767e703114e281abe2ec311e395497b73a4a5b63f88cd75414f649c",
+      "frames": 9,
+      "first": {
+        "popup": "victory",
+        "frame": 0,
+        "wallSeconds": 0.0,
+        "alpha": 0.0,
+        "scale": 0.9649999737739563,
+        "y": -18.0,
+        "timeScale": 0.0,
+        "interactable": false,
+        "blocksRaycasts": true
+      },
+      "last": {
+        "popup": "victory",
+        "frame": 8,
+        "wallSeconds": 0.5113143920898438,
+        "alpha": 1.0,
+        "scale": 1.0,
+        "y": 0.0,
+        "timeScale": 0.0,
+        "interactable": true,
+        "blocksRaycasts": true
+      },
+      "alphaMonotonic": true,
+      "sampleIntervalMinSeconds": 0.061737060546875,
+      "sampleIntervalMaxSeconds": 0.06830596923828125
+    }
+  ],
+  "toastTimestamps": {
+    "path": "Artifacts/UI54/Sequences/popup-toast/timestamps.csv",
+    "sha256": "d6191ee3ea6bff536ebaf04be677ba2f9daa56f64647ebc343ceb1690f2437b8",
+    "frames": 8,
+    "wallSeconds": [
+      0.0011,
+      0.0762,
+      0.1434,
+      0.2109,
+      0.2791,
+      0.3486,
+      0.414,
+      0.485
+    ]
+  },
+  "identityAndBehaviorContext": {
+    "uiVerificationFinished": "2026-10-23T02:27:11.0909863Z",
+    "uiVerificationPassed": true,
+    "uiCheckCount": 272,
+    "uiErrors": [],
+    "processExitCode": 0,
+    "buildMatch": {
+      "development": "E:\\UnityProject\\VampireLike3D\\Builds\\Review54",
+      "release": "E:\\UnityProject\\VampireLike3D\\Builds\\Release54",
+      "development_flag": true,
+      "release_flag": false,
+      "source_files": 1313,
+      "source_differences": [],
+      "development_bundles": 24,
+      "release_bundles": 24,
+      "bundle_differences": [],
+      "exact_source_match": true,
+      "exact_bundle_match": true,
+      "scope": "Static identity only; gameplay, art and performance need their separate reports."
+    },
+    "note": "Functional counts and identity do not add art points."
+  },
+  "limitations": [
+    "All saved popup JPG frames viewed, not every runtime frame; actual variable timestamp intervals, no realtime 60fps viewing or performance assertion.",
+    "Only opening/arrival windows captured; full close/switch/reopen/refresh/expiry behavior not independently visually sequenced here, runtime assertions are supporting context only.",
+    "Raw root alpha/scale/y do not prove every child transform; complete-sheet and original image observations provide visual child synchronization evidence.",
+    "Some originals above 2048px auto-resized by viewer; originals preserved, complete frame visible. Contact sheets use uncut downscaled frames, and do not establish smallest Chinese glyph quality alone.",
+    "Victory/results popup clips are presentation fixtures; no Boss reward/idempotency claim from those clips.",
+    "Finite matrix states and scroll positions, not every possible string/seed/build/scroll row.",
+    "No desktop control, native automation, simulator changes, build, Player start, runtime edit or original capture edit.",
+    "Performance explicitly deferred by user; no 7200s/60fps/performance pass or complete-project conclusion."
+  ]
+}

@@ -237,3 +237,7 @@ AA 的场景加载与资产生命周期规则参见 Unity 官方 [场景加载�
 WorldJournal是本局区块记录的唯一写入者。Visited对卸载区块使用最多512项FIFO布尔缓存，同时保存已探索和未探索；Load/Write同步刷新值，Visit立即更新负缓存，淘汰后仍从原区块JSON恢复完成记录。驻留记录继续优先读取，Dispose清空两层索引与本局临时目录。VisitLookupDiskChecks仅统计Visited的冷路径磁盘存在性检查，不是全部文件I/O，也不据此宣称帧率提升。
 
 恢复效果不能撤销致命伤害：PlayerController在Health归零时立即向GameManager请求FinishRun(false)，不等待另一个Update轮询；GameManager继续独占settlement/暂停/界面/流程幂等。零生命Player.Update直接返回，避免先回血再死亡判定的执行次序依赖。
+
+## 弹窗表现所有权（候选54）
+
+UIManager统一管理从Time.unscaledTime打开瞬间计时的0.24秒动效；其私有表现状态只缓存现有子元素变换与CanvasGroup，不改变AA所有权、作者层级或整体流程。整页内容同步运动而全屏背景遮罩静止；开始即阻挡射线，内容到位才启用交互。同页刷新保持进度，关闭/切换/禁用精确恢复原位并中止旧状态，不延迟暂停释放。提示条不拦截输入。实际验证状态见Popup54Review.md。

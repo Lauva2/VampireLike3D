@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 namespace VampireLike
 {
-    public sealed class UIManager : MonoBehaviour
+    public sealed partial class UIManager : MonoBehaviour
     {
         GameManager game;
         UIRefs view;
@@ -34,7 +34,7 @@ namespace VampireLike
             if (view == null) yield break;
             foreach (var text in view.GetComponentsInChildren<Text>(true)) if (!texts.ContainsKey(text.name)) texts.Add(text.name, text);
             foreach (var button in view.GetComponentsInChildren<Button>(true)) if (!buttons.ContainsKey(button.name)) buttons.Add(button.name, button);
-            Bind(); ShowLoading("正在整理远征行囊…");
+            Bind(); PrepareTransitions(); ShowLoading("正在整理远征行囊…");
             foreach (var c in game.Catalog.characters)
             {
                 GameObject prefab = null;
@@ -92,28 +92,17 @@ namespace VampireLike
             else Debug.LogError("Missing UI button: " + name);
         }
         void Set(string name, string value) { if (texts.TryGetValue(name, out var text)) text.text = value; }
-        Coroutine panelTransition;
         void ActiveOnly(GameObject selected, string reason)
         {
             if (modal == "blessing" && reason != "blessing") game.Progression?.Shrines.Cancel();
-            bool opening=selected!=null&&!selected.activeSelf;
-            if(panelTransition!=null){StopCoroutine(panelTransition);panelTransition=null;}
-            foreach(var panel in new[]{view.menu,view.selection,view.upgrade,view.skills,view.pause,view.map,view.progress,view.settings,view.results,view.victory,view.loading}){var sheet=panel.transform.Find("Sheet");if(sheet!=null)sheet.localScale=Vector3.one;}
-            foreach(var group in view.GetComponentsInChildren<CanvasGroup>(true))group.alpha=1;
+            bool opening = selected != null && (activeMotion == null || activeMotion.Panel != selected || !selected.activeSelf || modal != reason);
+            if (selected == null || opening) ResetPanelTransition();
             ClearToast();
-            foreach (var panel in new[] { view.menu, view.selection, view.upgrade, view.skills, view.pause, view.map, view.progress, view.settings, view.results, view.victory, view.loading }) panel.SetActive(panel == selected);
+            foreach (var motion in panelMotions) motion.Panel.SetActive(motion.Panel == selected);
             view.hud.SetActive(game.Flow == GameFlow.Playing && (selected == null || selected == view.upgrade));
             modal = reason;
             game.Pause("ui", game.Ready && !string.IsNullOrEmpty(reason));
-            if(opening)panelTransition=StartCoroutine(Reveal(selected));
-        }
-        IEnumerator Reveal(GameObject panel)
-        {
-            var group=panel.GetComponent<CanvasGroup>();if(group==null)group=panel.AddComponent<CanvasGroup>();
-            var sheet=panel.transform.Find("Sheet");
-            float start=Time.unscaledTime;group.alpha=0;
-            while(Time.unscaledTime-start<.16f){float t=Mathf.SmoothStep(0,1,(Time.unscaledTime-start)/.16f);group.alpha=t;if(sheet!=null)sheet.localScale=Vector3.one*Mathf.Lerp(.975f,1,t);yield return null;}
-            group.alpha=1;if(sheet!=null)sheet.localScale=Vector3.one;panelTransition=null;
+            if (opening) BeginPanelTransition(selected);
         }
         public void ShowMenu() { ActiveOnly(view.menu, "menu"); Set("MenuCrystalText", "旅途晶石  " + game.Save.Profile.crystals); }
         public void ShowHUD() { ActiveOnly(null, null); nextHUD = 0; }
@@ -298,12 +287,15 @@ namespace VampireLike
         public void Toast(string message, float duration = 3)
         {
             Set("ToastText", message); toastUntil = Time.unscaledTime + duration;
-            if (texts.TryGetValue("ToastText", out var text)) text.transform.parent.gameObject.SetActive(true);
+            if (toastMotion != null && !toastMotion.Panel.activeSelf)
+            {
+                toastMotion.Panel.SetActive(true); toastMotion.Begin();
+            }
         }
         void ClearToast()
         {
             toastUntil = 0;
-            if (texts.TryGetValue("ToastText", out var toast)) toast.transform.parent.gameObject.SetActive(false);
+            if (toastMotion != null) { toastMotion.Reset(); if (toastMotion.Panel != null) toastMotion.Panel.SetActive(false); }
         }
         public void DamageFlash() { if (view != null) view.damageFlash.color = new Color(1, .24f, .18f, .18f); }
         static void SetBar(Image fill,float value)
@@ -315,8 +307,9 @@ namespace VampireLike
         void Update()
         {
             if (view == null) return;
+            TickTransitions();
             var flash = view.damageFlash.color; flash.a = Mathf.MoveTowards(flash.a, 0, Time.unscaledDeltaTime); view.damageFlash.color = flash;
-            if (Time.unscaledTime > toastUntil && texts.TryGetValue("ToastText", out var toast)) toast.transform.parent.gameObject.SetActive(false);
+            if (Time.unscaledTime > toastUntil && toastMotion != null && toastMotion.Panel.activeSelf) ClearToast();
             if (!game.Ready || Time.unscaledTime < nextHUD) return;
             nextHUD = Time.unscaledTime + .1f;
             var run = game.Run; var player = game.Player;

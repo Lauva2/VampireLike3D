@@ -1,0 +1,207 @@
+[
+  {
+    "id": "A1",
+    "score": 5,
+    "max": 5,
+    "title": "大头短肢与俯视轮廓清晰",
+    "evidence": [
+      "Artifacts/Round54/Captures/character-adventurer.png",
+      "Artifacts/Round54/Captures/character-elementalist.png",
+      "Artifacts/Round54/Captures/character-swordsman.png",
+      "Artifacts/Round54/Captures/10-biome-0.png",
+      "Artifacts/Round54/Captures/10-biome-1.png",
+      "Artifacts/Round54/Captures/10-biome-2.png"
+    ],
+    "observation": "三角色均大头短肢；棕发、紫尖帽和深蓝发在近景与正常俯视中有明确外轮廓，鞋与头躯层级清楚。",
+    "revision": "保留头身比例与帽发轮廓。",
+    "reviewer": "/root/popup54_world actual54 static observation"
+  },
+  {
+    "id": "A2",
+    "score": 4,
+    "max": 5,
+    "title": "面部、服饰、装备有设计与辨识度",
+    "evidence": [
+      "Artifacts/Round54/Captures/character-adventurer.png",
+      "Artifacts/Round54/Captures/character-elementalist.png",
+      "Artifacts/Round54/Captures/character-swordsman.png"
+    ],
+    "observation": "脸有瞳孔高光、眉嘴和颊红，围巾/背带/扣带/金边区分三角色；手肘与衣褶仍简化，眼部纵长造型较突出，局部结构精细度扣1分。",
+    "revision": "增加少量关节与衣褶变化，保留远镜头简洁。",
+    "reviewer": "/root/popup54_world actual54 static observation"
+  },
+  {
+    "id": "A3",
+    "score": 5,
+    "max": 5,
+    "title": "明快卡通造型材质色彩光照协调",
+    "evidence": [
+      "Artifacts/Round54/Captures/terrain-detail-0.png",
+      "Artifacts/Round54/Captures/terrain-detail-1.png",
+      "Artifacts/Round54/Captures/terrain-detail-2.png",
+      "Artifacts/Round54/Captures/terrain-detail-3.png",
+      "Artifacts/Round54/Captures/terrain-detail-5.png",
+      "Artifacts/Round54/Captures/terrain-detail-6.png"
+    ],
+    "observation": "青绿、沙金、冰蓝、灰紫橙、灰绿菌紫和赤晶玫瑰有不同主辅色；柔和阴影与描边/分面统一，雪地仍能分辨白雪蓝冰和角色。",
+    "revision": "保持主辅色与雪地局部对比。",
+    "reviewer": "/root/popup54_world actual54 static observation"
+  },
+  {
+    "id": "B1",
+    "score": 4,
+    "max": 5,
+    "title": "全部首发角色模型材质挂点完成",
+    "evidence": [
+      "Artifacts/Round54/Captures/character-adventurer.png",
+      "Artifacts/Round54/Captures/character-elementalist.png",
+      "Artifacts/Round54/Captures/character-swordsman.png",
+      "Artifacts/Round54/Captures/10-biome-0.png",
+      "Artifacts/Round54/Captures/10-biome-1.png",
+      "Artifacts/Round54/Captures/10-biome-2.png"
+    ],
+    "observation": "三角色模型/材质/服装完整，冒险者灰枪与学徒长杖可辨；正常镜头有独立环绕能力体。手形和持握结构接合较简单，扣1分；未将独立能力体误当断挂点。",
+    "revision": "精修握柄与手腕衔接，并补三角色转身近景回归。",
+    "reviewer": "/root/popup54_world actual54 static observation"
+  },
+  {
+    "id": "B2",
+    "score": 5,
+    "max": 5,
+    "title": "普通怪与精英凭轮廓动作标识区分",
+    "evidence": [
+      "Artifacts/Round54/Captures/enemy-0-normal.png",
+      "Artifacts/Round54/Captures/enemy-0-elite.png",
+      "Artifacts/Round54/Captures/enemy-1-normal.png",
+      "Artifacts/Round54/Captures/enemy-1-elite.png",
+      "Artifacts/Round54/Captures/enemy-2-normal.png",
+      "Artifacts/Round54/Captures/enemy-2-elite.png",
+      "Artifacts/Round54/Captures/enemy-3-normal.png",
+      "Artifacts/Round54/Captures/enemy-3-elite.png",
+      "Artifacts/Round54/Captures/enemy-5-normal.png",
+      "Artifacts/Round54/Captures/enemy-5-elite.png",
+      "Artifacts/Round54/Captures/enemy-6-normal.png",
+      "Artifacts/Round54/Captures/enemy-6-elite.png",
+      "Artifacts/Round54/Captures/enemy-7-normal.png",
+      "Artifacts/Round54/Captures/enemy-7-elite.png",
+      "Artifacts/Round54/Captures/enemy-8-normal.png",
+      "Artifacts/Round54/Captures/enemy-8-elite.png",
+      "Artifacts/Round54/Captures/enemy-combat-7-normal.png",
+      "Artifacts/Round54/Captures/enemy-combat-8-elite.png"
+    ],
+    "observation": "八族的圆团/长耳/甲壳/法杖菌帽/高菌帽/蛙肢/晶甲/悬浮晶核轮廓不同，精英皇冠兼角/护甲等额外构件明显。新怪正常战斗仍可识别；动作由独立Combat54补证。",
+    "revision": "保持精英附加构件和敌方危险色。",
+    "reviewer": "/root/popup54_world actual54 static observation"
+  },
+  {
+    "id": "B3",
+    "score": 5,
+    "max": 5,
+    "title": "四Boss独立造型体量完整表现（扩容六Boss全纳入）",
+    "evidence": [
+      "Artifacts/Round54/Captures/boss-closeup-0.png",
+      "Artifacts/Round54/Captures/boss-closeup-1.png",
+      "Artifacts/Round54/Captures/boss-closeup-2.png",
+      "Artifacts/Round54/Captures/boss-closeup-3.png",
+      "Artifacts/Round54/Captures/boss-closeup-5.png",
+      "Artifacts/Round54/Captures/boss-closeup-6.png",
+      "Artifacts/Round54/Captures/boss-0.png",
+      "Artifacts/Round54/Captures/boss-1.png",
+      "Artifacts/Round54/Captures/boss-2.png",
+      "Artifacts/Round54/Captures/boss-3.png",
+      "Artifacts/Round54/Captures/boss-5.png",
+      "Artifacts/Round54/Captures/boss-6.png"
+    ],
+    "observation": "树冠须叶、节状沙虫、白毛冰角、黑岩橙核、菌冠蛙和赤晶护卫各有独立形色，正常镜头明显大于普通敌人；完整攻击/死亡表现由Combat54连续观察贡献，不以近景静态代替。",
+    "revision": "保持各Boss体量与起手轮廓；动作结论见Combat54。",
+    "reviewer": "/root/popup54_world actual54 static observation"
+  },
+  {
+    "id": "C1",
+    "score": 5,
+    "max": 5,
+    "title": "群系独立地貌与装饰语言（扩容六单群系）",
+    "evidence": [
+      "Artifacts/Round54/Captures/geography-0-0.png",
+      "Artifacts/Round54/Captures/geography-0-1.png",
+      "Artifacts/Round54/Captures/geography-0-2.png",
+      "Artifacts/Round54/Captures/geography-1-0.png",
+      "Artifacts/Round54/Captures/geography-1-1.png",
+      "Artifacts/Round54/Captures/geography-1-2.png",
+      "Artifacts/Round54/Captures/geography-2-0.png",
+      "Artifacts/Round54/Captures/geography-2-1.png",
+      "Artifacts/Round54/Captures/geography-2-2.png",
+      "Artifacts/Round54/Captures/geography-3-0.png",
+      "Artifacts/Round54/Captures/geography-3-1.png",
+      "Artifacts/Round54/Captures/geography-3-2.png",
+      "Artifacts/Round54/Captures/geography-5-0.png",
+      "Artifacts/Round54/Captures/geography-5-1.png",
+      "Artifacts/Round54/Captures/geography-5-2.png",
+      "Artifacts/Round54/Captures/geography-6-0.png",
+      "Artifacts/Round54/Captures/geography-6-1.png",
+      "Artifacts/Round54/Captures/geography-6-2.png"
+    ],
+    "observation": "林河树丛、沙丘绿洲、冰湖雪脊、熔河玄武岩、菌沼池塘和赤晶岩簇有明确地貌与装饰语言，三位置/近广景完整覆盖。",
+    "revision": "保持六主题不同地貌主形。",
+    "reviewer": "/root/popup54_world actual54 static observation"
+  },
+  {
+    "id": "C2",
+    "score": 4,
+    "max": 5,
+    "title": "地面植被岩石建筑遗迹层次尺度完整",
+    "evidence": [
+      "Artifacts/Round54/Captures/geography-wide-5-2.png",
+      "Artifacts/Round54/Captures/geography-wide-6-2.png",
+      "Artifacts/Round54/Captures/waterside-architecture-wide-0.png",
+      "Artifacts/Round54/Captures/waterside-architecture-wide-1.png",
+      "Artifacts/Round54/Captures/waterside-architecture-wide-2.png",
+      "Artifacts/Round54/Captures/waterside-architecture-wide-3.png",
+      "Artifacts/Round54/Captures/waterside-architecture-wide-5.png",
+      "Artifacts/Round54/Captures/waterside-architecture-wide-6.png"
+    ],
+    "observation": "前中远大小物、房屋/门架/遗迹、低草小石和较大地貌层次成立；建筑落干地、门口接支路。广镜头仍有大片平底和同构菌石簇，景物组合层次扣1分。赤晶命名waterside图未见水，不据文件名声称临水。",
+    "revision": "为大平地区分疏密与低地形走势，减少相邻同构簇，保留通行空地。",
+    "reviewer": "/root/popup54_world actual54 static observation"
+  },
+  {
+    "id": "C3",
+    "score": 4,
+    "max": 5,
+    "title": "随机区块接缝遮挡重复与碰撞视觉一致",
+    "evidence": [
+      "Artifacts/Round54/Captures/world-floating-origin.png",
+      "Artifacts/Round54/Captures/mixed-boundary-0-6.png",
+      "Artifacts/Round54/Captures/geography-wide-0-2.png",
+      "Artifacts/Round54/Captures/geography-wide-5-2.png",
+      "Artifacts/Round54/Captures/geography-wide-6-2.png"
+    ],
+    "observation": "所看正常/广角/远坐标无露底裂缝或明显浮起，树菌遮挡使用透明衰减，玩家中心仍可找；主路连贯。小簇重复和前缘偶有构件堆叠保留1分扣分。静图不证明所有碰撞体或全随机种子。",
+    "revision": "减少相邻模板重复并回归移动遮挡及区块边缘。",
+    "reviewer": "/root/popup54_world actual54 static observation"
+  },
+  {
+    "id": "C4",
+    "score": 5,
+    "max": 5,
+    "title": "混合地图过渡地标路径交互与探索",
+    "evidence": [
+      "Artifacts/Round54/Captures/mixed-boundary-0-1.png",
+      "Artifacts/Round54/Captures/mixed-boundary-0-3.png",
+      "Artifacts/Round54/Captures/mixed-boundary-0-6.png",
+      "Artifacts/Round54/Captures/mixed-boundary-1-2.png",
+      "Artifacts/Round54/Captures/mixed-boundary-1-5.png",
+      "Artifacts/Round54/Captures/mixed-boundary-3-5.png",
+      "Artifacts/Round54/Captures/mixed-lava-shore-close.png",
+      "Artifacts/Round54/Captures/sanctuary-completed-0.png",
+      "Artifacts/Round54/Captures/sanctuary-completed-1.png",
+      "Artifacts/Round54/Captures/sanctuary-completed-2.png",
+      "Artifacts/Round54/Captures/sanctuary-completed-3.png",
+      "Artifacts/Round54/Captures/sanctuary-completed-5.png",
+      "Artifacts/Round54/Captures/sanctuary-completed-6.png"
+    ],
+    "observation": "六区域与六边界实际覆盖，色带渐变保留两侧装饰；熔岸末端圆收束、桥路明确。六主题挑战侧路绕阵心、踏石接路，完成图提示消失且场景保留；交互点与路径可辨。",
+    "revision": "保持挑战阵心空地和过渡两侧的主形。",
+    "reviewer": "/root/popup54_world actual54 static observation"
+  }
+]

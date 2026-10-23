@@ -75,7 +75,8 @@ namespace VampireLike
             Action cancelledClick = initialCard.button.onClick.Invoke;
             game.UI.CloseModal(); cancelledClick();
             Check(!site.complete && game.Run.blessings.Count == 0 && game.Save.Profile.crystals == crystals && game.Save.Profile.events == events, "Cancel and cancelled card callback grant no blessing currency or event completion");
-            Check(game.Progression.Shrines.Open(site) && FirstChoice().title.text == firstName, "Reopening a shrine retains its deterministic offer");
+            yield return ObservePopupOpening("blessing", game.UI.View.upgrade, () =>
+                Check(game.Progression.Shrines.Open(site) && FirstChoice().title.text == firstName, "Reopening a shrine retains its deterministic offer"));
             Place(site.position + Vector3.right * 10); FirstChoice().button.onClick.Invoke();
             Check(!site.complete && game.Run.blessings.Count == 0, "Shrine selection revalidates player interaction distance");
             game.UI.CloseModal(); Place(new Vector3(160, 0, 32)); yield return AutoBattle(2.5f);

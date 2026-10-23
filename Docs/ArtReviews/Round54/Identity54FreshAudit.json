@@ -1,0 +1,97 @@
+{
+  "candidate": "Round54",
+  "reviewer": "/root/popup54_world",
+  "sameBuildIdentityAcrossFullUIProbe": true,
+  "reports": {
+    "Round54": {
+      "passed": true,
+      "finished": "2026-10-23T02:32:13.5126053Z",
+      "checks": 249,
+      "errors": [],
+      "exitCode": 0,
+      "buildFiles": 29,
+      "buildIdentitySha256": "4D4F4B814697BC5F408EF023F8748CA4E7E26A8FC647677D585F9666CD2053DC",
+      "sourceIdentitySha256": "06726612A80335046AE8EC02B35321064332E841BF80F869E719B7A4B350ADB8"
+    },
+    "UI54": {
+      "passed": true,
+      "finished": "2026-10-23T02:27:11.0909863Z",
+      "checks": 272,
+      "errors": [],
+      "exitCode": 0,
+      "buildFiles": 29,
+      "buildIdentitySha256": "8D171EB93B026ACA2EDF547EE2D5D2DA370ED1F1B863C82B3AFDC37335D168C4",
+      "sourceIdentitySha256": "06726612A80335046AE8EC02B35321064332E841BF80F869E719B7A4B350ADB8"
+    },
+    "Probe54": {
+      "passed": true,
+      "finished": "2026-10-23T02:29:08.0667098Z",
+      "checks": 8,
+      "errors": [],
+      "exitCode": 0,
+      "buildFiles": 29,
+      "buildIdentitySha256": "F0151574BCEE1872467C5777165B42A8A3B34D9E2D6F3527559595DBDF9D1462",
+      "sourceIdentitySha256": "06726612A80335046AE8EC02B35321064332E841BF80F869E719B7A4B350ADB8"
+    }
+  },
+  "buildMatch": {
+    "development": "E:\\UnityProject\\VampireLike3D\\Builds\\Review54",
+    "release": "E:\\UnityProject\\VampireLike3D\\Builds\\Release54",
+    "development_flag": true,
+    "release_flag": false,
+    "source_files": 1313,
+    "source_differences": [],
+    "development_bundles": 24,
+    "release_bundles": 24,
+    "bundle_differences": [],
+    "exact_source_match": true,
+    "exact_bundle_match": true,
+    "scope": "Static identity only; gameplay, art and performance need their separate reports."
+  },
+  "workspaceIdentity": {
+    "candidate": "Round54",
+    "recordedUtc": "2026-10-23T02:25:27.490544+00:00",
+    "sourceFiles": 1313,
+    "allPresentFilesMatch": true,
+    "missing": [
+      "Assets/AddressableAssetsData/link.xml",
+      "Assets/AddressableAssetsData/link.xml.meta"
+    ],
+    "different": [],
+    "preExistingMissingGeneratedFiles": [
+      "Assets/AddressableAssetsData/link.xml",
+      "Assets/AddressableAssetsData/link.xml.meta"
+    ],
+    "scope": "Main tree already lacked two generated AA linker files before this task; preserve pre-existing deletions. Frozen Player source includes generated copies from isolated build. No claim of an exact all-file main-tree match when missing files remain.",
+    "postTestsUtc": "2026-10-23T02:37:30.300466+00:00",
+    "postTestsDifferent": [],
+    "postTestsMissing": [
+      "Assets/AddressableAssetsData/link.xml",
+      "Assets/AddressableAssetsData/link.xml.meta"
+    ]
+  },
+  "releaseAuditPassed": true,
+  "scope": "Read-only identity/report audit; does not add visual points, certify whole main tree exact identity, performance or final product.",
+  "sourceAuditFiles": [
+    {
+      "path": "Artifacts/BuildMatch54.json",
+      "sha256": "0E9972AD056778279E830A2A98E7BA54CE17684CBC3E4EACCAF8A65BF96ECACE"
+    },
+    {
+      "path": "Artifacts/Workspace54Identity.json",
+      "sha256": "5D2A7974C9BA0385153BC4D117BDFFEE5F0F3DE130651C44F804D998D23840D0"
+    },
+    {
+      "path": "Artifacts/ReleaseAudit54.json",
+      "sha256": "0FA430F6EEFBFF4A824184B0B9925045DD17FFC5202B39C0401BE1B8DF8F6719"
+    },
+    {
+      "path": "Artifacts/Functional54EvidenceAudit.json",
+      "sha256": "32D09D19C16C039F4114CDF242FAEA86C793794405FF406B6C02B5F167DE9976"
+    },
+    {
+      "path": "Artifacts/PopupMotion54Audit.json",
+      "sha256": "6EFB903D192597B07BC1CC972D8FD2E440FECFC847CA08A025ED3727E88D24BB"
+    }
+  ]
+}
