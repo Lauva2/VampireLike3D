@@ -58,15 +58,15 @@ namespace ExternalValidation
                 }
                 if(game.Flow==GameFlow.Settling)
                 {
-                    if(!game.UI.View.results.activeSelf){yield return null;continue;}
+                    if(!(game.UI.GetPanel(UIPanelId.Results)?.gameObject.activeSelf == true)){yield return null;continue;}
                     if(game.Player!=null&&game.Player.Health<=0)deaths++;
                     Capture("settlement-"+runs);settled=true;
-                    game.UI.View.results.transform.Find("ResultsContinue").GetComponent<Button>().onClick.Invoke();yield return null;continue;
+                    game.UI.GetPanel(UIPanelId.Results)?.gameObject.transform.Find("ResultsContinue").GetComponent<Button>().onClick.Invoke();yield return null;continue;
                 }
                 if(!game.Ready){yield return null;continue;}
                 if(restart&&game.Run.seconds>3){desertVisited=true;Capture("restored-desert-run");game.FinishRun(true);yield return null;continue;}
-                if(game.UI.View.victory.activeSelf){Capture("boss-victory");game.UI.View.victory.transform.Find("VictoryRetreat").GetComponent<Button>().onClick.Invoke();yield return null;continue;}
-                if(game.UI.View.upgrade.activeSelf)Choose();
+                if(game.UI.GetPanel(UIPanelId.Victory)?.gameObject != null && (game.UI.GetPanel(UIPanelId.Victory)?.gameObject.activeSelf == true)){Capture("boss-victory");game.UI.GetPanel(UIPanelId.Victory)?.gameObject.transform.Find("VictoryRetreat").GetComponent<Button>().onClick.Invoke();yield return null;continue;}
+                if(game.UI.GetPanel(UIPanelId.Upgrade)?.gameObject != null && (game.UI.GetPanel(UIPanelId.Upgrade)?.gameObject.activeSelf == true))Choose();
                 if(!combatCaptured&&game.Run.seconds>30){combatCaptured=true;Capture("natural-combat");}
                 if(!bossCaptured&&game.Combat.Boss!=null){bossCaptured=true;Capture("voluntary-boss");}
                 if(Time.unscaledTime>nextDecision&&!game.IsPaused){nextDecision=Time.unscaledTime+.1f;Purchase();Move();}
@@ -77,23 +77,26 @@ namespace ExternalValidation
         IEnumerator VerifySelectionRenderers()
         {
             Button play=null,close=null;
-            foreach(var button in game.UI.View.menu.GetComponentsInChildren<Button>(true))if(button.name=="PlayButton")play=button;
-            foreach(var button in game.UI.View.selection.GetComponentsInChildren<Button>(true))if(button.name=="SelectionClose")close=button;
+            foreach(var button in game.UI.GetPanel(UIPanelId.Menu)?.gameObject.GetComponentsInChildren<Button>(true))if(button.name=="PlayButton")play=button;
+            game.UI.ShowSelection(); yield return game.UI.WaitForPanels();
+            foreach(var button in game.UI.GetPanel(UIPanelId.Selection)?.gameObject.GetComponentsInChildren<Button>(true))if(button.name=="SelectionClose")close=button;
+            game.UI.CloseModal(); yield return game.UI.WaitForPanels();
             if(play==null||close==null){errors.Add("Production selection buttons missing");yield break;}
             for(int cycle=0;cycle<8&&errors.Count==0;cycle++)
             {
                 play.onClick.Invoke();
+                yield return game.UI.WaitForPanels();
                 if(game.UI.ActiveModal!="selection"){errors.Add("Play did not open production selection");yield break;}
-                foreach(var widget in game.UI.View.characterList.GetComponentsInChildren<UIWidget>())if(widget.button.interactable){widget.button.onClick.Invoke();break;}
-                foreach(var scroll in game.UI.View.selection.GetComponentsInChildren<ScrollRect>())scroll.verticalNormalizedPosition=cycle%2;
+                foreach(var widget in game.UI.GetView<SelectionView>(UIPanelId.Selection)?.characterList.GetComponentsInChildren<UIWidget>())if(widget.button.interactable){widget.button.onClick.Invoke();break;}
+                foreach(var scroll in game.UI.GetPanel(UIPanelId.Selection)?.gameObject.GetComponentsInChildren<ScrollRect>())scroll.verticalNormalizedPosition=cycle%2;
                 Canvas.ForceUpdateCanvases();
-                foreach(var mask in game.UI.View.selection.GetComponentsInChildren<RectMask2D>())mask.PerformClipping();
-                foreach(var graphic in game.UI.View.GetComponentsInChildren<Graphic>(true))
+                foreach(var mask in game.UI.GetPanel(UIPanelId.Selection)?.gameObject.GetComponentsInChildren<RectMask2D>())mask.PerformClipping();
+                foreach(var graphic in game.UI.Root.GetComponentsInChildren<Graphic>(true))
                     if(graphic.GetComponent<CanvasRenderer>()==null||graphic.canvasRenderer!=graphic.GetComponent<CanvasRenderer>())errors.Add("Invalid production CanvasRenderer: "+graphic.name);
                 yield return null;
                 if(cycle==0)Capture("selection-renderers");
                 close.onClick.Invoke();Canvas.ForceUpdateCanvases();yield return null;
-                if(game.UI.ActiveModal!="menu"||!game.UI.View.menu.activeSelf)errors.Add("Selection close did not restore production menu");
+                if(game.UI.ActiveModal!="menu"||!(game.UI.GetPanel(UIPanelId.Menu)?.gameObject.activeSelf == true))errors.Add("Selection close did not restore production menu");
                 File.AppendAllText(Path.Combine(output,"SelectionRendererCycles.jsonl"),"{\"cycle\":"+(cycle+1)+",\"shrineChoices\":"+shrineChoices+",\"errorCount\":"+errors.Count+",\"closedModal\":\""+game.UI.ActiveModal+"\"}\n");
             }
         }
@@ -110,10 +113,11 @@ namespace ExternalValidation
         }
         void Choose()
         {
+            if (game.UI.IsLoading || game.UI.GetView<UpgradeView>(UIPanelId.Upgrade)?.upgradeList == null) return;
             if (game.UI.ActiveModal == "blessing")
             {
-                var fade = game.UI.View.upgrade.GetComponent<CanvasGroup>(); if (fade != null && fade.alpha < .99f) return;
-                foreach (Transform child in game.UI.View.upgradeList)
+                var fade = game.UI.GetPanel(UIPanelId.Upgrade)?.gameObject.GetComponent<CanvasGroup>(); if (fade != null && fade.alpha < .99f) return;
+                foreach (Transform child in game.UI.GetView<UpgradeView>(UIPanelId.Upgrade)?.upgradeList)
                 {
                     var card = child.GetComponent<UIWidget>(); if (card == null || !child.gameObject.activeSelf) continue;
                     var definition = Array.Find(game.Catalog.blessings, b => b.name == card.title.text);
@@ -131,7 +135,7 @@ namespace ExternalValidation
                 return;
             }
             UIWidget chosen=null;float best=-1000;
-            foreach(Transform t in game.UI.View.upgradeList){var w=t.GetComponent<UIWidget>();if(w==null||!w.gameObject.activeSelf)continue;var u=Array.Find(game.Catalog.upgrades,x=>x.name==w.title.text);if(u!=null&&Score(u)>best){best=Score(u);chosen=w;}}
+            foreach(Transform t in game.UI.GetView<UpgradeView>(UIPanelId.Upgrade)?.upgradeList){var w=t.GetComponent<UIWidget>();if(w==null||!w.gameObject.activeSelf)continue;var u=Array.Find(game.Catalog.upgrades,x=>x.name==w.title.text);if(u!=null&&Score(u)>best){best=Score(u);chosen=w;}}
             if(chosen!=null)chosen.button.onClick.Invoke();else game.Progression.SkipLevel();
         }
         void Purchase()
@@ -155,7 +159,7 @@ namespace ExternalValidation
                     else {route++;interacted=false;}
                 }
             }
-            else if(game.Combat.Boss!=null)
+            else if(game.Combat.BossChallengeActive)
             {
                 Vector3 center=game.Combat.BossCenter,localGoal=center+new Vector3(Mathf.Sin(Time.time*.6f)*8,0,Mathf.Cos(Time.time*.6f)*8);
                 goal=global+new Vector2(localGoal.x-game.Player.transform.position.x,localGoal.z-game.Player.transform.position.z);
@@ -166,7 +170,7 @@ namespace ExternalValidation
                 if(boss!=null&&game.Run.seconds>=180){goal=global+new Vector2(boss.position.x-game.Player.transform.position.x,boss.position.z-game.Player.transform.position.z);if(Vector2.Distance(global,goal)<4)Interact();}
                 else goal=new Vector2(Mathf.Sin(Time.time*.2f)*9,64+Mathf.Cos(Time.time*.2f)*9);
             }
-            if(game.Combat.Boss==null&&game.Run.seconds%60<20)
+            if(!game.Combat.BossChallengeActive&&game.Run.seconds%60<20)
             {
                 ExperienceOrb nearest=null;float best=8;
                 foreach(var orb in game.GetRunObjects<ExperienceOrb>()){float d=Vector3.Distance(orb.transform.position,game.Player.transform.position);if(d<best){best=d;nearest=orb;}}
@@ -182,7 +186,7 @@ namespace ExternalValidation
         void Capture(string name)
         {
             Camera camera=Camera.main;if(camera==null)return;
-            var canvas=game.UI.View.GetComponent<Canvas>();var previousMode=canvas.renderMode;var previousCamera=canvas.worldCamera;float previousDistance=canvas.planeDistance;
+            var canvas=game.UI.Root.GetComponent<Canvas>();var previousMode=canvas.renderMode;var previousCamera=canvas.worldCamera;float previousDistance=canvas.planeDistance;
             var previousTarget=camera.targetTexture;var previousActive=RenderTexture.active;
             var target=new RenderTexture(1920,1080,24){antiAliasing=4};target.Create();Texture2D image=null;
             try{canvas.renderMode=RenderMode.ScreenSpaceCamera;canvas.worldCamera=camera;canvas.planeDistance=1;camera.targetTexture=target;Canvas.ForceUpdateCanvases();camera.Render();RenderTexture.active=target;image=new Texture2D(1920,1080,TextureFormat.RGB24,false);image.ReadPixels(new Rect(0,0,1920,1080),0,0);image.Apply();File.WriteAllBytes(Path.Combine(output,name+".png"),image.EncodeToPNG());}

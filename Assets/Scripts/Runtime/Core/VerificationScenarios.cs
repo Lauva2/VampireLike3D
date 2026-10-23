@@ -139,6 +139,7 @@ namespace VampireLike
                 ClearEnemies();Vector3 center=game.Player.transform.position+Vector3.forward*8;
                 string bossId=game.Catalog.Biome((BiomeId)biome).bossId;
                 game.Combat.ActivateBoss("verification-boss-"+biome,center,(BiomeId)biome,bossId);
+                yield return WaitForBossReady(true);
                 var boss=game.Combat.Boss;Check(boss!=null,"Voluntary boss activation "+biome);
                 if(boss!=null)
                 {
@@ -148,6 +149,7 @@ namespace VampireLike
                         boss.Hit(new DamagePacket{damage=25,source=AbilityKind.Gun});Place(center+Vector3.back*35);yield return AutoBattle(2.5f);
                         Check(game.Combat.Boss==null,"Boss disengages after exit buffer");
                         Place(center+Vector3.back*8);game.Combat.ActivateBoss("verification-boss-"+biome,center,(BiomeId)biome,bossId);
+                        yield return WaitForBossReady(true);
                         boss=game.Combat.Boss;Check(boss!=null&&Mathf.Approximately(boss.Health,boss.MaxHealth),"Reactivated boss restores full health");
                         if(boss!=null)boss.DiagnosticImmortal=true;
                     }
@@ -157,7 +159,7 @@ namespace VampireLike
                         boss.DiagnosticHealth(.65f);yield return AutoBattle(.6f);yield return Capture("boss-"+biome);
                         yield return Sequence("boss-attacks-"+biome,12,false);
                         boss.DiagnosticImmortal=false;boss.Hit(new DamagePacket{damage=10000000,source=AbilityKind.Sword});
-                        game.UI.View.victory.SetActive(false);yield return RealtimeSequence("boss-death-"+biome,1.35f);game.UI.View.victory.SetActive(true);
+                        game.UI.GetPanel(UIPanelId.Victory)?.gameObject.SetActive(false);yield return RealtimeSequence("boss-death-"+biome,1.35f);game.UI.GetPanel(UIPanelId.Victory)?.gameObject.SetActive(true);
                         yield return Capture("victory-"+biome);Check(game.Save.Profile.bossWins[ContentIds.RegionIndex((BiomeId)biome)],"Boss first victory persists "+biome);
                         Check(game.Save.MapUnlocked(biome>=5?BiomeId.Mixed:(BiomeId)(biome==3?4:biome+1)),"First victory unlocks next map "+biome);
                         game.UI.CloseModal();
@@ -221,7 +223,7 @@ namespace VampireLike
             {
                 if(!game.Ready){Check(false,"Run remains active during sequence "+name+" frame "+frame);break;}
                 if(game.Player!=null)game.Player.Heal(10000);
-                if(game.UI.View.upgrade.activeSelf){var choices=game.Progression.Choices();if(choices.Count>0)game.Progression.Apply(choices[0].id,false);else game.Progression.SkipLevel();}
+                if(game.UI.GetPanel(UIPanelId.Upgrade)?.gameObject != null && (game.UI.GetPanel(UIPanelId.Upgrade)?.gameObject.activeSelf == true)){var choices=game.Progression.Choices();if(choices.Count>0)game.Progression.Apply(choices[0].id,false);else game.Progression.SkipLevel();}
                 if(name.StartsWith("role-closeup"))
                 {
                     game.Inputs.ForVerification(Vector2.zero);Vector3 center=game.Player.transform.position+Vector3.up*1.4f;
@@ -240,7 +242,7 @@ namespace VampireLike
             float end=Time.time+seconds,deadline=Time.realtimeSinceStartup+15;
             while(Time.time<end&&Time.realtimeSinceStartup<deadline)
             {
-                if(game.UI.View.upgrade.activeSelf){var options=game.Progression.Choices();if(options.Count>0)game.Progression.Apply(options[0].id,false);else game.Progression.SkipLevel();}
+                if(game.UI.GetPanel(UIPanelId.Upgrade)?.gameObject != null && (game.UI.GetPanel(UIPanelId.Upgrade)?.gameObject.activeSelf == true)){var options=game.Progression.Choices();if(options.Count>0)game.Progression.Apply(options[0].id,false);else game.Progression.SkipLevel();}
                 yield return null;
             }
             Check(Time.time>=end,"Gameplay clock advanced for timed action assertion");

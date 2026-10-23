@@ -63,6 +63,9 @@ Unity 2022.3.62f2 制作的中文、单人离线 3D 俯视自动攻击游戏。�
 
 ## 文档
 
+- [移除UIRefs与类型化面板查询](Docs/UIRefsRemoval.md)
+- [每个面板独立MVC脚本与扩展方式](Docs/PanelMVC.md)
+- [UI MVC、四层与面板缓存](Docs/UIFramework55.md)
 - [跨电脑接续记录与下一步](Docs/SessionHandoff.md)
 - [游玩与存档说明](Docs/PlayerGuide.md)
 - [确认的设计](Docs/GameDesign.md)

@@ -99,7 +99,7 @@ namespace VampireLike
             var rig=CameraRig.Active;var camera=Camera.main;Vector3 position=camera.transform.position;Quaternion rotation=camera.transform.rotation;float size=camera.orthographicSize;int mask=camera.cullingMask;
             var parts=actor.GetComponentsInChildren<Transform>(true);var layers=new int[parts.Length];for(int i=0;i<parts.Length;i++){layers[i]=parts[i].gameObject.layer;parts[i].gameObject.layer=12;}
             camera.cullingMask=(1<<12)|(1<<5);
-            rig.enabled=false;game.Pause("model-evidence",true);game.UI.View.hud.SetActive(false);
+            rig.enabled=false;game.Pause("model-evidence",true);game.UI.GetPanel(UIPanelId.HUD)?.gameObject.SetActive(false);
             bool bar=actor.barRoot!=null&&actor.barRoot.gameObject.activeSelf;if(actor.barRoot!=null)actor.barRoot.gameObject.SetActive(false);
             Bounds bounds=new Bounds(actor.transform.position+Vector3.up,.1f*Vector3.one);bool first=true;
             foreach(var renderer in actor.GetComponentsInChildren<Renderer>())
@@ -113,7 +113,7 @@ namespace VampireLike
             File.WriteAllText(Path.Combine(output,"Captures",name+".model.json"),"{\"source\":\"actual runtime actor\",\"cameraIsolatesActorFromForeground\":true}");
             for(int i=0;i<parts.Length;i++)parts[i].gameObject.layer=layers[i];camera.cullingMask=mask;
             if(actor.barRoot!=null)actor.barRoot.gameObject.SetActive(bar);
-            camera.transform.SetPositionAndRotation(position,rotation);camera.orthographicSize=size;rig.enabled=true;game.UI.View.hud.SetActive(true);game.Pause("model-evidence",false);
+            camera.transform.SetPositionAndRotation(position,rotation);camera.orthographicSize=size;rig.enabled=true;game.UI.GetPanel(UIPanelId.HUD)?.gameObject.SetActive(true);game.Pause("model-evidence",false);
         }
         IEnumerator FeedbackEvidence()
         {
@@ -149,7 +149,7 @@ namespace VampireLike
             yield return AdvanceGameplay(.8f);ClearEnemies();ClearExpansionEffects();
             Check(!game.IsPaused&&!game.Player.Invulnerable,"Death capture begins after pending upgrade and invulnerability windows expire");
             game.Player.Hurt(100000);yield return RealtimeSequence("player-defeat",.85f);
-            Check(game.Flow==GameFlow.Settling&&game.UI.View.results.activeSelf,"Player defeat animation reaches death settlement");
+            Check(game.Flow==GameFlow.Settling&&(game.UI.GetPanel(UIPanelId.Results)?.gameObject.activeSelf == true),"Player defeat animation reaches death settlement");
             yield return Capture("death-results");
         }
     }

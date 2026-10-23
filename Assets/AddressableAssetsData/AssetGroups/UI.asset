@@ -17,8 +17,92 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: a706ce9c09bd94349b7bce8579d530b2
   m_SerializeEntries:
+  - m_GUID: 0815fbe5a6eea7241aa440ce22b63f25
+    m_Address: ui/hud
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2f9e204958198054fbe228e24ad0bcac
+    m_Address: ui/victory
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3ee1ecfa2a4451945890d98310fda879
+    m_Address: ui/settings
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 423dfcd4cab0100409f5d5993592a30e
+    m_Address: ui/results
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5e3b623bbe786084cbeb8c4552d78549
+    m_Address: ui/map
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5fd17f76d133d7546a18bc508e357102
     m_Address: ui/root
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7c9bc63994664e74c941cf3d73d81724
+    m_Address: ui/menu
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 96925b8e54bc2234886cd085236b008a
+    m_Address: ui/progress
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a40a98a3e8f16934b84d1c02fd8a5378
+    m_Address: ui/skills
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c3e4d403db215a5408714dcf4d1e31dc
+    m_Address: ui/toast
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c5a3594d7e6e6c0469e570ad11919d2a
+    m_Address: ui/pause
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cd17859e290ab5341a17ddc07d2ca787
+    m_Address: ui/upgrade
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d9079daed6e757541bbdf2fe9d29bf36
+    m_Address: ui/selection
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: db5d8a93de912e64a90ef59e08828f2a
+    m_Address: ui/damageflash
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f2427f847f01f1247bfde3ca5b3f2aaa
+    m_Address: ui/loading
     m_ReadOnly: 0
     m_SerializedLabels:
     - game

@@ -114,12 +114,12 @@ namespace VampireLike
             Vector3 previous = camera.transform.position; Quaternion rotation = camera.transform.rotation; float zoom = camera.orthographicSize; int mask = camera.cullingMask;
             var parts = model.GetComponentsInChildren<Transform>(true); var layers = new int[parts.Length];
             for (int i = 0; i < parts.Length; i++) { layers[i] = parts[i].gameObject.layer; parts[i].gameObject.layer = 12; }
-            rig.enabled = false; game.UI.View.hud.SetActive(false); camera.cullingMask = 1 << 12;
+            rig.enabled = false; game.UI.GetPanel(UIPanelId.HUD)?.gameObject.SetActive(false); camera.cullingMask = 1 << 12;
             camera.transform.position = model.transform.position + new Vector3(2.1f, 1.8f, 3); camera.transform.LookAt(model.transform.position); camera.orthographicSize = .95f;
             yield return Capture("weapon-" + definition.id, 1600, 1200);
             for (int i = 0; i < parts.Length; i++) parts[i].gameObject.layer = layers[i];
             camera.transform.SetPositionAndRotation(previous, rotation); camera.orthographicSize = zoom; camera.cullingMask = mask;
-            rig.enabled = true; game.UI.View.hud.SetActive(true); game.Pause("weapon-portrait", false); game.Pool.Return(model);
+            rig.enabled = true; game.UI.GetPanel(UIPanelId.HUD)?.gameObject.SetActive(true); game.Pause("weapon-portrait", false); game.Pool.Return(model);
         }
         IEnumerator VerifyExpansionEnemies()
         {

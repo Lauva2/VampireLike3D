@@ -415,12 +415,6 @@ MonoBehaviour:
       m_SubObjectName: 
       m_SubObjectType: 
       m_EditorAssetChanged: 0
-  - id: ui/root
-    reference:
-      m_AssetGUID: 5fd17f76d133d7546a18bc508e357102
-      m_SubObjectName: 
-      m_SubObjectType: 
-      m_EditorAssetChanged: 0
   - id: terrain/swamp
     reference:
       m_AssetGUID: 8ebe5ceba6a6ab64fb2718b13e290468
@@ -577,6 +571,96 @@ MonoBehaviour:
       m_SubObjectName: 
       m_SubObjectType: 
       m_EditorAssetChanged: 0
+  - id: ui/root
+    reference:
+      m_AssetGUID: 5fd17f76d133d7546a18bc508e357102
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: ui/menu
+    reference:
+      m_AssetGUID: 7c9bc63994664e74c941cf3d73d81724
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: ui/selection
+    reference:
+      m_AssetGUID: d9079daed6e757541bbdf2fe9d29bf36
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: ui/hud
+    reference:
+      m_AssetGUID: 0815fbe5a6eea7241aa440ce22b63f25
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: ui/upgrade
+    reference:
+      m_AssetGUID: cd17859e290ab5341a17ddc07d2ca787
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: ui/skills
+    reference:
+      m_AssetGUID: a40a98a3e8f16934b84d1c02fd8a5378
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: ui/pause
+    reference:
+      m_AssetGUID: c5a3594d7e6e6c0469e570ad11919d2a
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: ui/map
+    reference:
+      m_AssetGUID: 5e3b623bbe786084cbeb8c4552d78549
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: ui/progress
+    reference:
+      m_AssetGUID: 96925b8e54bc2234886cd085236b008a
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: ui/settings
+    reference:
+      m_AssetGUID: 3ee1ecfa2a4451945890d98310fda879
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: ui/results
+    reference:
+      m_AssetGUID: 423dfcd4cab0100409f5d5993592a30e
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: ui/victory
+    reference:
+      m_AssetGUID: 2f9e204958198054fbe228e24ad0bcac
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: ui/loading
+    reference:
+      m_AssetGUID: f2427f847f01f1247bfde3ca5b3f2aaa
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: ui/toast
+    reference:
+      m_AssetGUID: c3e4d403db215a5408714dcf4d1e31dc
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - id: ui/damageflash
+    reference:
+      m_AssetGUID: db5d8a93de912e64a90ef59e08828f2a
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
   audio:
   - id: sound/gun
     reference:
@@ -711,7 +795,7 @@ MonoBehaviour:
   abilities:
   - id: gun
     name: "\u81EA\u52A8\u624B\u67AA"
-    description: "\u81EA\u52A8\u7784\u51C6\uFF0C\u6301\u7EED\u5C04\u51FB\u9644\u8FD1\u76EE\u6807\u3002"
+    description: "自动瞄准点射，连射与散射可以叠加。"
     prefabId: weapon/gun
     projectileId: projectile/gun
     taskId: 
@@ -723,7 +807,7 @@ MonoBehaviour:
     speed: 25
   - id: fireball
     name: "\u706B\u7403"
-    description: "\u6295\u5C04\u706B\u7403\uFF0C\u547D\u4E2D\u540E\u9020\u6210\u8303\u56F4\u7206\u70B8\u3002"
+    description: "短暂蓄亮后抛射火球，落点爆炸清扫敌群。"
     prefabId: weapon/fireball
     projectileId: projectile/fireball
     taskId: 
@@ -735,7 +819,7 @@ MonoBehaviour:
     speed: 13
   - id: sword
     name: "\u98DE\u5251"
-    description: "\u98DE\u5251\u8FFD\u51FB\u76EE\u6807\uFF0C\u5E76\u8D2F\u7A7F\u8DEF\u5F84\u4E0A\u7684\u654C\u4EBA\u3002"
+    description: "飞剑悬停后追敌突刺，贯穿敌人并返回。"
     prefabId: weapon/sword
     projectileId: projectile/sword
     taskId: 
@@ -747,7 +831,7 @@ MonoBehaviour:
     speed: 19
   - id: spirit
     name: "\u7075\u4F53"
-    description: "\u53EC\u5524\u7075\u4F53\u73AF\u7ED5\u89D2\u8272\uFF0C\u81EA\u52A8\u53D1\u5C04\u7075\u5F39\u3002"
+    description: "召唤灵体跟随、蓄势扑击敌人并回位。"
     prefabId: weapon/spirit
     projectileId: projectile/spirit
     taskId: spirit
@@ -759,7 +843,7 @@ MonoBehaviour:
     speed: 17
   - id: cannon
     name: "\u7206\u7834\u70AE"
-    description: "\u5468\u671F\u6027\u53D1\u5C04\u7206\u7834\u5F39\uFF0C\u6E05\u626B\u5927\u7247\u654C\u7FA4\u3002"
+    description: "装填后高抛炮弹，落地爆炸并显示落点。"
     prefabId: weapon/cannon
     projectileId: projectile/cannon
     taskId: cannon
@@ -771,7 +855,7 @@ MonoBehaviour:
     speed: 13
   - id: rune
     name: "\u7B26\u9635"
-    description: "\u5468\u671F\u6027\u6FC0\u6D3B\u8EAB\u8FB9\u7684\u7B26\u9635\uFF0C\u9707\u8361\u9644\u8FD1\u654C\u4EBA\u3002"
+    description: "展开脚下符阵，叠阵强化追加分层脉冲。"
     prefabId: weapon/rune
     projectileId: projectile/rune
     taskId: rune
@@ -783,7 +867,7 @@ MonoBehaviour:
     speed: 10
   - id: crossbow
     name: "\u8FDE\u5F29"
-    description: "\u5FEB\u901F\u5C04\u51FA\u8D2F\u7A7F\u5F29\u77E2\uFF0C\u64C5\u957F\u76F4\u7EBF\u6E05\u573A\u3002"
+    description: "短暂拉弦后释放高速弩矢，沿平行轨道贯穿敌人。"
     prefabId: weapon/crossbow
     projectileId: projectile/crossbow
     taskId: 
@@ -795,7 +879,7 @@ MonoBehaviour:
     speed: 30
   - id: boomerang
     name: "\u56DE\u65CB\u5203"
-    description: "\u5411\u5916\u63B7\u51FA\u540E\u8FD4\u56DE\uFF0C\u5F80\u8FD4\u5404\u53EF\u547D\u4E2D\u4E00\u6B21\u3002"
+    description: "沿弧线掷出回旋刃，回程随玩家走位弯曲，往返各命中一次。"
     prefabId: weapon/boomerang
     projectileId: projectile/boomerang
     taskId: boomerang
@@ -807,7 +891,7 @@ MonoBehaviour:
     speed: 17
   - id: froststaff
     name: "\u5BD2\u971C\u6CD5\u6756"
-    description: "\u51B0\u6676\u547D\u4E2D\u7206\u88C2\uFF0C\u51CF\u901F\u5E76\u6709\u6982\u7387\u51BB\u7ED3\u5468\u56F4\u654C\u4EBA\u3002"
+    description: "向前喷出四段扇形寒气，连续接触积累冰冻。"
     prefabId: weapon/froststaff
     projectileId: projectile/froststaff
     taskId: froststaff
@@ -815,7 +899,7 @@ MonoBehaviour:
     color: {r: 0.5137255, g: 0.74509805, b: 0.88235295, a: 1}
     damage: 23
     cooldown: 2.8
-    range: 18
+    range: 8
     speed: 15
   upgrades:
   - id: damage
@@ -930,7 +1014,7 @@ MonoBehaviour:
     color: {r: 0.14901961, g: 0.5568628, b: 0.54509807, a: 1}
   - id: ability.gun
     name: "\u81EA\u52A8\u624B\u67AA"
-    description: "\u81EA\u52A8\u7784\u51C6\uFF0C\u6301\u7EED\u5C04\u51FB\u9644\u8FD1\u76EE\u6807\u3002"
+    description: "自动瞄准点射，连射与散射可以叠加。"
     branch: "\u5F39\u9053"
     taskId: 
     target: 0
@@ -941,7 +1025,7 @@ MonoBehaviour:
     color: {r: 0.8901961, g: 0.72156864, b: 0.34901962, a: 1}
   - id: ability.fireball
     name: "\u706B\u7403"
-    description: "\u6295\u5C04\u706B\u7403\uFF0C\u547D\u4E2D\u540E\u9020\u6210\u8303\u56F4\u7206\u70B8\u3002"
+    description: "短暂蓄亮后抛射火球，落点爆炸清扫敌群。"
     branch: "\u5143\u7D20"
     taskId: 
     target: 1
@@ -952,7 +1036,7 @@ MonoBehaviour:
     color: {r: 0.9529412, g: 0.6156863, b: 0.25882354, a: 1}
   - id: ability.sword
     name: "\u98DE\u5251"
-    description: "\u98DE\u5251\u8FFD\u51FB\u76EE\u6807\uFF0C\u5E76\u8D2F\u7A7F\u8DEF\u5F84\u4E0A\u7684\u654C\u4EBA\u3002"
+    description: "飞剑悬停后追敌突刺，贯穿敌人并返回。"
     branch: "\u5251\u4FEE"
     taskId: 
     target: 2
@@ -963,7 +1047,7 @@ MonoBehaviour:
     color: {r: 0.14901961, g: 0.5568628, b: 0.54509807, a: 1}
   - id: ability.spirit
     name: "\u7075\u4F53"
-    description: "\u53EC\u5524\u7075\u4F53\u73AF\u7ED5\u89D2\u8272\uFF0C\u81EA\u52A8\u53D1\u5C04\u7075\u5F39\u3002"
+    description: "召唤灵体跟随、蓄势扑击敌人并回位。"
     branch: "\u53EC\u5524"
     taskId: spirit
     target: 3
@@ -974,7 +1058,7 @@ MonoBehaviour:
     color: {r: 0.8901961, g: 0.72156864, b: 0.34901962, a: 1}
   - id: ability.cannon
     name: "\u7206\u7834\u70AE"
-    description: "\u5468\u671F\u6027\u53D1\u5C04\u7206\u7834\u5F39\uFF0C\u6E05\u626B\u5927\u7247\u654C\u7FA4\u3002"
+    description: "装填后高抛炮弹，落地爆炸并显示落点。"
     branch: "\u7206\u7834"
     taskId: cannon
     target: 4
@@ -985,7 +1069,7 @@ MonoBehaviour:
     color: {r: 0.8901961, g: 0.72156864, b: 0.34901962, a: 1}
   - id: ability.rune
     name: "\u7B26\u9635"
-    description: "\u5468\u671F\u6027\u6FC0\u6D3B\u8EAB\u8FB9\u7684\u7B26\u9635\uFF0C\u9707\u8361\u9644\u8FD1\u654C\u4EBA\u3002"
+    description: "展开脚下符阵，叠阵强化追加分层脉冲。"
     branch: "\u7B26\u9635"
     taskId: rune
     target: 5
@@ -996,7 +1080,7 @@ MonoBehaviour:
     color: {r: 0.8901961, g: 0.72156864, b: 0.34901962, a: 1}
   - id: burn
     name: "\u707C\u70E7"
-    description: "\u706B\u7403\u547D\u4E2D\u540E\u9644\u52A0\u6301\u7EED\u707C\u70E7\u3002"
+    description: "火球附加灼烧，并在爆炸处留下短暂火焰区域。"
     branch: "\u5143\u7D20"
     taskId: 
     target: 1
@@ -1051,7 +1135,7 @@ MonoBehaviour:
     color: {r: 0.9529412, g: 0.6156863, b: 0.25882354, a: 1}
   - id: burst
     name: "\u8FDE\u5C04"
-    description: "\u624B\u67AA\u6BCF\u6B21\u989D\u5916\u53D1\u5C041\u679A\u5B50\u5F39\u3002"
+    description: "手枪每轮额外连续射击1次，每次保留散射弹道。"
     branch: "\u5F39\u9053"
     taskId: 
     target: 0
@@ -1106,7 +1190,7 @@ MonoBehaviour:
     color: {r: 0.8901961, g: 0.72156864, b: 0.34901962, a: 1}
   - id: swordcount
     name: "\u98DE\u5251\u589E\u6B96"
-    description: "\u6BCF\u6B21\u8FFD\u51FB\u989D\u5916\u53D1\u5C041\u67C4\u98DE\u5251\u3002"
+    description: "每轮额外派出1柄追击飞剑。"
     branch: "\u5251\u4FEE"
     taskId: 
     target: 2
@@ -1139,7 +1223,7 @@ MonoBehaviour:
     color: {r: 0.14901961, g: 0.5568628, b: 0.54509807, a: 1}
   - id: rain
     name: "\u4E07\u5251\u9F50\u53D1"
-    description: "\u5468\u671F\u6027\u5411\u9644\u8FD1\u591A\u4E2A\u76EE\u6807\u53D1\u5C04\u5251\u96E8\u3002"
+    description: "周期性从多个目标上方落下剑雨，保留追击与剑阵。"
     branch: "\u5251\u4FEE"
     taskId: rain
     target: 2
@@ -1150,7 +1234,7 @@ MonoBehaviour:
     color: {r: 0.14901961, g: 0.5568628, b: 0.54509807, a: 1}
   - id: wave
     name: "\u5251\u6C14"
-    description: "\u98DE\u5251\u51FA\u51FB\u65F6\u5BF9\u76EE\u6807\u9644\u8FD1\u91CA\u653E\u8303\u56F4\u5251\u6C14\u3002"
+    description: "飞剑命中后对附近敌人释放范围剑气。"
     branch: "\u5251\u4FEE"
     taskId: wave
     target: 2
@@ -1160,8 +1244,8 @@ MonoBehaviour:
     unique: 1
     color: {r: 0.14901961, g: 0.5568628, b: 0.54509807, a: 1}
   - id: spiritcount
-    name: "\u7075\u5F39\u589E\u6B96"
-    description: "\u7075\u4F53\u6BCF\u6B21\u989D\u5916\u53D1\u5C041\u679A\u7075\u5F39\u3002"
+    name: "灵体增殖"
+    description: "额外召唤1个灵体，共同扑击目标。"
     branch: "\u53EC\u5524"
     taskId: 
     target: 3
@@ -1183,7 +1267,7 @@ MonoBehaviour:
     color: {r: 0.8901961, g: 0.72156864, b: 0.34901962, a: 1}
   - id: spiritspeed
     name: "\u5FC3\u610F\u76F8\u901A"
-    description: "\u7075\u4F53\u653B\u51FB\u901F\u5EA6\u63D0\u9AD820%\u3002"
+    description: "灵体出击频率提高20%，扑击随之加快。"
     branch: "\u53EC\u5524"
     taskId: 
     target: 3
@@ -1227,7 +1311,7 @@ MonoBehaviour:
     color: {r: 0.8901961, g: 0.72156864, b: 0.34901962, a: 1}
   - id: runepulse
     name: "\u53E0\u9635"
-    description: "\u7B26\u9635\u9707\u8361\u4F24\u5BB3\u63D0\u9AD835%\u3002"
+    description: "符阵总伤害提高35%，并追加一层脉冲。"
     branch: "\u7B26\u9635"
     taskId: 
     target: 5
@@ -1282,7 +1366,7 @@ MonoBehaviour:
     color: {r: 0.14901961, g: 0.5568628, b: 0.54509807, a: 1}
   - id: ability.crossbow
     name: "\u8FDE\u5F29"
-    description: "\u83B7\u5F97\u8FDE\u5F29\uFF0C\u53EF\u4E0E\u5168\u90E8\u5DF2\u6709\u6B66\u5668\u5E76\u884C\u3002"
+    description: "短暂拉弦后释放高速弩矢，沿平行轨道贯穿敌人。"
     branch: "\u5F39\u9053"
     taskId: 
     target: 6
@@ -1293,7 +1377,7 @@ MonoBehaviour:
     color: {r: 0.8901961, g: 0.72156864, b: 0.34901962, a: 1}
   - id: ability.boomerang
     name: "\u56DE\u65CB\u5203"
-    description: "\u83B7\u5F97\u5F80\u8FD4\u53CC\u7A0B\u547D\u4E2D\u7684\u56DE\u65CB\u5203\u3002"
+    description: "沿弧线掷出回旋刃，回程随玩家走位弯曲，往返各命中一次。"
     branch: "\u5251\u4FEE"
     taskId: boomerang
     target: 7
@@ -1304,7 +1388,7 @@ MonoBehaviour:
     color: {r: 0.14901961, g: 0.5568628, b: 0.54509807, a: 1}
   - id: ability.froststaff
     name: "\u5BD2\u971C\u6CD5\u6756"
-    description: "\u83B7\u5F97\u8303\u56F4\u51CF\u901F\u4E0E\u51BB\u7ED3\u7684\u5BD2\u971C\u6CD5\u6756\u3002"
+    description: "向前喷出四段扇形寒气，连续接触积累冰冻。"
     branch: "\u5143\u7D20"
     taskId: froststaff
     target: 8
@@ -1403,7 +1487,7 @@ MonoBehaviour:
     color: {r: 0.14901961, g: 0.5568628, b: 0.54509807, a: 1}
   - id: froststaff.count
     name: "\u53CC\u6676\u65BD\u6CD5"
-    description: "\u6BCF\u6B21\u989D\u5916\u53D1\u5C041\u679A\u51B0\u6676\u3002"
+    description: "寒气叠加1重施法伤害，并扩大扇形角度。"
     branch: "\u5143\u7D20"
     taskId: 
     target: 8
@@ -1414,7 +1498,7 @@ MonoBehaviour:
     color: {r: 0.5137255, g: 0.74509805, b: 0.88235295, a: 1}
   - id: froststaff.radius
     name: "\u5BD2\u57DF\u6269\u5F20"
-    description: "\u51B0\u6676\u7206\u88C2\u8303\u56F4\u589E\u52A00.7\u7C73\u3002"
+    description: "寒气射程增加0.7米，扇形角度扩大。"
     branch: "\u5143\u7D20"
     taskId: 
     target: 8
@@ -1425,7 +1509,7 @@ MonoBehaviour:
     color: {r: 0.5137255, g: 0.74509805, b: 0.88235295, a: 1}
   - id: froststaff.freeze
     name: "\u6DF1\u5BD2\u7ED3\u6676"
-    description: "\u51B0\u6676\u51BB\u7ED3\u6982\u7387\u589E\u52A015%\u3002"
+    description: "每段寒气的冰冻积累增加15%。"
     branch: "\u5143\u7D20"
     taskId: 
     target: 8
@@ -1469,7 +1553,7 @@ MonoBehaviour:
     color: {r: 0.14901961, g: 0.5568628, b: 0.54509807, a: 1}
   - id: froststaff.shatter
     name: "\u788E\u971C\u9886\u57DF"
-    description: "\u51B0\u6676\u5BF9\u51BB\u7ED3\u76EE\u6807\u989D\u5916\u9020\u621060%\u4F24\u5BB3\u3002"
+    description: "寒气对冻结目标额外造成60%伤害并迸出碎冰。"
     branch: "\u8054\u52A8"
     taskId: froststaff.shatter
     target: 8

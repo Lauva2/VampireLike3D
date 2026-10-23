@@ -16,7 +16,7 @@ namespace VampireLike
         void AuditLayout(string path,int width,int height)
         {
             var result=new LayoutAudit{width=width,height=height};
-            foreach(var text in game.UI.View.GetComponentsInChildren<Text>())
+            foreach(var text in game.UI.Root.GetComponentsInChildren<Text>())
             {
                 if(!text.isActiveAndEnabled||string.IsNullOrEmpty(text.text)||text.rectTransform.rect.width<1)continue;
                 result.textCount++;float expected=text.preferredHeight,available=text.rectTransform.rect.height;
@@ -36,7 +36,7 @@ namespace VampireLike
                 game.UI.ShowMenu();yield return Wait(.32f);yield return Capture("ui-menu-"+size.x+"x"+size.y,size.x,size.y);
                 game.UI.ShowSelection();yield return Wait(.32f);yield return Capture("ui-selection-locked-"+size.x+"x"+size.y,size.x,size.y);game.UI.CloseModal();
                 game.UI.ShowSelection();yield return Wait(.32f);
-                game.UI.View.biomeList.GetComponentInParent<ScrollRect>().verticalNormalizedPosition=0;yield return Wait(.32f);
+                game.UI.GetView<SelectionView>(UIPanelId.Selection).biomeList.GetComponentInParent<ScrollRect>().verticalNormalizedPosition=0;yield return Wait(.32f);
                 yield return Capture("ui-selection-expansion-locked-"+size.x+"x"+size.y,size.x,size.y);game.UI.CloseModal();
                 game.UI.ShowProgress();yield return Wait(.32f);yield return Capture("ui-progress-"+size.x+"x"+size.y,size.x,size.y);
                 yield return ExpansionTaskPages(size);game.UI.CloseModal();
@@ -50,7 +50,7 @@ namespace VampireLike
             foreach(var size in uiSizes)
             {
                 Screen.SetResolution(size.x,size.y,false);yield return Wait(.25f);
-                game.UI.View.biomeList.GetComponentInParent<ScrollRect>().verticalNormalizedPosition=0;yield return Wait(.32f);
+                game.UI.GetView<SelectionView>(UIPanelId.Selection).biomeList.GetComponentInParent<ScrollRect>().verticalNormalizedPosition=0;yield return Wait(.32f);
                 yield return Capture("ui-selection-expansion-unlocked-"+size.x+"x"+size.y,size.x,size.y);
             }
             game.BeginRun("adventurer",BiomeId.Forest);float deadline=Time.realtimeSinceStartup+90;
@@ -65,7 +65,7 @@ namespace VampireLike
             {
                 Screen.SetResolution(size.x,size.y,false);yield return Wait(.25f);ClearEnemies();game.Player.Heal(1000);
                 game.UI.ShowHUD();yield return Capture("ui-hud-"+size.x+"x"+size.y,size.x,size.y);
-                game.UI.View.abilityList.GetComponentInParent<ScrollRect>().horizontalNormalizedPosition=1;yield return Wait(.32f);
+                game.UI.GetView<HUDView>(UIPanelId.HUD).abilityList.GetComponentInParent<ScrollRect>().horizontalNormalizedPosition=1;yield return Wait(.32f);
                 yield return Capture("ui-hud-expansion-"+size.x+"x"+size.y,size.x,size.y);
                 game.UI.ToggleSkills();yield return Wait(.32f);yield return Capture("ui-skills-"+size.x+"x"+size.y,size.x,size.y);game.UI.CloseModal();
                 yield return ExpansionSkillPages(size,false);
@@ -79,6 +79,8 @@ namespace VampireLike
                 var options=game.Progression.Choices();if(options.Count>0)game.Progression.Apply(options[0].id,false);
             }
             game.Combat.ActivateBoss("ui-matrix-victory",game.Player.transform.position+Vector3.forward*8,BiomeId.Forest,game.Catalog.biomes[0].bossId);
+            yield return WaitForBossReady(true);
+            if (game.Combat.Boss != null) game.Combat.Boss.DiagnosticImmortal = false;
             game.Combat.Boss?.Hit(new DamagePacket{damage=10000000,source=AbilityKind.Gun});yield return Wait(1.25f);
             foreach(var size in uiSizes){Screen.SetResolution(size.x,size.y,false);yield return Wait(.25f);yield return Capture("ui-victory-"+size.x+"x"+size.y,size.x,size.y);}
             game.UI.CloseModal();game.FinishRun(true);
@@ -122,31 +124,34 @@ namespace VampireLike
         IEnumerator SelectionRendererRegression()
         {
             game.UI.ShowMenu();
-            Check(GraphicsHaveRenderers(game.UI.View.transform,false),"Inactive UI templates and maps already contain CanvasRenderer without lazy Graphic repair");
-            var play=FindUIProbeButton(game.UI.View.menu.transform,"PlayButton");
-            var close=FindUIProbeButton(game.UI.View.selection.transform,"SelectionClose");
+            yield return game.UI.WaitForPanels();
+            Check(GraphicsHaveRenderers(game.UI.Root.transform,false),"Inactive UI templates and maps already contain CanvasRenderer without lazy Graphic repair");
+            var play=FindUIProbeButton(game.UI.GetPanel(UIPanelId.Menu)?.gameObject.transform,"PlayButton");
+            game.UI.ShowSelection(); yield return game.UI.WaitForPanels();
+            var close=FindUIProbeButton(game.UI.GetPanel(UIPanelId.Selection)?.gameObject.transform,"SelectionClose");
+            game.UI.CloseModal(); yield return game.UI.WaitForPanels();
             Check(play!=null&&close!=null,"Selection regression uses the bound PlayButton and SelectionClose buttons");
             if(play==null||close==null)yield break;
             bool transitions=true,renderers=true;int refreshed=0;
             for(int cycle=0;cycle<8;cycle++)
             {
                 var observation=new SelectionCycleAudit{cycle=cycle+1};
-                play.onClick.Invoke();transitions&=game.UI.ActiveModal=="selection";
+                play.onClick.Invoke();yield return game.UI.WaitForPanels();transitions&=game.UI.ActiveModal=="selection";
                 observation.openedModal=game.UI.ActiveModal;
                 // Selecting the current unlocked character rebuilds both lists and
                 // disables old masked graphics before their deferred destruction.
-                foreach(var widget in game.UI.View.characterList.GetComponentsInChildren<UIWidget>())
+                foreach(var widget in game.UI.GetView<SelectionView>(UIPanelId.Selection)?.characterList.GetComponentsInChildren<UIWidget>())
                     if(widget.button.interactable){widget.button.onClick.Invoke();refreshed++;observation.characterRefreshed=true;break;}
-                foreach(var scroll in game.UI.View.selection.GetComponentsInChildren<ScrollRect>())scroll.verticalNormalizedPosition=cycle%2;
+                foreach(var scroll in game.UI.GetPanel(UIPanelId.Selection)?.gameObject.GetComponentsInChildren<ScrollRect>())scroll.verticalNormalizedPosition=cycle%2;
                 Canvas.ForceUpdateCanvases();
-                foreach(var mask in game.UI.View.selection.GetComponentsInChildren<RectMask2D>())mask.PerformClipping();
-                observation.renderersValid=GraphicsHaveRenderers(game.UI.View.transform,true);
+                foreach(var mask in game.UI.GetPanel(UIPanelId.Selection)?.gameObject.GetComponentsInChildren<RectMask2D>())mask.PerformClipping();
+                observation.renderersValid=GraphicsHaveRenderers(game.UI.Root.transform,true);
                 yield return null;
                 close.onClick.Invoke();Canvas.ForceUpdateCanvases();
-                observation.closedModal=game.UI.ActiveModal;observation.menuVisible=game.UI.View.menu.activeSelf;
+                observation.closedModal=game.UI.ActiveModal;observation.menuVisible=(game.UI.GetPanel(UIPanelId.Menu)?.gameObject.activeSelf == true);
                 transitions&=observation.closedModal=="menu"&&observation.menuVisible;
                 yield return null;
-                observation.renderersValid&=GraphicsHaveRenderers(game.UI.View.transform,true);renderers&=observation.renderersValid;
+                observation.renderersValid&=GraphicsHaveRenderers(game.UI.Root.transform,true);renderers&=observation.renderersValid;
                 File.AppendAllText(Path.Combine(output,"SelectionRendererCycles.jsonl"),JsonUtility.ToJson(observation)+"\n");
             }
             Check(transitions&&refreshed==8,"Eight real Play/select/close cycles rebuild locked lists and return to menu");
@@ -157,10 +162,10 @@ namespace VampireLike
             foreach(var task in game.Catalog.tasks)
             {
                 if(task.id!="boomerang"&&task.id!="froststaff"&&!task.id.Contains("."))continue;
-                foreach(var widget in game.UI.View.taskList.GetComponentsInChildren<UIWidget>())
+                foreach(var widget in game.UI.GetView<ProgressView>(UIPanelId.Progress)?.taskList.GetComponentsInChildren<UIWidget>())
                 {
                     if(!widget.title.text.Contains(task.name))continue;
-                    Canvas.ForceUpdateCanvases();var list=(RectTransform)game.UI.View.taskList;var item=(RectTransform)widget.transform;
+                    Canvas.ForceUpdateCanvases();var list=(RectTransform)game.UI.GetView<ProgressView>(UIPanelId.Progress)?.taskList;var item=(RectTransform)widget.transform;
                     var scroll=list.GetComponentInParent<ScrollRect>();float top=-item.anchoredPosition.y-item.rect.height*.5f;
                     list.anchoredPosition=new Vector2(list.anchoredPosition.x,Mathf.Clamp(top,0,Mathf.Max(0,list.rect.height-scroll.viewport.rect.height)));
                     yield return Wait(.15f);yield return Capture("ui-task-expansion-"+task.id+"-"+size.x+"x"+size.y,size.x,size.y);break;
@@ -172,12 +177,12 @@ namespace VampireLike
             game.UI.ToggleSkills();yield return Wait(.15f);
             foreach(string branch in new[]{"弹道","剑修","元素","联动"})
             {
-                foreach(var button in game.UI.View.skills.GetComponentsInChildren<Button>(true))if(button.name=="Filter"+branch){button.onClick.Invoke();break;}
+                foreach(var button in game.UI.GetPanel(UIPanelId.Skills)?.gameObject.GetComponentsInChildren<Button>(true))if(button.name=="Filter"+branch){button.onClick.Invoke();break;}
                 yield return Wait(.15f);Canvas.ForceUpdateCanvases();
-                game.UI.View.skillList.GetComponentInParent<ScrollRect>().verticalNormalizedPosition=0;
+                game.UI.GetView<SkillsView>(UIPanelId.Skills).skillList.GetComponentInParent<ScrollRect>().verticalNormalizedPosition=0;
                 yield return Wait(.15f);yield return Capture("ui-skills-expansion-"+branch+"-"+(locked?"locked":"unlocked")+"-"+size.x+"x"+size.y,size.x,size.y);
             }
-            foreach(var button in game.UI.View.skills.GetComponentsInChildren<Button>(true))if(button.name=="Filter全部"){button.onClick.Invoke();break;}
+            foreach(var button in game.UI.GetPanel(UIPanelId.Skills)?.gameObject.GetComponentsInChildren<Button>(true))if(button.name=="Filter全部"){button.onClick.Invoke();break;}
             game.UI.CloseModal();
         }
         IEnumerator EffectGallery()

@@ -17,6 +17,8 @@
 5. 不增加武器或被动槽位上限，不将同一武器的小路线改成互斥。
 6. Boss 主动挑战、允许脱战，地图与任务解锁沿用已确认设计。
 
+Boss挑战由CombatWorld统一保留召唤请求：2秒游戏时钟后从既有池生成，重复请求不重置倒计时；暂停冻结，离场沿用25米/2秒缓冲并可在召唤期取消。延迟生成读取当前BossCenter，兼容浮动原点；WorldService在召唤期同样保护挑战地点驻留。EnemyActor的1秒出场状态隔离移动、接触伤害、技能与受击，结束后恢复正常；CanBeTargeted供查询/自动索敌过滤。返回菜单Dispose清理请求，仍由GameManager控制流程与池/AA资源释放。
+
 ## 2. 当前项目与技术工作基线
 
 成长目录在运行时视为不可变数据：Upgrade按Ordinal ID建立非序列化惰性索引，目录数组被替换或Unity重新启用/验证资产时失效。局内升级等级仍逐次从RunState读取，不缓存成长效果数值，保留并行路线、叠加与购买即时生效。目录索引不持有额外AA租约，不延长目录资产的所有权。
@@ -141,7 +143,7 @@ flowchart TD
 
 - 所有运行时游戏页面、弹窗和 UI 组件预制体均从 `Art/Prefabs/UI` 经 AA 获取。
 - 页面控制器只处理显示、绑定和用户意图，属性购买、解锁与奖励由业务模块校验。
-- 层级至少分为页面、HUD、弹窗、提示、加载遮罩；遮罩与模态输入统一处理。
+- UIRoot只包含Bottom、Common、Pop、Top四个全屏RectTransform容器，按该顺序绘制，不序列化全部面板。HUD默认Bottom，主页面Common，模态弹窗Pop，加载/提示/受击反馈Top；具体层级由每个UIPanel基类的layer字段决定。
 - 同一页面并发打开要合并请求或明确允许多实例；关闭先于加载完成时，迟到实例必须回收。
 - 关闭时解绑事件。缓存页面的资源仍由 UIManager 持有，清缓存时才销毁并释放。
 - UI 中的右键、滚轮和点击不透传给世界。地图缩放和镜头缩放按当前输入上下文区分。
@@ -190,6 +192,9 @@ AA 的场景加载与资产生命周期规则参见 Unity 官方 [场景加载�
 - 失败操作也按 API 所有权规则收尾；不吞异常、不无限自动重试、不保留失败句柄。
 - 不在战斗热路径使用阻塞等待或主动全局卸载；AA 释放检查与内存实测分开记录。
 - 对象池归还必须重置伤害、生命、标签、目标、计时、粒子、拖尾、事件和异步回调代次。
+- 手枪/火球/飞剑由各自WeaponAttack实现出手节奏与表现，AbilityController拥有调度、共用数值和生命周期。待发攻击绑定敌人CollisionId，原目标死亡/复用时重新索敌；暂停冻结游戏时钟，Dispose清理队列。ProjectileActor的不同运动状态共享命中、元素和池归还，浮动原点须同步弧线起终点；返航飞剑不重复伤害。持续火焰区域归CombatWorld拥有并随场景释放。沿用已有AA预制体及池租约，不从行为脚本创建旁路资源。
+- 灵体/爆破炮/符阵亦由独立WeaponAttack调度。额外灵体模型归SpiritAttack，炮弹独占静态落点圈，RuneAttack显式管理临时阵纹；全局流程仍归GameManager。静态mark没有TransientEffect组件；托管阵纹的计时和回收由攻击对象负责，重新租作普通特效时必须清除托管状态。PoolService.Clear先清登记再销毁快照，允许OnDisable安全尝试归还附属对象；浮动原点同时移动召唤蓄势缓存、炮弹起终点与静态圈、符阵中心。
+- 九种武器均使用各自WeaponAttack，AbilityController不再保留通用Shoot后备路径。弩的拉弦队列遵循同一目标生命校验；回旋刃使用CurvedReturn状态，缓存起点/途经点/终点与侧向曲率，返回时按当前玩家位置偏移路径，每段独立去重。旧InitializeReturn保留兼容诊断接口，实际武器使用InitializeCurvedReturn。寒气由FrostStaffAttack持有定时阶段，按当前玩家位置和施法时锁定方向查询扇形，检查遮挡；短时冰冷积累归EnemyActor当前生命，过期、重新Initialize均清空。普通frost命中仍沿用概率冻结，chill只用于寒气的确定积累，烧伤tick不重复叠加chill。临时冰霜特效仍归现有池并自动到期。
 - 返回菜单后，除明确声明的常驻资源与受控缓存外，不保留本局资源租约。
 
 ## 7. 配置、存档与数据约束
@@ -241,3 +246,14 @@ WorldJournal是本局区块记录的唯一写入者。Visited对卸载区块使�
 ## 弹窗表现所有权（候选54）
 
 UIManager统一管理从Time.unscaledTime打开瞬间计时的0.24秒动效；其私有表现状态只缓存现有子元素变换与CanvasGroup，不改变AA所有权、作者层级或整体流程。整页内容同步运动而全屏背景遮罩静止；开始即阻挡射线，内容到位才启用交互。同页刷新保持进度，关闭/切换/禁用精确恢复原位并中止旧状态，不延迟暂停释放。提示条不拦截输入。实际验证状态见Popup54Review.md。
+
+## UI MVC与按需面板（2026-10-23用户变更）
+
+- UIModel为抽象数据基类，每个面板拥有自己的NameModel脚本，保存展示快照、选择与筛选等自身状态；永久进度、购买、奖励仍由业务服务校验，关闭清理临时offer与旧局owner。
+- UIView为抽象MonoBehaviour基类，每个面板预制体挂自己的NameView脚本，直接序列化自身控件，负责表现和Present数据。所有面板位于Assets/Art/Prefabs/UI，独立登记AA地址ui/<面板名小写>。UIRoot只持有四层容器。UIRefs组件与UIManager.View全局适配集合已移除；调用方通过GetView<TView>(id)查询当前已经创建的具体View，未创建或类型不匹配返回null。
+- UIController为抽象控制器基类，每个面板拥有自己的NameController脚本，通过泛型UIController<NameView,NameModel>绑定具体类型。具体效果/交互放在各面板三份脚本中，移除原共享GamePanelController；UIRegistry登记类型映射，关闭时解绑，再次显示重新绑定。详见PanelMVC.md。
+- UIView基类公开序列化layer与cache。cache=true关闭时停用，保留AA实例租约；cache=false关闭时销毁并匹配ReleaseInstance。ClearCache仅释放已经关闭的缓存，Shutdown回收全部面板租约。
+- UIView显式RequireComponent(RectTransform, CanvasGroup)，每个面板预制体必须序列化CanvasGroup。UIPanelMotion兼容旧预制体时以Unity的`== null`判断补加组件，不能用`??`处理UnityEngine.Object的特殊空引用；编辑器检查覆盖未挂View的旧对象和未激活的具体View。
+- 首次打开通过AssetService异步Instantiate，各面板独立AssetScope；不在初始化时创建全部页面。同一面板的并发请求合并；加载中关闭立即释放scope，底层迟到结果由AssetService回收，不得激活旧页面。
+- 加载时先占用模态与暂停，准备好的View进入其layer后再显示；界面调用方与诊断代码须等待WaitForPanels后访问控件。动效沿用非缩放时钟，关闭不等待动画结束。
+- UIFactory/UIPrefabFactory只负责编辑器生成；Tools/Build.ps1 -Mode UI只重建UI，不重建全部世界美术。生成文件必须比较、备份、按白名单同步。最新实现与实际验证范围见UIFramework55.md，不沿用54测试为本次通过。

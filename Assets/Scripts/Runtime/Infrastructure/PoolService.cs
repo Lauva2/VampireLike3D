@@ -33,8 +33,10 @@ namespace VampireLike
         }
         public void Clear()
         {
-            foreach (var go in all) if (go != null) Object.Destroy(go);
+            // Disable callbacks may return owned secondary effects; invalidate the registry before destroying objects.
+            var releasing = new List<GameObject>(all);
             all.Clear(); ids.Clear(); free.Clear(); templates.Clear();
+            foreach (var go in releasing) if (go != null) Object.Destroy(go);
         }
     }
 }

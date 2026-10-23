@@ -16,10 +16,16 @@ namespace VampireLike
         public float Health { get; private set; }
         public float MaxHealth { get; private set; }
         public bool IsAlive => gameObject.activeInHierarchy && Health > 0;
+        public bool IsEntering => Type == 4 && Time.time < entranceEndsAt;
+        public bool CanBeTargeted => IsAlive && !IsEntering;
+        public Vector3 Velocity { get; private set; }
         public bool Frozen => frostUntil > Time.time;
         public bool DiagnosticImmortal,DiagnosticStationary;
         GameManager game;
         float nextAttack, nextBurn, burnUntil, frostUntil, burnDamage, slowUntil, flashUntil;
+        float entranceEndsAt;
+        float cold, coldUntil;
+        internal float Cold => Time.time <= coldUntil ? cold : 0;
         Vector3 chargeDirection;
         float chargeAt, chargeEnd;
         float speed, damage;
@@ -35,6 +41,8 @@ namespace VampireLike
         public void Initialize(GameManager manager, int type, bool elite, BiomeId biome)
         {
             game = manager; Type = type; Elite = elite; Biome = biome; unchecked { life++; }
+            Velocity = Vector3.zero;
+            cold = coldUntil = 0;
             StopAllCoroutines(); leapActive = false; leapHeight = 0;
             float growth = 1 + game.Run.seconds / 200;
             MaxHealth = (type == 4 ? 1050 + game.Run.seconds * 2.5f : (type == 1 ? 8 : type == 2 ? 30 : 15) * (elite ? 5 : 1) * growth);
@@ -46,6 +54,8 @@ namespace VampireLike
             damage = (type == 4 ? 24 : type == 2 ? 13 : 7) * (1 + game.Run.seconds / 1500);
             if (type != 4 && definition != null) { speed = definition.speed * (elite && type >= 5 ? 1.12f : 1); damage = definition.damage * (1 + game.Run.seconds / 1500); }
             nextAttack = Time.time + Random.Range(1f, 2.5f); nextBurn = 0; burnUntil = 0; frostUntil = 0; slowUntil = 0;
+            entranceEndsAt = type == 4 ? Time.time + CombatWorld.BossEntranceSeconds : 0;
+            if (type == 4) nextAttack = entranceEndsAt + .75f;
             chargeAt = chargeEnd = 0; attacks = 0; burnDamage = 0; flashUntil = 0;
             initialScale = Vector3.one * (type == 4 ? 1 : elite ? 1.45f : 1);
             transform.localScale = initialScale;
@@ -61,6 +71,7 @@ namespace VampireLike
             if(heart!=null)heartRenderer=heart.GetComponent<Renderer>();
             if(bodySegments!=null&&bodySegments.Length>0){if(segmentPositions==null){segmentPositions=new Vector3[bodySegments.Length];for(int i=0;i<bodySegments.Length;i++)segmentPositions[i]=bodySegments[i].localPosition;}for(int i=0;i<bodySegments.Length;i++)bodySegments[i].localPosition=segmentPositions[i];}
             SetTint();
+            if (IsEntering) AnimateEntrance();
         }
         void SetTint()
         {
@@ -76,10 +87,11 @@ namespace VampireLike
         void Update()
         {
             if (game == null || !game.Ready || game.IsPaused || Health <= 0) return;
+            if (IsEntering) { Velocity = Vector3.zero; AnimateEntrance(); return; }
             if (burnUntil > Time.time && nextBurn <= Time.time)
             {
                 nextBurn = Time.time + .5f;
-                var packet = lastBurn; packet.damage = burnDamage * .5f; packet.burn = 0; packet.burning = true;
+                var packet = lastBurn; packet.damage = burnDamage * .5f; packet.burn = 0; packet.chill = 0; packet.burning = true;
                 Hit(packet); if (!IsAlive) return;
             }
             Vector3 delta = game.Player.transform.position - transform.position; delta.y = 0;
@@ -105,6 +117,7 @@ namespace VampireLike
             if(DiagnosticStationary&&game.DiagnosticMode)movement=0;
             Vector3 step = direction * speed * movement * Time.deltaTime;
             if (Physics.CheckSphere(transform.position + step + Vector3.up * .6f, .4f, 1 << 10)) step = Vector3.Cross(direction, Vector3.up) * speed * movement * Time.deltaTime;
+            Velocity = step / Mathf.Max(.0001f, Time.deltaTime);
             transform.position += step;
             if(Physics.Raycast(transform.position+Vector3.up*4,Vector3.down,out var ground,8,1<<0))transform.position=new Vector3(transform.position.x,Mathf.MoveTowards(transform.position.y,ground.point.y,Time.deltaTime*10),transform.position.z);
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), Time.deltaTime * 6);
@@ -166,7 +179,7 @@ namespace VampireLike
         }
         public void Hit(DamagePacket packet)
         {
-            if (!IsAlive) return;
+            if (!CanBeTargeted) return;
             float amount = packet.damage;
             if (Type == 7 && Time.time >= chargeEnd + 1.2f && Vector3.Dot(transform.forward, (game.Player.transform.position - transform.position).normalized) > .25f) amount *= .65f;
             if (Frozen && packet.shatter) { amount *= 1.6f; game.Combat.Effect("vfx/frost", transform.position, .35f, 2); }
@@ -178,7 +191,29 @@ namespace VampireLike
                 slowUntil = Time.time + 2;
                 if (Random.value < packet.frost && !Frozen) { frostUntil = Time.time + (Type == 4 ? .3f : 1.4f); game.Save.Profile.freezes++; game.Save.MarkDirty(); }
             }
+            if (packet.chill > 0)
+            {
+                slowUntil = Time.time + 2;
+                if (Time.time > coldUntil) cold = 0;
+                coldUntil = Time.time + 2;
+                if (!Frozen)
+                {
+                    cold += packet.chill;
+                    if (cold >= 1)
+                    {
+                        cold = 0; frostUntil = Time.time + (Type == 4 ? .3f : 1.4f);
+                        game.Save.Profile.freezes++; game.Save.MarkDirty();
+                        game.Combat.Effect("vfx/frost", transform.position, .3f, 1.4f);
+                    }
+                }
+            }
             if (Health <= 0) game.Combat.Kill(this, packet);
+        }
+        void AnimateEntrance()
+        {
+            float progress = Mathf.SmoothStep(0, 1, 1 - (entranceEndsAt - Time.time) / CombatWorld.BossEntranceSeconds);
+            visual.localScale = Vector3.one * Mathf.Lerp(.05f, 1, progress);
+            visual.localPosition = Vector3.down * .5f * (1 - progress);
         }
         public void PlayDeath(){StartCoroutine(Death());}
         System.Collections.IEnumerator FireAfterWindup(Vector3 direction)

@@ -5,7 +5,7 @@ namespace VampireLike
 {
     public struct DamagePacket
     {
-        public float damage, burn, frost;
+        public float damage, burn, frost, chill;
         public int lightning;
         public AbilityKind source;
         public bool critical, shatter, burning;
@@ -16,11 +16,21 @@ namespace VampireLike
         public readonly List<EnemyActor> Enemies = new List<EnemyActor>();
         public EnemyActor Marked { get; private set; }
         public EnemyActor Boss { get; private set; }
+        public const float BossSummonSeconds = 2f, BossEntranceSeconds = 1f;
+        public bool BossChallengeActive => bossSummoning || Boss != null;
+        public float BossArrivalRemaining => bossSummoning ? Mathf.Max(0, bossArrivesAt - Time.time) : 0;
         public string BossSiteId { get; private set; }
         public float RetreatProgress { get; private set; }
         public Vector3 BossCenter { get; private set; }
         GameManager game;
         float nextSpawn, nextGrid;
+        bool bossSummoning, disposed;
+        float bossArrivesAt;
+        BiomeId summonedBiome;
+        string summonedPrefab;
+        readonly BurningGround burningGround = new BurningGround();
+        public int BurningAreaCount => burningGround.Count;
+        public void LeaveFire(Vector3 point, float radius, DamagePacket packet) { if (!disposed) burningGround.Add(game, point, radius, packet); }
         readonly Dictionary<Vector2Int, List<EnemyActor>> grid = new Dictionary<Vector2Int, List<EnemyActor>>();
         readonly Stack<List<EnemyActor>> gridLists = new Stack<List<EnemyActor>>();
         readonly List<EnemyActor> hits = new List<EnemyActor>(64);
@@ -51,8 +61,9 @@ namespace VampireLike
         public void SelectPriorityFromRay(Ray ray){EnemyActor target=null;if(Physics.Raycast(ray,out var hit,160,1<<8))target=hit.collider.GetComponentInParent<EnemyActor>();SelectPriorityTarget(target!=null&&target.IsAlive?target:null);}
         void Update()
         {
-            if (!game.Ready || game.IsPaused) return;
+            if (disposed || !game.Ready || game.IsPaused) return;
             if (Time.time >= nextGrid) { RebuildGrid(); nextGrid = Time.time + .08f; }
+            burningGround.Tick(game);
             if (Time.time >= nextSpawn)
             {
                 nextSpawn = Time.time + Mathf.Max(.12f, .9f - game.Run.seconds / 2000);
@@ -79,16 +90,18 @@ namespace VampireLike
                 if (markVisual == null) markVisual = game.Pool.Rent("vfx/mark", Marked.transform.position, Quaternion.identity);
                 if (markVisual != null) markVisual.transform.position = Marked.transform.position + Vector3.up * .07f;
             }
-            if (Boss != null)
+            if (BossChallengeActive)
             {
                 float d = Vector3.Distance(game.Player.transform.position, BossCenter);
                 RetreatProgress = d > 25 ? RetreatProgress + Time.deltaTime : 0;
                 if (RetreatProgress > 2)
                 {
-                    var old = Boss; Boss = null; Remove(old); game.Pool.Return(old.gameObject);
+                    var old = Boss; Boss = null; bossSummoning = false; summonedPrefab = null; BossSiteId = null;
+                    if (old != null) { Remove(old); game.Pool.Return(old.gameObject); }
                     ClearBossHazards(); RetreatProgress = 0;
                     game.UI.Toast("已脱离挑战 · Boss 已重置，准备好后可再次开启。", 5);
                 }
+                else if (bossSummoning && d <= 25 && Time.time >= bossArrivesAt) SpawnSummonedBoss();
             }
         }
         public int ChooseEnemy(BiomeId biome)
@@ -108,14 +121,23 @@ namespace VampireLike
         }
         public void ActivateBoss(string siteId, Vector3 position, BiomeId biome, string prefabId)
         {
-            if (Boss != null) { game.UI.Toast("当前已有 Boss 挑战，先完成或离开战场。 "); return; }
-            var go = game.Pool.Rent(prefabId, position, Quaternion.identity);
-            if (go == null) { game.UI.Toast("Boss 资源尚在准备，请稍后重试。"); return; }
-            Boss = go.GetComponent<EnemyActor>(); Boss.Initialize(game, 4, true, biome);
+            if (disposed || !game.Ready) return;
+            if (BossChallengeActive) { game.UI.Toast("当前已有 Boss 挑战，先完成或离开战场。 "); return; }
             BossCenter = position; BossSiteId = siteId; RetreatProgress = 0;
-            Enemies.Add(Boss); SetMark(Boss);
-            game.UI.Toast("挑战开启 · " + game.Catalog.Biome(biome).bossName + "\n离开区域可脱战，Boss 将恢复满血。", 3);
+            bossSummoning = true; bossArrivesAt = Time.time + BossSummonSeconds;
+            summonedBiome = biome; summonedPrefab = prefabId;
+            Effect("vfx/rune", position + Vector3.up * .08f, BossSummonSeconds, 4);
+            game.UI.Toast("召唤开启 · " + game.Catalog.Biome(biome).bossName + "\n2 秒后现身，请离开召唤中心。", 3);
             game.Audio.Play(SoundCue.Boss);
+        }
+        void SpawnSummonedBoss()
+        {
+            var go = game.Pool.Rent(summonedPrefab, BossCenter, Quaternion.identity);
+            bossSummoning = false; summonedPrefab = null;
+            if (go == null) { BossSiteId = null; RetreatProgress = 0; game.UI.Toast("Boss 资源尚在准备，请稍后重试。"); return; }
+            Boss = go.GetComponent<EnemyActor>(); Boss.Initialize(game, 4, true, summonedBiome);
+            Enemies.Add(Boss); SetMark(Boss);
+            game.UI.Toast("Boss 正在现身 · 出场完成后开始战斗\n离开区域可脱战，Boss 将恢复满血。", 3);
         }
         void SetMark(EnemyActor target)
         {
@@ -144,11 +166,11 @@ namespace VampireLike
             float square = radius * radius;
             for (int x = low.x; x <= high.x; x++) for (int z = low.y; z <= high.y; z++)
                 if (grid.TryGetValue(new Vector2Int(x, z), out var list)) foreach (var enemy in list)
-                    if (enemy != null && enemy.IsAlive && (enemy.transform.position - p).sqrMagnitude <= square) result.Add(enemy);
+                    if (enemy != null && enemy.CanBeTargeted && (enemy.transform.position - p).sqrMagnitude <= square) result.Add(enemy);
         }
         public EnemyActor Target(Vector3 from, float range, HashSet<long> exclude = null)
         {
-            if (Marked != null && Marked.IsAlive && (Marked.transform.position - from).sqrMagnitude < range * range && (exclude == null || !exclude.Contains(Marked.CollisionId)) && Visible(from, Marked)) return Marked;
+            if (Marked != null && Marked.CanBeTargeted && (Marked.transform.position - from).sqrMagnitude < range * range && (exclude == null || !exclude.Contains(Marked.CollisionId)) && Visible(from, Marked)) return Marked;
             Query(from, range, hits); EnemyActor best = null; float distance = range * range;
             foreach (var enemy in hits)
             {
@@ -229,13 +251,15 @@ namespace VampireLike
         public void ShiftOrigin(Vector3 shift)
         {
             BossCenter -= shift;
+            game.Abilities?.ShiftOrigin(shift);
             foreach (var enemy in Enemies) if (enemy != null) enemy.ShiftOrigin(shift);
-            var movers = game.GetRunObjects<ProjectileActor>(); foreach (var p in movers) p.transform.position -= shift;
+            var movers = game.GetRunObjects<ProjectileActor>(); foreach (var p in movers) p.ShiftOrigin(shift);
+            burningGround.ShiftOrigin(shift);
             experienceCells.Clear();var orbs = game.GetRunObjects<ExperienceOrb>(); foreach (var p in orbs){p.transform.position-=shift;p.UpdateCell();experienceCells[p.Cell]=p;}
             var hazards = game.GetRunObjects<AttackHazard>(); foreach (var p in hazards) p.transform.position -= shift;
             var effects = game.GetRunObjects<TransientEffect>(); foreach (var p in effects) p.transform.position -= shift;
             RebuildGrid();
         }
-        public void Dispose() { SetMark(null); Enemies.Clear(); grid.Clear();experienceCells.Clear(); Boss = null; }
+        public void Dispose() { disposed = true; burningGround.Dispose(); bossSummoning = false; summonedPrefab = null; BossSiteId = null; RetreatProgress = 0; SetMark(null); Enemies.Clear(); grid.Clear();experienceCells.Clear(); Boss = null; }
     }
 }

@@ -26,6 +26,7 @@ namespace VampireLike.Editor
                 finally{UnityEngine.Object.DestroyImmediate(inactiveGraphic);}
             }
             var catalog=AssetDatabase.LoadAssetAtPath<GameCatalog>("Assets/Config/Catalogs/GameCatalog.asset");
+            UIPrefabChecks.Validate(catalog, check);
             bool lookupMatches=true;
             foreach(var definition in catalog.upgrades)if(!ReferenceEquals(catalog.Upgrade(definition.id),definition))lookupMatches=false;
             check(lookupMatches&&catalog.Upgrade("missing-upgrade")==null&&catalog.Upgrade(null)==null,"Upgrade lookup preserves every authored definition and rejects unknown IDs");

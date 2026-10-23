@@ -1,5 +1,5 @@
 param(
-    [ValidateSet('Generate','Check','Development','GenerateDevelopment','ExpandDevelopment','Release')]
+    [ValidateSet('Generate','Check','Development','GenerateDevelopment','ExpandDevelopment','UI','Release')]
     [string]$Mode = 'Development',
     [string]$UnityPath = $env:UNITY_EDITOR_PATH
 )
@@ -26,7 +26,7 @@ if ($editorVersion -notmatch '^2022\.3\.62f2(?:\b|_)') {
 New-Item -ItemType Directory -Path $validationRoot,$artifactsRoot -Force | Out-Null
 $generationBaseline=@{}
 $baselineRelative=''
-if($Mode -in @('Generate','GenerateDevelopment','ExpandDevelopment')){
+if($Mode -in @('Generate','GenerateDevelopment','ExpandDevelopment','UI')){
     $baselineRelative='Artifacts\GenerationInput-'+(Get-Date -Format 'yyyyMMdd-HHmmss')+'.json'
     $entries=@(foreach($item in Get-ChildItem -LiteralPath (Join-Path $workspaceRoot 'Assets') -Recurse -File){
         $relative=$item.FullName.Substring($workspaceRoot.Length+1);$hash=(Get-FileHash -LiteralPath $item.FullName).Hash
@@ -38,6 +38,26 @@ if($Mode -in @('Generate','GenerateDevelopment','ExpandDevelopment')){
         if(Test-Path -LiteralPath $path){$generationBaseline[$relative]=(Get-FileHash -LiteralPath $path).Hash}
     }
 }
+# Copy-Item does not remove renamed/deleted scripts. Preserve stale files from
+# the controlled validation copy before removing them, never from the main tree.
+$cloneScripts=Join-Path $validationRoot 'Assets\Scripts'
+if(Test-Path -LiteralPath $cloneScripts){
+    $staleScripts=@(Get-ChildItem -LiteralPath $cloneScripts -File -Recurse | Where-Object {
+        ($_.Name.EndsWith('.cs') -or $_.Name.EndsWith('.cs.meta')) -and
+        -not (Test-Path -LiteralPath (Join-Path $workspaceRoot $_.FullName.Substring($validationRoot.Length+1)))
+    })
+    if($staleScripts.Count){
+        $staleBackup=Join-Path $artifactsRoot ('StaleCloneScripts-'+(Get-Date -Format 'yyyyMMdd-HHmmss'))
+        foreach($stale in $staleScripts){
+            $stalePath=[IO.Path]::GetFullPath($stale.FullName)
+            if(-not $stalePath.StartsWith($cloneScripts+'\',[StringComparison]::OrdinalIgnoreCase)){throw 'Stale script escaped validation copy'}
+            $backupPath=Join-Path $staleBackup $stalePath.Substring($validationRoot.Length+1)
+            New-Item -ItemType Directory -Path (Split-Path -Parent $backupPath) -Force | Out-Null
+            Copy-Item -LiteralPath $stalePath -Destination $backupPath
+            Remove-Item -LiteralPath $stalePath
+        }
+    }
+}
 foreach ($folderName in @('Assets','Packages','ProjectSettings')) {
     Copy-Item -LiteralPath (Join-Path $workspaceRoot $folderName) -Destination $validationRoot -Recurse -Force
 }
@@ -47,13 +67,14 @@ $method = switch ($Mode) {
     'Development' { 'VampireLike.Editor.ProjectBuilder.VerifyAndBuild' }
     'GenerateDevelopment' { 'VampireLike.Editor.ProjectBuilder.GenerateVerifyAndBuild' }
     'ExpandDevelopment' { 'VampireLike.Editor.ProjectBuilder.ExpandVerifyAndBuild' }
+    'UI' { 'VampireLike.Editor.ProjectBuilder.RebuildUIVerifyAndBuild' }
     'Release' { 'VampireLike.Editor.ProjectBuilder.BuildRelease' }
 }
 $logPath = Join-Path $artifactsRoot ($Mode + '.log')
 $arguments = @('-batchmode','-nographics','-quit','-projectPath',('"' + $validationRoot + '"'),'-executeMethod',$method,'-logFile',('"' + $logPath + '"'))
 $buildProcess = Start-Process -FilePath $UnityPath -ArgumentList $arguments -WindowStyle Hidden -Wait -PassThru
 if ($buildProcess.ExitCode -ne 0) { throw "Unity failed with exit code $($buildProcess.ExitCode). See $logPath" }
-if ($Mode -in @('Generate','GenerateDevelopment','ExpandDevelopment')) {
+if ($Mode -in @('Generate','GenerateDevelopment','ExpandDevelopment','UI')) {
     $diffRelative='Artifacts\GeneratedSync-'+(Get-Date -Format 'yyyyMMdd-HHmmss')+'.json'
     & (Join-Path $PSScriptRoot 'CompareGeneratedAssets.ps1') -Output $diffRelative -Baseline $baselineRelative
     & (Join-Path $PSScriptRoot 'SyncGeneratedAssets.ps1') -Diff $diffRelative

@@ -1,5 +1,5 @@
 param(
-    [ValidateSet('Full','UI','Terrain','Campaign','Soak')][string]$Stage='Full',
+    [ValidateSet('Full','UI','UIFramework','Boss','Weapons','Weapons2','Weapons3','Terrain','Campaign','Soak')][string]$Stage='Full',
     [string]$Player='Builds\Development\WanXiangExpedition.exe',
     [string]$Evidence='',
     [ValidateRange(30,43200)][int]$SoakSeconds=7200,
@@ -36,6 +36,11 @@ if($SoakUpgrades){
     $playerArguments+=@('--soak-upgrades',('"'+$importedPath+'"'))
 }
 switch($Stage){
+    'Weapons3' {$playerArguments+='--weapon-batch-three-probe'}
+    'Weapons2' {$playerArguments+='--weapon-batch-two-probe'}
+    'Weapons' {$playerArguments+='--weapon-identity-probe'}
+    'Boss' {$playerArguments+='--boss-entry-probe'}
+    'UIFramework' {$playerArguments+='--ui-framework-probe'}
     'UI' {$playerArguments+='--ui-probe'}
     'Terrain' {$playerArguments+='--terrain-probe'}
     'Campaign' {$playerArguments+='--campaign'}

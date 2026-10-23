@@ -324,7 +324,7 @@ namespace VampireLike
             {
                 if(pair.Value.constructing)continue;
                 if (Mathf.Max(Mathf.Abs(pair.Key.x - center.x), Mathf.Abs(pair.Key.y - center.y)) <= 3) continue;
-                if (pair.Value.site != null && game.Combat.Boss != null && pair.Value.site.id == game.Combat.BossSiteId) continue;
+                if (pair.Value.site != null && game.Combat.BossChallengeActive && pair.Value.site.id == game.Combat.BossSiteId) continue;
                 remove.Add(pair.Key);
             }
             foreach (var key in remove)
@@ -357,7 +357,7 @@ namespace VampireLike
                 nearest = site; best = distance;
             }
             if (nearest == null) return;
-            if (nearest.type == 3) InteractionText = game.Combat.Boss == null ? "E  开启挑战 · " + game.Catalog.Biome(nearest.biome).bossName : "Boss 挑战中 · 离开区域可脱战";
+            if (nearest.type == 3) InteractionText = game.Combat.BossArrivalRemaining > 0 ? "Boss 召唤中 · " + game.Combat.BossArrivalRemaining.ToString("0.0") + " 秒后现身，请远离中心" : game.Combat.BossChallengeActive ? "Boss 挑战中 · 离开区域可脱战" : "E  开启挑战 · " + game.Catalog.Biome(nearest.biome).bossName;
             else if (nearest.type == 0) InteractionText = "E  打开补给箱 · 定向点与晶石";
             else if (nearest.type == 1) InteractionText = nearest.started ? "营地肃清 " + nearest.kills + "/6" : "E  挑战营地 · 击败6个守卫";
             else InteractionText = "E  祭坛祝福 · 三选一，可叠加";

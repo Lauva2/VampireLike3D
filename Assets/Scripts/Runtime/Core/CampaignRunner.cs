@@ -40,19 +40,19 @@ namespace VampireLike
                 }
                 if(game.Flow==GameFlow.Settling)
                 {
-                    if(!game.UI.View.results.activeSelf){yield return null;continue;}
+                    if(!(game.UI.GetPanel(UIPanelId.Results)?.gameObject.activeSelf == true)){yield return null;continue;}
                     if(game.Player!=null&&game.Player.Health<=0)deaths++;
-                    game.UI.View.results.transform.Find("ResultsContinue")?.GetComponent<UnityEngine.UI.Button>()?.onClick.Invoke();yield return null;continue;
+                    game.UI.GetPanel(UIPanelId.Results)?.gameObject.transform.Find("ResultsContinue")?.GetComponent<UnityEngine.UI.Button>()?.onClick.Invoke();yield return null;continue;
                 }
                 if(!game.Ready){yield return null;continue;}
                 if(stage>=ContentIds.Regions.Length&&mixedVisited&&game.Save.Profile.completedTasks.Count==game.Catalog.tasks.Length){game.FinishRun(true);yield return null;continue;}
                 if(game.UI.ActiveModal=="pause"||game.UI.ActiveModal=="settings"||game.UI.ActiveModal=="map"||game.UI.ActiveModal=="skills")game.UI.CloseModal();
-                if(game.UI.View.victory.activeSelf)
+                if(game.UI.GetPanel(UIPanelId.Victory)?.gameObject != null && (game.UI.GetPanel(UIPanelId.Victory)?.gameObject.activeSelf == true))
                 {
-                    game.UI.View.victory.transform.Find("VictoryRetreat")?.GetComponent<UnityEngine.UI.Button>()?.onClick.Invoke();yield return null;
-                    game.UI.View.results.transform.Find("ResultsContinue")?.GetComponent<UnityEngine.UI.Button>()?.onClick.Invoke();yield return null;continue;
+                    game.UI.GetPanel(UIPanelId.Victory)?.gameObject.transform.Find("VictoryRetreat")?.GetComponent<UnityEngine.UI.Button>()?.onClick.Invoke();yield return null;
+                    game.UI.GetPanel(UIPanelId.Results)?.gameObject.transform.Find("ResultsContinue")?.GetComponent<UnityEngine.UI.Button>()?.onClick.Invoke();yield return null;continue;
                 }
-                if(game.UI.View.upgrade.activeSelf)ChooseVisibleUpgrade();
+                if(game.UI.GetPanel(UIPanelId.Upgrade)?.gameObject != null && (game.UI.GetPanel(UIPanelId.Upgrade)?.gameObject.activeSelf == true))ChooseVisibleUpgrade();
                 if(Time.unscaledTime>nextDecision&&!game.IsPaused)
                 {
                     nextDecision=Time.unscaledTime+.1f;Purchase();Move();
@@ -98,14 +98,15 @@ namespace VampireLike
         }
         void ChooseVisibleUpgrade()
         {
+            if (game.UI.IsLoading || game.UI.GetView<UpgradeView>(UIPanelId.Upgrade)?.upgradeList == null) return;
             if (game.UI.ActiveModal == "blessing")
             {
-                foreach (Transform child in game.UI.View.upgradeList)
+                foreach (Transform child in game.UI.GetView<UpgradeView>(UIPanelId.Upgrade)?.upgradeList)
                 { var card = child.GetComponent<UIWidget>(); if (card != null && child.gameObject.activeSelf) { card.button.onClick.Invoke(); return; } }
                 return;
             }
             UIWidget chosen=null;float best=-1000;
-            foreach(Transform t in game.UI.View.upgradeList)
+            foreach(Transform t in game.UI.GetView<UpgradeView>(UIPanelId.Upgrade)?.upgradeList)
             {
                 var widget=t.GetComponent<UIWidget>();if(widget==null||!widget.gameObject.activeSelf)continue;
                 var definition=Array.Find(game.Catalog.upgrades,u=>u.name==widget.title.text);if(definition==null)continue;
@@ -144,7 +145,7 @@ namespace VampireLike
                     else {route++;interacted=false;}
                 }
             }
-            else if(game.Combat.Boss!=null)
+            else if(game.Combat.BossChallengeActive)
             {
                 Vector3 center=game.Combat.BossCenter;
                 Vector3 localGoal=center+new Vector3(Mathf.Sin(Time.time*.6f)*8,0,Mathf.Cos(Time.time*.6f)*8);
@@ -162,7 +163,7 @@ namespace VampireLike
                 }
                 else goal=new Vector2(Mathf.Sin(Time.time*.2f)*9,64+Mathf.Cos(Time.time*.2f)*9);
             }
-            if(game.Combat.Boss==null)
+            if(!game.Combat.BossChallengeActive)
             {
                 ExperienceOrb nearest=null;float best=8;
                 if(game.Run.seconds%60<20)foreach(var orb in game.GetRunObjects<ExperienceOrb>()){float distance=Vector3.Distance(orb.transform.position,game.Player.transform.position);if(distance<best){best=distance;nearest=orb;}}

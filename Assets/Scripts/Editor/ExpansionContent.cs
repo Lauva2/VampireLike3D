@@ -15,14 +15,14 @@ namespace VampireLike.Editor
         public static void Apply(GameCatalog catalog)
         {
             var abilities=new List<AbilityDefinition>(catalog.abilities);
-            abilities.Add(A("crossbow","连弩","快速射出贯穿弩矢，擅长直线清场。",AbilityKind.Crossbow,12,.85f,20,30,ArtFactory.Gold));
-            abilities.Add(A("boomerang","回旋刃","向外掷出后返回，往返各可命中一次。",AbilityKind.Boomerang,21,2.5f,15,17,ArtFactory.Teal,"boomerang"));
-            abilities.Add(A("froststaff","寒霜法杖","冰晶命中爆裂，减速并有概率冻结周围敌人。",AbilityKind.FrostStaff,23,2.8f,18,15,ArtFactory.Hex("83BEE1"),"froststaff"));
+            abilities.Add(A("crossbow","连弩","短暂拉弦后释放高速弩矢，沿平行轨道贯穿敌人。",AbilityKind.Crossbow,12,.85f,20,30,ArtFactory.Gold));
+            abilities.Add(A("boomerang","回旋刃","沿弧线掷出回旋刃，回程随玩家走位弯曲，往返各命中一次。",AbilityKind.Boomerang,21,2.5f,15,17,ArtFactory.Teal,"boomerang"));
+            abilities.Add(A("froststaff","寒霜法杖","向前喷出四段扇形寒气，连续接触积累冰冻。",AbilityKind.FrostStaff,23,2.8f,8,15,ArtFactory.Hex("83BEE1"),"froststaff"));
             catalog.abilities=abilities.ToArray();
             var upgrades=new List<UpgradeDefinition>(catalog.upgrades);
-            upgrades.Add(U("ability.crossbow","连弩","获得连弩，可与全部已有武器并行。",AbilityKind.Crossbow,UpgradeEffect.NewAbility,1,"弹道",unique:true));
-            upgrades.Add(U("ability.boomerang","回旋刃","获得往返双程命中的回旋刃。",AbilityKind.Boomerang,UpgradeEffect.NewAbility,1,"剑修","boomerang",true));
-            upgrades.Add(U("ability.froststaff","寒霜法杖","获得范围减速与冻结的寒霜法杖。",AbilityKind.FrostStaff,UpgradeEffect.NewAbility,1,"元素","froststaff",true));
+            upgrades.Add(U("ability.crossbow","连弩","短暂拉弦后释放高速弩矢，沿平行轨道贯穿敌人。",AbilityKind.Crossbow,UpgradeEffect.NewAbility,1,"弹道",unique:true));
+            upgrades.Add(U("ability.boomerang","回旋刃","沿弧线掷出回旋刃，回程随玩家走位弯曲，往返各命中一次。",AbilityKind.Boomerang,UpgradeEffect.NewAbility,1,"剑修","boomerang",true));
+            upgrades.Add(U("ability.froststaff","寒霜法杖","向前喷出四段扇形寒气，连续接触积累冰冻。",AbilityKind.FrostStaff,UpgradeEffect.NewAbility,1,"元素","froststaff",true));
             upgrades.Add(U("crossbow.volley","并列弩机","连弩每轮额外发射1枚弩矢。",AbilityKind.Crossbow,UpgradeEffect.Count,1,"弹道"));
             upgrades.Add(U("crossbow.reload","轻巧上弦","连弩攻击速度提高18%。",AbilityKind.Crossbow,UpgradeEffect.AttackSpeed,.18f,"弹道"));
             upgrades.Add(U("crossbow.pierce","重型箭镞","弩矢额外贯穿1个目标。",AbilityKind.Crossbow,UpgradeEffect.Pierce,1,"弹道"));
@@ -31,13 +31,13 @@ namespace VampireLike.Editor
             upgrades.Add(U("boomerang.reach","远行刃轨","回旋刃向外飞行距离增加2米。",AbilityKind.Boomerang,UpgradeEffect.Range,2,"剑修"));
             upgrades.Add(U("boomerang.damage","磨砺刃锋","回旋刃伤害提高22%。",AbilityKind.Boomerang,UpgradeEffect.Damage,.22f,"剑修"));
             upgrades.Add(U("boomerang.haste","御风回旋","回旋刃投掷速度提高16%。",AbilityKind.Boomerang,UpgradeEffect.AttackSpeed,.16f,"剑修"));
-            upgrades.Add(U("froststaff.count","双晶施法","每次额外发射1枚冰晶。",AbilityKind.FrostStaff,UpgradeEffect.Count,1,"元素"));
-            upgrades.Add(U("froststaff.radius","寒域扩张","冰晶爆裂范围增加0.7米。",AbilityKind.FrostStaff,UpgradeEffect.Explosion,.7f,"元素"));
-            upgrades.Add(U("froststaff.freeze","深寒结晶","冰晶冻结概率增加15%。",AbilityKind.FrostStaff,UpgradeEffect.Frost,.15f,"元素"));
+            upgrades.Add(U("froststaff.count","双晶施法","寒气叠加1重施法伤害，并扩大扇形角度。",AbilityKind.FrostStaff,UpgradeEffect.Count,1,"元素"));
+            upgrades.Add(U("froststaff.radius","寒域扩张","寒气射程增加0.7米，扇形角度扩大。",AbilityKind.FrostStaff,UpgradeEffect.Explosion,.7f,"元素"));
+            upgrades.Add(U("froststaff.freeze","深寒结晶","每段寒气的冰冻积累增加15%。",AbilityKind.FrostStaff,UpgradeEffect.Frost,.15f,"元素"));
             upgrades.Add(U("froststaff.haste","霜语连咏","寒霜法杖攻击速度提高16%。",AbilityKind.FrostStaff,UpgradeEffect.AttackSpeed,.16f,"元素"));
             upgrades.Add(U("crossbow.frost","淬霜弩矢","弩矢附带减速与35%冻结概率。",AbilityKind.Crossbow,UpgradeEffect.Frost,.35f,"联动","crossbow.frost",true));
             upgrades.Add(U("boomerang.lightning","回旋电刃","回旋刃命中会向附近目标传导电弧。",AbilityKind.Boomerang,UpgradeEffect.Chain,1,"联动","boomerang.lightning",true));
-            upgrades.Add(U("froststaff.shatter","碎霜领域","冰晶对冻结目标额外造成60%伤害。",AbilityKind.FrostStaff,UpgradeEffect.IceShatter,1,"联动","froststaff.shatter",true));
+            upgrades.Add(U("froststaff.shatter","碎霜领域","寒气对冻结目标额外造成60%伤害并迸出碎冰。",AbilityKind.FrostStaff,UpgradeEffect.IceShatter,1,"联动","froststaff.shatter",true));
             catalog.upgrades=upgrades.ToArray();
             var tasks=new List<TaskDefinition>(catalog.tasks);
             tasks.Add(T("boomerang","往返之道","累计完成4次探索事件，解锁回旋刃。",TaskMetric.Events,4,"ability.boomerang",true));

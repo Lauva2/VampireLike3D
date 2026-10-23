@@ -160,7 +160,7 @@ namespace VampireLike
         }
         IEnumerator DefeatThenResults()
         {
-            UI.View.hud.SetActive(false);yield return Player.PlayDefeat();UI.ShowResults(false);transition=false;
+            UI.HideHUD();yield return Player.PlayDefeat();UI.ShowResults(false);transition=false;
         }
         public void ReturnToMenu()
         {
@@ -201,12 +201,13 @@ namespace VampireLike
         void WriteDiagnosticStatus()
         {
             var args=Environment.GetCommandLineArgs();int index=Array.IndexOf(args,"--evidence");if(index<0||index+1>=args.Length)return;
-            var choices=new List<string>();if(UI!=null&&UI.Ready)foreach(Transform t in UI.View.upgradeList){var widget=t.GetComponent<UIWidget>();if(widget!=null&&widget.gameObject.activeInHierarchy)choices.Add(widget.title.text+":"+widget.button.interactable);}
+            var choices=new List<string>();if(UI!=null&&UI.Ready&&UI.GetView<UpgradeView>(UIPanelId.Upgrade)?.upgradeList!=null)foreach(Transform t in UI.GetView<UpgradeView>(UIPanelId.Upgrade)?.upgradeList){var widget=t.GetComponent<UIWidget>();if(widget!=null&&widget.gameObject.activeInHierarchy)choices.Add(widget.title.text+":"+widget.button.interactable);}
             var state=new DiagnosticState{flow=Flow.ToString(),modal=UI?.ActiveModal,pauses=string.Join(",",pauses),transition=transition,ready=Ready,seconds=Run?.seconds??0,health=Player!=null?Player.Health:0,timeScale=Time.timeScale,level=Run?.level??0,chunks=World!=null?World.ActiveChunks:0,enemies=Combat!=null?Combat.Enemies.Count:0,prefabs=Assets?.LoadedPrefabCount??0,pool=Pool?.Count??0,choices=choices.ToArray()};
             if(World!=null){state.x=World.GlobalPosition.x;state.z=World.GlobalPosition.y;}
             try{System.IO.Directory.CreateDirectory(args[index+1]);System.IO.File.WriteAllText(System.IO.Path.Combine(args[index+1],"RuntimeStatus.json"),JsonUtility.ToJson(state,true));}catch(System.IO.IOException ex){Debug.LogWarning(ex.Message);}
         }
         void Fail(string message) { Error = message; Flow = GameFlow.Error; Debug.LogError(message); }
+        public void ReportUIFailure(string message) => Fail(message);
         void OnGUI()
         {
             if (Flow != GameFlow.Error && Flow != GameFlow.Boot) return;
@@ -219,7 +220,7 @@ namespace VampireLike
         {
             if (Instance != this) return;
             ClearPause(); CleanupRun();
-            Assets?.Release(runScope); Assets?.Release(appScope); Assets?.Dispose(); Instance = null;
+            UI?.Shutdown(); Assets?.Release(runScope); Assets?.Release(appScope); Assets?.Dispose(); Instance = null;
         }
     }
 }

@@ -34,6 +34,8 @@ namespace VampireLike
         readonly HashSet<string> diagnosticFailures=new HashSet<string>();
         public bool DiagnosticFailNextPrefab(string id){if(GameManager.Instance==null||!GameManager.Instance.DiagnosticMode)return false;diagnosticFailures.Add(id);return true;}
         public string LastError { get; private set; }
+        readonly HashSet<GameObject> instances = new HashSet<GameObject>();
+        public int InstanceCount => instances.Count;
         public IEnumerator Initialize()
         {
             initialization = Addressables.InitializeAsync(false);
@@ -72,6 +74,7 @@ namespace VampireLike
         public IEnumerator Instantiate(string id, AssetScope scope, Transform parent, Action<GameObject> ready)
         {
             if (scope.Disposed) yield break;
+            if(diagnosticFailures.Remove(id)){LastError="受控加载失败: "+id;ready?.Invoke(null);yield break;}
             AssetReferenceGameObject reference = null;
             try { reference = Catalog.Prefab(id); } catch (Exception ex) { LastError = ex.Message; }
             if (reference == null) { ready?.Invoke(null); yield break; }
@@ -82,7 +85,7 @@ namespace VampireLike
                 if(completed.Status==AsyncOperationStatus.Succeeded)
                 {
                     if(scope.Disposed)Addressables.ReleaseInstance(completed.Result);
-                    else {instance=completed.Result;scope.instances.Add(instance);}
+                    else {instance=completed.Result;scope.instances.Add(instance);instances.Add(instance);}
                 }
                 else if(completed.IsValid())Addressables.Release(completed);
                 finished=true;
@@ -130,7 +133,7 @@ namespace VampireLike
         {
             if (scope == null || scope.Disposed) return;
             scope.Disposed = true;
-            foreach (var instance in scope.instances) if (instance != null) Addressables.ReleaseInstance(instance);
+            foreach (var instance in scope.instances) { instances.Remove(instance); if (instance != null) Addressables.ReleaseInstance(instance); }
             scope.instances.Clear();
             foreach (var key in scope.keys)
                 if (prefabs.TryGetValue(key, out Slot slot)) { slot.owners--; ReleaseUnused(key, slot); }

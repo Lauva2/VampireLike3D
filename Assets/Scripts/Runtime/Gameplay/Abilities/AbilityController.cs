@@ -11,8 +11,26 @@ namespace VampireLike
         readonly List<GameObject> orbitSwords = new List<GameObject>();
         readonly List<EnemyActor> targets = new List<EnemyActor>(60);
         readonly List<EnemyActor> rainTargets = new List<EnemyActor>(32);
+        readonly Dictionary<AbilityKind, WeaponAttack> attacks = new Dictionary<AbilityKind, WeaponAttack>();
         float nextOrbit, nextRain, nextFrost, nextLightning;
-        public void Initialize(GameManager manager) { game = manager; Refresh(); }
+        public void Initialize(GameManager manager)
+        {
+            game = manager;
+            attacks[AbilityKind.Gun] = new GunAttack(game, this);
+            attacks[AbilityKind.Fireball] = new FireballAttack(game, this);
+            attacks[AbilityKind.Sword] = new SwordAttack(game, this);
+            attacks[AbilityKind.Spirit] = new SpiritAttack(game, this);
+            attacks[AbilityKind.Cannon] = new CannonAttack(game, this);
+            attacks[AbilityKind.Rune] = new RuneAttack(game, this);
+            attacks[AbilityKind.Crossbow] = new CrossbowAttack(game, this);
+            attacks[AbilityKind.Boomerang] = new BoomerangAttack(game, this);
+            attacks[AbilityKind.FrostStaff] = new FrostStaffAttack(game, this);
+            Refresh();
+        }
+        internal float Modifier(UpgradeEffect effect, AbilityKind kind) => Effect(effect, kind);
+        internal GameObject WeaponVisual(AbilityKind kind) => visuals.TryGetValue(kind, out var go) ? go : null;
+        internal float AttackInterval(AbilityKind kind) => game.Catalog.Ability(kind).cooldown / Mathf.Max(.1f,
+            1 + Effect(UpgradeEffect.AttackSpeed, kind) + (kind == AbilityKind.Spirit ? Effect(UpgradeEffect.SummonSpeed, kind) : 0));
         public void Refresh()
         {
             foreach (var kind in game.Run.abilities)
@@ -33,6 +51,7 @@ namespace VampireLike
                     sword.transform.SetParent(transform, false); orbitSwords.Add(sword);
                 }
             }
+            foreach (var pair in attacks) if (game.Run.abilities.Contains(pair.Key)) pair.Value.Refresh();
         }
         float Effect(UpgradeEffect effect, AbilityKind kind) => game.Run.Effect(game.Catalog, effect, kind);
         public DamagePacket Packet(AbilityKind kind, float multiplier = 1)
@@ -45,7 +64,7 @@ namespace VampireLike
             return new DamagePacket
             {
                 damage = damage * multiplier, source = kind, critical = crit,
-                burn = Effect(UpgradeEffect.Burn, kind) * damage + (kind == AbilityKind.Sword ? Effect(UpgradeEffect.FireSword, kind) * damage : 0),
+                burn = (Effect(UpgradeEffect.Burn, kind) * damage + (kind == AbilityKind.Sword ? Effect(UpgradeEffect.FireSword, kind) * damage : 0)) * multiplier,
                 frost = Effect(UpgradeEffect.Frost, kind) + (kind == AbilityKind.FrostStaff ? .35f : 0),
                 lightning = Mathf.FloorToInt(Effect(UpgradeEffect.Chain, kind)) + (kind == AbilityKind.Gun && Effect(UpgradeEffect.ElectricAmmo, kind) > 0 ? 2 : 0),
                 shatter = Effect(UpgradeEffect.IceShatter, kind) > 0
@@ -54,25 +73,17 @@ namespace VampireLike
         void Update()
         {
             if (game == null || !game.Ready || game.IsPaused) return;
-            int visualIndex = 0;
             foreach (var kind in game.Run.abilities)
             {
                 var definition = game.Catalog.Ability(kind);
-                if (visuals.TryGetValue(kind, out var visual))
-                {
-                    float a = Time.time * .7f + visualIndex * 1.1f;
-                    visual.transform.position = transform.position + new Vector3(Mathf.Sin(a) * 1.2f, 1.25f + Mathf.Sin(a * 2) * .1f, Mathf.Cos(a) * 1.2f);
-                    visual.transform.rotation = Quaternion.Euler(0, Time.time * 30 + visualIndex * 60, kind == AbilityKind.Sword ? -20 : 0);
-                }
-                visualIndex++;
+                if (!attacks.TryGetValue(kind, out var attack)) continue;
+                attack.Tick(); attack.Present();
                 if (Time.time < cooldowns[kind]) continue;
                 float range = definition.range + Effect(UpgradeEffect.Range, kind);
                 var target = game.Combat.Target(transform.position, range);
                 if (target == null && kind != AbilityKind.Rune) { cooldowns[kind] = Time.time + .12f; continue; }
-                float speed = 1 + Effect(UpgradeEffect.AttackSpeed, kind) + (kind == AbilityKind.Spirit ? Effect(UpgradeEffect.SummonSpeed, kind) : 0);
-                cooldowns[kind] = Time.time + definition.cooldown / Mathf.Max(.1f, speed);
-                if (kind == AbilityKind.Rune) Pulse(kind, 4.2f + Effect(UpgradeEffect.Range, kind), "vfx/rune");
-                else Shoot(kind, target, 1);
+                cooldowns[kind] = Time.time + AttackInterval(kind);
+                attack.Cast(target); attack.Tick();
             }
             AnimateOrbit();
             if (game.Run.abilities.Contains(AbilityKind.Sword) && Effect(UpgradeEffect.SwordRain, AbilityKind.Sword) > 0 && Time.time >= nextRain)
@@ -80,7 +91,8 @@ namespace VampireLike
                 nextRain = Time.time + 5 / (1 + Effect(UpgradeEffect.AttackSpeed, AbilityKind.Sword));
                 game.Combat.Query(transform.position, 18, rainTargets);
                 int count = Mathf.Min(rainTargets.Count, 12);
-                for (int i = 0; i < count; i++) if (rainTargets[i].IsAlive) Shoot(AbilityKind.Sword, rainTargets[i], .65f);
+                var swordAttack = (SwordAttack)attacks[AbilityKind.Sword];
+                for (int i = 0; i < count; i++) if (rainTargets[i].CanBeTargeted) swordAttack.Rain(rainTargets[i], i);
                 game.Audio.Play(SoundCue.Sword);
             }
             if (game.Run.abilities.Contains(AbilityKind.Fireball) && Effect(UpgradeEffect.Frost, AbilityKind.Fireball) > 0 && Time.time > nextFrost)
@@ -91,37 +103,6 @@ namespace VampireLike
                 var target = game.Combat.Target(transform.position, 18);
                 if (target != null) { target.Hit(Packet(AbilityKind.Fireball, 1.5f)); game.Combat.Effect("vfx/lightning", target.transform.position, .3f, 2); game.Audio.Play(SoundCue.Magic); }
             }
-        }
-        void Shoot(AbilityKind kind, EnemyActor target, float strength)
-        {
-            if (target == null || !target.IsAlive) return;
-            var definition = game.Catalog.Ability(kind);
-            int logicalCount = 1 + Mathf.FloorToInt(Effect(UpgradeEffect.Count, kind) + Effect(UpgradeEffect.Spread, kind) + Effect(UpgradeEffect.Burst, kind));
-            int drawnCount = Mathf.Min(16, logicalCount);
-            Vector3 origin = transform.position + Vector3.up * 1.05f;
-            Vector3 direction = (target.transform.position + Vector3.up * .8f - origin).normalized;
-            game.Player.FaceAttack(direction);
-            GetComponent<CharacterAnimator>()?.Attack(kind,direction);
-            int penetration = Mathf.FloorToInt(Effect(UpgradeEffect.Pierce, kind)) + (kind == AbilityKind.Sword || kind == AbilityKind.Crossbow ? 1 : 0);
-            int bounce = Mathf.FloorToInt(Effect(UpgradeEffect.Bounce, kind));
-            float splash = (kind == AbilityKind.Fireball ? 1.8f : kind == AbilityKind.Cannon ? 3.3f : kind == AbilityKind.FrostStaff ? 2.4f : 0) + Effect(UpgradeEffect.Explosion, kind);
-            for (int i = 0; i < drawnCount; i++)
-            {
-                Vector3 shotDirection = Quaternion.Euler(0, (i - (drawnCount - 1) * .5f) * 7, 0) * direction;
-                var go = game.Pool.Rent(definition.projectileId, origin, Quaternion.LookRotation(shotDirection));
-                if (go == null) continue;
-                var packet = Packet(kind, strength * logicalCount / drawnCount);
-                if (kind == AbilityKind.Boomerang) go.GetComponent<ProjectileActor>().InitializeReturn(game, shotDirection, definition.speed, packet, definition.range + Effect(UpgradeEffect.Range, kind));
-                else go.GetComponent<ProjectileActor>().Initialize(game, shotDirection, definition.speed, packet, penetration, bounce, splash);
-            }
-            if (kind == AbilityKind.Sword && Effect(UpgradeEffect.SwordWave, kind) > 0)
-            {
-                game.Combat.Query(target.transform.position, 3, targets);
-                var packet = Packet(kind, .35f);
-                foreach (var enemy in targets) if (enemy.IsAlive) enemy.Hit(packet);
-                game.Combat.Effect("vfx/slash", target.transform.position, .35f, 2.5f,rotation:Quaternion.LookRotation(direction));
-            }
-            game.Audio.Play(kind == AbilityKind.Gun ? SoundCue.Gun : kind == AbilityKind.Sword ? SoundCue.Sword : SoundCue.Magic);
         }
         void Pulse(AbilityKind kind, float radius, string effectId, bool freeze = false)
         {
@@ -152,6 +133,8 @@ namespace VampireLike
         }
         public void Dispose()
         {
+            foreach (var attack in attacks.Values) attack.Dispose();
+            attacks.Clear();
             if (game?.Pool != null)
             {
                 foreach (var visual in visuals.Values) if (visual != null) game.Pool.Return(visual);
@@ -159,5 +142,6 @@ namespace VampireLike
             }
             visuals.Clear(); orbitSwords.Clear(); cooldowns.Clear();
         }
+        public void ShiftOrigin(Vector3 shift) { foreach (var attack in attacks.Values) attack.ShiftOrigin(shift); }
     }
 }

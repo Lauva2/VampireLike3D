@@ -57,6 +57,7 @@ namespace VampireLike.Editor
             foreach(string id in new[]{"impact","flame","explosion","frost","lightning","rune","roots","dodge","mark","player","warning","warning-line","arc","slash","leafburst","sand","iceburst","embers"})Add("vfx/"+id,ArtFactory.Effect(id));
             Add("pickup/experience",ArtFactory.Experience());
             Add("ui/root",UIFactory.Create());
+            foreach (var panel in UIPrefabFactory.Panels) Add(UIView.Address(panel.Key), panel.Value);
             AddExpansionAssets();
             var audio=AudioFactory.Create();var catalog=ContentFactory.Create(prefabs,audio);
             ConfigureAddressables(catalog,audio);CreateScenes();AssetDatabase.SaveAssets();AssetDatabase.Refresh();
@@ -74,6 +75,17 @@ namespace VampireLike.Editor
             var catalog = ContentFactory.Create(prefabs, audio);
             ConfigureAddressables(catalog, audio); AssetDatabase.SaveAssets(); AssetDatabase.Refresh();
             VerifyAndBuild();
+        }
+        public static void RebuildUIVerifyAndBuild()
+        {
+            AssetDatabase.Refresh(); ArtFactory.Begin(); prefabs.Clear();
+            var catalog = AssetDatabase.LoadAssetAtPath<GameCatalog>("Assets/Config/Catalogs/GameCatalog.asset");
+            prefabs.AddRange(catalog.prefabs);
+            Add("ui/root", UIFactory.Create());
+            foreach (var panel in UIPrefabFactory.Panels) Add(UIView.Address(panel.Key), panel.Value);
+            catalog.prefabs = prefabs.ToArray(); EditorUtility.SetDirty(catalog);
+            ConfigureAddressables(catalog, new List<AudioEntry>(catalog.audio));
+            AssetDatabase.SaveAssets(); AssetDatabase.Refresh(); VerifyAndBuild();
         }
         static void AddExpansionAssets()
         {

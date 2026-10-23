@@ -76,7 +76,7 @@ namespace VampireLike
             camera=Camera.main;manualRender=Application.isBatchMode;target=new RenderTexture(1920,1080,24,RenderTextureFormat.ARGB32);target.antiAliasing=4;target.Create();
             QualitySettings.vSyncCount=0;Application.targetFrameRate=frameRateLimit;
             drawCalls=ProfilerRecorder.StartNew(ProfilerCategory.Render,"Draw Calls Count");triangles=ProfilerRecorder.StartNew(ProfilerCategory.Render,"Triangles Count");Camera.onPostRender+=OnRendered;
-            var canvas=game.UI.View.GetComponent<Canvas>();
+            var canvas=game.UI.Root.GetComponent<Canvas>();
             if(manualRender){camera.enabled=false;camera.targetTexture=target;canvas.renderMode=RenderMode.ScreenSpaceCamera;canvas.worldCamera=camera;canvas.planeDistance=1;}
             File.WriteAllText(Path.Combine(output,"Samples.csv"),"wallSeconds,gameSeconds,fps,p95FrameMs,maxFrameMs,unityAllocatedMB,unityReservedMB,managedMB,privateMB,enemies,poolObjects,chunks,prefabHandles,cpuFrameMs,gpuFrameMs,originX,originZ,biome,cameraRenders,drawCalls,triangles,experienceOrbs,unclaimedExperience,projectiles\n");
             begin=Time.realtimeSinceStartup;nextSample=begin+30;measuring=true;
@@ -84,9 +84,9 @@ namespace VampireLike
             {
                 if(!game.Ready){errors.Add("Stress run left Playing unexpectedly; see Player log for recovery cause");break;}
                 game.Player.Heal(100000);
-                if(game.UI.ActiveModal=="blessing"){foreach(Transform child in game.UI.View.upgradeList){var card=child.GetComponent<UIWidget>();if(card!=null&&child.gameObject.activeSelf){card.button.onClick.Invoke();break;}}}
+                if(game.UI.ActiveModal=="blessing" && !game.UI.IsLoading && game.UI.GetView<UpgradeView>(UIPanelId.Upgrade)?.upgradeList != null){foreach(Transform child in game.UI.GetView<UpgradeView>(UIPanelId.Upgrade)?.upgradeList){var card=child.GetComponent<UIWidget>();if(card!=null&&child.gameObject.activeSelf){card.button.onClick.Invoke();break;}}}
                 if(game.UI.ActiveModal=="upgrade"){var choices=game.Progression.Choices();if(!fixedImportedBuild&&choices.Count>0)game.Progression.Apply(choices[0].id,false);else game.Progression.SkipLevel();}
-                if(game.UI.View.victory.activeSelf)game.UI.CloseModal();
+                if(game.UI.GetPanel(UIPanelId.Victory)?.gameObject != null && (game.UI.GetPanel(UIPanelId.Victory)?.gameObject.activeSelf == true))game.UI.CloseModal();
                 Vector2 travel=TravelInput();if(Time.time>nextDodge){nextDodge=Time.time+2.4f;game.Inputs.ForVerification(travel,true);}
                 else game.Inputs.ForVerification(travel);
                 if(Time.time>nextDense&&game.Combat.Enemies.Count<300)

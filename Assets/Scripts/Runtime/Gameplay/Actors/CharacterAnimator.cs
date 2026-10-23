@@ -32,7 +32,9 @@ namespace VampireLike
             if (leftLeg != null) leftLeg.localRotation = Quaternion.Euler(-Mathf.Sin(t) * 32 * movement, 0, 0);
             if (rightLeg != null) rightLeg.localRotation = Quaternion.Euler(Mathf.Sin(t) * 32 * movement, 0, 0);
             if (head != null) head.localRotation = Quaternion.Euler(0, Mathf.Sin(Time.time * 1.8f) * 3, Mathf.Sin(t * .5f) * 2 * movement);
-            float blink=(Time.time+GetInstanceID()*.137f)%4.3f;float closed=blink<.16f?Mathf.Sin(blink/.16f*Mathf.PI):0;
+            // Instance IDs can be negative: % would keep a negative phase and repeatedly oscillate the eyelids.
+            float blink = Mathf.Repeat(Time.time + GetInstanceID() * .137f, 5.2f);
+            float closed = blink < .22f ? Mathf.Sin(blink / .22f * Mathf.PI) : 0;
             if(Time.time<flashUntil)closed=Mathf.Max(closed,.85f);else if(dodge)closed=Mathf.Max(closed,.55f);
             if(eyes!=null){eyes.gameObject.SetActive(closed<.55f);eyes.localScale=new Vector3(1,1-closed*.9f,1);}
             if(eyelids!=null)foreach(var lid in eyelids)lid.gameObject.SetActive(closed>=.55f);

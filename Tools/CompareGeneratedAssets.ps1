@@ -5,6 +5,7 @@ $cloneRoot=Join-Path $workspaceRoot '.build\Project'
 $original=@{}
 if($Baseline){foreach($entry in (Get-Content -LiteralPath (Join-Path $workspaceRoot $Baseline) -Raw | ConvertFrom-Json)){$original[$entry.path]=$entry.hash}}
 $changedFiles=@(foreach($entry in Get-ChildItem -LiteralPath (Join-Path $cloneRoot 'Assets') -Recurse -File){
+    if($entry.Extension -eq '.tmp'){continue}
     $relative=$entry.FullName.Substring($cloneRoot.Length+1)
     if($relative.StartsWith('Assets\AddressableAssetsData\Windows\') -or $relative.StartsWith('Assets\AddressableAssetsData\LinkerBuildProcessor\')){continue}
     $mainPath=Join-Path $workspaceRoot $relative

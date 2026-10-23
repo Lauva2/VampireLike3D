@@ -17,14 +17,16 @@ namespace VampireLike
             public float wallSeconds, alpha, scale, y, timeScale;
             public bool interactable, blocksRaycasts;
         }
-        IEnumerator ObservePopupOpening(string name, GameObject panel, Action open)
+        IEnumerator ObservePopupOpening(string name, Func<GameObject> getPanel, Action open)
         {
             open();
+            yield return game.UI.WaitForPanels();
+            var panel = getPanel();
             var group = panel.GetComponent<CanvasGroup>();
             var surface = (RectTransform)panel.transform.GetChild(0);
             bool paused = game.Ready;
             float gameSeconds = paused ? game.Run.seconds : 0;
-            Check(panel.activeSelf && group != null && group.alpha == 0 && !group.interactable && group.blocksRaycasts,
+            Check(panel.activeSelf && group != null && group.alpha < 1 && !group.interactable && group.blocksRaycasts,
                 "Popup opening starts transparent with guarded controls and backdrop: " + name);
             if (group == null) yield break;
             Vector2 startPosition = surface.anchoredPosition;
@@ -55,8 +57,8 @@ namespace VampireLike
         }
         IEnumerator PopupMenuRegression()
         {
-            var ui = game.UI; var view = ui.View;
-            GameObject[] panels = { view.menu, view.selection, view.progress, view.settings, view.loading };
+            var ui = game.UI;
+            Func<GameObject>[] panels = { () => ui.GetPanel(UIPanelId.Menu)?.gameObject, () => ui.GetPanel(UIPanelId.Selection)?.gameObject, () => ui.GetPanel(UIPanelId.Progress)?.gameObject, () => ui.GetPanel(UIPanelId.Settings)?.gameObject, () => ui.GetPanel(UIPanelId.Loading)?.gameObject };
             Action[] open = { ui.ShowMenu, ui.ShowSelection, ui.ShowProgress, ui.ShowSettings, () => ui.ShowLoading("正在展开新的世界…") };
             string[] names = { "menu", "selection", "progress", "settings", "loading" };
             for (int i = 0; i < panels.Length; i++)
@@ -64,15 +66,15 @@ namespace VampireLike
                 ui.ShowHUD(); yield return ObservePopupOpening(names[i], panels[i], open[i]);
             }
             ui.ShowMenu(); yield return Wait(.32f);
-            ui.ShowSelection();
-            var close = FindUIProbeButton(view.selection.transform, "SelectionClose");
+            ui.ShowSelection(); yield return ui.WaitForPanels();
+            var close = FindUIProbeButton(ui.GetPanel(UIPanelId.Selection)?.gameObject.transform, "SelectionClose");
             Canvas.ForceUpdateCanvases();
             Check(!close.IsInteractable(), "Opening selection blocks pointer activation until its content is ready");
             ExecuteEvents.Execute(close.gameObject, new PointerEventData(EventSystem.current) { button = PointerEventData.InputButton.Left }, ExecuteEvents.pointerClickHandler);
             Check(ui.ActiveModal == "selection", "An opening-frame pointer click cannot dismiss a fresh popup or click through it");
             yield return Wait(.06f);
-            var group = view.selection.GetComponent<CanvasGroup>();
-            float alpha = group.alpha; var title = view.selection.transform.Find("SelectionTitle"); var scale = title.localScale;
+            var group = ui.GetPanel(UIPanelId.Selection)?.gameObject.GetComponent<CanvasGroup>();
+            float alpha = group.alpha; var title = ui.GetPanel(UIPanelId.Selection)?.gameObject.transform.Find("SelectionTitle"); var scale = title.localScale;
             ui.ShowSelection();
             Check(Mathf.Approximately(alpha, group.alpha) && title.localScale == scale,
                 "Selection content refresh preserves the current opening progress without a flash");
@@ -80,37 +82,38 @@ namespace VampireLike
             ExecuteEvents.Execute(close.gameObject, new PointerEventData(EventSystem.current) { button = PointerEventData.InputButton.Left }, ExecuteEvents.pointerClickHandler);
             Check(ui.ActiveModal == "menu", "A settled popup accepts the same pointer click normally");
             ui.ShowSettings(); yield return null; ui.CloseModal(); ui.ShowSelection(); yield return Wait(.32f);
-            Check(!view.settings.activeSelf && view.settings.GetComponent<CanvasGroup>().alpha == 1
-                && view.settings.transform.GetChild(0).localScale == Vector3.one && group.alpha == 1 && group.interactable,
+            Check(!(ui.GetPanel(UIPanelId.Settings)?.gameObject.activeSelf == true) && ui.GetPanel(UIPanelId.Settings)?.gameObject.GetComponent<CanvasGroup>().alpha == 1
+                && ui.GetPanel(UIPanelId.Settings)?.gameObject.transform.GetChild(0).localScale == Vector3.one && group.alpha == 1 && group.interactable,
                 "Interrupted popup restores its pose and cannot later overwrite a newer popup");
             ui.ShowSettings(); yield return null; ui.enabled = false;
-            Check(view.settings.GetComponent<CanvasGroup>().alpha == 1 && view.settings.transform.GetChild(0).localScale == Vector3.one,
+            Check(ui.GetPanel(UIPanelId.Settings)?.gameObject.GetComponent<CanvasGroup>().alpha == 1 && ui.GetPanel(UIPanelId.Settings)?.gameObject.transform.GetChild(0).localScale == Vector3.one,
                 "Disabling UI motion restores a visible interactive resting pose");
             ui.enabled = true; ui.CloseModal(); yield return Wait(.32f);
         }
         IEnumerator PopupGameplayRegression()
         {
-            var ui = game.UI; var view = ui.View;
-            ui.ShowHUD(); yield return ObservePopupOpening("skills", view.skills, ui.ToggleSkills); ui.CloseModal();
-            yield return ObservePopupOpening("map", view.map, ui.ToggleMap); ui.CloseModal();
-            yield return ObservePopupOpening("pause", view.pause, ui.TogglePause);
-            yield return ObservePopupOpening("pause-settings", view.settings, ui.ShowSettings);
-            yield return ObservePopupOpening("settings-return-pause", view.pause, ui.CloseModal); ui.CloseModal();
+            var ui = game.UI;
+            ui.ShowHUD(); yield return ObservePopupOpening("skills", () => ui.GetPanel(UIPanelId.Skills)?.gameObject, ui.ToggleSkills); ui.CloseModal();
+            yield return ObservePopupOpening("map", () => ui.GetPanel(UIPanelId.Map)?.gameObject, ui.ToggleMap); ui.CloseModal();
+            yield return ObservePopupOpening("pause", () => ui.GetPanel(UIPanelId.Pause)?.gameObject, ui.TogglePause);
+            yield return ObservePopupOpening("pause-settings", () => ui.GetPanel(UIPanelId.Settings)?.gameObject, ui.ShowSettings);
+            yield return ObservePopupOpening("settings-return-pause", () => ui.GetPanel(UIPanelId.Pause)?.gameObject, ui.CloseModal); ui.CloseModal();
             Check(!game.IsPaused && ui.ActiveModal == null, "Closing nested animated pause settings releases only the UI pause");
             game.Progression.Experience(game.Run.nextExperience);
-            yield return ObservePopupOpening("upgrade", view.upgrade, () => ui.ShowUpgrade(game.Progression.Choices()));
+            yield return ObservePopupOpening("upgrade", () => ui.GetPanel(UIPanelId.Upgrade)?.gameObject, () => ui.ShowUpgrade(game.Progression.Choices()));
             game.Progression.SkipLevel();
-            yield return ObservePopupOpening("victory", view.victory, () => ui.ShowBossVictory(BiomeId.Forest)); ui.CloseModal();
-            yield return ObservePopupOpening("results", view.results, () => ui.ShowResults(true)); ui.ShowHUD();
+            yield return ObservePopupOpening("victory", () => ui.GetPanel(UIPanelId.Victory)?.gameObject, () => ui.ShowBossVictory(BiomeId.Forest)); ui.CloseModal();
+            yield return ObservePopupOpening("results", () => ui.GetPanel(UIPanelId.Results)?.gameObject, () => ui.ShowResults(true)); ui.ShowHUD();
             ui.Toast("新旅途 · 九种力量自由交织", 2);
-            var toast = view.transform.Find("Toast"); var group = toast.GetComponent<CanvasGroup>();
-            Check(group.alpha == 0 && !group.interactable && !group.blocksRaycasts, "Toast opens softly without intercepting gameplay input");
+            yield return ui.WaitForPanels();
+            var toast = ui.GetPanel(UIPanelId.Toast)?.gameObject.transform; var group = toast.GetComponent<CanvasGroup>();
+            Check(group.alpha < 1 && !group.interactable && !group.blocksRaycasts, "Toast opens softly without intercepting gameplay input");
             yield return RealtimeSequence("popup-toast", .55f);
             Check(group.alpha == 1 && !group.blocksRaycasts, "Toast opening completes while retaining input transparency");
             ui.Toast("连续提示保持当前动效", .1f);
             Check(group.alpha == 1, "Refreshing a visible toast does not flash back to transparent");
             yield return Wait(.2f);
-            Check(!toast.gameObject.activeSelf && toast.localScale == Vector3.one, "Expired toast restores its pose for the next opening");
+            Check(toast == null || (!toast.gameObject.activeSelf && toast.localScale == Vector3.one), "Expired toast restores its pose for the next opening");
             ui.ShowHUD();
         }
     }

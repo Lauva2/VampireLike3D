@@ -31,12 +31,12 @@ namespace VampireLike.Editor
             };
             c.abilities = new[]
             {
-                A("gun","自动手枪","自动瞄准，持续射击附近目标。",AbilityKind.Gun,9,.65f,17,25,ArtFactory.Gold),
-                A("fireball","火球","投射火球，命中后造成范围爆炸。",AbilityKind.Fireball,16,1.8f,17,13,ArtFactory.Orange),
-                A("sword","飞剑","飞剑追击目标，并贯穿路径上的敌人。",AbilityKind.Sword,14,1.25f,17,19,ArtFactory.Teal),
-                A("spirit","灵体","召唤灵体环绕角色，自动发射灵弹。",AbilityKind.Spirit,13,1.3f,16,17,ArtFactory.Hex("81C9BC"),"spirit"),
-                A("cannon","爆破炮","周期性发射爆破弹，清扫大片敌群。",AbilityKind.Cannon,36,3.8f,20,13,ArtFactory.Hex("CF9B59"),"cannon"),
-                A("rune","符阵","周期性激活身边的符阵，震荡附近敌人。",AbilityKind.Rune,24,4.5f,5,10,ArtFactory.Hex("B5A172"),"rune")
+                A("gun","自动手枪","自动瞄准点射，连射与散射可以叠加。",AbilityKind.Gun,9,.65f,17,25,ArtFactory.Gold),
+                A("fireball","火球","短暂蓄亮后抛射火球，落点爆炸清扫敌群。",AbilityKind.Fireball,16,1.8f,17,13,ArtFactory.Orange),
+                A("sword","飞剑","飞剑悬停后追敌突刺，贯穿敌人并返回。",AbilityKind.Sword,14,1.25f,17,19,ArtFactory.Teal),
+                A("spirit","灵体","召唤灵体跟随、蓄势扑击敌人并回位。",AbilityKind.Spirit,13,1.3f,16,17,ArtFactory.Hex("81C9BC"),"spirit"),
+                A("cannon","爆破炮","装填后高抛炮弹，落地爆炸并显示落点。",AbilityKind.Cannon,36,3.8f,20,13,ArtFactory.Hex("CF9B59"),"cannon"),
+                A("rune","符阵","展开脚下符阵，叠阵强化追加分层脉冲。",AbilityKind.Rune,24,4.5f,5,10,ArtFactory.Hex("B5A172"),"rune")
             };
             var u = new List<UpgradeDefinition>();
             u.Add(U("damage","力量汇流","所有自动能力伤害提高12%。",UpgradeEffect.Damage,.12f));
@@ -51,28 +51,28 @@ namespace VampireLike.Editor
             u.Add(U("projectiles","万象增殖","所有投射能力每次增加1枚投射物。",UpgradeEffect.Count,1,cost:5));
             foreach (var ability in c.abilities)
                 u.Add(U("ability."+ability.id,ability.name,ability.description,UpgradeEffect.NewAbility,1,ability.kind,Branch(ability.kind),ability.taskId,true,4));
-            u.Add(U("burn","灼烧","火球命中后附加持续灼烧。",UpgradeEffect.Burn,.22f,AbilityKind.Fireball,"元素"));
+            u.Add(U("burn","灼烧","火球附加灼烧，并在爆炸处留下短暂火焰区域。",UpgradeEffect.Burn,.22f,AbilityKind.Fireball,"元素"));
             u.Add(U("spreadfire","烈焰扩散","灼烧目标死亡时向附近敌人传播火焰。",UpgradeEffect.FireSpread,1,AbilityKind.Fireball,"元素","spreadfire",true,5));
             u.Add(U("frost","冰霜新星","周期性释放冰环，并让火球减速、冻结敌人。",UpgradeEffect.Frost,.2f,AbilityKind.Fireball,"元素","frost",true,5));
             u.Add(U("lightning","落雷","周期性雷击附近目标，可与冰火同时存在。",UpgradeEffect.Lightning,1,AbilityKind.Fireball,"元素","lightning",true,5));
             u.Add(U("chain","连锁雷击","火球命中引发电弧，跳向附近敌人。",UpgradeEffect.Chain,2,AbilityKind.Fireball,"元素","chain",false,5));
-            u.Add(U("burst","连射","手枪每次额外发射1枚子弹。",UpgradeEffect.Burst,1,AbilityKind.Gun,"弹道"));
+            u.Add(U("burst","连射","手枪每轮额外连续射击1次，每次保留散射弹道。",UpgradeEffect.Burst,1,AbilityKind.Gun,"弹道"));
             u.Add(U("pierce","穿透弹","子弹额外贯穿1个目标。",UpgradeEffect.Pierce,1,AbilityKind.Gun,"弹道","pierce"));
             u.Add(U("spread","散射","手枪增加两条侧向弹道。",UpgradeEffect.Spread,2,AbilityKind.Gun,"弹道","spread"));
             u.Add(U("bounce","弹射","子弹命中后转向新的敌人。",UpgradeEffect.Bounce,1,AbilityKind.Gun,"弹道","bounce"));
             u.Add(U("explosion","爆破弹","子弹命中产生爆炸，后续强化扩大爆炸范围。",UpgradeEffect.Explosion,.85f,AbilityKind.Gun,"爆破","explosion",false,5));
-            u.Add(U("swordcount","飞剑增殖","每次追击额外发射1柄飞剑。",UpgradeEffect.Count,1,AbilityKind.Sword,"剑修"));
+            u.Add(U("swordcount","飞剑增殖","每轮额外派出1柄追击飞剑。",UpgradeEffect.Count,1,AbilityKind.Sword,"剑修"));
             u.Add(U("swordpierce","贯穿剑","飞剑额外穿过1个目标。",UpgradeEffect.Pierce,1,AbilityKind.Sword,"剑修","swordpierce"));
             u.Add(U("orbit","绕身剑阵","额外生成旋转飞剑，保留原有追击飞剑。",UpgradeEffect.Orbit,1,AbilityKind.Sword,"剑修","orbit",true,6));
-            u.Add(U("rain","万剑齐发","周期性向附近多个目标发射剑雨。",UpgradeEffect.SwordRain,1,AbilityKind.Sword,"剑修","rain",true,6));
-            u.Add(U("wave","剑气","飞剑出击时对目标附近释放范围剑气。",UpgradeEffect.SwordWave,1,AbilityKind.Sword,"剑修","wave",true,5));
-            u.Add(U("spiritcount","灵弹增殖","灵体每次额外发射1枚灵弹。",UpgradeEffect.Count,1,AbilityKind.Spirit,"召唤"));
+            u.Add(U("rain","万剑齐发","周期性从多个目标上方落下剑雨，保留追击与剑阵。",UpgradeEffect.SwordRain,1,AbilityKind.Sword,"剑修","rain",true,6));
+            u.Add(U("wave","剑气","飞剑命中后对附近敌人释放范围剑气。",UpgradeEffect.SwordWave,1,AbilityKind.Sword,"剑修","wave",true,5));
+            u.Add(U("spiritcount","灵体增殖","额外召唤1个灵体，共同扑击目标。",UpgradeEffect.Count,1,AbilityKind.Spirit,"召唤"));
             u.Add(U("spiritdamage","灵契","灵体伤害提高25%。",UpgradeEffect.Damage,.25f,AbilityKind.Spirit,"召唤"));
-            u.Add(U("spiritspeed","心意相通","灵体攻击速度提高20%。",UpgradeEffect.SummonSpeed,.2f,AbilityKind.Spirit,"召唤"));
+            u.Add(U("spiritspeed","心意相通","灵体出击频率提高20%，扑击随之加快。",UpgradeEffect.SummonSpeed,.2f,AbilityKind.Spirit,"召唤"));
             u.Add(U("cannoncount","多重炮击","爆破炮每次额外发射1枚炮弹。",UpgradeEffect.Count,1,AbilityKind.Cannon,"爆破",cost:5));
             u.Add(U("cannonradius","烈性装药","爆破炮爆炸范围增加0.8。",UpgradeEffect.Explosion,.8f,AbilityKind.Cannon,"爆破"));
             u.Add(U("runerange","阵域","符阵范围增加1.1。",UpgradeEffect.Range,1.1f,AbilityKind.Rune,"符阵"));
-            u.Add(U("runepulse","叠阵","符阵震荡伤害提高35%。",UpgradeEffect.RunePulse,.35f,AbilityKind.Rune,"符阵"));
+            u.Add(U("runepulse","叠阵","符阵总伤害提高35%，并追加一层脉冲。",UpgradeEffect.RunePulse,.35f,AbilityKind.Rune,"符阵"));
             u.Add(U("runecooldown","符意流转","符阵触发速度提高18%。",UpgradeEffect.AttackSpeed,.18f,AbilityKind.Rune,"符阵"));
             u.Add(U("electricammo","雷电弹药","子弹命中后引发连锁电弧。",UpgradeEffect.ElectricAmmo,1,AbilityKind.Gun,"联动","electricammo",true,7));
             u.Add(U("shatter","碎冰冲击","子弹对冻结目标造成60%额外伤害。",UpgradeEffect.IceShatter,1,AbilityKind.Gun,"联动","shatter",true,6));

@@ -19,6 +19,7 @@ namespace VampireLike
         string output;
         readonly Report report = new Report();
         float started;
+        bool fatalException;
         IEnumerator Start()
         {
             game = GameManager.Instance;
@@ -30,11 +31,16 @@ namespace VampireLike
             Directory.CreateDirectory(output); Directory.CreateDirectory(Path.Combine(output, "Captures"));
             report.unity = Application.unityVersion; report.gpu = SystemInfo.graphicsDeviceName; report.cpu = SystemInfo.processorType;
             Application.logMessageReceived += OnLog;
+            if(Array.IndexOf(args,"--weapon-batch-three-probe")>=0){yield return WeaponBatchThreeRegression();Finish();yield break;}
+            if(Array.IndexOf(args,"--weapon-batch-two-probe")>=0){yield return WeaponBatchTwoRegression();Finish();yield break;}
+            if(Array.IndexOf(args,"--weapon-identity-probe")>=0){yield return WeaponIdentityRegression();Finish();yield break;}
+            if(Array.IndexOf(args,"--boss-entry-probe")>=0){yield return BossEntryRegression();Finish();yield break;}
+            if(Array.IndexOf(args,"--ui-framework-probe")>=0){yield return UIFrameworkRegression();Finish();yield break;}
             if(Array.IndexOf(args,"--terrain-probe")>=0){yield return TerrainProbe();Finish();yield break;}
             if(Array.IndexOf(args,"--ui-probe")>=0){yield return UIMatrix();Finish();yield break;}
             yield return Wait(3); yield return Capture("01-menu");
             foreach(var character in game.Catalog.characters)
-            {MenuStage.Active?.SelectCharacter(character.id);yield return Wait(.3f);game.UI.View.menu.SetActive(false);yield return Capture("character-"+character.id);game.UI.View.menu.SetActive(true);}
+            {MenuStage.Active?.SelectCharacter(character.id);yield return Wait(.3f);game.UI.GetPanel(UIPanelId.Menu)?.gameObject.SetActive(false);yield return Capture("character-"+character.id);game.UI.GetPanel(UIPanelId.Menu)?.gameObject.SetActive(true);}
             game.UI.ShowSelection(); yield return Wait(.5f); yield return Capture("02-selection"); game.UI.CloseModal();
             game.UI.ShowProgress(); yield return Wait(.5f); yield return Capture("03-progression"); game.UI.CloseModal();
             game.UI.ShowSettings(); yield return Wait(.3f); yield return Capture("04-settings"); game.UI.CloseModal();
@@ -148,9 +154,10 @@ namespace VampireLike
                 yield return null;
             }
         }
-        static IEnumerator Wait(float seconds) { float end = Time.realtimeSinceStartup + seconds; while (Time.realtimeSinceStartup < end) yield return null; }
+        static IEnumerator Wait(float seconds) { if(GameManager.Instance != null && GameManager.Instance.UI != null) yield return GameManager.Instance.UI.WaitForPanels(); float end = Time.realtimeSinceStartup + seconds; while (Time.realtimeSinceStartup < end) yield return null; }
         IEnumerator Capture(string name,int width=1600,int height=900)
         {
+            yield return game.UI.WaitForPanels();
             float deadline=Time.realtimeSinceStartup+20;
             while(game.Ready&&!game.IsPaused&&!game.World.ViewReady&&Time.realtimeSinceStartup<deadline)yield return null;
             yield return null;
@@ -161,7 +168,7 @@ namespace VampireLike
         {
             var camera = Camera.main;
             if (camera == null) { report.errors.Add("Capture camera missing: " + path); return; }
-            var canvas = game.UI.View.GetComponent<Canvas>();
+            var canvas = game.UI.Root.GetComponent<Canvas>();
             var previousMode = canvas.renderMode; var previousCamera = canvas.worldCamera; float previousDistance = canvas.planeDistance;
             var previousTarget = camera.targetTexture; var previousActive = RenderTexture.active;
             var target = new RenderTexture(width, height, 24, RenderTextureFormat.ARGB32);
@@ -176,7 +183,7 @@ namespace VampireLike
             if(auditLayout&&!jpeg)AuditLayout(path,width,height);
             if(!jpeg&&game.Ready)
             {
-                var fill=game.UI.View.healthFill;
+                var fill=game.UI.GetView<HUDView>(UIPanelId.HUD)?.healthFill;
                 File.WriteAllText(Path.ChangeExtension(path,"bars.json"),"{\"health\":"+game.Player.Health.ToString(System.Globalization.CultureInfo.InvariantCulture)+",\"maxHealth\":"+game.Player.MaxHealth.ToString(System.Globalization.CultureInfo.InvariantCulture)+",\"fillAmount\":"+fill.fillAmount.ToString(System.Globalization.CultureInfo.InvariantCulture)+",\"barWidth\":"+fill.rectTransform.rect.width.ToString(System.Globalization.CultureInfo.InvariantCulture)+"}");
             }
             if(!jpeg&&game.World!=null)File.WriteAllText(Path.ChangeExtension(path,"world.json"),game.World.DiagnosticSnapshot());
@@ -186,7 +193,8 @@ namespace VampireLike
         }
         void Check(bool value, string name) { if (value) report.checks.Add(name); else report.errors.Add("FAIL: " + name); Write(); }
         void OnLog(string message, string stack, LogType type)
-        { if ((type == LogType.Exception || type == LogType.Error || type == LogType.Assert)&&report.errors.Count<64) { string detail=message+"\n"+stack;if(!report.errors.Contains(detail))report.errors.Add(detail); Write(); } }
+        { if (type == LogType.Exception) fatalException = true;
+            if ((type == LogType.Exception || type == LogType.Error || type == LogType.Assert)&&report.errors.Count<64) { string detail=message+"\n"+stack;if(!report.errors.Contains(detail))report.errors.Add(detail); Write(); } }
         void Write() { if (output != null) File.WriteAllText(Path.Combine(output, "Verification.json"), JsonUtility.ToJson(report, true)); }
         void Finish()
         {
@@ -195,6 +203,7 @@ namespace VampireLike
         }
         void Update()
         {
+            if (fatalException) { fatalException = false; Finish(); return; }
             if(output!=null)ObserveExpansionAttack();
             if (output == null || Time.realtimeSinceStartup - started < 1400) return;
             report.errors.Add("Verification timed out"); Finish();

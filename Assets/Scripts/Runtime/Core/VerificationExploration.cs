@@ -12,7 +12,7 @@ namespace VampireLike
         WorldSite ShrineAt(Vector2Int key)
         { foreach (var site in game.World.Sites) if (site.type == 2 && site.chunk == key) return site; return null; }
         UIWidget FirstChoice()
-        { foreach (Transform child in game.UI.View.upgradeList) if (child.gameObject.activeSelf) return child.GetComponent<UIWidget>(); return null; }
+        { if(game.UI.GetView<UpgradeView>(UIPanelId.Upgrade)?.upgradeList == null) return null; foreach (Transform child in game.UI.GetView<UpgradeView>(UIPanelId.Upgrade)?.upgradeList) if (child.gameObject.activeSelf) return child.GetComponent<UIWidget>(); return null; }
         IEnumerator VerifyBlessingVariety()
         {
             var shown = new HashSet<string>(); int region = 0, offers = 0; bool stacked = false;
@@ -29,6 +29,7 @@ namespace VampireLike
                 }
                 Place(target.position); yield return AutoBattle(.15f); ClearEnemies();
                 if (!game.Progression.Shrines.Open(target)) continue;
+                yield return game.UI.WaitForPanels();
                 var options = ShrineBlessings.Offers(game.Catalog, game.Run.seed, target.chunk);
                 bool newDisplay = false; BlessingDefinition selected = options[0];
                 foreach (var option in options) { if (shown.Add(option.id)) newDisplay = true; }
@@ -40,7 +41,7 @@ namespace VampireLike
                         yield return Capture("ui-blessing-variety-" + offers + "-" + size.x + "x" + size.y, size.x, size.y);
                     }
                 int before = game.Run.BlessingLevel(selected.id);
-                foreach (Transform child in game.UI.View.upgradeList)
+                foreach (Transform child in game.UI.GetView<UpgradeView>(UIPanelId.Upgrade)?.upgradeList)
                 {
                     var card = child.GetComponent<UIWidget>();
                     if (card != null && child.gameObject.activeSelf && card.title.text == selected.name) { card.button.onClick.Invoke(); break; }
@@ -71,12 +72,14 @@ namespace VampireLike
             game.Inputs.InteractForVerification(); yield return null; yield return null;
             Check(game.UI.ActiveModal == "blessing" && game.IsPaused, "Programmatic E opens a paused shrine choice modal");
             if (game.UI.ActiveModal != "blessing") yield break;
+            yield return game.UI.WaitForPanels();
             var initialCard = FirstChoice(); string firstName = initialCard.title.text;
             Action cancelledClick = initialCard.button.onClick.Invoke;
             game.UI.CloseModal(); cancelledClick();
             Check(!site.complete && game.Run.blessings.Count == 0 && game.Save.Profile.crystals == crystals && game.Save.Profile.events == events, "Cancel and cancelled card callback grant no blessing currency or event completion");
-            yield return ObservePopupOpening("blessing", game.UI.View.upgrade, () =>
-                Check(game.Progression.Shrines.Open(site) && FirstChoice().title.text == firstName, "Reopening a shrine retains its deterministic offer"));
+            yield return ObservePopupOpening("blessing", () => game.UI.GetPanel(UIPanelId.Upgrade)?.gameObject, () =>
+                Check(game.Progression.Shrines.Open(site), "Reopening a shrine requests its deterministic offer"));
+            Check(FirstChoice().title.text == firstName, "Reopened shrine renders its deterministic first choice");
             Place(site.position + Vector3.right * 10); FirstChoice().button.onClick.Invoke();
             Check(!site.complete && game.Run.blessings.Count == 0, "Shrine selection revalidates player interaction distance");
             game.UI.CloseModal(); Place(new Vector3(160, 0, 32)); yield return AutoBattle(2.5f);
@@ -85,6 +88,7 @@ namespace VampireLike
             site = ShrineAt(key);
             Check(site != null && !site.complete && game.Progression.Shrines.Open(site), "Unclaimed shrine survives chunk unload and revisit");
             if (site == null || game.UI.ActiveModal != "blessing") yield break;
+            yield return game.UI.WaitForPanels();
             Check(FirstChoice().title.text == firstName, "Rebuilt shrine preserves the same first choice");
             foreach (var size in uiSizes)
             {
@@ -107,7 +111,8 @@ namespace VampireLike
             staleBlessingClick();
             Check(game.Run.BlessingLevel(definition.id) == 1 && game.Save.Profile.crystals == crystals + 4 && game.Run.skillPoints == points && game.Run.experience == experience && game.Run.level == level && game.Save.Profile.events == events + 1, "Repeated shrine card invocation cannot duplicate rewards XP or completion");
             yield return null; yield return null;
-            Check(game.UI.ActiveModal == "upgrade" && game.UI.View.upgrade.transform.Find("RerollButton").gameObject.activeSelf, "Pending level resumes with the regular upgrade controls after blessing selection");
+            yield return game.UI.WaitForPanels();
+            Check(game.UI.ActiveModal == "upgrade" && game.UI.GetPanel(UIPanelId.Upgrade)?.gameObject.transform.Find("RerollButton").gameObject.activeSelf == true, "Pending level resumes with the regular upgrade controls after blessing selection");
             for (int i = 0; i < 8 && game.UI.ActiveModal == "upgrade"; i++)
             { var options = game.Progression.Choices(); if (options.Count > 0) game.Progression.Apply(options[0].id, false); yield return null; yield return null; }
             yield return VerifyBlessingVariety();
