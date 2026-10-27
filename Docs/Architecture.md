@@ -195,6 +195,8 @@ AA 的场景加载与资产生命周期规则参见 Unity 官方 [场景加载�
 - 手枪/火球/飞剑由各自WeaponAttack实现出手节奏与表现，AbilityController拥有调度、共用数值和生命周期。待发攻击绑定敌人CollisionId，原目标死亡/复用时重新索敌；暂停冻结游戏时钟，Dispose清理队列。ProjectileActor的不同运动状态共享命中、元素和池归还，浮动原点须同步弧线起终点；返航飞剑不重复伤害。持续火焰区域归CombatWorld拥有并随场景释放。沿用已有AA预制体及池租约，不从行为脚本创建旁路资源。
 - 灵体/爆破炮/符阵亦由独立WeaponAttack调度。额外灵体模型归SpiritAttack，炮弹独占静态落点圈，RuneAttack显式管理临时阵纹；全局流程仍归GameManager。静态mark没有TransientEffect组件；托管阵纹的计时和回收由攻击对象负责，重新租作普通特效时必须清除托管状态。PoolService.Clear先清登记再销毁快照，允许OnDisable安全尝试归还附属对象；浮动原点同时移动召唤蓄势缓存、炮弹起终点与静态圈、符阵中心。
 - 九种武器均使用各自WeaponAttack，AbilityController不再保留通用Shoot后备路径。弩的拉弦队列遵循同一目标生命校验；回旋刃使用CurvedReturn状态，缓存起点/途经点/终点与侧向曲率，返回时按当前玩家位置偏移路径，每段独立去重。旧InitializeReturn保留兼容诊断接口，实际武器使用InitializeCurvedReturn。寒气由FrostStaffAttack持有定时阶段，按当前玩家位置和施法时锁定方向查询扇形，检查遮挡；短时冰冷积累归EnemyActor当前生命，过期、重新Initialize均清空。普通frost命中仍沿用概率冻结，chill只用于寒气的确定积累，烧伤tick不重复叠加chill。临时冰霜特效仍归现有池并自动到期。
+- 飞剑追击的三次贝塞尔求值由ProjectileSword管理，目标终点逐帧更新，起点和控制点保持世界坐标；贯穿/弹射/目标生命失效重新构建曲线，归池重置全部参数。环绕模型以本地+Y为剑尖轴，对齐圆周运动切线；投射物模型已在预制体内转为+Z，按轨迹切线朝向。SwordAttack拥有固定剑雨区域及托管圆圈，Tick发放波次，Dispose清理未发波次与圈；CombatWorld只移动其TransientEffect圈一次，SwordAttack.ShiftOrigin只移动区域缓存中心。
+- 持续剑域调用TransientEffect.PresentManaged时关闭瞬时几何动画，固定圈的实际边界，仅保留展开、发光与可见度淡出；其他托管特效默认保留原动画。Initialize必须恢复_FxStyle，避免剑域圈归池后影响符阵/普通特效的再次使用。
 - 返回菜单后，除明确声明的常驻资源与受控缓存外，不保留本局资源租约。
 
 ## 7. 配置、存档与数据约束

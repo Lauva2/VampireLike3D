@@ -29,6 +29,7 @@ namespace VampireLike
             flightStart = flightEnd = hoverOffset = Vector3.zero;
             launchAt = landedAt = seekUntil = flightSpeed = rainRadius = 0; swordWave = null;
             curveThrough = curveSide = Vector3.zero;
+            ResetSwordCurve();
         }
         public void InitializeCurvedReturn(GameManager manager, Vector3 through, float speed, DamagePacket damage, float reach, float handedness)
         {
@@ -72,11 +73,11 @@ namespace VampireLike
             launchAt = Time.time; landedAt = launchAt + Mathf.Max(.25f, Vector3.Distance(flightStart, target) / Mathf.Max(1, speed));
             expires = landedAt + .2f;
         }
-        public void InitializeSeeking(GameManager manager, EnemyActor target, Vector3 offset, float speed, DamagePacket damage, int penetration, int bounce, DamagePacket? wave = null)
+        public void InitializeSeeking(GameManager manager, EnemyActor target, Vector3 offset, float speed, DamagePacket damage, int penetration, int bounce, DamagePacket? wave = null, float curveSign = 1)
         {
             Initialize(manager, target.transform.position + Vector3.up * .8f - transform.position, speed, damage, penetration, bounce, 0);
             Motion = ProjectileMotion.SeekingSword; SetSeekingTarget(target); hoverOffset = offset;
-            launchAt = Time.time + .16f; seekUntil = launchAt + 1.5f; flightSpeed = speed; swordWave = wave;
+            launchAt = Time.time + .16f; seekUntil = launchAt + 2.4f; flightSpeed = speed; swordWave = wave; swordArcSign = curveSign;
             expires = seekUntil + 3;
         }
         public void InitializeRain(GameManager manager, Vector3 target, float delay, DamagePacket damage, int penetration, DamagePacket? wave = null)
@@ -86,7 +87,7 @@ namespace VampireLike
             launchAt = Time.time + delay; landedAt = launchAt + .3f; expires = landedAt + .2f;
             swordWave = wave; rainRadius = 1.1f + penetration * .12f;
         }
-        void SetSeekingTarget(EnemyActor target) { seekingTarget = target; seekingLife = target != null ? target.CollisionId : 0; }
+        void SetSeekingTarget(EnemyActor target) { seekingTarget = target; seekingLife = target != null ? target.CollisionId : 0; swordCurveReady = false; }
         void BeginSwordReturn()
         { Motion = ProjectileMotion.SwordReturn; seekingTarget = null; expires = Time.time + 3; }
         void FinishFlight()
@@ -124,20 +125,7 @@ namespace VampireLike
                 return false;
             }
             if (Motion == ProjectileMotion.SeekingSword)
-            {
-                if (Time.time < launchAt)
-                {
-                    transform.position = game.Player.transform.position + Vector3.up * 1.65f + hoverOffset;
-                    return false;
-                }
-                if (Time.time > seekUntil) { BeginSwordReturn(); return false; }
-                if (seekingTarget == null || seekingTarget.CollisionId != seekingLife || !seekingTarget.CanBeTargeted)
-                    SetSeekingTarget(game.Combat.Target(transform.position, 12, hitIds));
-                if (seekingTarget == null) { BeginSwordReturn(); return false; }
-                Vector3 desired = seekingTarget.transform.position + Vector3.up * .8f - transform.position;
-                velocity = Vector3.RotateTowards(velocity.normalized, desired.normalized, Time.deltaTime * 14, 0) * flightSpeed;
-                transform.rotation = Quaternion.LookRotation(velocity);
-            }
+                return AdvanceSeekingSword(out specialStep, out next);
             if (Motion == ProjectileMotion.FireArc || Motion == ProjectileMotion.SwordRain || Motion == ProjectileMotion.Mortar)
             {
                 if (Time.time < launchAt) return false;
@@ -183,7 +171,7 @@ namespace VampireLike
             }
             if (first != null) ChainImpact(first, point);
             if (Motion == ProjectileMotion.SwordRain)
-                game.Combat.Effect("vfx/slash", point, .25f, 1.1f, rotation: Quaternion.LookRotation(Vector3.down));
+                game.Combat.Effect("vfx/slash", point, .25f, 1.1f);
             else PresentExplosion(point, radius);
             WaveImpact(point);
         }
@@ -227,6 +215,7 @@ namespace VampireLike
         {
             transform.position -= shift; flightStart -= shift; flightEnd -= shift;
             curveThrough -= shift;
+            swordControl -= shift;
             // Unlike transient effects, the authored static marker is shifted by its owning projectile.
             if (landingMarker != null) landingMarker.transform.position -= shift;
         }

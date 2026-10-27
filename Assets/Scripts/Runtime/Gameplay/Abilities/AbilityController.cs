@@ -10,7 +10,6 @@ namespace VampireLike
         readonly Dictionary<AbilityKind, GameObject> visuals = new Dictionary<AbilityKind, GameObject>();
         readonly List<GameObject> orbitSwords = new List<GameObject>();
         readonly List<EnemyActor> targets = new List<EnemyActor>(60);
-        readonly List<EnemyActor> rainTargets = new List<EnemyActor>(32);
         readonly Dictionary<AbilityKind, WeaponAttack> attacks = new Dictionary<AbilityKind, WeaponAttack>();
         float nextOrbit, nextRain, nextFrost, nextLightning;
         public void Initialize(GameManager manager)
@@ -29,6 +28,8 @@ namespace VampireLike
         }
         internal float Modifier(UpgradeEffect effect, AbilityKind kind) => Effect(effect, kind);
         internal GameObject WeaponVisual(AbilityKind kind) => visuals.TryGetValue(kind, out var go) ? go : null;
+        internal int OrbitSwordCount => orbitSwords.Count;
+        internal GameObject OrbitSword(int index) => orbitSwords[index];
         internal float AttackInterval(AbilityKind kind) => game.Catalog.Ability(kind).cooldown / Mathf.Max(.1f,
             1 + Effect(UpgradeEffect.AttackSpeed, kind) + (kind == AbilityKind.Spirit ? Effect(UpgradeEffect.SummonSpeed, kind) : 0));
         public void Refresh()
@@ -88,12 +89,9 @@ namespace VampireLike
             AnimateOrbit();
             if (game.Run.abilities.Contains(AbilityKind.Sword) && Effect(UpgradeEffect.SwordRain, AbilityKind.Sword) > 0 && Time.time >= nextRain)
             {
-                nextRain = Time.time + 5 / (1 + Effect(UpgradeEffect.AttackSpeed, AbilityKind.Sword));
-                game.Combat.Query(transform.position, 18, rainTargets);
-                int count = Mathf.Min(rainTargets.Count, 12);
-                var swordAttack = (SwordAttack)attacks[AbilityKind.Sword];
-                for (int i = 0; i < count; i++) if (rainTargets[i].CanBeTargeted) swordAttack.Rain(rainTargets[i], i);
-                game.Audio.Play(SoundCue.Sword);
+                var target = game.Combat.Target(transform.position, 18 + Effect(UpgradeEffect.Range, AbilityKind.Sword));
+                nextRain = Time.time + (target != null ? 5 / (1 + Effect(UpgradeEffect.AttackSpeed, AbilityKind.Sword)) : .2f);
+                if (target != null) ((SwordAttack)attacks[AbilityKind.Sword]).Rain(target, 0);
             }
             if (game.Run.abilities.Contains(AbilityKind.Fireball) && Effect(UpgradeEffect.Frost, AbilityKind.Fireball) > 0 && Time.time > nextFrost)
             { nextFrost = Time.time + 5; Pulse(AbilityKind.Fireball, 5.4f, "vfx/frost", true); }
@@ -112,8 +110,9 @@ namespace VampireLike
             foreach (var enemy in targets) if (enemy.IsAlive) enemy.Hit(packet);
             game.Combat.Effect(effectId, transform.position + Vector3.up * .1f, .7f, radius);
         }
-        void AnimateOrbit()
+        internal void AnimateOrbit()
         {
+            if (game == null || !game.Ready || game.IsPaused) return;
             int n = orbitSwords.Count;
             if (n == 0) return;
             bool hit = Time.time >= nextOrbit;
@@ -124,7 +123,9 @@ namespace VampireLike
                 float a = Time.time * 3 + i * Mathf.PI * 2 / n;
                 var sword = orbitSwords[i];
                 sword.transform.position = transform.position + new Vector3(Mathf.Sin(a) * 2.6f, .85f, Mathf.Cos(a) * 2.6f);
-                sword.transform.rotation = Quaternion.Euler(0, a * Mathf.Rad2Deg, 75);
+                Vector3 tangent = new Vector3(Mathf.Cos(a), 0, -Mathf.Sin(a));
+                // Authored weapon swords point along local +Y. Their tips must lead the orbit.
+                sword.transform.rotation = Quaternion.LookRotation(tangent, Vector3.up) * Quaternion.Euler(90, 0, 0);
                 if (!hit) continue;
                 game.Combat.Query(sword.transform.position, 1.3f, targets);
                 var packet = Packet(AbilityKind.Sword, .35f * logicalCount / n);

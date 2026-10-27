@@ -819,7 +819,7 @@ MonoBehaviour:
     speed: 13
   - id: sword
     name: "\u98DE\u5251"
-    description: "飞剑悬停后追敌突刺，贯穿敌人并返回。"
+    description: "飞剑自周身沿曲线御敌，贯穿后无伤回返。"
     prefabId: weapon/sword
     projectileId: projectile/sword
     taskId: 
@@ -1036,7 +1036,7 @@ MonoBehaviour:
     color: {r: 0.9529412, g: 0.6156863, b: 0.25882354, a: 1}
   - id: ability.sword
     name: "\u98DE\u5251"
-    description: "飞剑悬停后追敌突刺，贯穿敌人并返回。"
+    description: "飞剑自周身沿曲线御敌，贯穿后无伤回返。"
     branch: "\u5251\u4FEE"
     taskId: 
     target: 2
@@ -1212,7 +1212,7 @@ MonoBehaviour:
     color: {r: 0.14901961, g: 0.5568628, b: 0.54509807, a: 1}
   - id: orbit
     name: "\u7ED5\u8EAB\u5251\u9635"
-    description: "\u989D\u5916\u751F\u6210\u65CB\u8F6C\u98DE\u5251\uFF0C\u4FDD\u7559\u539F\u6709\u8FFD\u51FB\u98DE\u5251\u3002"
+    description: "飞剑剑尖朝前绕身旋转，保留原有追击飞剑。"
     branch: "\u5251\u4FEE"
     taskId: orbit
     target: 2
@@ -1223,7 +1223,7 @@ MonoBehaviour:
     color: {r: 0.14901961, g: 0.5568628, b: 0.54509807, a: 1}
   - id: rain
     name: "\u4E07\u5251\u9F50\u53D1"
-    description: "周期性从多个目标上方落下剑雨，保留追击与剑阵。"
+    description: "在目标位置展开剑域，持续落下剑雨，保留追击与剑阵。"
     branch: "\u5251\u4FEE"
     taskId: rain
     target: 2

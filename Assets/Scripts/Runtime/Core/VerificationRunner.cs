@@ -31,6 +31,7 @@ namespace VampireLike
             Directory.CreateDirectory(output); Directory.CreateDirectory(Path.Combine(output, "Captures"));
             report.unity = Application.unityVersion; report.gpu = SystemInfo.graphicsDeviceName; report.cpu = SystemInfo.processorType;
             Application.logMessageReceived += OnLog;
+            if(Array.IndexOf(args,"--sword-curve-probe")>=0){yield return SwordCurveRegression();Finish();yield break;}
             if(Array.IndexOf(args,"--weapon-batch-three-probe")>=0){yield return WeaponBatchThreeRegression();Finish();yield break;}
             if(Array.IndexOf(args,"--weapon-batch-two-probe")>=0){yield return WeaponBatchTwoRegression();Finish();yield break;}
             if(Array.IndexOf(args,"--weapon-identity-probe")>=0){yield return WeaponIdentityRegression();Finish();yield break;}

@@ -33,7 +33,7 @@ namespace VampireLike.Editor
             {
                 A("gun","自动手枪","自动瞄准点射，连射与散射可以叠加。",AbilityKind.Gun,9,.65f,17,25,ArtFactory.Gold),
                 A("fireball","火球","短暂蓄亮后抛射火球，落点爆炸清扫敌群。",AbilityKind.Fireball,16,1.8f,17,13,ArtFactory.Orange),
-                A("sword","飞剑","飞剑悬停后追敌突刺，贯穿敌人并返回。",AbilityKind.Sword,14,1.25f,17,19,ArtFactory.Teal),
+                A("sword","飞剑","飞剑自周身沿曲线御敌，贯穿后无伤回返。",AbilityKind.Sword,14,1.25f,17,19,ArtFactory.Teal),
                 A("spirit","灵体","召唤灵体跟随、蓄势扑击敌人并回位。",AbilityKind.Spirit,13,1.3f,16,17,ArtFactory.Hex("81C9BC"),"spirit"),
                 A("cannon","爆破炮","装填后高抛炮弹，落地爆炸并显示落点。",AbilityKind.Cannon,36,3.8f,20,13,ArtFactory.Hex("CF9B59"),"cannon"),
                 A("rune","符阵","展开脚下符阵，叠阵强化追加分层脉冲。",AbilityKind.Rune,24,4.5f,5,10,ArtFactory.Hex("B5A172"),"rune")
@@ -63,8 +63,8 @@ namespace VampireLike.Editor
             u.Add(U("explosion","爆破弹","子弹命中产生爆炸，后续强化扩大爆炸范围。",UpgradeEffect.Explosion,.85f,AbilityKind.Gun,"爆破","explosion",false,5));
             u.Add(U("swordcount","飞剑增殖","每轮额外派出1柄追击飞剑。",UpgradeEffect.Count,1,AbilityKind.Sword,"剑修"));
             u.Add(U("swordpierce","贯穿剑","飞剑额外穿过1个目标。",UpgradeEffect.Pierce,1,AbilityKind.Sword,"剑修","swordpierce"));
-            u.Add(U("orbit","绕身剑阵","额外生成旋转飞剑，保留原有追击飞剑。",UpgradeEffect.Orbit,1,AbilityKind.Sword,"剑修","orbit",true,6));
-            u.Add(U("rain","万剑齐发","周期性从多个目标上方落下剑雨，保留追击与剑阵。",UpgradeEffect.SwordRain,1,AbilityKind.Sword,"剑修","rain",true,6));
+            u.Add(U("orbit","绕身剑阵","飞剑剑尖朝前绕身旋转，保留原有追击飞剑。",UpgradeEffect.Orbit,1,AbilityKind.Sword,"剑修","orbit",true,6));
+            u.Add(U("rain","万剑齐发","在目标位置展开剑域，持续落下剑雨，保留追击与剑阵。",UpgradeEffect.SwordRain,1,AbilityKind.Sword,"剑修","rain",true,6));
             u.Add(U("wave","剑气","飞剑命中后对附近敌人释放范围剑气。",UpgradeEffect.SwordWave,1,AbilityKind.Sword,"剑修","wave",true,5));
             u.Add(U("spiritcount","灵体增殖","额外召唤1个灵体，共同扑击目标。",UpgradeEffect.Count,1,AbilityKind.Spirit,"召唤"));
             u.Add(U("spiritdamage","灵契","灵体伤害提高25%。",UpgradeEffect.Damage,.25f,AbilityKind.Spirit,"召唤"));

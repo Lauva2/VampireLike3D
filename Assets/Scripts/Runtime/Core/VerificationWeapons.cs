@@ -30,19 +30,19 @@ namespace VampireLike
             game.Run.upgrades.Clear(); ClearEnemies(); ClearExpansionEffects();
             game.Combat.SelectPriorityTarget(null); Place(Vector3.zero);
         }
-        IEnumerator WeaponClip(string name, WeaponAttack attack, EnemyActor target, bool rain = false)
+        IEnumerator WeaponClip(string name, WeaponAttack attack, EnemyActor target, bool rain = false, int frames = 48)
         {
             string folder = Path.Combine(output, "Sequences", name); Directory.CreateDirectory(folder);
             int previous = Time.captureFramerate; Time.captureFramerate = 24;
             if (rain) ((SwordAttack)attack).Rain(target, 0); else attack.Cast(target);
-            for (int i = 0; i < 48; i++)
+            for (int i = 0; i < frames; i++)
             {
                 attack.Tick(); attack.Present();
                 RenderCapture(Path.Combine(folder, i.ToString("D4") + ".jpg"), 1280, 720, true);
                 yield return null;
             }
             Time.captureFramerate = previous;
-            File.WriteAllText(Path.Combine(folder, "metadata.json"), "{\"source\":\"background Player Camera.Render\",\"simulationFps\":24,\"frames\":48,\"stationaryImmortalTarget\":true,\"performanceMeasurement\":false}");
+            File.WriteAllText(Path.Combine(folder, "metadata.json"), "{\"source\":\"background Player Camera.Render\",\"simulationFps\":24,\"frames\":" + frames + ",\"stationaryImmortalTarget\":true,\"performanceMeasurement\":false}");
             attack.Dispose();
         }
         IEnumerator WeaponIdentityRegression()
@@ -131,8 +131,11 @@ namespace VampireLike
                 "Ordinary initialization clears pooled homing hover return and wave state");
             sword.Dispose(); ResetWeaponProbe(); target = ExpansionTarget(2, Vector3.forward * 7); yield return WeaponTime(.1f);
             sword = new SwordAttack(game, game.Abilities); targetHealth = target.Health; sword.Rain(target, 0);
+            Check(sword.ActiveRainAreas == 1 && sword.FirstRainRing != null && WeaponShots().Count == 0,
+                "Sword rain unfolds its target circle before emitting falling swords");
+            yield return WeaponTime(.23f, sword);
             shots = WeaponShots();
-            Check(shots.Count == 1 && shots[0].Motion == ProjectileMotion.SwordRain && shots[0].transform.position.y > target.transform.position.y + 7,
+            Check(shots.Count == 3 && shots[0].Motion == ProjectileMotion.SwordRain && shots[0].transform.position.y > target.transform.position.y + 7,
                 "Sword rain begins above its target rather than at the player muzzle");
             yield return WeaponTime(.6f, sword);
             Check(target.Health < targetHealth, "Falling sword rain deals damage at its actual landing point"); sword.Dispose();

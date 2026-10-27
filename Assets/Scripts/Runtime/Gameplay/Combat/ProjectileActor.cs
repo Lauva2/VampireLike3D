@@ -15,12 +15,18 @@ namespace VampireLike
         public bool Returning => returning;
         public bool OnReturnLeg => returning && returnPhase;
         internal DamagePacket Damage => packet;
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+        internal string DiagnosticObstruction { get; private set; }
+#endif
         readonly HashSet<long> hitIds = new HashSet<long>();
         readonly List<EnemyActor> candidates = new List<EnemyActor>(20);
         readonly List<EnemyActor> splashTargets = new List<EnemyActor>(24);
         public void Initialize(GameManager manager, Vector3 direction, float speed, DamagePacket damage, int penetration, int bounce, float area)
         {
             ResetSpecialMotion();
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+            DiagnosticObstruction = null;
+#endif
             game = manager; packet = damage; velocity = direction.normalized * speed; enemy = false; returning = returnPhase = false;
             pierce = penetration; bounces = bounce; splash = area; expires = Time.time + 3; hitIds.Clear();
             transform.rotation = Quaternion.LookRotation(direction); transform.localScale = Vector3.one;
@@ -58,7 +64,13 @@ namespace VampireLike
             Vector3 from = transform.position, next = specialStep ? specialNext : from + velocity * Time.deltaTime, step = next - from;
             transform.position = next;
             if (Physics.Linecast(from, next, out var obstruction, (1 << 10)|1))
-            { if (Motion == ProjectileMotion.FireArc || Motion == ProjectileMotion.Mortar) AreaImpact(obstruction.point, splash); game.Pool.Return(gameObject); return; }
+            {
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+                if (game.DiagnosticMode) DiagnosticObstruction = obstruction.collider.name + " layer=" + obstruction.collider.gameObject.layer + " at=" + obstruction.point;
+#endif
+                if (Motion == ProjectileMotion.FireArc || Motion == ProjectileMotion.Mortar) AreaImpact(obstruction.point, splash);
+                game.Pool.Return(gameObject); return;
+            }
             if (Motion == ProjectileMotion.Mortar)
             {
                 if (SpecialArrivalReached()) { AreaImpact(next, splash); game.Pool.Return(gameObject); }
@@ -89,6 +101,7 @@ namespace VampireLike
                     var nextTarget = game.Combat.Target(impact, 8, hitIds);
                     if (nextTarget == null) { BeginSwordReturn(); return; }
                     SetSeekingTarget(nextTarget);
+                    return;
                 }
             }
             if (Motion == ProjectileMotion.CurvedReturn && Time.time >= landedAt) { game.Pool.Return(gameObject); return; }

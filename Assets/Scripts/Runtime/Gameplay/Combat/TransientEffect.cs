@@ -26,13 +26,14 @@ namespace VampireLike
         }
         public void BeginManaged(PoolService owner, float scale)
         { Initialize(owner, 1, scale); externallyManaged = true; }
-        public void PresentManaged(float progress, float visibility = 1)
+        public void PresentManaged(float progress, float visibility = 1, bool animateGeometry = true)
         {
             if (!externallyManaged) return;
             foreach (var renderer in renderers)
             {
                 renderer.GetPropertyBlock(block); block.SetFloat("_FxProgress", progress);
                 block.SetFloat("_Visibility", visibility); block.SetFloat("_Emission", .12f + progress * .3f);
+                block.SetFloat("_FxStyle", animateGeometry ? 1 : 0);
                 renderer.SetPropertyBlock(block);
             }
         }
